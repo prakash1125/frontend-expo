@@ -1,0 +1,37 @@
+.livedata {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    background-color: rgba(200, 200, 200, 0.5);
+    border-bottom: 1px solid grey;
+}
+
+.livedata-place {
+    font-weight: 600;
+}
+
+.livedata-wrapper {
+    display: flex;
+    align-items: center;
+    /* gap: 0.2rem; */
+}
+
+.livedata-tab {
+    display: flex;
+    flex-direction: column;
+    background-color: #cfcfcf;
+    padding: 0.2rem 1.2rem;
+    margin: 0.2rem 0.2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.livedata-tab .top {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.livedata-tab .bottom {
+    font-size: 0.8rem;
+}

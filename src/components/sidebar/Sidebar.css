@@ -1,0 +1,9 @@
+.menuItem:focus{
+    background-color: red;
+}
+aside{
+    display: flex !important;
+}
+.main-body{
+    width: 100%;
+}
