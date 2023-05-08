@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./Sidebar.css"
+import "./Sidebar.scss"
 import { sidebarMenu } from "../../utils/constant.js";
 import NavItems from '../navMenu/NavItems';
 import LiveScore from '../mainBody/liveScore/LiveScore';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./NavItems.css"
+import "./NavItems.scss"
 import { sidebarMenu } from "../../utils/constant.js";
 
 

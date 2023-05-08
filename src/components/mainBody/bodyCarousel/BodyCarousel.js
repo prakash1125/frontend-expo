@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import SwiperCore, { Navigation, Pagination } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "./BodyCarousel.css"
+import "./BodyCarousel.scss"
 import { carousel } from "../../../utils/constant";
+
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 const BodyCarousel = () => {
 
@@ -14,8 +16,8 @@ const BodyCarousel = () => {
         navigation
         pagination={{ clickable: true, type: 'bullets' }}
         slidesPerView={1}
-        spaceBetween={0}
-        autoplay={{ delay: 500, disableOnInteraction: false }}
+        spaceBetween={10}
+        autoplay={{ delay: 2500, disableOnInteraction: false }}
       >
         {carousel.map((image, index) => {
           return (
@@ -24,7 +26,6 @@ const BodyCarousel = () => {
             </SwiperSlide>
           )
         })}
-
       </Swiper>
     </>
   );

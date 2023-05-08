@@ -93,7 +93,7 @@ export const liveScores = [
 ]
 
 export const carousel = [
-    { img: "https://sportsexch.com/images/banner/slider09.png" },
+    // { img: "https://sportsexch.com/images/banner/slider09.png" },
     { img: "https://sportsexch.com/images/banner/slider01.png" },
     { img: "https://sportsexch.com/images/banner/slider02.png" },
     { img: "https://sportsexch.com/images/banner/slider03.png" },

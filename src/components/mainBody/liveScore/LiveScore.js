@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./LiveScore.css"
+import "./LiveScore.scss"
 import Button from '../../../commonComponents/button/Button'
 import { liveScoreButton } from '../../../utils/constant'
 import { liveScores } from '../../../utils/constant'
@@ -20,9 +20,7 @@ const LiveScore = () => {
                 {
                     liveScoreButton.map((element, index) => {
                         return (
-                            <>
-                                <Button icon={<element.icon />} key={index} className="live-score" name={element.tabName} />
-                            </>
+                            <Button icon={<element.icon />} key={index} className="live-score" name={element.tabName} />
                         )
                     })
                 }

@@ -1,8 +1,7 @@
 import React from 'react'
 import { NavBar } from "../components/navMenu/NavBar.js";
 import Sidebar from '../components/sidebar/Sidebar.js';
-import Button from '../commonComponents/button/Button.js';
-import "./SportsHomepage.css"
+import "./SportsHomepage.scss"
 const SportsHomepage = () => {
     return (
         <>

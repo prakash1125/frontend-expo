@@ -12,7 +12,7 @@ import {
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
 import NavLogo from "../../assets/logo.png";
-import "./NavBar.css"
+import "./NavBar.scss"
 import { navMenu } from "../../utils/constant.js"
 
 const products = [
