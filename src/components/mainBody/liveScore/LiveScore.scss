@@ -1,7 +1,7 @@
 .btn-wrapper {
   display: flex;
   gap: 0.2rem;
-  margin: 1rem 1rem;
+  margin: 1rem 0rem;
 }
 
 .live-score {
@@ -29,8 +29,10 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 .liveScore-table button {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
   margin-top: 1rem;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .liveScore-table .tab-name {
   font-weight: bold;

@@ -4,12 +4,16 @@ import { sidebarMenu } from "../../utils/constant.js";
 import NavItems from '../navMenu/NavItems';
 import LiveScore from '../mainBody/liveScore/LiveScore';
 
+import { useLocation } from 'react-router-dom';
+import CenterBody from '../navbar-tabs/sports/CenterBody';
+
 const Sidebar = () => {
 
     const [toggle, setToggle] = useState(false)
     const handleClick = () => {
         setToggle((prevState) => !prevState)
     }
+    const location = useLocation();
     return (
         <>
             <button onClick={handleClick} type="button" className="sm:hidden inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
@@ -41,7 +45,8 @@ const Sidebar = () => {
                         </main>
                         <main className="main w-80 -ml-48 w-64 flex flex-grow flex-col p-0 transition-all duration-150 ease-in md:ml-0">
                             <div className="h-screen justify-center bg-gray-50 shadow-md">
-                                <LiveScore />
+                                {location.pathname.includes('sports') ? <CenterBody /> : <LiveScore />}
+
                             </div>
                         </main>
 

@@ -14,6 +14,7 @@ import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/
 import NavLogo from "../../assets/logo.png";
 import "./NavBar.scss"
 import { navMenu } from "../../utils/constant.js"
+import { Link } from "react-router-dom";
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -39,10 +40,10 @@ export const NavBar = () => {
         <header className="header">
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-0 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1 lg:gap-x-4">
-                    <a href="#" className="-m-1.5 p-1.5 flex items-center">
+                    <Link to="/" className="-m-1.5 p-1.5 flex items-center">
                         <p className="company-logo ">Sports<span className='logo-color'>Exch</span></p>
                         {/* <img className="h-8 logo-img" src={NavLogo} alt="" /> */}
-                    </a>
+                    </Link>
                     <div className="flex lg:hidden">
                         <button
                             type="button"
@@ -56,9 +57,9 @@ export const NavBar = () => {
                     <Popover.Group className="hidden lg:flex lg:gap-x-1 nav-menu">
                         {navMenu.map((element, index) => {
                             return (
-                                <a key={index} href="#" className="text-sm font-semibold leading-6 text-gray-900">
+                                <Link key={index} to={`/${element}`} className="text-sm  font-semibold leading-6 text-gray-900">
                                     {element}
-                                </a>
+                                </Link>
                             )
                         })}
 

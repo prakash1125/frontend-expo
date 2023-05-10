@@ -1,37 +1,43 @@
 .livedata {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0rem 1rem;
-    background-color: rgba(200, 200, 200, 0.5);
-    border-bottom: 1px solid grey;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.2rem 1rem;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-bottom: 1px solid grey;
 }
 
 .livedata-place {
-    font-weight: 600;
+  font-weight: 600;
+  line-height: 20px;
 }
 
 .livedata-wrapper {
-    display: flex;
-    align-items: center;
-    /* gap: 0.2rem; */
+  display: flex;
+  align-items: center;
 }
 
 .livedata-tab {
-    display: flex;
-    flex-direction: column;
-    background-color: #cfcfcf;
-    padding: 0.2rem 1.2rem;
-    margin: 0.2rem 0.2rem;
-    border-radius: 8px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: #cfcfcf;
+  padding: 0.2rem 1.2rem;
+  margin: 0.2rem 0.2rem;
+  border-radius: 8px;
+  text-align: center;
 }
 
 .livedata-tab .top {
-    font-size: 0.9rem;
-    font-weight: 600;
+  font-size: 14px;
+  font-weight: 700;
 }
 
 .livedata-tab .bottom {
-    font-size: 0.8rem;
+  font-size: 12px;
+}
+
+.livedata-tab .center {
+  font-size: 14px;
+  font-weight: 700;
+  padding: 0.4rem 0rem;
 }

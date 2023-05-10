@@ -1,0 +1,22 @@
+.right-live {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.livedata-time{
+    font-size: 13px;
+    font-weight: 500;
+}
+.league-name{
+    display: flex;
+    justify-content: end;
+    gap: 0.6rem;
+
+}
+.league-name span{
+    color: #fff;
+    border: 1px solid grey;
+    background-color: grey;
+    padding: 1px 5px;
+    border-radius: 4px;
+}

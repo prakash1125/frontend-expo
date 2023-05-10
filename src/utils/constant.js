@@ -23,7 +23,7 @@ export const sidebarMenu = [
 ]
 
 export const navMenu = [
-    "Sports", "in-play", "ipl-cup", "Indian Casino", "Live casino", "Slots"
+    "sports", "in-play", "ipl-cup", "Indian Casino", "Live casino", "Slots"
 ]
 
 export const liveScoreButton =
@@ -33,6 +33,18 @@ export const liveScoreButton =
         { icon: TfiCup, tabName: "Ipl-cup" },
         { icon: TbCards, tabName: "Indian Casino" },
         { icon: MdOutlineCasino, tabName: "Live casino" }
+    ]
+
+export const liveSportsNameBtn =
+    [
+        { icon: MdOutlineSportsSoccer, tabName: "Cricket" },
+        { icon: AiOutlinePlayCircle, tabName: "Soccer" },
+        { icon: TfiCup, tabName: "Tennis" },
+        { icon: TbCards, tabName: "Golf" },
+        { icon: MdOutlineCasino, tabName: "Boxing" },
+        { icon: MdOutlineCasino, tabName: "Basketball" },
+        { icon: MdOutlineCasino, tabName: "Horse Racing" },
+        { icon: MdOutlineCasino, tabName: "Esports" },
     ]
 
 export const liveScores = [
@@ -92,8 +104,244 @@ export const liveScores = [
     }
 ]
 
+export const inPlayLiveData = [
+
+]
+
+export const IplTabBtn = [
+    {  tabName: "All" },
+    {  tabName: "Match Odd" },
+    {  tabName: "Bookmarked" },
+    {  tabName: "Fancy" },
+]
+
+export const IplLiveData = [
+    {
+        tabName: "Winner",
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Gujarat Titans",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Mumbai Indians",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Kolkata Knight Riders",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Chennai Super Kings",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Rajasthan Royals",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Delhi Capitals",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Lucknow Super Giants",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Royal Challengers Bangalore",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Gujrat Titans",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+        ]
+
+    },
+    {
+        tabName: "Bookmarked",
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Gujarat Titans",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Mumbai Indians",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Gujarat Titans",
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+
+        ]
+
+    },
+]
+
+
+export const sportsLiveData = [
+    {
+        tabName: "One Day International",
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Ireland",
+                placeNameBottom: "Bangladesh",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+    {
+        tabName: "Indian Premier League",
+        placeScores: [
+            {
+                placeNameTop: "Mumbai Indians",
+                placeNameBottom: "Royal Challengers Bangalore",
+                time: "28 May 19:30",
+                leagueName: [
+                    { name: "F 2" },
+                    { name: "B" }
+                ],
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+            {
+                placeNameTop: "Indian Premire",
+                placeNameBottom: "League",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 },
+                    { top: 3.6, bottom: 100 }
+                ]
+            },
+        ]
+    }
+]
+
 export const carousel = [
-    // { img: "https://sportsexch.com/images/banner/slider09.png" },
     { img: "https://sportsexch.com/images/banner/slider01.png" },
     { img: "https://sportsexch.com/images/banner/slider02.png" },
     { img: "https://sportsexch.com/images/banner/slider03.png" },

@@ -1,0 +1,36 @@
+.match-availability {
+  background-color: rgba(200, 200, 200, 0.5);
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+}
+.match-availability .message {
+  font-size: 14px;
+  font-weight: 700;
+}
+.match-availability .message-highlight {
+  color: #169c59;
+}
+.ipl-score {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background-color: #22262a;
+  flex-grow: 1;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.6rem 0;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ipl-score svg {
+  font-size: 1.6rem;
+
+  margin-bottom: 5px;
+}
+.ipl-score:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}

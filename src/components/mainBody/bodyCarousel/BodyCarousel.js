@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
