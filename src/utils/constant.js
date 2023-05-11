@@ -23,7 +23,7 @@ export const sidebarMenu = [
 ]
 
 export const navMenu = [
-    "sports", "in-play", "ipl-cup", "Indian Casino", "Live casino", "Slots"
+    "sports", "in-play", "ipl-cup", "indian-casino", "Live casino", "Slots"
 ]
 
 export const liveScoreButton =
@@ -109,10 +109,10 @@ export const inPlayLiveData = [
 ]
 
 export const IplTabBtn = [
-    {  tabName: "All" },
-    {  tabName: "Match Odd" },
-    {  tabName: "Bookmarked" },
-    {  tabName: "Fancy" },
+    { tabName: "All" },
+    { tabName: "Match Odd" },
+    { tabName: "Bookmarked" },
+    { tabName: "Fancy" },
 ]
 
 export const IplLiveData = [
@@ -351,3 +351,15 @@ export const carousel = [
     { img: "https://sportsexch.com/images/banner/slider07.png" },
     { img: "https://sportsexch.com/images/banner/slider08.png" },
 ]
+
+export const IndianCasino = [
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+]
+

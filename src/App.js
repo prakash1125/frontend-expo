@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Sports from './components/navbar-tabs/sports/Sports';
 import InPlay from './components/navbar-tabs/in-play/InPlay';
 import IPL from './components/navbar-tabs/ipl/IPL';
+import IndianCasino from './components/navbar-tabs/indianCasino/IndianCasino';
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/sports" element={<Sports />} />
                     <Route path="/in-play" element={<InPlay />} />
                     <Route path="/ipl-cup" element={<IPL />} />
+                    <Route path="/indian-casino" element={<IndianCasino />} />
                 </Routes>
             </Router>
 
