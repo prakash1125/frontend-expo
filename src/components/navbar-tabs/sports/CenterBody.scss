@@ -10,3 +10,11 @@
 .match-availability .message-highlight {
   color: #169c59;
 }
+
+.rotate-animation {
+  transition: all 0.2s;
+  transform: rotate(180deg);
+}
+.remove-rotation-animation {
+  transition: all 0.2s;
+}

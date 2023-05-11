@@ -1,17 +1,16 @@
 import React from 'react'
-import "../../mainBody/liveScore/LiveData.scss"
 import "./SportsData.scss"
+import "../../mainBody/liveScore/LiveData.scss"
 
 const SportsData = ({ element }) => {
     return (
         <div className='livedata'>
             <div className='livedata-place top-name'>
-                {element.placeNameTop}
-                <br />
-                {element.placeNameBottom}
-            </div>
-
-            <div className='right-live'>
+                <div className='names'>
+                    {element.placeNameTop}
+                    <br />
+                    {element.placeNameBottom}
+                </div>
                 <div className='livedata-time'>
                     <div className='time'>
                         {element.time}<br />
@@ -24,6 +23,9 @@ const SportsData = ({ element }) => {
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div className='right-live'>
 
                 <div className='livedata-wrapper'>
 
