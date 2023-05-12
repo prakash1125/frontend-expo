@@ -14,7 +14,7 @@ const BodyCarousel = () => {
     <>
       <Swiper
         navigation
-        pagination={{ clickable: true, type: 'bullets' }}
+        pagination={{ clickable: true}}
         slidesPerView={1}
         spaceBetween={10}
         autoplay={{ delay: 2500, disableOnInteraction: false }}

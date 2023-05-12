@@ -1,0 +1,78 @@
+footer {
+  margin-top: 2rem;
+}
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+.menu-column {
+  flex-grow: 1;
+}
+.menu-column > .footer-title {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: normal;
+  margin: 0 0 16px;
+  color: #4e4e4e;
+}
+.footer-menu-list > li > a {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  padding: 12px 0;
+  display: flex;
+  color: #4e4e4e;
+}
+.helpline {
+  margin: 0 auto;
+  width: 300px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #333;
+  margin: 14px auto;
+}
+.helpline-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.helpline-title > h5 {
+  font-size: 20px;
+  padding: 9px 0;
+  letter-spacing: 2px;
+}
+.support-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 14px 0;
+  color: #169c59;
+  font-size: 18px;
+  font-weight: 500;
+}
+.support-number .icon {
+  font-size: 2rem;
+  margin-right: 0.6rem;
+}
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.powered-by {
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-column{
+        margin: 0 0.6rem;
+    }
+}
+@media screen and (max-width: 480px) {
+    .menu{
+        gap: 2rem;
+    }
+}

@@ -363,3 +363,8 @@ export const IndianCasino = [
     { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
 ]
 
+export const FooterMenu = [
+    {title:"Info", subMenu: ["Privacy Policy", "Terms and Condition", "Gambling can be addictive"]},
+    {title:"Get Started", subMenu: ["About Us", "KYC and Privacy Policy"]},
+    {title:"Sportsexch", subMenu: ["Download our mobile app"]},
+]
