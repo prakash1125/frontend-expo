@@ -23,7 +23,7 @@ export const sidebarMenu = [
 ]
 
 export const navMenu = [
-    "sports", "in-play", "ipl-cup", "indian-casino", "Live casino", "Slots"
+    "sports", "in-play", "ipl-cup", "indian-casino", "live-casino", "Slots"
 ]
 
 export const liveScoreButton =
@@ -362,9 +362,81 @@ export const IndianCasino = [
     { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
     { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
 ]
+export const LiveCasino = [
+    {
+        title: "Top Indian Games (14)",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+]
+
+export const LiveCasinoBtn = [
+    { icon: MdOutlineSportsSoccer, tabName: "All" },
+    { icon: AiOutlinePlayCircle, tabName: "Top Indian Game" },
+    { icon: TfiCup, tabName: "Live Lobby" },
+    { icon: TbCards, tabName: "Crash Games" },
+    { icon: MdOutlineCasino, tabName: "Dragon Tiger" },
+    { icon: MdOutlineCasino, tabName: "Game Show" },
+    { icon: MdOutlineCasino, tabName: "Live Baccarat" },
+    { icon: MdOutlineCasino, tabName: "Live Blackjack" },
+    { icon: MdOutlineCasino, tabName: "Live Dealer" },
+]
+
+
+export const SlotsBtn = [
+    { icon: MdOutlineSportsSoccer, tabName: "All" },
+    { icon: MdOutlineSportsSoccer, tabName: "NetEnt" },
+    { icon: MdOutlineSportsSoccer, tabName: "Red Tiger" },
+]
+
+export const Slots = [
+    {
+        title: "Top Indian Games (14)",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+]
 
 export const FooterMenu = [
-    {title:"Info", subMenu: ["Privacy Policy", "Terms and Condition", "Gambling can be addictive"]},
-    {title:"Get Started", subMenu: ["About Us", "KYC and Privacy Policy"]},
-    {title:"Sportsexch", subMenu: ["Download our mobile app"]},
+    { title: "Info", subMenu: ["Privacy Policy", "Terms and Condition", "Gambling can be addictive"] },
+    { title: "Get Started", subMenu: ["About Us", "KYC and Privacy Policy"] },
+    { title: "Sportsexch", subMenu: ["Download our mobile app"] },
 ]
