@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import "./Sidebar.scss"
+import "../../assets/scss/layout/Sidebar.scss"
 import { sidebarMenu } from "../../utils/constant.js";
-import NavItems from '../navMenu/NavItems';
+import NavItems from '../layout/navMenu/NavItems';
 import LiveScore from '../mainBody/liveScore/LiveScore';
 
 import { useLocation } from 'react-router-dom';
-import CenterBody from '../navbar-tabs/sports/CenterBody';
+import CenterBody from '../navbar-tabs/sports/SportsBody';
+import { RightColumn } from '../mainBody/rightColumn/RightColumn';
+import Footer from '../layout/footer/Footer';
 
 const Sidebar = () => {
 
@@ -22,9 +24,13 @@ const Sidebar = () => {
                     <path clipRule="evenodd" fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
                 </svg>
             </button>
-            <aside className={`sticky top-0 left-0 z-40 h-screen flex transition-transform ${toggle ? "hidden" : "block"} md:block sm:translate-x-0 `}>
-
-                <div className="h-full w-80 px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+            <aside className={`sticky top-0 left-0 z-40 h-90v flex transition-transform ${toggle ? "hidden" : "block"} md:block sm:translate-x-0 `}>
+                <div className="h-full w-80 px-3 pb-4 pt-1 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+                    <div className="flex flex-col justify-start mb-2">
+                        <button className="flex  justify-start text-white bg-[#32383e] p-3 rounded-md w-full text-xs font-semibold relative">
+                            SPORTS
+                        </button>
+                    </div>
                     <ul className="space-y-2 font-medium">
                         {
                             sidebarMenu.map((element) => {
@@ -35,21 +41,17 @@ const Sidebar = () => {
                         }
                     </ul>
                 </div>
-                <div className="p-4 w-full">
+                <div className="p-1 w-full">
                     <div className="p-0 gap-4 flex dark:border-gray-700">
 
-                        <main className="main main-body -ml-48 flex flex-grow flex-col p-0 transition-all duration-150 ease-in md:ml-0">
+                        <main className="main main-body -ml-48 flex flex-grow flex-col p-0 transition-all duration-150 ease-in md:ml-0 ">
                             <div className="h-screen justify-center bg-gray-50 shadow-md">
                                 <LiveScore />
-                            </div>
-                        </main>
-                        <main className="main w-80 -ml-48 w-64 flex flex-grow flex-col p-0 transition-all duration-150 ease-in md:ml-0">
-                            <div className="h-screen justify-center bg-gray-50 shadow-md">
-                                {location.pathname.includes('sports') ? <CenterBody /> : <LiveScore />}
-
+                                <Footer name="Back to Top"/>
                             </div>
                         </main>
 
+                        <RightColumn topEventName="Live Casino Games" bottomEventName="Popular Events"/>
                     </div>
                 </div>
             </aside>

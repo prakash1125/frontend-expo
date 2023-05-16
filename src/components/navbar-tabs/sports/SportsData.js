@@ -1,6 +1,6 @@
 import React from 'react'
-import "./SportsData.scss"
-import "../../mainBody/liveScore/LiveData.scss"
+import "../../../assets/scss/component/SportsData.scss"
+import "../../../assets/scss/component/LiveData.scss"
 
 const SportsData = ({ element }) => {
     return (
@@ -11,15 +11,18 @@ const SportsData = ({ element }) => {
                     <br />
                     {element.placeNameBottom}
                 </div>
-                <div className='livedata-time'>
-                    <div className='time'>
-                        {element.time}<br />
-                        <div className='league-name'>
-                            {element.leagueName && element.leagueName.map((data, index) => {
-                                return (
-                                    <span key={index}>{data.name}</span>
-                                )
-                            })}
+                <div className='match-time'>
+                    <div className='matchIsLive'>{element.isLive}</div>
+                    <div className='livedata-time'>
+                        <div className='time'>
+                            {element.time}<br />
+                            <div className='league-name'>
+                                {element.leagueName && element.leagueName.map((data, index) => {
+                                    return (
+                                        <span key={index}>{data.name}</span>
+                                    )
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>

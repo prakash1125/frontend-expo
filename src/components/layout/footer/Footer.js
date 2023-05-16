@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
-import "./Footer.scss";
-import { FooterMenu } from "../../utils/constant.js";
+import "../../../assets/scss/layout/Footer.scss";
+import { FooterMenu } from "../../../utils/constant.js";
 import { BsWhatsapp } from "react-icons/bs";
 
-const Footer = () => {
+const Footer = ({ name }) => {
 
     return (
         <div>
             <footer>
+                <div className='back-to-top'><a href='#'>{name}</a></div>
                 <div className="menu">
                     {
                         FooterMenu.map((element, index) => {

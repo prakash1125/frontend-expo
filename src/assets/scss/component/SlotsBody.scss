@@ -1,0 +1,53 @@
+.slots-score {
+  width: 111px;
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: #22262a;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 52px;
+  line-height: 52px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.slots-score:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.slots-tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+  margin-bottom: 0.2rem;
+}
+.slots-tab .slots-title {
+  font-size: 1.2rem;
+  text-align: left;
+  font-weight: 500;
+  margin: 0.4rem 0;
+}
+.slots-gamePlace {
+  font-size: 0.9rem;
+}
+.slots-gamePlace a:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.slots-gamePlace a {
+  background-color: #22262a;
+  color: #fff;
+  text-align: center;
+  padding: 10px 9px;
+  border-radius: 5px;
+  letter-spacing: 0.25;
+  display: block;
+  width: 110px;
+  font-weight: 500;
+}

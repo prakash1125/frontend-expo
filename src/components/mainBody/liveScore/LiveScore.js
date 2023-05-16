@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./LiveScore.scss"
+import "../../../assets/scss/component/LiveScore.scss"
 import Button from '../../../commonComponents/button/Button'
 import { liveScoreButton } from '../../../utils/constant'
 import { liveScores } from '../../../utils/constant'

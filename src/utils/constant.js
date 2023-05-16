@@ -115,6 +115,141 @@ export const IplTabBtn = [
     { tabName: "Fancy" },
 ]
 
+export const PopularEvents = [
+    {
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Lucknow Super Gaints",
+                placeNameBottom: "Mumbai Indians",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+    {
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Ireland",
+                placeNameBottom: "Bangladesh",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+    {
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Ireland",
+                placeNameBottom: "Bangladesh",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+    {
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Ireland",
+                placeNameBottom: "Bangladesh",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+    {
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Ireland",
+                placeNameBottom: "Bangladesh",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+    {
+        placeScores: [
+            {
+                icon: MdOutlineSportsSoccer,
+                placeNameTop: "Ireland",
+                placeNameBottom: "Bangladesh",
+                time: "Today 19:30",
+                leagueName: [
+                    { name: "F 45" },
+                    { name: "B" }
+                ],
+                values: [
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: 1.73 },
+                    { center: "--" },
+                    { center: "--" },
+                    { center: 1.73 }
+                ]
+            },
+        ]
+    },
+]
+
 export const IplLiveData = [
     {
         tabName: "Winner",
@@ -285,6 +420,7 @@ export const sportsLiveData = [
                 placeNameTop: "Ireland",
                 placeNameBottom: "Bangladesh",
                 time: "Today 19:30",
+                isLive: "LIVE",
                 leagueName: [
                     { name: "F 45" },
                     { name: "B" }
@@ -353,18 +489,30 @@ export const carousel = [
 ]
 
 export const IndianCasino = [
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
-    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    {
+        row: [
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+        ]
+    },
+    {
+        row: [
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
+        ]
+    },
+
 ]
 export const LiveCasino = [
     {
         title: "Top Indian Games (14)",
+        gamePlace: "All Top India",
         imageSet: [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
@@ -377,6 +525,85 @@ export const LiveCasino = [
     },
     {
         title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
+        imageSet: [
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+        ]
+    },
+    {
+        title: "Top Indian Games (14)",
+        gamePlace: "All Live Lobby",
         imageSet: [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
@@ -411,6 +638,7 @@ export const SlotsBtn = [
 export const Slots = [
     {
         title: "Top Indian Games (14)",
+        gamePlace: "All NetEnt",
         imageSet: [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
@@ -423,6 +651,7 @@ export const Slots = [
     },
     {
         title: "Top Indian Games (14)",
+        gamePlace: "All Red Tiger",
         imageSet: [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
@@ -433,6 +662,14 @@ export const Slots = [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
         ]
     },
+]
+
+export const RightColumnImgs = [
+    { img: "https://luckmedia.link/evo_crazy_time/thumb.jpg" },
+    { img: "https://luckmedia.link/evo_crazy_time/thumb.jpg" },
+    { img: "https://luckmedia.link/evo_crazy_time/thumb.jpg" },
+    { img: "https://luckmedia.link/evo_crazy_time/thumb.jpg" },
+    { img: "https://luckmedia.link/evo_crazy_time/thumb.jpg" },
 ]
 
 export const FooterMenu = [

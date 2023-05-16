@@ -1,14 +1,13 @@
 import React from 'react'
-import "./CenterBody.scss"
+import "../../../assets/scss/component/SlotsBody.scss"
 import { IndianCasino } from "../../../utils/constant.js";
-import { LiveCasino } from "../../../utils/constant.js";
-import { LiveCasinoBtn } from "../../../utils/constant.js";
+import { Slots } from "../../../utils/constant.js";
+import { SlotsBtn } from "../../../utils/constant.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
-import Button from '../../../commonComponents/button/Button';
+import Button from '../../../commonComponents/button/Button.js';
 SwiperCore.use([Navigation]);
-
 
 const CenterBody = ({ tabname }) => {
     const topCarousel = {
@@ -42,7 +41,7 @@ const CenterBody = ({ tabname }) => {
     return (
         <>
             {
-                LiveCasino.length > 0 ? (<>
+                Slots.length > 0 ? (<>
                     <div className='casino-container' >
                         <div className="swiper-container">
                             <Swiper {...topCarousel}>
@@ -58,20 +57,23 @@ const CenterBody = ({ tabname }) => {
 
                         <div className='btn-wrapper'>
                             {
-                                LiveCasinoBtn.map((element, index) => {
+                                SlotsBtn.map((element, index) => {
                                     return (
-                                        <Button key={index} icon={<element.icon />} className="live-score" name={truncate(element?.tabName, 14)} />
+                                        <Button key={index} icon={<element.icon />} className="slots-score" name={truncate(element?.tabName, 14)} />
                                     )
                                 })
                             }
                         </div>
 
                         <div className='image-tab-container'>
-                            <Swiper {...otherCarousel}>
-                                {LiveCasino.map((element, index) => {
-                                    return (
-                                        <>
-                                            <h3 className='casino-tab'>{element.title}</h3>
+                            {Slots.map((element, index) => {
+                                return (
+                                    <>
+                                        <div className='slots-tab'>
+                                            <div className='slots-title'>{element.title}</div>
+                                            <div className='slots-gamePlace' ><a href="#">{element.gamePlace}</a></div>
+                                        </div>
+                                        <Swiper {...otherCarousel}>
                                             <div key={index} className='content-container'>
                                                 {
                                                     element.imageSet.map((image) => {
@@ -90,22 +92,22 @@ const CenterBody = ({ tabname }) => {
                                                 }
 
                                             </div>
-                                        </>
-                                    )
-                                })
-                                }
-                                <div className="swiper-button-prev previous-btn"></div>
-                                <div className="swiper-button-next next-btn"></div>
-                            </Swiper>
+                                            <div className="swiper-button-prev previous-btn"></div>
+                                            <div className="swiper-button-next next-btn"></div>
+                                        </Swiper>
+                                    </>
+                                )
+                            })
+                            }
                         </div>
 
                     </div >
                 </>) : (<>
                     <div className='btn-wrapper'>
                         {
-                            LiveCasinoBtn.map((element, index) => {
+                            SlotsBtn.map((element, index) => {
                                 return (
-                                    <Button key={index} className="ipl-score" name={element.tabName} />
+                                    <Button key={index} icon={<element.icon />} className="live-score" name={truncate(element?.tabName, 14)} />
                                 )
                             })
                         }
@@ -122,6 +124,4 @@ const CenterBody = ({ tabname }) => {
 
 
 }
-
-
-export default CenterBody
+export default CenterBody;

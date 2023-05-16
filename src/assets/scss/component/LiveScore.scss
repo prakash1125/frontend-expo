@@ -7,7 +7,7 @@
 .live-score {
   width: 100%;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
   font-weight: 600;
   background-color: #22262a;
   flex-grow: 1;
@@ -23,8 +23,7 @@
 }
 .live-score svg {
   font-size: 1.6rem;
-
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 .live-score:hover {
   background-color: rgba(0, 0, 0, 0.8);

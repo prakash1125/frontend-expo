@@ -1,6 +1,7 @@
 import React from 'react'
-import { NavBar } from '../../navMenu/NavBar'
-import CenterBody from './CenterBody'
+import Footer from '../../layout/footer/Footer'
+import { NavBar } from '../../layout/navMenu/NavBar'
+import CenterBody from './LiveCasinoBody.js'
 
 const LiveCasino = () => {
     return (
@@ -9,6 +10,7 @@ const LiveCasino = () => {
                 <NavBar/>
                 <div className='container'>
                     <CenterBody />
+                    <Footer name="Back to Top"/>
                 </div>
             </div>
         </>

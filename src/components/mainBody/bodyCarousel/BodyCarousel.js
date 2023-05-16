@@ -2,7 +2,7 @@ import React from "react";
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/swiper.min.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import "./BodyCarousel.scss"
+import "../../../assets/scss/component/BodyCarousel.scss"
 import { carousel } from "../../../utils/constant";
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);

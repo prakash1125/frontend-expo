@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Button.scss"
+import "../../assets/scss/commonComponent/Button.scss"
 
 const Button = ({name, className, icon}) => {
   return (

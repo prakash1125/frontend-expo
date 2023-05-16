@@ -1,5 +1,5 @@
 import React from 'react'
-import "./LiveData.scss"
+import "../../../assets/scss/component/LiveData.scss"
 
 const LiveData = ({ element }) => {
     return (

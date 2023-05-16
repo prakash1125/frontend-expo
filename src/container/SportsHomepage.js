@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavBar } from "../components/navMenu/NavBar.js";
+import { NavBar } from '../components/layout/navMenu/NavBar.js';
 import Sidebar from '../components/sidebar/Sidebar.js';
 import "./SportsHomepage.scss"
 const SportsHomepage = () => {

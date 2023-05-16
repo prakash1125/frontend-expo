@@ -1,0 +1,17 @@
+.left-data {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.left-data .event-icon {
+  font-size: 2rem;
+}
+
+.right-col-livedata {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 0.8rem;
+  background-color: rgba(200, 200, 200, 0.5);
+  border-bottom: 1px solid grey;
+}

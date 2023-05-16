@@ -11,9 +11,9 @@ import {
 } from '@heroicons/react/24/outline'
 import { ChevronDownIcon, PhoneIcon, PlayCircleIcon } from '@heroicons/react/20/solid'
 
-import NavLogo from "../../assets/logo.png";
-import "./NavBar.scss"
-import { navMenu } from "../../utils/constant.js"
+import NavLogo from "../../../assets/images/logo.png";
+import "../../../assets/scss/layout/NavBar.scss"
+import { navMenu } from "../../../utils/constant.js"
 import { Link } from "react-router-dom";
 
 const products = [
@@ -41,8 +41,8 @@ export const NavBar = () => {
             <nav className="mx-auto flex max-w-7xl items-center justify-between p-0 lg:px-8" aria-label="Global">
                 <div className="flex lg:flex-1 lg:gap-x-4">
                     <Link to="/" className="-m-1.5 p-1.5 flex items-center">
-                        <p className="company-logo ">Sports<span className='logo-color'>Exch</span></p>
-                        {/* <img className="h-8 logo-img" src={NavLogo} alt="" /> */}
+                        {/* <p className="company-logo ">Sports<span className='logo-color'>Exch</span></p> */}
+                        <img className="h-10 logo-img" src={NavLogo} alt="" />
                     </Link>
                     <div className="flex lg:hidden">
                         <button

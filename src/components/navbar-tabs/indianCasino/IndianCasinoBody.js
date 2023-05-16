@@ -1,9 +1,10 @@
 import React from 'react'
-import "./CenterBody.scss"
+import "../../../assets/scss/component/IndianCasinoBody.scss"
 import { IndianCasino } from "../../../utils/constant.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation } from 'swiper';
 import 'swiper/swiper-bundle.min.css';
+import IndianCasinoRows from './IndianCasinoRows';
 SwiperCore.use([Navigation]);
 
 
@@ -23,7 +24,7 @@ const CenterBody = ({ tabname }) => {
     };
     const handlePrevClick = () => {
         console.log('Previous button clicked');
-      };
+    };
 
     return (
         <div className='casino-container' >
@@ -40,23 +41,15 @@ const CenterBody = ({ tabname }) => {
             </div>
             <h3 className='casino-tab'>{tabname}</h3>
 
-            <div className='image-container'>
-                {IndianCasino.map((element, index) => {
-                    return (
-                        <div key={index} className='content-container'>
-                            <div className='casino-image'>
-                                <img src={element.img} alt="Slide 1" />
-                                <p className='play-button fade'><span>Play</span></p>
-                            </div>
-                            <div className='casino-name'>
-                                {element.name}
-                            </div>
-                        </div>
-                    )
-                })
+            {IndianCasino.map((element, index) => {
+                return (
+                    <div className='image-container'>
+                        <IndianCasinoRows element={element} />
+                    </div>
+                )
+            })
 
-                }
-            </div>
+            }
 
         </div >
     )

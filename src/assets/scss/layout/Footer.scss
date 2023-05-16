@@ -1,5 +1,24 @@
 footer {
-  margin-top: 2rem;
+  margin-top: 6.2rem;
+}
+.back-to-top{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.back-to-top a{
+  display: block;
+  width: auto;
+  padding: 5px 50px;
+  text-align: center;
+  background: #4c555e;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 25px;
+  line-height: 30px;
+  font-size: 15px;
+  letter-spacing: 0.25px;
 }
 .menu {
   display: flex;
@@ -7,6 +26,7 @@ footer {
 }
 .menu-column {
   flex-grow: 1;
+  padding: 0px 0.8rem;
 }
 .menu-column > .footer-title {
   font-weight: 500;
@@ -67,12 +87,12 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-    .menu-column{
-        margin: 0 0.6rem;
-    }
+  .menu-column {
+    margin: 0 0.6rem;
+  }
 }
 @media screen and (max-width: 480px) {
-    .menu{
-        gap: 2rem;
-    }
+  .menu {
+    gap: 2rem;
+  }
 }
