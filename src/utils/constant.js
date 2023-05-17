@@ -19,11 +19,17 @@ export const sidebarMenu = [
     { icon: FaGolfBall, gameName: "Golf", subMenu: [""] },
     { icon: MdSportsRugby, gameName: "Rugby", subMenu: [""] },
     { icon: GiBoxingGlove, gameName: "Boxing", subMenu: [""] },
-    { icon: GiBasketballBasket, gameName: "Basketball", subMenu: [""] }
+    { icon: GiBasketballBasket, gameName: "Basketball", subMenu: [""] },
+    { icon: GiBasketballBasket, gameName: "Basketball", subMenu: [""] },
 ]
 
 export const navMenu = [
-    "sports", "in-play", "ipl-cup", "indian-casino", "live-casino", "Slots"
+    { icon: MdOutlineSportsSoccer, tabName: "sports" },
+    { icon: MdOutlineSportsSoccer, tabName: "in-play" },
+    { icon: MdOutlineSportsSoccer, tabName: "ipl-cup" },
+    { icon: MdOutlineSportsSoccer, tabName: "indian-casino" },
+    { icon: MdOutlineSportsSoccer, tabName: "live-casino" },
+    { icon: MdOutlineSportsSoccer, tabName: "Slots" }
 ]
 
 export const liveScoreButton =
@@ -340,18 +346,6 @@ export const IplLiveData = [
             },
             {
                 icon: MdOutlineSportsSoccer,
-                placeNameTop: "Royal Challengers Bangalore",
-                values: [
-                    { top: 3.6, bottom: 100 },
-                    { top: 3.6, bottom: 100 },
-                    { top: 3.6, bottom: 100 },
-                    { top: 3.6, bottom: 100 },
-                    { top: 3.6, bottom: 100 },
-                    { top: 3.6, bottom: 100 }
-                ]
-            },
-            {
-                icon: MdOutlineSportsSoccer,
                 placeNameTop: "Gujrat Titans",
                 values: [
                     { top: 3.6, bottom: 100 },
@@ -489,25 +483,21 @@ export const carousel = [
 ]
 
 export const IndianCasino = [
-    {
-        row: [
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-        ]
-    },
-    {
-        row: [
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-            { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg", name: "Teenpatti one day" },
-        ]
-    },
-
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg", name: "Teenpatti one day" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56768.jpg", name: "Teenpatti T20" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56967.jpg", name: "32 Card Casino" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56968.jpg", name: "Hi Low" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg", name: "Poker" },
 ]
 export const LiveCasino = [
     {
@@ -662,6 +652,16 @@ export const Slots = [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
         ]
     },
+]
+
+export const CasinoCarousels = [
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
+    { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
 ]
 
 export const RightColumnImgs = [

@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { Dialog, Disclosure, Popover, Transition } from '@headlessui/react'
 import {
     ArrowPathIcon,
@@ -15,6 +15,8 @@ import NavLogo from "../../../assets/images/logo.png";
 import "../../../assets/scss/layout/NavBar.scss"
 import { navMenu } from "../../../utils/constant.js"
 import { Link } from "react-router-dom";
+import Button from '../../../commonComponents/button/Button';
+import Sidebar from '../../sidebar/Sidebar';
 
 const products = [
     { name: 'Analytics', description: 'Get a better understanding of your traffic', href: '#', icon: ChartPieIcon },
@@ -34,40 +36,66 @@ function classNames(...classes) {
 
 
 export const NavBar = () => {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [Toggle, setshowMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setShowMenu(window.innerWidth <= 768);
+        };
+
+        // Add event listener to window resize
+        window.addEventListener('resize', handleResize);
+
+        // Initial check for screen width
+        handleResize();
+
+        // Clean up the event listener
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+
 
     return (
         <header className="header">
-            <nav className="mx-auto flex items-center justify-between p-0 lg:px-8" aria-label="Global">
-                <div className="flex lg:flex-1 lg:gap-x-4">
+
+            <nav className="nav container">
+                <div className='left'>
                     <Link to="/" className="-m-1.5 p-1.5 flex items-center">
-                        {/* <p className="company-logo ">Sports<span className='logo-color'>Exch</span></p> */}
                         <img className="h-10 logo-img" src={NavLogo} alt="" />
                     </Link>
-                    <div className="flex lg:hidden">
-                        <button
-                            type="button"
-                            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-                            onClick={() => setMobileMenuOpen(true)}
-                        >
-                            <span className="sr-only">Open main menu</span>
-                            <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-                        </button>
-                    </div>
-                    <Popover.Group className="hidden lg:flex lg:gap-x-1 nav-menu">
-                        {navMenu.map((element, index) => {
-                            return (
-                                <Link key={index} to={`/${element}`} className="text-sm  font-semibold leading-6 text-gray-900">
-                                    {element}
-                                </Link>
-                            )
-                        })}
 
-                    </Popover.Group>
-                
+                    {showMenu && showMenu ? (
+                        <div className="nav-menu">
+                            <ul className="nav-list">
+                                {navMenu.map((element, index) => (
+                                    <div className='mobileView'>
+                                        <element.icon />
+                                        <Link key={index} to={`/${element.tabName}`} className="text-sm nav-link font-semibold leading-6 text-gray-900">
+                                            {element.tabName}
+                                        </Link>
+                                    </div>
+                                ))}
+                            </ul>
+                        </div>
+                    ) : (
+                        <div className="nav-menu">
+                            <ul className="nav-list">
+                                {navMenu.map((element, index) => (
+                                    <Link key={index} to={`/${element.tabName}`} className="text-sm nav-link font-semibold leading-6 text-gray-900">
+                                        {element.tabName}
+                                    </Link>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
+                <div className='right'>
+                    <Button className="login-btn" name="LOGIN"/>
+                    <Button className="signup-btn" name="SIGNUP"/>
                 </div>
             </nav>
-           
+
         </header>
     )
 }

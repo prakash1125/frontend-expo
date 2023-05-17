@@ -9,14 +9,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 0.2rem;
 }
 .live-casino-tab .live-casino-title {
-  font-size: 1.2rem;
   text-align: left;
   font-weight: 500;
   margin: 0.4rem 0;
+  font-weight: 500;
+  font-size: 18px;
 }
 .live-casino-gamePlace {
   font-size: 0.9rem;
@@ -34,4 +35,7 @@
   display: block;
   width: 110px;
   font-weight: 500;
+}
+.liveCasino-container{
+  padding-top: 3.6rem;
 }

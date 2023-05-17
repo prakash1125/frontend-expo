@@ -7,5 +7,58 @@ aside {
 }
 .main-body {
   width: 100%;
-  
+}
+.sideNav li:hover {
+  background-color: rgba(200, 200, 200, 0.5);
+}
+.side-menu {
+  width: 200px;
+}
+.dropdown-menu {
+  font-size: 1rem;
+  padding: 0.2rem 1rem;
+  font-weight: 600;
+}
+
+.toggle {
+  display: none;
+}
+.sidebar {
+  height: 95vh;
+  overflow-y: scroll;
+}
+
+@media screen and (max-width: 768px) {
+  .toggle {
+    width: 28px;
+    filter: invert(1);
+    display: block;
+    position: fixed;
+    z-index: 10000;
+    top: 1.4rem;
+    left: 1rem;
+    font-weight: 500;
+  }
+  .sidebar {
+    background-color: #fff;
+    bottom: 0;
+    z-index: 99;
+    left: 0;
+    border-radius: 0;
+    transform: translateX(0) !important;
+    position: fixed;
+    width: 250px;
+    margin-top: 74px;
+    top: 0px;
+    border-right: 2px solid grey;
+  }
+  .sidebar.visible {
+    transform: translateX(-100%);
+    transition: 0.5s;
+  }
+
+  .sidebar.hidden {
+    transform: translateX(100%);
+    transition: 0.5s;
+  }
 }

@@ -1,63 +1,140 @@
-import React, { useState } from 'react'
-import "../../assets/scss/layout/Sidebar.scss"
+import React, { useEffect, useState } from "react";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { IoIosArrowDown } from 'react-icons/io';
+import { RiArrowUpSLine } from 'react-icons/ri';
 import { sidebarMenu } from "../../utils/constant.js";
-import NavItems from '../layout/navMenu/NavItems';
-import LiveScore from '../mainBody/liveScore/LiveScore';
-
-import { useLocation } from 'react-router-dom';
-import CenterBody from '../navbar-tabs/sports/SportsBody';
-import { RightColumn } from '../mainBody/rightColumn/RightColumn';
-import Footer from '../layout/footer/Footer';
-
-const Sidebar = () => {
-
-    const [toggle, setToggle] = useState(false)
-    const handleClick = () => {
-        setToggle((prevState) => !prevState)
-    }
-    const location = useLocation();
-    return (
-        <>
-            <button onClick={handleClick} type="button" className="sm:hidden inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
-                <span className="sr-only">Open sidebar</span>
-                <svg className="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path clipRule="evenodd" fillRule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
-                </svg>
-            </button>
-            <aside className={`sticky top-0 left-0 z-40 h-90v flex transition-transform ${toggle ? "hidden" : "block"} md:block sm:translate-x-0 `}>
-                <div className="h-full w-80 px-3 pb-4 pt-1 overflow-y-auto bg-gray-50 dark:bg-gray-800">
-                    <div className="flex flex-col justify-start mb-2">
-                        <button className="flex  justify-start text-white bg-[#32383e] p-3 rounded-md w-full text-xs font-semibold relative">
-                            SPORTS
-                        </button>
-                    </div>
-                    <ul className="space-y-2 font-medium">
-                        {
-                            sidebarMenu.map((element) => {
-                                return (
-                                    <NavItems key={element.gameName} toggle={toggle} element={element} />
-                                )
-                            })
-                        }
-                    </ul>
-                </div>
-                <div className="p-1 w-full">
-                    <div className="p-0 gap-4 flex dark:border-gray-700">
-
-                        <main className="main main-body -ml-48 flex flex-grow flex-col p-0 transition-all duration-150 ease-in md:ml-0 ">
-                            <div className="h-screen justify-center bg-gray-50 shadow-md">
-                                <LiveScore />
-                                <Footer name="Back to Top"/>
-                            </div>
-                        </main>
-
-                        <RightColumn topEventName="Live Casino Games" bottomEventName="Popular Events"/>
-                    </div>
-                </div>
-            </aside>
-
-        </>
-    )
+import "../../assets/scss/layout/Sidebar.scss"
+import Button from "../../commonComponents/button/Button.js";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
+const navigation = [
+  { name: "SPORTS", href: "#", current: true },
+  { name: "IN-PLAY", href: "#", current: false },
+  { name: "IPL CLUB", href: "#", current: false },
+  { name: "INDIAN CASINO", href: "#", current: false },
+  { name: "LIVE CASINO", href: "#", current: false },
+  { name: "SLOTS", href: "#", current: false },
+];
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
 }
 
+const Sidebar = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  const [display, setDisplay] = useState(true);
+
+  const toggleDisplay = () => {
+    setDisplay(!display);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 768) {
+        setDisplay(true);
+      } else {
+        setDisplay(false);
+      }
+    };
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+  return (
+    <>
+      <div className="sideNav " >
+        <Button className="toggle" icon={<img src="https://sportsexch.com/images/icons/menu.png" alt=""></img>} onClick={toggleDisplay} />
+        <div className={`sidebar ${display ? 'visible' : 'hidden'}`} >
+          <div className="w-full px-1" >
+            <div className="flex flex-col justify-start mb-2">
+              <button className="flex  justify-start text-white bg-[#000] p-3 rounded-md w-full text-xs font-semibold relative">
+                SPORTS
+              </button>
+            </div>
+          </div>
+          <ul className="w-full px-1">
+            {sidebarMenu.map((item, index) => (
+              <li
+                key={index}
+                className={`flex flex-col side-menu justify-between  mb-2 py-3  w-full  hover:bg-[#e5e5e5] rounded-md ${activeIndex === index ? "bg-[#e5e5e5]]" : ""
+                  }`}
+              >
+                <div className="flex  justify-between items-center gap-3 px-4">
+                  <div className="flex items-center gap-3 ">
+                    <item.icon />
+                    <h4 className="text-[#22262a] text-sm font-semibold">
+                      {item.gameName}
+                    </h4>
+                  </div>
+                  {item?.subMenu ? (
+                    <div className="flex items-center gap-3">
+                      <span className="flex justify-center bg-gray-300 rounded-sm w-4 h-4 rounded-xs font-semibold text-xs">
+                        {item?.subMenu?.length}{" "}
+                      </span>
+                      <h4
+                        className="flex justify-center text-[22262a] cursor-pointer"
+                        onClick={() => toggleAccordion(index)}
+                      >
+                        {activeIndex === index ? <RiArrowUpSLine className="font-semibold" /> : <IoIosArrowDown className="font-semibold" />}
+                      </h4>
+                    </div>
+                  ) : null}
+                </div>
+                {activeIndex === index && (
+                  <div className="flex flex-col items-start gap-4 pt-2 px-4">
+                    {item.subMenu.map((dropdownItem, dropdownIndex) => (
+                      <h4
+                        key={dropdownIndex}
+                        className="text-[22262a] dropdown-menu"
+                      >
+                        {dropdownItem}
+                      </h4>
+                    ))}
+                  </div>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+}
+
+// {
+/* <ul className="w-100">
+{
+  menu.map((item) => {
+    return (
+
+      <li className="flex justify-between gap-4 mb-2 py-3 px-3 w-full hover:bg-[#22262a] rounded-md">
+        <div className="flex items-center gap-3">
+          <img src={item.icon} alt="" className="w-4 h-4 invert " />
+          <h4 className="text-[#EEE] text-sm font-bold"> {item.title} </h4>
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="flex justify-center bg-gray-300  rounded-sm w-4 h-4 rounded-xs text-xs">2</span>
+          <h4 className="flex justify-center text-[#EEE]">{">"}</h4>
+        </div>
+      </li>
+    )
+  })
+}
+</ul> */
+// }
 export default Sidebar
+

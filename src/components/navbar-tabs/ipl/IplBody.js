@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Button from '../../../commonComponents/button/Button'
-import { IplTabBtn  } from "../../../utils/constant.js";
+import { IplTabBtn } from "../../../utils/constant.js";
 import { IplLiveData } from "../../../utils/constant.js";
 import SportsData from '../sports/SportsData';
 import "../../../assets/scss/component/IplBody.scss"
 
-const CenterBody = ({ tabname }) => {
+const CenterBody = ({ tabname, liveName }) => {
     const [expandedTables, setExpandedTables] = useState([]);
 
     const handleClick = (index) => {
@@ -20,6 +20,19 @@ const CenterBody = ({ tabname }) => {
         <>
             {
                 IplLiveData.length > 0 ? (<>
+
+                    <div className='ipl-league'>
+                        {/* <div className='background-images'>
+                            <img className='left' src="https://sportsexch.com/images/icons/cricket.png" alt=""></img>
+                            <img className='right' src="https://sportsexch.com/images/icons/cricket.png" alt=""></img>
+                        </div> */}
+                        <div className='banner-text'>
+                            <div className='live-league'>{liveName}</div>
+                            <div className='inPlay-btn'>
+                                <span>IN-PLAY</span>
+                            </div>
+                        </div>
+                    </div>
                     <div className='btn-wrapper'>
                         {
                             IplTabBtn.map((element, index) => {
@@ -37,7 +50,7 @@ const CenterBody = ({ tabname }) => {
                                 <span className="flex-1 ml-3 text-left tab-name whitespace-nowrap">{data.tabName}</span>
                                 <svg className={`w-6 h-6 ${expandedTables.includes(index) ? 'rotate-animation' : 'remove-rotation-animation'}`} fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path></svg>
                             </button>
-                            <div className={`transition-transform ${expandedTables.includes(index) ? 'translate-x-0' : 'translate-x-full'} ${expandedTables.includes(index) ? 'block' : 'hidden'}`}>
+                            <div className={`transition-transform ipl-data ${expandedTables.includes(index) ? 'translate-x-0' : 'translate-x-full'} ${expandedTables.includes(index) ? 'block' : 'hidden'}`}>
                                 {data.placeScores.map((element, index) => {
                                     return (
                                         <SportsData key={index} element={element} />

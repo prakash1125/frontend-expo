@@ -1,10 +1,12 @@
 .livedata {
   display: flex;
+  flex-wrap: wrap;
 }
 .livedata-time {
   font-size: 13px;
   font-weight: 500;
 }
+
 .league-name {
   display: flex;
   justify-content: end;
@@ -36,6 +38,10 @@
 @media screen and (max-width: 768px) {
   .right-live {
     gap: 0.8rem;
+    width: auto;
+  }
+  .livedata {
+    flex-wrap: nowrap;
   }
 }
 @media screen and (max-width: 480px) {

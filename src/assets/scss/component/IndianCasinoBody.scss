@@ -1,8 +1,8 @@
 .image-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 10px;
-  margin-bottom: 0.7rem
+  gap: 12px;
+  margin-bottom: 0.8rem;
 }
 
 .casino-image {
@@ -53,6 +53,10 @@
   font-weight: 500;
   text-align: center;
 }
+.indianCasino-container{
+  padding-top: 3.5rem;
+}
+
 
 .casino-tab {
   width: 100%;
@@ -66,28 +70,40 @@
   margin-bottom: 0.3rem;
   font-size: 1.5rem;
 }
-.swiper-container{
-    margin-top: 1rem;
+.swiper-container {
+  margin-top: 1rem;
 }
 
 .swiper-button-next:after {
-    font-size: 1rem !important;
-    font-weight: bold;
-    background: rgba(0,0,0,0.6);
-    padding: 0.6rem 0.8rem;
-    color: #fff;
-    border-radius: 5px;
-    margin-left: 20px;
+  font-size: 1rem !important;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.6rem 0.8rem;
+  color: #fff;
+  border-radius: 5px;
+  margin-left: 20px;
 }
 .swiper-button-prev:after {
-    font-size: 1rem !important;
-    font-weight: bold;
-    background: rgba(0,0,0,0.6);
-    padding: 0.6rem 0.8rem;
-    color: #fff;
-    border-radius: 5px;
-    margin-right: 20px;
+  font-size: 1rem !important;
+  font-weight: bold;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0.6rem 0.8rem;
+  color: #fff;
+  border-radius: 5px;
+  margin-right: 20px;
 }
-.swiper-slide img{
-    border-radius: 8px;
+.swiper-slide img {
+  border-radius: 8px;
+}
+@media screen and (max-width: 768px) {
+  .image-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+  }
+}
+@media screen and (max-width: 480px) {
+  .image-container {
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+  }
 }

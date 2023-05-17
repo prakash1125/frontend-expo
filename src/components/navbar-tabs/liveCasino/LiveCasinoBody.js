@@ -1,6 +1,6 @@
 import React from 'react'
 import "../../../assets/scss/component/LiveCasinoBody.scss"
-import { IndianCasino } from "../../../utils/constant.js";
+import { CasinoCarousels } from "../../../utils/constant.js";
 import { LiveCasino } from "../../../utils/constant.js";
 import { LiveCasinoBtn } from "../../../utils/constant.js";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -23,6 +23,20 @@ const CenterBody = ({ tabname }) => {
             nextEl: '.swiper-button-next',
             el: '.swiper-pagination',
         },
+        breakpoints: {
+            //1024 breakpoint
+            1024: {
+                slidesPerView: 3,
+            },
+            // 768px breakpoint
+            768: {
+                slidesPerView: 2,
+            },
+            // 480px breakpoint
+            320: {
+                slidesPerView: 1,
+            },
+        },
     };
     const otherCarousel = {
         spaceBetween: 10,
@@ -33,8 +47,21 @@ const CenterBody = ({ tabname }) => {
             nextEl: '.swiper-button-next',
             el: '.swiper-pagination',
         },
+        breakpoints: {
+            //1024 breakpoint
+            1024: {
+                slidesPerView: 6,
+            },
+            // 768px breakpoint
+            768: {
+                slidesPerView: 4,
+            },
+            // 480px breakpoint
+            320: {
+                slidesPerView: 2,
+            },
+        },
     };
-
     function truncate(string, n) {
         return string?.length > n ? string.substr(0, n - 1) + "..." : string;
     }
@@ -46,7 +73,7 @@ const CenterBody = ({ tabname }) => {
                     <div className='casino-container' >
                         <div className="swiper-container">
                             <Swiper {...topCarousel}>
-                                {IndianCasino.map((element, index) => (
+                                {CasinoCarousels?.map((element, index) => (
                                     <SwiperSlide key={index}>
                                         <img src={element.img} alt={`Image ${index}`} />
                                     </SwiperSlide>

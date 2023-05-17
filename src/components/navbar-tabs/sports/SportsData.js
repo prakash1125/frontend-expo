@@ -11,21 +11,21 @@ const SportsData = ({ element }) => {
                     <br />
                     {element.placeNameBottom}
                 </div>
-                <div className='match-time'>
-                    <div className='matchIsLive'>{element.isLive}</div>
-                    <div className='livedata-time'>
-                        <div className='time'>
-                            {element.time}<br />
-                            <div className='league-name'>
-                                {element.leagueName && element.leagueName.map((data, index) => {
-                                    return (
+                {element.time && element.leagueName && element.leagueName.length > 0 ? (
+                    <div className='match-time'>
+                        <div className='matchIsLive'>{element.isLive}</div>
+                        <div className='livedata-time'>
+                            <div className='time'>
+                                {element.time}<br />
+                                <div className='league-name'>
+                                    {element.leagueName.map((data, index) => (
                                         <span key={index}>{data.name}</span>
-                                    )
-                                })}
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                ) : null}
             </div>
 
             <div className='right-live'>

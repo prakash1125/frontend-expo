@@ -8,3 +8,8 @@
   background-color: rgba(200, 200, 200, 0.8);
   border-radius: 5px;
 }
+@media screen and (max-width: 768px){
+  .right-section-col{
+    display: none;
+  }
+}

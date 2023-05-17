@@ -1,16 +1,24 @@
 import React from 'react'
 import Footer from '../../layout/footer/Footer'
 import { NavBar } from '../../layout/navMenu/NavBar'
+import Sidebar from '../../sidebar/Sidebar'
 import CenterBody from './LiveCasinoBody.js'
 
 const LiveCasino = () => {
     return (
         <>
-            <div>
-                <NavBar/>
-                <div className='container'>
-                    <CenterBody />
-                    <Footer name="Back to Top"/>
+            <div className='page-wrapper'>
+                <NavBar />
+
+                <div className='container liveCasino-container flex justify-center'>
+                    <Sidebar />
+                    <div className='container sports-container'>
+                        <CenterBody tabname="Live Casino" />
+                        <Footer name="Back to Top" />
+                    </div>
+                    {/* <div className='sports-right'>
+                        <RightColumn topEventName="Live Casino Games" bottomEventName="Popular Events" />
+                    </div> */}
                 </div>
             </div>
         </>

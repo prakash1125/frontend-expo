@@ -10,6 +10,10 @@
 .match-availability .message-highlight {
   color: #169c59;
 }
+.ipl-section{
+  padding-top: 4rem;
+}
+
 .ipl-score {
   color: #fff;
   font-size: 1.1rem;
@@ -33,4 +37,100 @@
 }
 .ipl-score:hover {
   background-color: rgba(0, 0, 0, 0.8);
+}
+.banner-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 110px;
+}
+.ipl-league {
+  background-color: #169c59;
+  position: relative;
+  z-index: 1;
+
+}
+.background-images {
+  width: 100%;
+  height: 100%;
+  top: 0;
+    left: 0;
+    z-index: -1;
+
+}
+.background-images img {
+  position: absolute;
+  width: 100px;
+  
+  opacity: 0.4;
+}
+.background-images img.left {
+  top: 40px;
+  left: 35px;
+}
+.background-images img.right {
+  right: 34px;
+  bottom: 40px;
+  transform: rotate(180deg);
+}
+.banner-text .live-league {
+  font-size: 20px;
+  font-weight: 400;
+  align-items: center;
+  color: #fff;
+  word-spacing: 3px;
+  white-space: nowrap;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding: 0 25px;
+}
+.inPlay-btn {
+  border-radius: 7px;
+  background-color: transparent;
+  padding: 0.2rem 1rem;
+  border: 1px solid #e5e5e563;
+}
+.inPlay-btn span {
+  width: 100px;
+  height: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 2;
+  letter-spacing: 1px;
+  font-size: 14px;
+  animation: flash-timer 1s linear infinite alternate;
+}
+@keyframes flash-timer {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .ipl-data div:nth-child(n + 3) {
+    display: none;
+  }
+  .ipl-section{
+    padding-top: 4.6rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .background-images img.left {
+    top: 50px;
+    left: 10px;
+    width: 80px;
+  }
+  .background-images img.right {
+    right: 10px;
+    bottom: 50px;
+    transform: rotate(180deg);
+    width: 80px;
+  }
 }
