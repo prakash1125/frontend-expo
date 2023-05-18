@@ -25,11 +25,11 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   return (
     <Disclosure
       as="nav"
-      className={`bg-nav-bg ${screen ? "px-36" : ""}`}
+      className={`border-b border-gray-200/10 bg-[#22262a] ${screen ? "px-64" : ""} `}
     >
       {({ open }) => (
         <>
-          <div className="px-2 sm:px-6 lg:px-8">
+          <div className="px-2 sm:px-6 lg:px-6">
             <div className="relative flex items-center justify-between gap-3">
               <div
                 className={`text-white ${
@@ -56,15 +56,15 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   </Link>
                 </div>
                 <div className="hidden sm:ml-6 md:block">
-                  <div className="flex space-x-2 h-full items-center">
+                  <div className="flex h-full items-center">
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
                         to={item.href}
                         className={classNames(
                           item.href == currentRoute &&
-                            "bg-[#6c757d] text-white",
-                          "px-3 py-5 text-xs font-font-family font-semibold text-white hover:bg-gray-700 hover:text-white"
+                            "bg-[#32383e] text-white",
+                          "px-3 py-5 text-xs font-font-family font-bold text-[#cfd4d8] hover:bg-[#32383e] hover:text-white"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -77,15 +77,15 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button
                   type="button"
-                  className=" font-semibold p-2 text-xs text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className=" font-semibold p-2 text-xs text-[#cfd4d8] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
-                  LOGIN
+                  LOG IN
                 </button>
 
                 {/* Profile dropdown */}
                 <button
                   type="button"
-                  className=" font-semibold rounded-md bg-green-500 p-3 text-xs text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   SIGN UP
                 </button>

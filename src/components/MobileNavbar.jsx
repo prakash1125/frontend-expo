@@ -27,7 +27,7 @@ export const MobileNavbar = () => {
             {Menus.map((menu,i)=>(
                 <li key={i} className="w-full">
                     <Link to={menu?.link} className={`flex flex-col  pt-2 pb-2 text-gray-300 `} onClick={()=>setActive(i)}>
-                    <span className={`flex justify-center text-xl pl-2 cursor-pointer duration-500 ${i=== active && "-mt-6 text-green-600"}`}>{React.createElement(menu?.icon,{size:"25"})}</span>
+                    <span className={`flex justify-center text-xl pl-2 cursor-pointer duration-500 ${i=== active && " text-green-600"}`}>{React.createElement(menu?.icon,{size:"25"})}</span>
                     {/* {menu.name} */}
                     <span className={`flex justify-center text-xs text-white font-semibold ${i=== active && " text-green-600"}`}>{menu.name}</span>
                     {/* <span className={`text-xs text-white ${active === i ? "translate-y-4 duration-700 opacity-100 text-white" : "opacity-0 translate-y-10 hidden text-white"}` }>{menu.name}</span> */}

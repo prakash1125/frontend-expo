@@ -19,9 +19,9 @@ export const RightNavbar = () => {
 
   return (
     <>
-      <div class="max-w-xs mx-auto bg-[#22262a] rounded-sm">
+      <div class="max-w-xs mx-auto bg-[#22262a] rounded-md mt-2">
         <div className="p-1 flex justify-center">
-          <button className=" text-white bg-[#32383e] p-3 text-xs rounded-md w-full font-semibold">
+          <button className=" text-white bg-[#32383e] p-3 text-sm rounded-md w-full font-semibold">
             Live Casino Games
           </button>
         </div>
@@ -40,15 +40,15 @@ export const RightNavbar = () => {
       </div>
       <div class="max-w-xs mx-auto bg-[#22262a] rounded-sm mt-2 mb-2">
         <div className="p-1 flex justify-center">
-          <button className=" text-white bg-[#32383e] p-3 rounded-md w-full font-semibold">
+          <button className=" text-white text-sm bg-[#32383e] p-3 rounded-md w-full font-semibold">
             Popular Events
           </button>
         </div>
 
         <div class="container flex flex-col items-center justify-center w-full mx-auto rounded-lg shadow dark:bg-gray-800">
-          <ul class="flex flex-col divide-y divide w-full">
+          <ul class="flex flex-col divide-y divide-black w-full">
             <li class="flex flex-row">
-              <div class="flex items-center flex-1 p-4 cursor-pointer select-none">
+              <div class="flex items-center flex-1 p-3 cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
                   <a href="#" class="relative block">
                     <img

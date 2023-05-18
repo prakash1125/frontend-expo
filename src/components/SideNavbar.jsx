@@ -91,9 +91,9 @@ export const SideNavbar = () => {
 
   return (
     <>
-      <div className="w-full px-4">
+      <div className="w-full px-4 pt-2">
         <div className="flex flex-col justify-start mb-2">
-          <button className="flex  justify-start text-white bg-[#32383e] p-3 rounded-md w-full text-xs font-semibold relative">
+          <button className="flex justify-start text-[#CCD1D5] bg-[#22262a] p-3 rounded-md w-full text-xs font-semibold relative">
             SPORTS
           </button>
         </div>
@@ -109,13 +109,13 @@ export const SideNavbar = () => {
             <div className="flex  justify-between items-center gap-3 px-4">
               <div className="flex items-center gap-3 ">
                 <img src={item.icon} alt="" className="w-4 h-4 invert" />
-                <h4 className="text-[#EEE] text-sm font-semibold">
+                <h4 className="text-[#CCD1D5] text-[14px] font-semibold">
                   {item.title}
                 </h4>
               </div>
               {item?.data ? (
                 <div className="flex items-center gap-3">
-                  <span className="flex justify-center bg-gray-300 rounded-sm w-4 h-4 rounded-xs font-semibold text-xs">
+                  <span className="flex justify-center bg-[#EEE] rounded-sm w-5 h-4 rounded-xs font-semibold text-xs">
                     {item?.data?.length}{" "}
                   </span>
                   <h4
