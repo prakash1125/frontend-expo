@@ -6,4 +6,6 @@ export const Paths = {
   slots:"/slots",
   iplclub:'/indian-premier-league',
   liveCasino:'/live-casino',
+  deposit:'/deposit',
+  withdrawal:'/withdrawal-request',
 };
