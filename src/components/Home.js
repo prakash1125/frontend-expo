@@ -8,7 +8,7 @@ import "../assets/scss/layout/Home.scss"
 const Home = () => {
     return (
         <>
-            <div className='page-wrapper'>
+            <div className='homepage-wrapper'>
                 <Sidebar />
                 <div className="p-1 w-full">
                     <div className="p-0 gap-4 flex dark:border-gray-700">

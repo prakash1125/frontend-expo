@@ -504,106 +504,81 @@ export const LiveCasino = [
         title: "Top Indian Games (14)",
         gamePlace: "All Top India",
         imageSet: [
+            { img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_32_cards/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_dragon_tiger/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg", name: "Andha Bahar" },
         ]
     },
     {
         title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
+        gamePlace: "All Top India",
         imageSet: [
+            { img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_32_cards/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_dragon_tiger/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg", name: "Andha Bahar" },
         ]
     },
     {
         title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
+        gamePlace: "All Top India",
         imageSet: [
+            { img: "https://luckmedia.link/ezg_32_cards/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_dragon_tiger/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg", name: "Andha Bahar" },
         ]
     },
     {
         title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
+        gamePlace: "All Top India",
         imageSet: [
+            { img: "https://luckmedia.link/ezg_dragon_tiger/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_32_cards/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg", name: "Andha Bahar" },
         ]
     },
     {
         title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
+        gamePlace: "All Top India",
         imageSet: [
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_32_cards/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_dragon_tiger/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg", name: "Andha Bahar" },
         ]
     },
     {
         title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
+        gamePlace: "All Top India",
         imageSet: [
+            { img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_32_cards/thumb.jpg", name: "Andha Bahar" },
             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_dragon_tiger/thumb.jpg", name: "Andha Bahar" },
+            { img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg", name: "Andha Bahar" },
         ]
     },
-    {
-        title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
-        imageSet: [
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-        ]
-    },
-    {
-        title: "Top Indian Games (14)",
-        gamePlace: "All Live Lobby",
-        imageSet: [
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-        ]
-    },
+    
 ]
 
 export const LiveCasinoBtn = [
@@ -625,34 +600,34 @@ export const SlotsBtn = [
     { icon: MdOutlineSportsSoccer, tabName: "Red Tiger" },
 ]
 
-export const Slots = [
-    {
-        title: "Top Indian Games (14)",
-        gamePlace: "All NetEnt",
-        imageSet: [
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-        ]
-    },
-    {
-        title: "Top Indian Games (14)",
-        gamePlace: "All Red Tiger",
-        imageSet: [
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-            { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
-        ]
-    },
-]
+// export const Slots = [
+//     {
+//         title: "Top Indian Games (14)",
+//         gamePlace: "All NetEnt",
+//         imageSet: [
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//         ]
+//     },
+//     {
+//         title: "Top Indian Games (14)",
+//         gamePlace: "All Red Tiger",
+//         imageSet: [
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//             { img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg", name: "Andha Bahar" },
+//         ]
+//     },
+// ]
 
 export const CasinoCarousels = [
     { img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg" },
