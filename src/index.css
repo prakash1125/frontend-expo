@@ -55,3 +55,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    /* color: #4c555e; */
+    width: 7px;
+    background-color: transparent;
+}

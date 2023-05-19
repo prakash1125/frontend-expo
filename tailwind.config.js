@@ -10,7 +10,8 @@ module.exports = {
         "light-white":"rgba(255,255,255,0.17)"
       },
       fontFamily: {
-        "font-family":"Roboto,sans-serif"
+        "font-family":"Roboto,sans-serif",
+        // "font-weight": "500",
       }
     },
   },

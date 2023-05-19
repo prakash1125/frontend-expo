@@ -7,6 +7,7 @@ import img2 from "../assets/images/casinomarina.jpg";
 import img3 from "../assets/images/casinomarina.jpg";
 import img4 from "../assets/images/casinomarina.jpg";
 import img5 from "../assets/images/casinomarina.jpg";
+import Events from "./Events";
 export const RightNavbar = () => {
   const settings = {
     // dots: true,
@@ -45,7 +46,7 @@ export const RightNavbar = () => {
           </button>
         </div>
 
-        <div class="container flex flex-col items-center justify-center w-full mx-auto rounded-lg shadow dark:bg-gray-800">
+        {/* <div class="container flex flex-col items-center justify-center w-full mx-auto rounded-lg shadow dark:bg-gray-800">
           <ul class="flex flex-col divide-y divide-black w-full">
             <li class="flex flex-row">
               <div class="flex items-center flex-1 p-3 cursor-pointer select-none">
@@ -115,7 +116,11 @@ export const RightNavbar = () => {
             </li>
             
           </ul>
-        </div>
+        </div> */}
+      <Events/>
+      <Events/>
+        
+        
       </div>
     </>
   );

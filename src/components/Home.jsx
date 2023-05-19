@@ -4,6 +4,8 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from 'react';
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
+import Events from "./Events";
+import Modal from "./Modal";
 
 export const Home = () => {
 
@@ -197,7 +199,7 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
               <div key={index} className="p-1  flex flex-col">
                 <img
                   src={img}
-                  className="h-30 min-w-[200px] rounded-md"
+                  className=" h-30 min-w-[200px] rounded-md"
                   alt={`Slide ${index + 1}`}
                 />
               </div>
@@ -206,6 +208,7 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
         </Slider>
       </div>
             <Footer/>
+            {/* <Modal/> */}
     </div>
   );
 };
