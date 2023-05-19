@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
+import MarketDataCard from "./MarketDataCard"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -160,20 +161,21 @@ export const Sports = () => {
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1  scroll-x">
+        <Tab.List className="flex gap-1 rounded-xl scroll-x p-1">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-md py-2 px-2 text-sm font-medium leading-5 ",
-                  " ring-opacity-60 ring-offset-2 min-w-[150px]",
+                  "w-full rounded-md p-1 py-2 text-xs font-medium leading-5 ",
+                  "  ",
                   selected
-                    ? "bg-white "
-                    : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"
+                    ? "bg-[#FFF] "
+                    : "text-[#CCD1D5] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
                 )
               }
             >
+              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class="mx-auto bg-[#CCD1D5] rounded-full object-cover h-5 w-5 "></img>
               {category}
             </Tab>
           ))}
@@ -193,7 +195,7 @@ export const Sports = () => {
                     key={post.id}
                     className="relative pb-2"
                   >
-                    <div class="rounded-md shadow-md w-full bg-[#22262a]">
+                    {/* <div class="rounded-md shadow-md w-full bg-[#22262a]">
                       <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
                         <div class="flex items-center space-x-3">
                           <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
@@ -225,7 +227,8 @@ export const Sports = () => {
                           6:00 AM
                         </div>
                       </div>
-                    </div>
+                    </div> */}
+                    <MarketDataCard/>
                   </li>
                 ))}
               </ul>

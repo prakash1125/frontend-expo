@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { GoInfo } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
+import Footer from "./Footer";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -220,13 +221,14 @@ export const IplClub = () => {
   });
   return (
     <>
-      <ul className="w-full px-4">
-        <div className="bg-green-600 rounded-md min-w-full flex flex-col justify-center items-center px-4 h-20">
-          <h1 className="text-white text-xl font-bold ">
+      <ul className="w-full px-2 pr-0 pt-2">
+        <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 p-1 ">
+          
+          <h1 className="text-white text-xl m-2 ">
             Indian Premier League
           </h1>
           <button
-            className="text-white bg-[#cacad53b] p-1 px-3 rounded-md border-1 border-white test-sm font-semibold"
+            className="text-white bg-[#2EA66A] p-1 px-4 mb-1  rounded-md border-1 border-white test-sm font-semibold"
             style={{
               background: "rgba(255, 255, 255, 0.3)",
               backdropFilter: "blur(10px)",
@@ -238,17 +240,17 @@ export const IplClub = () => {
         </div>
 
         <Tab.Group>
-          <Tab.List className="flex gap-2 rounded-xl  p-1 py-3 scroll-x">
+          <Tab.List className="flex gap-2 rounded-sm my-2 scroll-x h-11">
             {Object.keys(categories).map((category) => (
               <Tab
                 key={category}
                 className={({ selected }) =>
                   classNames(
-                    "w-full rounded-md py-2 px-6 text-sm font-medium leading-5 ",
-                    " ring-opacity-60 ring-offset-2 ",
+                    "w-full rounded-md outline-none text-center text-sm font-medium ",
+                 
                     selected
-                      ? "bg-white "
-                      : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"
+                      ? "bg-[#4C555E] text-white"
+                      : "text-white bg-[#22262a] hover:bg-[#4C555E]  hover:text-white"
                   )
                 }
               >
@@ -276,7 +278,7 @@ export const IplClub = () => {
                       }`}
                     >
                       <div className="flex  justify-between items-center gap-3 px-4">
-                        <div className="flex items-center gap-3 ">
+                        <div className="flex items-center gap-3  ">
                           {/* <img src={item.icon} alt="" className="w-4 h-4 invert" /> */}
                           <h4 className="text-[#EEE] text-sm font-semibold">
                             {item.title}
@@ -315,21 +317,25 @@ export const IplClub = () => {
                           {item.data.map((Item, Index) => (
                             <>
                               {" "}
-                              <hr className="border-t border-gray-300 w-full pt-1  " />
-                              <div className="flex w-full justify-between gap-3 px-4">
-                                <div className="flex text-[#EEE] text-sm font-semibold justify-start items-center">
-                                  {Item.team}
+                              <hr className="border-t border-gray-200/10  w-full pt-1  " />
+                              <div className="flex w-full justify-between gap-3 pl-4 pr-1">
+                                <div className="flex flex-col text-[#EEE] text-sm font-semibold justify-start items-start">
+                                  
+                                  <p>{Item.team}</p>
+                                  <span className="flex ">stake amount</span>
                                 </div>
-                                <div className="flex items-center gap-1 rounded-md p-1 scroll-x">
+                                <div className="flex items-center gap-1 rounded-md scroll-x">
                                   {Item.score.map((Score, index) => (
                                     <div
                                       key={index}
-                                      className="flex justify-center w-full rounded-md py-2 px-2 scroll-x text-sm font-medium leading-5 ring-opacity-60 ring-offset-2 min-w-[60px] bg-[#32383e] text-blue-100 hover:bg-[#32383e] hover:text-white rounded-b-md"
+                                      className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-[#32383e] text-blue-100 hover:bg-[#32383e] hover:text-white rounded-b-md"
                                     >
-                                      {Score}
-                                    </div>
+                                      <p className={`${Score !==3 && ('hidden md:block ')}text-center text-[14.5px] `}>{Score}</p>
+                                      <p className="text-center text-[#B7BABC] text-[11px]">20</p>
+
+                                    </div>  
                                   ))}
-                                </div>
+                                </div> 
                               </div>
                             </>
                           ))}
@@ -342,6 +348,9 @@ export const IplClub = () => {
             ))}
           </Tab.Panels>
         </Tab.Group>
+
+        {/* {`${(Score !== 3 || Score !==4) ? ('hidden lg:block text-center text-[14.5px] ') */}
+                                      
         {/* {menu.map((item, index) => (
           <>
             {" "}
@@ -412,7 +421,10 @@ export const IplClub = () => {
             </li>
           </>
         ))} */}
+
+
       </ul>
+      {/* <Footer/> */}
     </>
   );
 };

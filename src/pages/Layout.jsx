@@ -34,7 +34,7 @@ export const Layout = () => {
       <div className={`mx-auto `}>
         {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl}/>}
       </div>
-      <div className={`container mx-auto md:max-w-full md:mx-0 mt-2 ${isAboveXl ? 'px-36' : ''}`}>
+      <div className={`container mx-auto md:max-w-full md:mx-0  ${isAboveXl ? 'px-64' : ''}`}>
         <div className="">
           <div className="flex ">
             {toggle ? (
