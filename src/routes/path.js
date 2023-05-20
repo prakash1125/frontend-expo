@@ -8,4 +8,7 @@ export const Paths = {
   liveCasino:'/live-casino',
   deposit:'/deposit',
   withdrawal:'/withdrawal-request',
+  mymarket:'/my-market',
+  pl:'/reports',
+  accountstatement:'/account-statement',
 };
