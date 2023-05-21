@@ -6,6 +6,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
+import { LoginModal } from "./LoginModal";
+import { SignupModal } from "./SignupModal";
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -52,6 +54,19 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const handleMenuClick = () => {
     setIsProfileOpen(!isProfileOpen);
     setIsDropdownOpen(isDropdownOpen);
+  };
+
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
+
+  const openModal = () => {
+    setIsLoginOpen(true);
+    setIsSignupOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsLoginOpen(false);
+    setIsSignupOpen(false);
   };
 
   return (
@@ -186,21 +201,19 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   <div className="w-64 absolute top-12 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md rounded ">
                     {profileMenu.map((element, index) => {
                       return (
-                        <>
-                          <Link
-                            type="button"
-                            onClick={handleMenuClick}
-                            to={element.href}
-                            className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-[#22262a] hover:bg-[#22262a] "
-                          >
-                            <div className="text-white icon group">
-                              {<element.icon />}
-                            </div>
-                            <div className="text-white group menu-list cursor-pointer ">
-                              {element.list}
-                            </div>
-                          </Link>
-                        </>
+                        <Link
+                        
+                          onClick={handleMenuClick}
+                          to={element.href}
+                          className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-[#22262a] hover:bg-[#22262a] "
+                        >
+                          <div className="text-white icon group">
+                            {<element.icon />}
+                          </div>
+                          <div className="text-white group menu-list cursor-pointer ">
+                            {element.list}
+                          </div>
+                        </Link>
                       );
                     })}
                   </div>
@@ -209,18 +222,26 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
               {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button
+                  onClick={()=> {setIsLoginOpen(true);}}
                   type="button"
                   className=" font-semibold p-2 text-xs text-[#cfd4d8] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   LOG IN
                 </button>
+                {isLoginOpen && (
+                  <LoginModal className="z-50" closeModal={closeModal} />
+                )}
 
                 <button
+                  onClick={()=> {setIsSignupOpen(true);}}
                   type="button"
                   className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   SIGN UP
                 </button>
+                {isSignupOpen && (
+                  <SignupModal className="z-50" closeModal={closeModal} />
+                )}
               </div> */}
             </div>
           </div>
