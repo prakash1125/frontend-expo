@@ -8,6 +8,8 @@ import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
 import { LoginModal } from "./LoginModal";
 import { SignupModal } from "./SignupModal";
+import { ChipSetting } from "./ChipSetting";
+import { ChangePassword } from "./ChangePassword";
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -59,10 +61,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
 
-  const openModal = () => {
-    setIsLoginOpen(true);
-    setIsSignupOpen(true);
-  };
 
   const closeModal = () => {
     setIsLoginOpen(false);
@@ -124,7 +122,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div>
               </div>
 
-              <div className="flex gap-1.5 items-center relative ">
+              {/* <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {
                   return (
                     <Link
@@ -218,9 +216,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
                   </div>
                 )}
-              </div>
+              </div> */}
 
-              {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
+              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button
                   onClick={()=> {setIsLoginOpen(true);}}
                   type="button"
@@ -242,7 +240,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 {isSignupOpen && (
                   <SignupModal className="z-50" closeModal={closeModal} />
                 )}
-              </div> */}
+              </div>
             </div>
           </div>
 
