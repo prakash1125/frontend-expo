@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from 'react';
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
+import Modal from "./Modal";
 
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';

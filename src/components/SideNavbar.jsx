@@ -91,7 +91,7 @@ export const SideNavbar = () => {
 
   return (
     <>
-      <div className="w-full px-4 pt-2">
+      <div className="w-full px-4 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
           <button className="flex justify-start text-[#CCD1D5] bg-[#22262a] p-3 rounded-md w-full text-xs font-semibold relative">
             SPORTS
