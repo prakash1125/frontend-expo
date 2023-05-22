@@ -103,7 +103,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Sports</p>
+            <p className="text-center">In-Play</p>
           </div>
           <div
             className={
@@ -119,7 +119,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Sports</p>
+            <p className="text-center">IPL Club</p>
           </div>
           <div
             className={
@@ -135,11 +135,11 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Sports</p>
+            <p className="text-center">Indian Casino</p>
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-3 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
             }
           >
             <div className="">
@@ -151,7 +151,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Sports</p>
+            <p className="text-center">Live Casino</p>
           </div>
           <div
             className={
@@ -167,7 +167,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Sports</p>
+            <p className="text-center">Slots</p>
           </div>
           <div
             className={
