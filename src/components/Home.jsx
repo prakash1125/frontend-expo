@@ -34,6 +34,7 @@ export const Home = () => {
     slidesToScroll: 1,
   };
   const images = [
+
     "https://sportsexch.com/images/banner/slider06.png",
     "https://sportsexch.com/images/banner/slider05.png",
     "https://sportsexch.com/images/banner/slider04.png",
