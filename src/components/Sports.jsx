@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 import MarketDataCard from "./MarketDataCard"
+import Footer from "./Footer";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -241,6 +242,7 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
+      <Footer/>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 
 export const IndianCasino = () => {
   return (
@@ -373,43 +374,7 @@ export const IndianCasino = () => {
       </div>
 
       {/* footer */}
-      <div class="container mx-auto py-2">
-        <div className="text-white text-center mx-auto">
-          {/* <p className="font-bold bg-gray-400">Back to Top</p> */}
-          <p className="font-bold bg-gray-400 w-64">Back</p>
-        </div>
-
-
-         <li>
-            <div className="text-white font-weight: 500 font-size: 18px line-height: 20px letter-spacing: normal margin: 0 0 16px font-semibold py-2 color: #f9fafa">
-              Info
-            </div>
-            <div className="text-white py-2">Privacy Policy</div>
-            <div className="text-white py-2">Terms & Conditions</div>
-            <div className="text-white py-2">Gambling can be addictive</div>
-          </li> 
-
-         <li>
-            <div className="text-white py-2 text-center font-semibold">Get Started</div>
-            <div className="text-white py-2 text-center">About Us</div>
-            <div className="text-white py-2 text-center">KYC and Privacy Policy</div>
-          </li>
-           
-           <li>
-          <span className="text-white py-2 font-semibold">Sportsexch</span>
-
-          <span className="text-white py-2">Download our mobile</span> 
-          </li>
-        {/* <span className="text-white">Helpline Numbers</span>
-          <div className="text-white display-flex justify-content: center align-items: center margin-10px 0 color-#169c59  font-size: 18px font-weight: 500">
-            + 91 783 599 9999
-          </div>
-          <div className="text-white display-flex justify-content: center align-items: center margin-10px 0 color-#169c59 font-size: 18px font-weight: 500">
-            + 91 783 499 9999
-          </div>
-
-          <div className="text-white">KYC and Privacy Policy</div> */}
-      </div>
+     <Footer/>
     </>
   );
 };

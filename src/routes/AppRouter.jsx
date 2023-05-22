@@ -9,10 +9,12 @@ import { WithdrawalPage } from "../pages/Withdrawal";
 import { MyMarketPage } from "../pages/MyMarket";
 import { ProfitLossPage } from "../pages/ProfitLoss";
 import { AccountStatementPage } from "../pages/AccountStatement";
+import Footer from "../components/Footer";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route element={<Layout />} >
+      <Route element={<Layout /> } >
+      
         <Route path={Paths.home} element={<HomePage />} />
         <Route path={Paths.sports} element={<SportsPage />} />
         <Route path={Paths.inplay} element={<InPlayPage />} />
@@ -26,6 +28,7 @@ export const AppRouter = () => {
         <Route path={Paths.pl} element={<ProfitLossPage />} />
         <Route path={Paths.accountstatement} element={<AccountStatementPage />} />
       </Route>
+      
     </Routes>
   );
 };

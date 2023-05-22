@@ -1,6 +1,7 @@
 import { Tab } from "@headlessui/react";
 import React, { useState } from "react";
 import Slider from "react-slick";
+import Footer from "./Footer";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -1811,7 +1812,7 @@ export const LiveCasino = () => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 overflow-x-scroll ">
+        <Tab.List className="flex gap-2 rounded-md overflow-x-scroll scroll-x  ">
           {Object.keys(categories).map((category) => (
             
             <Tab
@@ -1851,7 +1852,7 @@ export const LiveCasino = () => {
                         class="block h-full w-full rounded-lg object-cover object-center"
                         src={post.img}
                       />
-                      {post.title}
+                      {post.title}  
                     </div>
                   </div>
                 ))}
@@ -1860,34 +1861,7 @@ export const LiveCasino = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <div class="container mx-auto py-2">
-        <div className="text-white text-center mx-auto">
-          {/* <p className="font-bold bg-gray-400">Back to Top</p> */}
-          <p className="font-bold bg-gray-400 w-64">Back</p>
-        </div>
-
-
-         <li>
-            <div className="text-white font-weight: 500 font-size: 18px line-height: 20px letter-spacing: normal margin: 0 0 16px font-semibold py-2 color: #f9fafa">
-              Info
-            </div>
-            <div className="text-white py-2">Privacy Policy</div>
-            <div className="text-white py-2">Terms & Conditions</div>
-            <div className="text-white py-2">Gambling can be addictive</div>
-          </li> 
-
-         <li>
-            <div className="text-white py-2 text-center font-semibold">Get Started</div>
-            <div className="text-white py-2 text-center">About Us</div>
-            <div className="text-white py-2 text-center">KYC and Privacy Policy</div>
-          </li>
-           
-           <li>
-          <span className="text-white py-2 font-semibold">Sportsexch</span>
-
-          <span className="text-white py-2">Download our mobile</span> 
-          </li>
-    </div>
+    <Footer/>
     </div>
   );
 };

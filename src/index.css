@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 .scrollbar-hide::-webkit-scrollbar {
     width: 8px;
 	background-color: transparent;
@@ -12,7 +15,7 @@
     scrollbar-width: none;
 }
 
-.scrollbar-hide::-webkit-scrollbar-thumb
+.scrollbar-hide::-webkit-scrollbar-thumb 
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
@@ -50,11 +53,14 @@
 .scroll-x::-webkit-scrollbar{
     display: none;
 }
+
 .underline{
     border-color: #1890ff;
     margin-top: 10px;
     margin-bottom: 10px;
-  }
+}
+
+  
 
   .scrollbar-hide::-webkit-scrollbar {
     /* color: #4c555e; */

@@ -30,11 +30,12 @@ export const Home = () => {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.1,
+    slidesToShow: 3.1 ,
     slidesToScroll: 1,
   };
+  
   const images = [
-
+    
     "https://sportsexch.com/images/banner/slider06.png",
     "https://sportsexch.com/images/banner/slider05.png",
     "https://sportsexch.com/images/banner/slider04.png",
@@ -75,7 +76,7 @@ export const Home = () => {
         <div className="flex gap-1 rounded-xl bg-black   w-full">
           <div
             className={
-              " cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
+              " cursor-pointer px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
             }
           >
             <div className="">
@@ -103,7 +104,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">In-Play</p>
+            <p className="text-center">Sports</p>
           </div>
           <div
             className={
@@ -119,7 +120,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">IPL Club</p>
+            <p className="text-center">Sports</p>
           </div>
           <div
             className={
@@ -135,11 +136,11 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Indian Casino</p>
+            <p className="text-center">Sports</p>
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-3 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
             }
           >
             <div className="">
@@ -151,7 +152,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Live Casino</p>
+            <p className="text-center">Sports</p>
           </div>
           <div
             className={
@@ -167,7 +168,7 @@ export const Home = () => {
                 />
               </a>
             </div>
-            <p className="text-center">Slots</p>
+            <p className="text-center">Sports</p>
           </div>
           <div
             className={

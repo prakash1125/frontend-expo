@@ -5,7 +5,9 @@ import { RightNavbar } from "../components/RightNavbar";
 import { SideNavbar } from "../components/SideNavbar";
 import { Sports } from "../components/Sports";
 import { Outlet } from "react-router-dom";
-import Modal from "../components/Modal"
+import Footer from "../components/Footer";
+
+
 
 export const Layout = () => {
 
@@ -34,6 +36,7 @@ export const Layout = () => {
     };
   }, []);
   return (
+    
     <div className="bg-black h-[100vh] overflow-y-hidden ">
       <div className={`mx-auto `}>
         {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl}/>}
@@ -53,8 +56,10 @@ export const Layout = () => {
       <div className="container mx-auto px-6 md:hidden ">
         <MobileNavbar />
       </div>
-     
+
+      <Footer/>
     </div>
+
   );
 };
 
