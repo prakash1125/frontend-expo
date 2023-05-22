@@ -17,19 +17,19 @@ export const MyMarket = () => {
         </div>
 
         <div className="max-w-full overflow-x-auto mt-3">
-          <table class=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
+          <table className=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
             <thead>
               <tr>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Date
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Sports
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Event
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Bets
                 </th>
               </tr>
@@ -37,16 +37,16 @@ export const MyMarket = () => {
             <tbody>
               {MarketData.map((element, index) => (
                 <tr key={index}>
-                  <td class="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.date}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.sport}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#20d97c]">
+                  <td className="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#20d97c]">
                     {element.event}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-600 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.bets}
                   </td>
                 </tr>

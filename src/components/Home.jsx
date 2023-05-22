@@ -74,11 +74,11 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             }
           >
             <div className="">
-              <a href="#" class="relative block">
+              <a href="#" className="relative block">
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/sports.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
+                  className="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
                 />
               </a>  
             </div>
@@ -90,11 +90,11 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             }
           >
             <div className="">
-              <a href="#" class="relative block">
+              <a href="#" className="relative block">
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/live.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a] "
+                  className="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a] "
                 />
               </a>
             </div>
@@ -106,11 +106,11 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             }
           >
             <div className="">
-              <a href="#" class="relative block">
+              <a href="#" className="relative block">
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/trophy.png"
-                  class="mx-auto object-contain  h-5 w-5 "
+                  className="mx-auto object-contain  h-5 w-5 "
                 />
               </a>
             </div>
@@ -122,11 +122,11 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             }
           >
             <div className="">
-              <a href="#" class="relative block">
+              <a href="#" className="relative block">
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/indian-casino.png"
-                  class="mx-auto object-cover h-5 w-5 bg-[#22262a] "
+                  className="mx-auto object-cover h-5 w-5 bg-[#22262a] "
                 />
               </a>
             </div>
@@ -138,11 +138,11 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             }
           >
             <div className="">
-              <a href="#" class="relative block">
+              <a href="#" className="relative block">
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/live-casino.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
+                  className="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
                 />
               </a>
             </div>
@@ -154,11 +154,11 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             }
           >
             <div className="">
-              <a href="#" class="relative block">
+              <a href="#" className="relative block">
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/slot.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
+                  className="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
                 />
               </a>
             </div>

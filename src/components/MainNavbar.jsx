@@ -122,7 +122,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div>
               </div>
 
-              {/* <div className="flex gap-1.5 items-center relative ">
+              <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {
                   return (
                     <Link
@@ -199,6 +199,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   <div className="w-64 absolute top-12 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md rounded ">
                     {profileMenu.map((element, index) => {
                       return (
+                        
                         <Link
                         
                           onClick={handleMenuClick}
@@ -216,7 +217,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
                   </div>
                 )}
-              </div> */}
+              </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button

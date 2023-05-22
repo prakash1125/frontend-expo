@@ -56,6 +56,20 @@ export const Sports = () => {
         commentCount: 3,
         shareCount: 2,
       },
+      {
+        id: 3,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
+      {
+        id: 4,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
     ],
     BasketBall: [
       {
@@ -175,7 +189,7 @@ export const Sports = () => {
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class="mx-auto bg-[#CCD1D5] rounded-full object-cover h-5 w-5 "></img>
+              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" className="mx-auto bg-[#CCD1D5] rounded-full object-cover h-5 w-5 "></img>
               {category}
             </Tab>
           ))}
@@ -195,35 +209,35 @@ export const Sports = () => {
                     key={post.id}
                     className="relative pb-2"
                   >
-                    {/* <div class="rounded-md shadow-md w-full bg-[#22262a]">
-                      <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
-                        <div class="flex items-center space-x-3">
-                          <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
+                    {/* <div className="rounded-md shadow-md w-full bg-[#22262a]">
+                      <div className="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
+                        <div className="flex items-center space-x-3">
+                          <div className="flex items-center text-sm text-[#f9fafa] font-bold ">
                             {post.title}
                           </div>
                         </div>
-                        <div class="flex items-center space-x-8 px-6">
-                          <div class="text-sm font-bold text-[#f9fafa]">2</div>
+                        <div className="flex items-center space-x-8 px-6">
+                          <div className="text-sm font-bold text-[#f9fafa]">2</div>
                         </div>
                       </div>
 
-                      <div class="flex items-center flex-1 p-4 cursor-pointer select-none">
-                        <div class="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
-                          <a href="#" class="relative block">
+                      <div className="flex items-center flex-1 p-4 cursor-pointer select-none">
+                        <div className="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
+                          <a href="#" className="relative block">
                             <img
                               alt="profil"
                               src="https://sportsexch.com/images/icons/cricket.png"
-                              class="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
+                              className="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
                             />
                           </a>
                         </div>
-                        <div class="flex-1 pl-1 mr-16">
-                          <div class="font-medium text-[#cfd4d8]">{post.team1}</div>
-                          <div class="text-xs font-bold text-[#cfd4d8] ">
+                        <div className="flex-1 pl-1 mr-16">
+                          <div className="font-medium text-[#cfd4d8]">{post.team1}</div>
+                          <div className="text-xs font-bold text-[#cfd4d8] ">
                             {post.team2}
                           </div>
                         </div>
-                        <div class="text-xs font-bold text-[#cfd4d8] ">
+                        <div className="text-xs font-bold text-[#cfd4d8] ">
                           6:00 AM
                         </div>
                       </div>

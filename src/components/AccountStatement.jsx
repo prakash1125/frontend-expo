@@ -113,22 +113,22 @@ export const AccountStatement = () => {
       </div>
 
       <div className="table-wrapper max-w-full overflow-x-auto">
-        <table class=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
+        <table className=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
           <thead>
             <tr>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                 Date
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                 Description
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
                 cr
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
                 dr
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
                 balance
               </th>
             </tr>
@@ -136,19 +136,19 @@ export const AccountStatement = () => {
           <tbody>
             {AccountStarement.map((element, index) => (
               <tr key={index}>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-2 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-2 text-[#f9fafa]">
                   {element.date}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-2 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-2 text-[#f9fafa]">
                   {element.description}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
                   {element.cr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
                   {element.dr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
                   {element.balance}
                 </td>
               </tr>

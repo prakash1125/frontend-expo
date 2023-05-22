@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
+import { ProfitLossModal } from "./ProfitLossModal";
 
 export const ProfitLoss = () => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
+  };
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const closeModal = () => {
+    setIsPopupOpen(false);
   };
 
   const PLReport = [
@@ -20,6 +27,17 @@ export const ProfitLoss = () => {
       cr: 0.3,
       dr: 0.0,
       balance: "-2,935.80",
+      modal: [
+        {
+          selection: "Gujarat Titans",
+          odds: 1.03,
+          stake: 10.0,
+          profit: 0.3,
+          loss: 0.0,
+          date: "2023-05-15 22:47:41",
+          status: "settled",
+        },
+      ],
     },
     {
       date: "May 28 2023, 07:30 PM",
@@ -166,7 +184,9 @@ export const ProfitLoss = () => {
 
         <div className="date-wrapper flex items-center gap-2">
           <input
-            className={`bg-transparent ${isChecked ? "cursor-pointer" : "cursor-not-allowed"} border border-slate-700 hover:border-[#0d8247] text-[#b7b8b8] rounded p-2 w-64 focus:outline-none`}
+            className={`bg-transparent ${
+              isChecked ? "cursor-pointer" : "cursor-not-allowed"
+            } border border-slate-700 hover:border-[#0d8247] text-[#b7b8b8] rounded p-2 w-64 focus:outline-none`}
             type="date"
             name=""
             id=""
@@ -176,7 +196,9 @@ export const ProfitLoss = () => {
             To
           </span>
           <input
-            className={`bg-transparent ${isChecked ? "cursor-pointer" : "cursor-not-allowed"} border border-slate-700 hover:border-[#0d8247] text-[#b7b8b8] rounded p-2 w-64 focus:outline-none`}
+            className={`bg-transparent ${
+              isChecked ? "cursor-pointer" : "cursor-not-allowed"
+            } border border-slate-700 hover:border-[#0d8247] text-[#b7b8b8] rounded p-2 w-64 focus:outline-none`}
             type="date"
             name=""
             id=""
@@ -192,22 +214,22 @@ export const ProfitLoss = () => {
       </div>
 
       <div className="table-wrapper max-w-full overflow-x-auto">
-        <table class=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
+        <table className=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
           <thead>
             <tr>
-              <th class="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                 Date
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-3/5 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] w-3/5 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                 Description
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
                 cr
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
                 dr
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th className="whitespace-nowrap bg-[#22262a] border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
                 balance
               </th>
             </tr>
@@ -215,28 +237,43 @@ export const ProfitLoss = () => {
           <tbody>
             {PLReport.map((element, index) => (
               <tr key={index}>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                   {element.date}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                   {element.description.map((element) => {
                     return (
                       <div className="flex flex-col">
-                        <span className="text-[#1fda7d] cursor-pointer">
+                        <span
+                          onClick={() => {
+                            setIsPopupOpen(true);
+                          }}
+                          className="text-[#1fda7d] cursor-pointer"
+                        >
                           {element.top}
                         </span>
+                        {isPopupOpen && (
+                          <>
+                            <ProfitLossModal
+                              title={element.top}
+                              modal={element}
+                              className="z-50"
+                              closeModal={closeModal}
+                            />
+                          </>
+                        )}
                         <span className="text-[#d3fade]">{element.bottom}</span>
                       </div>
                     );
                   })}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-3.5 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-3.5 text-[#f9fafa]">
                   {element.cr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-3.5 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-3.5 text-[#f9fafa]">
                   {element.dr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-3.5 text-[#f9fafa]">
+                <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-3.5 text-[#f9fafa]">
                   {element.balance}
                 </td>
               </tr>
