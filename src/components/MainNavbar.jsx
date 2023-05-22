@@ -70,9 +70,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   return (
     <Disclosure
       as="nav"
-      className={`border-b border-gray-200/10 bg-[#22262a] ${
-        screen ? "px-64" : ""
-      } `}
+      className={`border-b border-gray-200/10 bg-[#22262a] ${screen ? "px-64" : ""
+        } `}
     >
       {({ open }) => (
         <>
@@ -80,9 +79,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
             <div className="relative flex items-center justify-between
              gap-3">
               <div
-                className={`text-white ${
-                  toggle ? "text-[20px]" : "text-[20px]"
-                }  md:hidden`}
+                className={`text-white ${toggle ? "text-[20px]" : "text-[20px]"
+                  }  md:hidden`}
                 onClick={() => setToggle(!toggle)}
               >
                 {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
@@ -111,7 +109,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                         to={item.href}
                         className={classNames(
                           item.href == currentRoute &&
-                            "bg-[#32383e] text-white",
+                          "bg-[#32383e] text-white",
                           "px-3 py-5 text-xs font-font-family font-bold text-[#cfd4d8] hover:bg-[#32383e] hover:text-white"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -123,16 +121,18 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div>
               </div>
 
-              {/* <div className="flex gap-1.5 items-center relative ">
+
+
+              {/* AFTER LOGIN */}
+              <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {
                   return (
                     <Link
                       key={index}
                       to={element.href}
                       type="button"
-                      className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white hover:text-white focus:outline-none  ${
-                        element.name === "D" ? "1f4d34" : "bg-sky-900"
-                      }`}
+                      className={`bg-[#1F3D34] rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white hover:text-white focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-[#1B3B55]"
+                        }`}
                     >
                       {element.name}
                     </Link>
@@ -141,7 +141,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
                 <div
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
+                  className="  wallet bg-[#32383e] hover:bg-[#4C555E]  p-0.5 rounded-md flex items-center cursor-pointer"
                 >
                   <span className="text-white text-xs font-semibold mx-2.5">
                     &#x20B9;5,564.20
@@ -192,7 +192,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   type="button"
-                  className="bg-zinc-600 hover:bg-zinc-500 rounded-md px-3 py-2.5 font-semibold p-2 text-md text-white hover:text-white focus:outline-none "
+                  className="bg-[#32383e] hover:bg-[#4C555E] rounded-md px-3 py-2.5 font-semibold p-2 text-md text-white hover:text-white focus:outline-none "
                 >
                   <FaUser />
                 </button>
@@ -201,7 +201,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     {profileMenu.map((element, index) => {
                       return (
                         <Link
-                        
+
                           onClick={handleMenuClick}
                           to={element.href}
                           className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-[#22262a] hover:bg-[#22262a] "
@@ -217,11 +217,12 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
                   </div>
                 )}
-              </div> */}
+              </div>
 
+              {/* BEFORE LOGIN */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button
-                  onClick={()=> {setIsLoginOpen(true);}}
+                  onClick={() => { setIsLoginOpen(true); }}
                   type="button"
                   className="  font-semibold p-2 text-xs text-[#cfd4d8] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
@@ -232,7 +233,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 )}
 
                 <button
-                  onClick={()=> {setIsSignupOpen(true);}}
+                  onClick={() => { setIsSignupOpen(true); }}
                   type="button"
                   className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
