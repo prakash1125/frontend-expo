@@ -23,6 +23,7 @@ export const LiveCasino = () => {
   let [categories] = useState({
     All: [
       {
+        icon:"https://sportsexch.com/images/icons/top_indian_games.png",
         id: 1,
         title: "TeenPatti",
         img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
@@ -714,177 +715,1085 @@ export const LiveCasino = () => {
     LiveBlackjack: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Korean Dealer Power Blackjack",
+        img: "https://luckmedia.link/evo_korean_dealer_power_blackjack/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Korean Dealer Speed Blackjack",
+        img: "https://luckmedia.link/evo_korean_dealer_speed_blackjack/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "One Blackjack",
+        img: "https://luckmedia.link/ppl_one_blackjack/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "BlackJack",
+        img: "https://luckmedia.link/tvb_blackjack/thumb.jpg",
       },
+      {
+        id: 5,
+        title: "Blackjack 1 - Azure",
+        img: "https://luckmedia.link/evo_free_bet_blackjack/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "Free Bet Blackjack",
+        img: "https://luckmedia.link/evo_free_bet_blackjack/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "Power Blackjack",
+        img: "https://luckmedia.link/evo_power_blackjack/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "Infinite Blackjack",
+        img: "https://luckmedia.link/evo_infinite_blackjack/thumb.jpg",
+      },
+      {
+        id: 9,
+        title: "Blackjack Party",
+        img: "https://luckmedia.link/evo_blackjack_party/thumb.jpg",
+      },
+      {
+        id: 10,
+        title: "Speed VIP Blackjack A",
+        img: "https://luckmedia.link/evo_speed_vip_blackjack_a/thumb.jpg",
+      },
+      {
+        id: 11,
+        title: "Quantum Blackjack Plus",
+        img: "https://luckmedia.link/pltl_quantum_blackjack_plus/thumb.jpg",
+      },
+      {
+        id: 12,
+        title: "Italian Cashback Blackjack",
+        img: "https://luckmedia.link/pltl_italian_cashback_blackjack/thumb.jpg",
+      },
+      {
+        id: 13,
+        title: "Blackjack VIP 1",
+        img: "https://luckmedia.link/evo_blackjack_vip_1/thumb.jpg",
+      },
+      {
+        id: 14,
+        title: "Alexandrite Blackjack",
+        img: "https://luckmedia.link/pltl_alexandrite_blackjack/thumb.jpg",
+      },
+      {
+        id: 15,
+        title: "All Bets Blackjack",
+        img: "https://luckmedia.link/pltl_all_bets_blackjack/thumb.jpg",
+      },
+      {
+        id: 16,
+        title: "Blackjack Italiano VIP",
+        img: "https://luckmedia.link/pltl_blackjack_italiano_vip/thumb.jpg",
+      },
+      {
+        id: 18,
+        title: "Deutsches Blackjack",
+        img: "https://luckmedia.link/pltl_deutsches_blackjack/thumb.jpg",
+      },
+      {
+        id: 19,
+        title: "Lounge Blackjack 1",
+        img: "https://luckmedia.link/pltl_lounge_blackjack_1/thumb.jpg",
+      },
+      {
+        id: 20,
+        title: "Speed Blackjack 1 - Ruby",
+        img: "https://luckmedia.link/ppl_speed_blackjack_1__ruby/thumb.jpg",
+      },
+      {
+        id: 21,
+        title: "Blackjack Silver A",
+        img: "https://luckmedia.link/evo_blackjack_silver_a/thumb.jpg",
+      },
+      {
+        id: 22,
+        title: "Majority Rules Speed Blackjack",
+        img: "https://luckmedia.link/pltl_majority_rules_speed_blackjack/thumb.jpg",
+      },
+      {
+        id: 23,
+        title: "Royale Blackjack 1",
+        img: "https://luckmedia.link/pltl_royale_blackjack_1/thumb.jpg",
+      },
+      {
+        id: 24,
+        title: "VIP Blackjack 1 - Ruby",
+        img: "https://luckmedia.link/ppl_vip_blackjack_1__ruby/thumb.jpg",
+      },
+      {
+        id: 25,
+        title: "Blackjack VIP A",
+        img: "https://luckmedia.link/evo_blackjack_vip_a/thumb.jpg",
+      },
+      {
+        id: 26,
+        title: "Soirée Elite Blackjack 1",
+        img: "https://luckmedia.link/pltl_soire_elite_blackjack_1/thumb.jpg",
+      },
+      {
+        id: 27,
+        title: "Soirée Elite VIP Blackjack",
+        img: "https://luckmedia.link/pltl_soire_elite_vip_blackjack/thumb.jpg",
+      },
+      {
+        id: 28,
+        title: "Unlimited Blackjack",
+        img: "https://luckmedia.link/pltl_unlimited_blackjack/thumb.jpg",
+      },
+      {
+        id: 29,
+        title: "Blackjack VIP Alpha",
+        img: "https://luckmedia.link/evo_blackjack_vip_alpha/thumb.jpg",
+      },
+      {
+        id: 30,
+        title: "Blackjack Platinum VIP",
+        img: "https://luckmedia.link/evo_blackjack_platinum_vip/thumb.jpg",
+      },
+      {
+        id: 31,
+        title: "Blackjack Diamond VIP",
+        img: "https://luckmedia.link/evo_blackjack_diamond_vip/thumb.jpg",
+      },
+      {
+        id: 32,
+        title: "Grand Blackjack",
+        img: "https://luckmedia.link/pltl_grand_blackjack/thumb.jpg",
+      },
+      {
+        id: 33,
+        title: "Salon Privé Blackjack A",
+        img: "https://luckmedia.link/evo_salon_priv_blackjack_a/thumb.jpg",
+      },
+      {
+        id:34,
+        title: "Salon Privé Blackjack B",
+        img: "https://luckmedia.link/evo_salon_priv_blackjack_b/thumb.jpg",
+      },
+      {
+        id: 35,
+        title: "Lightning Blackjack",
+        img: "https://luckmedia.link/evo_lightning_blackjack/thumb.jpg",
+      },
+      {
+        id: 36,
+        title: "First Person Lightning Blackjack",
+        img: "https://luckmedia.link/evo_first_person_lightning_blackjack/thumb.jpg",
+      },
+      {
+        id: 37,
+        title: "Blackjack Platinum 1",
+        img: "https://luckmedia.link/ezg_blackjack_platinum_1/thumb.jpg",
+      },
+      {
+        id: 38,
+        title: "Blackjack 1",
+        img: "https://luckmedia.link/ezg_blackjack_1/thumb.jpg",
+      },
+      {
+        id: 39,
+        title: "Blackjack Gold 1",
+        img: "https://luckmedia.link/ezg_blackjack_gold_1/thumb.jpg",
+      },
+      {
+        id: 40,
+        title: "VIP Blackjack with Surrender",
+        img: "https://luckmedia.link/ezg_vip_blackjack_with_surrender/thumb.jpg",
+      },
+      {
+        id: 41,
+        title: "Diamond VIP Blackjack",
+        img: "https://luckmedia.link/ezg_diamond_vip_blackjack/thumb.jpg",
+      },
+      {
+        id: 42,
+        title: "Italian Blackjack",
+        img: "https://luckmedia.link/ezg_italian_blackjack/thumb.jpg",
+      },
+      {
+        id: 43,
+        title: "Rumba Blackjack 1",
+        img: "https://luckmedia.link/ezg_rumba_blackjack_1/thumb.jpg",
+      },
+      {
+        id: 44,
+        title: "Turkish Blackjack",
+        img: "https://luckmedia.link/ezg_turkish_blackjack/thumb.jpg",
+      },
+      {
+        id: 45,
+        title: "White Russian",
+        img: "https://luckmedia.link/ezg_white_russian/thumb.jpg",
+      },
+      {
+        id: 46,
+        title: "Unlimited Turkish Blackjack",
+        img: "https://luckmedia.link/ezg_unlimited_turkish_blackjack/thumb.jpg",
+      },
+      {
+        id: 47,
+        title: "Spanish Unlimited Blackjack",
+        img: "https://luckmedia.link/ezg_mambo_unlimited_bj/thumb.jpg",
+      },
+      {
+        id: 48,
+        title: "Fiesta Blackjack Unlimited",
+        img: "https://luckmedia.link/ezg_fiesta_blackjack_unlimited/thumb.jpg",
+      },
+      {
+        id: 49,
+        title: "Blackjack Salon Privé",
+        img: "https://luckmedia.link/ezg_blackjack_salon_priv/thumb.jpg",
+      },
+    
+
     ],
     LiveDealer: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "War Of Elements",
+        img: "https://luckmedia.link/tvb_war_of_elements/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Fan Tan",
+        img: "https://luckmedia.link/evo_fan_tan/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Joker",
+        img: "https://luckmedia.link/tvb_jokerbet/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "32 Card Casino",
+        img: "https://luckmedia.link/aug_32_card_casino/thumb.jpg",
+      },
+      {
+        id: 5,
+        title: "Hi Low",
+        img: "https://luckmedia.link/aug_hi_low/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "Matka",
+        img: "https://luckmedia.link/aug_matka/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "7 Up & Down",
+        img: "https://luckmedia.link/aug_7_up__down/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "Amar Akbar Anthony",
+        img: "https://luckmedia.link/aug_amar_akbar_anthony/thumb.jpg",
+      },
+      {
+        id: 9,
+        title: "Race 20-20",
+        img: "https://luckmedia.link/aug_race_2020/thumb.jpg",
+      },
+      {
+        id: 10,
+        title: "Bollywood Casino",
+        img: "https://luckmedia.link/aug_bollywood_casino/thumb.jpg",
+      },
+      {
+        id: 11,
+        title: "Trio",
+        img: "https://luckmedia.link/aug_trio/thumb.jpg",
+      },
+      {
+        id: 12,
+        title: "Casino Meter",
+        img: "https://luckmedia.link/aug_casino_meter/thumb.jpg",
+      },
+      {
+        id: 13,
+        title: "Queen Race",
+        img: "https://luckmedia.link/aug_queen_race/thumb.jpg",
+      },
+      {
+        id: 14,
+        title: "The Trap",
+        img: "https://luckmedia.link/aug_the_trap/thumb.jpg",
+      },
+      {
+        id: 15,
+        title: "Craps",
+        img: "https://luckmedia.link/evo_craps/thumb.jpg",
+      },
+      {
+        id: 16,
+        title: "Casino War",
+        img: "https://luckmedia.link/aug_casino_war/thumb.jpg",
+      },
+      {
+        id: 17,
+        title: "29 Card Baccarat",
+        img: "https://luckmedia.link/aug_29_card_baccarat/thumb.jpg",
+      },
+      {
+        id: 18,
+        title: "Race to 17",
+        img: "https://luckmedia.link/aug_race_to_17/thumb.jpg",
+      },
+      {
+        id: 19,
+        title: "Extra Andar Bahar",
+        img: "https://luckmedia.link/aes_extra_andar_bahar/thumb.jpg",
+      },
+      {
+        id: 20,
+        title: "Bac Bo",
+        img: "https://luckmedia.link/evo_bac_bo/thumb.jpg",
+      },
+      {
+        id: 21,
+        title: "Red Blue Duel",
+        img: "https://luckmedia.link/aes_red_blue_duel/thumb.jpg",
+      },
+      {
+        id: 22,
+        title: "Thai Hi Lo",
+        img: "https://luckmedia.link/aes_thai_hi_lo/thumb.jpg",
+      },
+      {
+        id: 23,
+        title: "Thai Fish Prawn Crab",
+        img: "https://luckmedia.link/aes_thai_fish_prawn_crab/thumb.jpg",
+      },
+      {
+        id: 24,
+        title: "Korean Dealer Baseball Studio",
+        img: "https://luckmedia.link/evo_korean_dealer_baseball_studio/thumb.jpg",
+      },
+      {
+        id: 25,
+        title: "7 Up Down",
+        img: "https://luckmedia.link/roy_7_up_down/thumb.jpg",
+      },
+      {
+        id: 26,
+        title: "Cricket War",
+        img: "https://luckmedia.link/roy_cricket_war/thumb.jpg",
+      },
+      {
+        id: 27,
+        title: "Amar Akbar Anthony",
+        img: "https://luckmedia.link/roy_amar_akbar_anthony/thumb.jpg",
+      },
+      {
+        id: 28,
+        title: "3 Cards Judgement",
+        img: "https://luckmedia.link/roy_3_cards_judgement/thumb.jpg",
+      },
+      {
+        id: 29,
+        title: "Casino War",
+        img: "https://luckmedia.link/roy_casino_war/thumb.jpg",
+      },
+      {
+        id: 30,
+        title: "Worli Matka",
+        img: "https://luckmedia.link/roy_worli_matka/thumb.jpg",
+      },
+      {
+        id: 31,
+        title: "Bollywood Casino",
+        img: "https://luckmedia.link/roy_bollywood_casino/thumb.jpg",
+      },
+      {
+        id: 32,
+        title: "Book Cricket",
+        img: "https://luckmedia.link/roy_book_cricket/thumb.jpg",
+      },
+      {
+        id: 33,
+        title: "HighLow",
+        img: "https://luckmedia.link/roy_highlow/thumb.jpg",
+      },
+      {
+        id: 34,
+        title: "Dead or Alive Saloon",
+        img: "https://luckmedia.link/evo_dead_or_alive_saloon/thumb.jpg",
       },
     ],
     LiveLottery: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Lucky 7",
+        img: "https://luckmedia.link/ezg_lucky_7/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "32 Cards",
+        img: "https://luckmedia.link/ezg_32_cards/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "5Bet",
+        img: "https://luckmedia.link/tvb_5bet/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "7Bet",
+        img: "https://luckmedia.link/tvb_7bet/thumb.jpg",
+      },
+      {
+        id: 5,
+        title: "Keno",
+        img: "https://luckmedia.link/tvb_keno/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "1Bet",
+        img: "https://luckmedia.link/tvb_1bet/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "Lucky6",
+        img: "https://luckmedia.link/tvb_lucky6/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "FruitRace",
+        img: "https://luckmedia.link/tvb_fruitrace/thumb.jpg",
+      },
+      {
+        id: 9,
+        title: "Mega6",
+        img: "https://luckmedia.link/tvb_mega6/thumb.jpg",
+      },
+      {
+        id: 10,
+        title: "Mega Ball",
+        img: "https://luckmedia.link/evo_mega_ball/thumb.jpg",
+      },
+      {
+        id: 11,
+        title: "Lottery",
+        img: "https://luckmedia.link/roy_lottery/thumb.jpg",
+      },
+      {
+        id: 12,
+        title: "Bet On Numbers HD",
+        img: "https://luckmedia.link/ezg_bet_on_numbers_hd/thumb.jpg",
       },
     ],
     LivePoker: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Poker",
+        img: "https://luckmedia.link/tvb_poker/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Teen Patti",
+        img: "https://luckmedia.link/evo_teen_patti/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Teen Patti",
+        img: "https://luckmedia.link/tvb_teen_patti/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Andar Bahar",
+        img: "https://luckmedia.link/tvb_andar_bahar/thumb.jpg",
+      },
+      {
+        id: 5,
+        title: "Teen Patti One Day",
+        img: "https://luckmedia.link/aug_teen_patti_one_day/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "2 Card Teen Patti",
+        img: "https://luckmedia.link/aug_2_card_teen_patti/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "Poker",
+        img: "https://luckmedia.link/aug_poker/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "Six Player Poker",
+        img: "https://luckmedia.link/aug_six_player_poker/thumb.jpg",
+      },
+      {
+        id: 9,
+        title: "Andar Bahar",
+        img: "https://luckmedia.link/aug_andar_bahar/thumb.jpg",
+      },
+      {
+        id: 10,
+        title: "Muflis Teen Patti",
+        img: "https://luckmedia.link/aug_muflis_teen_patti/thumb.jpg",
+      },
+      {
+        id: 11,
+        title: "Poker 20-20",
+        img: "https://luckmedia.link/aug_poker_2020/thumb.jpg",
+      },
+      {
+        id: 12,
+        title: "Teen Patti Test",
+        img: "https://luckmedia.link/aug_teen_patti_test/thumb.jpg",
+      },
+      {
+        id: 13,
+        title: "Teen Patti Open",
+        img: "https://luckmedia.link/aug_teen_patti_open/thumb.jpg",
+      },
+      {
+        id: 14,
+        title: "Ultimate Andar Bahar",
+        img: "https://luckmedia.link/ezg_ultimate_andar_bahar/thumb.jpg",
+      },
+      {
+        id: 15,
+        title: "Andar Bahar",
+        img: "https://luckmedia.link/pltl_andar_bahar/thumb.jpg",
+      },
+      {
+        id: 16,
+        title: "3 Card Brag",
+        img: "https://luckmedia.link/pltl_3_card_brag/thumb.jpg",
+      },
+      {
+        id: 18,
+        title: "Casino Hold'em",
+        img: "https://luckmedia.link/pltl_casino_holdem/thumb.jpg",
+      },
+      {
+        id: 19,
+        title: "Teen Patti Live",
+        img: "https://luckmedia.link/pltl_teen_patti_live/thumb.jpg",
+      },
+      {
+        id: 20,
+        title: "Casino Stud Poker",
+        img: "https://luckmedia.link/pltl_casino_stud_poker/thumb.jpg",
+      },
+      {
+        id: 21,
+        title: "Bet on Poker",
+        img: "https://luckmedia.link/pltl_bet_on_poker/thumb.jpg",
+      },
+      {
+        id: 22,
+        title: "Royal Poker",
+        img: "https://luckmedia.link/ezg_royal_poker/thumb.jpg",
+      },
+      {
+        id: 23,
+        title: "Texas Hold'em Bonus Poker",
+        img: "https://luckmedia.link/evo_texas_holdem_bonus_poker/thumb.jpg",
+      },
+      {
+        id: 24,
+        title: "Caribbean Stud Poker",
+        img: "https://luckmedia.link/evo_caribbean_stud_poker/thumb.jpg",
+      },
+      {
+        id: 25,
+        title: "Triple Card Poker",
+        img: "https://luckmedia.link/evo_triple_card_poker/thumb.jpg",
+      },
+      {
+        id: 26,
+        title: "Deal or No Deal",
+        img: "https://luckmedia.link/evo_deal_or_no_deal/thumb.jpg",
+      },
+      {
+        id: 27,
+        title: "Extreme Texas Hold'em",
+        img: "https://luckmedia.link/evo_extreme_texas_holdem/thumb.jpg",
+      },
+      {
+        id: 28,
+        title: "2 Hand Casino Hold'em",
+        img: "https://luckmedia.link/evo_2_hand_casino_holdem/thumb.jpg",
+      },
+      {
+        id: 29,
+        title: "Casino Hold'em",
+        img: "https://luckmedia.link/evo_casino_holdem/thumb.jpg",
+      },
+      {
+        id: 30,
+        title: "Side Bet City",
+        img: "https://luckmedia.link/evo_side_bet_city/thumb.jpg",
+      },
+      {
+        id: 31,
+        title: "Super Andar Bahar",
+        img: "https://luckmedia.link/evo_super_andar_bahar/thumb.jpg",
+      },
+      {
+        id: 32,
+        title: "Teen Patti",
+        img: "https://luckmedia.link/roy_teen_patti/thumb.jpg",
+      },
+      {
+        id: 33,
+        title: "Muflis Teen Patti",
+        img: "https://luckmedia.link/roy_muflis_teen_patti/thumb.jpg",
+      },
+      {
+        id:34,
+        title: "Casino Hold'em 1",
+        img: "https://luckmedia.link/ezg_casino_holdem_1/thumb.jpg",
+      },
+      {
+        id: 35,
+        title: "Teen Patti 3 Card",
+        img: "https://luckmedia.link/ezg_teen_patti_3_card/thumb.jpg",
+      },
+      {
+        id: 36,
+        title: "Bet on Teen Patti",
+        img: "https://luckmedia.link/ezg_bet_on_teen_patti/thumb.jpg",
+      },
+      {
+        id: 37,
+        title: "One Day Teen Patti",
+        img: "https://luckmedia.link/ezg_one_day_teen_patti/thumb.jpg",
       },
     ],
     LiveRoulette: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Roulette 9 - The Club",
+        img: "https://luckmedia.link/ppl_roulette_9__the_club/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Mega Roulette",
+        img: "https://luckmedia.link/ppl_mega_roulette/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Roulette 8 Indian",
+        img: "https://luckmedia.link/ppl_roulette_8_indian/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Gold Bar Roulette",
+        img: "https://luckmedia.link/evo_gold_bar_roulette/thumb.jpg",
       },
+      {
+        id: 5,
+        title: "Roulette",
+        img: "https://luckmedia.link/aug_roulette/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "Bucharest Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "Arabic Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "Ruyi Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 9,
+        title: "Slingshot Ruleta España",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 10,
+        title: "EZ Dealer Roulette",
+        img: "https://luckmedia.link/ezg_ez_dealer_roulette/thumb.jpg",
+      },
+      {
+        id: 11,
+        title: "American Roulette",
+        img: "https://luckmedia.link/pltl_american_roulette/thumb.jpg",
+      },
+      {
+        id: 12,
+        title: "Football Roulette",
+        img: "https://luckmedia.link/pltl_football_roulette/thumb.jpg",
+      },
+      {
+        id: 13,
+        title: "French Roulette",
+        img: "https://luckmedia.link/pltl_french_roulette/thumb.jpg",
+      },
+      {
+        id: 14,
+        title: "Greek Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 15,
+        title: "Hindi Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 16,
+        title: "Prestige Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 18,
+        title: "Speed Auto Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 19,
+        title: "Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 20,
+        title: "Auto Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 21,
+        title: "Speed Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 22,
+        title: "Turkish Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 23,
+        title: "UK Roulette",
+        img: "https://luckmedia.link/pltl_bucharest_roulette/thumb.jpg",
+      },
+      {
+        id: 24,
+        title: "Mega Fire Blaze Roulette Live",
+        img: "https://luckmedia.link/pltl_mega_fire_blaze_roulette_live/thumb.jpg",
+      },
+      {
+        id: 25,
+        title: "Lightning Roulette",
+        img: "https://luckmedia.link/evo_lightning_roulette/thumb.jpg",
+      },
+      {
+        id: 26,
+        title: "Roulette",
+        img: "https://luckmedia.link/evo_roulette/thumb.jpg",
+      },
+      {
+        id: 27,
+        title: "Immersive Roulette",
+        img: "https://luckmedia.link/evo_immersive_roulette/thumb.jpg",
+      },
+      {
+        id: 28,
+        title: "Instant Roulette",
+        img: "https://luckmedia.link/evo_instant_roulette/thumb.jpg",
+      },
+      {
+        id: 29,
+        title: "Auto-Roulette",
+        img: "https://luckmedia.link/evo_autoroulette/thumb.jpg",
+      },
+      {
+        id: 30,
+        title: "Speed Roulette",
+        img: "https://luckmedia.link/evo_speed_roulette/thumb.jpg",
+      },
+      {
+        id: 31,
+        title: "VIP Roulette",
+        img: "https://luckmedia.link/evo_vip_roulette/thumb.jpg",
+      },
+      {
+        id: 32,
+        title: "American Roulette",
+        img: "https://luckmedia.link/evo_american_roulette/thumb.jpg",
+      },
+      {
+        id: 33,
+        title: "Double Ball Roulette",
+        img: "https://luckmedia.link/evo_double_ball_roulette/thumb.jpg",
+      },
+      {
+        id:34,
+        title: "Speed Auto Roulette",
+        img: "https://luckmedia.link/evo_speed_auto_roulette/thumb.jpg",
+      },
+      {
+        id: 35,
+        title: "Auto-Roulette VIP",
+        img: "https://luckmedia.link/evo_autoroulette_vip/thumb.jpg",
+      },
+      {
+        id: 36,
+        title: "Salon Privé Roulette",
+        img: "https://luckmedia.link/evo_salon_priv_roulette/thumb.jpg",
+      },
+      {
+        id: 37,
+        title: "Casino Malta Roulette",
+        img: "https://luckmedia.link/evo_casino_malta_roulette/thumb.jpg",
+      },
+      {
+        id: 38,
+        title: "Dragonara Roulette",
+        img: "https://luckmedia.link/evo_dragonara_roulette/thumb.jpg",
+      },
+      {
+        id: 39,
+        title: "Grand Casino Roulette",
+        img: "https://luckmedia.link/evo_grand_casino_roulette/thumb.jpg",
+      },
+      {
+        id: 40,
+        title: "Hindi Roulette",
+        img: "https://luckmedia.link/evo_hindi_roulette/thumb.jpg",
+      },
+      {
+        id: 41,
+        title: "Roulette",
+        img: "https://luckmedia.link/aes_roulette/thumb.jpg",
+      },
+      {
+        id: 42,
+        title: "Hippodrome Grand Casino",
+        img: "https://luckmedia.link/evo_hippodrome_grand_casino/thumb.jpg",
+      },
+      {
+        id: 43,
+        title: "Auto Roulette",
+        img: "https://luckmedia.link/roy_auto_roulette/thumb.jpg",
+      },
+      {
+        id: 44,
+        title: "Italian Roulette",
+        img: "https://luckmedia.link/ezg_italian_roulette/thumb.jpg",
+      },
+      {
+        id: 45,
+        title: "Speed Roulette",
+        img: "https://luckmedia.link/ezg_speed_roulette/thumb.jpg",
+      },
+      {
+        id: 46,
+        title: "Diamond Roulette",
+        img: "https://luckmedia.link/ezg_diamond_roulette/thumb.jpg",
+      },
+      {
+        id: 47,
+        title: "Namaste Roulette",
+        img: "https://luckmedia.link/ezg_namaste_roulette/thumb.jpg",
+      },
+      {
+        id: 48,
+        title: "Spanish Roulette",
+        img: "https://luckmedia.link/ezg_cumbia_ruleta_1/thumb.jpg",
+      },
+      {
+        id: 49,
+        title: "Türkçe Rulet",
+        img: "https://luckmedia.link/ezg_trke_rulet/thumb.jpg",
+      },
+      {
+        id: 50,
+        title: "Fiesta Roulette",
+        img: "https://luckmedia.link/ezg_fiesta_roulette/thumb.jpg",
+      },
+      {
+        id: 51,
+        title: "Auto Roulette",
+        img: "https://luckmedia.link/ezg_auto_roulette/thumb.jpg",
+      },
+      {
+        id: 52,
+        title: "Speed Auto Roulette",
+        img: "https://luckmedia.link/ezg_speed_auto_roulette/thumb.jpg",
+      },
+      {
+        id: 53,
+        title: "Oracle Blaze",
+        img: "https://luckmedia.link/ezg_oracle_blaze/thumb.jpg",
+      },
+      {
+        id: 54,
+        title: "XXXtreme Lightning Roulette",
+        img: "https://luckmedia.link/evo_xxxtreme_lightning_roulette/thumb.jpg",
+      },
+      {
+        id: 55,
+        title: "Casino Marina Roulette",
+        img: "https://luckmedia.link/ezg_casino_marina_roulette/thumb.jpg",
+      },
+      {
+        id: 56,
+        title: "Speed Roulette 1",
+        img: "https://luckmedia.link/ppl_speed_roulette_1/thumb.jpg",
+      },
+      {
+        id: 57,
+        title: "Roulette 1 Azure",
+        img: "https://luckmedia.link/ppl_roulette_1_azure/thumb.jpg",
+      },
+      {
+        id: 58,
+        title: "PowerUp Roulette",
+        img: "https://luckmedia.link/ppl_powerup_roulette/thumb.jpg",
+      },
+
     ],
     LiveSickBo: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Super Sic Bo",
+        img: "https://luckmedia.link/evo_super_sic_bo/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Sic Bo",
+        img: "https://luckmedia.link/ezg_sic_bo/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Ultimate Sic Bo",
+        img: "https://luckmedia.link/ezg_ultimate_sic_bo/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Mega Sicbo",
+        img: "https://luckmedia.link/ppl_mega_sicbo/thumb.jpg",
+      },
+      {
+        id: 5,
+        title: "Emperor Sic Bo",
+        img: "https://luckmedia.link/evo_emperor_sic_bo/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "Sic Bo",
+        img: "https://luckmedia.link/aug_sic_bo/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "SicBo Deluxe",
+        img: "https://luckmedia.link/pltl_sicbo_deluxe/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "Sic Bo",
+        img: "https://luckmedia.link/pltl_sic_bo/thumb.jpg",
+      },
+      {
+        id: 9,
+        title: "Sicbo",
+        img: "https://luckmedia.link/kng_sicbo/thumb.jpg",
+      },
+      {
+        id: 10,
+        title: "Extra Sicbo",
+        img: "https://luckmedia.link/aes_extra_sicbo/thumb.jpg",
+      },
+      {
+        id: 11,
+        title: "Sic Bo",
+        img: "https://luckmedia.link/aes_sic_bo/thumb.jpg",
       },
     ],
     Lottery: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "First Person Mega Ball",
+        img: "https://luckmedia.link/evo_first_person_mega_ball/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Bingo Carnaval",
+        img: "https://luckmedia.link/jil_bingo_carnaval/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Keno",
+        img: "https://luckmedia.link/png_keno/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "French Keno",
+        img: "https://luckmedia.link/sms_french_keno/thumb.jpg",
+      },
+      {
+        id: 5,
+        title: "Russian Keno",
+        img: "https://luckmedia.link/sms_russian_keno/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "VIP Keno",
+        img: "https://luckmedia.link/sms_vip_keno/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "Keno",
+        img: "https://luckmedia.link/spb_keno/thumb.jpg",
+      },
+      {
+        id: 8,
+        title: "Extra Bingo",
+        img: "https://luckmedia.link/wzd_extra_bingo/thumb.jpg",
       },
     ],
     VirtualSports: [
       {
         id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Steeplechase",
+        img: "https://luckmedia.link/pgp_steeplechase/thumb.jpg",
       },
       {
         id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Force 1",
+        img: "https://luckmedia.link/pgp_force_1/thumb.jpg",
       },
       {
         id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Fantastic League",
+        img: "https://luckmedia.link/pgp_fantastic_league/thumb.jpg",
       },
       {
         id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Greyhound Racing",
+        img: "https://luckmedia.link/pgp_greyhound_racing/thumb.jpg",
+      },
+      {
+        id: 5,
+        title: "Penalty Shootout",
+        img: "https://luckmedia.link/pgp_penalty_shootout/thumb.jpg",
+      },
+      {
+        id: 6,
+        title: "Horse Racing",
+        img: "https://luckmedia.link/pgp_horse_racing/thumb.jpg",
+      },
+      {
+        id: 7,
+        title: "Virtual Hound Racing",
+        img: "https://luckmedia.link/kng_virtual_hound_racing/thumb.jpg",
       },
     ],
   });
@@ -902,20 +1811,23 @@ export const LiveCasino = () => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
+        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 overflow-x-scroll ">
           {Object.keys(categories).map((category) => (
+            
             <Tab
               key={category}
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-md py-2 px-2 text-sm font-medium leading-5 ",
-                  " ring-opacity-60 ring-offset-2 max-w-[100px]",
+                  " rounded-md    px-4 py-1.5 text-xs font-medium  ",
+                  "  ",
                   selected
-                    ? "bg-white "
+                    ? "bg-white"
                     : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"
                 )
               }
             >
+              <img className="object-cover w-4 h-4 m-auto " src="https://sportsexch.com/images/icons/top_indian_games.png" alt=""/>
+              
               {category}
             </Tab>
           ))}
@@ -933,7 +1845,7 @@ export const LiveCasino = () => {
               <div class="-m-1 flex flex-wrap md:-m-2">
                 {posts.map((post) => (
                   <div class="flex  w-1/4 flex-wrap">
-                    <div class="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                    <div class="w-full p-3 md:p-6 text-white text-sm font-bold flex flex-col items-center">
                       <img
                         alt="gallery"
                         class="block h-full w-full rounded-lg object-cover object-center"
@@ -948,6 +1860,34 @@ export const LiveCasino = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
+      <div class="container mx-auto py-2">
+        <div className="text-white text-center mx-auto">
+          {/* <p className="font-bold bg-gray-400">Back to Top</p> */}
+          <p className="font-bold bg-gray-400 w-64">Back</p>
+        </div>
+
+
+         <li>
+            <div className="text-white font-weight: 500 font-size: 18px line-height: 20px letter-spacing: normal margin: 0 0 16px font-semibold py-2 color: #f9fafa">
+              Info
+            </div>
+            <div className="text-white py-2">Privacy Policy</div>
+            <div className="text-white py-2">Terms & Conditions</div>
+            <div className="text-white py-2">Gambling can be addictive</div>
+          </li> 
+
+         <li>
+            <div className="text-white py-2 text-center font-semibold">Get Started</div>
+            <div className="text-white py-2 text-center">About Us</div>
+            <div className="text-white py-2 text-center">KYC and Privacy Policy</div>
+          </li>
+           
+           <li>
+          <span className="text-white py-2 font-semibold">Sportsexch</span>
+
+          <span className="text-white py-2">Download our mobile</span> 
+          </li>
+    </div>
     </div>
   );
 };
