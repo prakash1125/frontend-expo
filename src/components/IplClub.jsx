@@ -95,7 +95,7 @@ export const IplClub = () => {
   //   ];
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
-  };
+  }; 
   let [categories] = useState({
     All: [
       {
@@ -219,6 +219,8 @@ export const IplClub = () => {
           },
     ],
   });
+
+
   return (
     <>
       <ul className="w-full px-2 pr-0 pt-2">

@@ -1,27 +1,33 @@
 import React from 'react'
 import { useState } from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
+import { RiArrowUpSLine } from 'react-icons/ri';
 
 const MarketData = () => {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  const data = [2.18, 2.18, 2.18, 2.18, 2.18, 2.18,]
+  const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25,]
 
   return (
 
     <div class="rounded-md shadow-md w-full bg-[#22262a]">
-      <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between h-[40px] px-4">
-        <div class="flex items-center">
+      <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between h-[40px] px-4 cursor-pointer ">
+        <div class="flex items-center ">
           <div class="flex items-center text-sm text-[#f9fafa] font-medium ">
             Indian Premeier Leauge
           </div>
         </div>
         <div class="flex items-center space-x-8 px-1">
-          <div class="text-sm font-bold text-[#CCC]">2 </div>
+          <div class="flex text-sm font-bold text-[#CCC]   ">2 
+
+            {isDropdownOpen ? <RiArrowUpSLine className='ml-2 text-xl m-auto'/>   : <IoIosArrowDown className='ml-2 text-lg  m-auto' /> }
+          
+            </div>
         </div>
       </div>
       {isDropdownOpen && (
         <>
-          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black  ">
+          <div   className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black   ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -53,14 +59,14 @@ const MarketData = () => {
 
             <div className="flex gap-1 rounded-sm pr-4 pl-2">
               {data.map((item) =>
-                <div className="w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  text-[#008EFB] bg-[#32383e] cursor-pointer">
-                  <span className='m-auto'>{item}</span>
+                <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25  && 'text-[#EF5480]' } text-[#008EFB] bg-[#32383e] cursor-pointer`}>
+                  <span className='m-auto brightness-125'>{item}</span>
                 </div>
               )}
 
             </div>
           </div>
-          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black  ">
+          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black   ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -90,10 +96,10 @@ const MarketData = () => {
 
             </div>
 
-            <div className="flex gap-1 rounded-sm pr-4 pl-2">
+            <div className="flex gap-1 rounded-sm pr-4 pl-2 ">
               {data.map((item) =>
-                <div className="w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  text-[#008EFB] bg-[#32383e] cursor-pointer">
-                  <span className='m-auto'>{item}</span>
+                <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  ${item === 2.25  && 'text-[#EF5480]' } text-[#008EFB] bg-[#32383e] cursor-pointer`}>
+                  <span className='m-auto brightness-125'>{item}</span>
                 </div>
               )}
 

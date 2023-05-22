@@ -6,38 +6,39 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export const Sports = () => {
+  const [categoryId, setCategoryId] = useState(0);
   let [categories] = useState({
     Cricket: [
-        {
-            id: 1,
-            title: "One Day Internationals",
-            team1: "Ireland",
-            team2: "Bangladesh",
-          },
-          {
-            id: 2,
-            title: "T20 Internationals",
-            team1: "Australia",
-            team2: "India",
-          },
-          {
-            id: 3,
-            title: "Test Matches",
-            team1: "England",
-            team2: "New Zealand",
-          },
-          {
-            id: 4,
-            title: "ODI Series",
-            team1: "Pakistan",
-            team2: "West Indies",
-          },
-          {
-            id: 5,
-            title: "T20 Series",
-            team1: "South Africa",
-            team2: "Sri Lanka",
-          },
+      {
+        id: 1,
+        title: "One Day Internationals",
+        team1: "Ireland",
+        team2: "Bangladesh",
+      },
+      {
+        id: 2,
+        title: "T20 Internationals",
+        team1: "Australia",
+        team2: "India",
+      },
+      {
+        id: 3,
+        title: "Test Matches",
+        team1: "England",
+        team2: "New Zealand",
+      },
+      {
+        id: 4,
+        title: "ODI Series",
+        team1: "Pakistan",
+        team2: "West Indies",
+      },
+      {
+        id: 5,
+        title: "T20 Series",
+        team1: "South Africa",
+        team2: "Sri Lanka",
+      },
     ],
     Football: [
       {
@@ -158,24 +159,28 @@ export const Sports = () => {
       },
     ],
   });
+
+
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-1 rounded-xl scroll-x p-1">
-          {Object.keys(categories).map((category) => (
+        <Tab.List className="flex gap-1  scroll-x ">
+          {Object.keys(categories).map((category, index) => (
             <Tab
               key={category}
+              onClick={() => setCategoryId(index)}
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-md p-1 py-2 text-xs font-medium leading-5 ",
+                  "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
                   "  ",
                   selected
-                    ? "bg-[#FFF] "
-                    : "text-[#CCD1D5] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+                    ? "bg-[#FFF]  font-semibold"
+                    : "text-[#fff] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class="mx-auto bg-[#CCD1D5] rounded-full object-cover h-5 w-5 "></img>
+              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 `}></img>
+
               {category}
             </Tab>
           ))}
@@ -185,9 +190,9 @@ export const Sports = () => {
             <Tab.Panel
               key={idx}
               className={classNames(''
-              //     // 'rounded-md w-full bg-white p-3',
-              //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
-                )}
+                //     // 'rounded-md w-full bg-white p-3',
+                //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+              )}
             >
               <ul>
                 {posts.map((post) => (
@@ -228,7 +233,7 @@ export const Sports = () => {
                         </div>
                       </div>
                     </div> */}
-                    <MarketDataCard/>
+                    <MarketDataCard />
                   </li>
                 ))}
               </ul>

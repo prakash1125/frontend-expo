@@ -181,10 +181,14 @@
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 
+
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
+
 export const InPlay = () => {
+  const [categoryId, setCategoryId] = useState(0);
   let [categories] = useState({
     Cricket: [
         {
@@ -340,26 +344,28 @@ export const InPlay = () => {
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-1 rounded-xl scroll-x p-1">
-          {Object.keys(categories).map((category) => (
+      <Tab.List className="flex gap-1  scroll-x ">
+      {Object.keys(categories).map((category, index) => (
             <Tab
               key={category}
+              onClick={() => setCategoryId(index)}
               className={({ selected }) =>
                 classNames(
-                  "w-full rounded-md p-1 py-2 text-xs font-medium leading-5 ",
+                  "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
                   "  ",
                   selected
-                    ? "bg-[#FFF] "
-                    : "text-[#CCD1D5] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+                    ? "bg-[#FFF]  font-semibold"
+                    : "text-[#fff] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class="mx-auto bg-[#CCD1D5] rounded-full object-cover h-5 w-5 "></img>
+              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 `}></img>
+
               {category}
             </Tab>
           ))}
         </Tab.List>
-        <div className="m-1 p-1 text-sm rounded-sm w-full bg-[#22262a] text-[#CCD1D5] font-semibold ">There is a no match available at this time in <span className="text-green-600">InPlay.</span></div>
+        <div className="mt-2 p-2 text-sm rounded-md w-full bg-[#22262a] text-[#f9fafa] font-semibold ">There is a no match available at this time in <span className="text-green-600">InPlay.</span></div>
         {/* <Tab.Panels className="mt-2">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel

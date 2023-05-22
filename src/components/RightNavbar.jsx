@@ -8,6 +8,7 @@ import img3 from "../assets/images/casinomarina.jpg";
 import img4 from "../assets/images/casinomarina.jpg";
 import img5 from "../assets/images/casinomarina.jpg";
 import Events from "./Events";
+
 export const RightNavbar = () => {
   const settings = {
     // dots: true,
@@ -39,7 +40,7 @@ export const RightNavbar = () => {
           ))}
         </Slider>
       </div>
-      <div class="max-w-xs mx-auto bg-[#22262a] rounded-sm mt-2 mb-2">
+      <div class="max-w-xs mx-auto bg-[#22262a] rounded-md mt-2 mb-2">
         <div className="p-1 flex justify-center">
           <button className=" text-white text-sm bg-[#32383e] p-3 rounded-md w-full font-semibold">
             Popular Events
@@ -119,6 +120,11 @@ export const RightNavbar = () => {
         </div> */}
       <Events/>
       <Events/>
+      <Events/>
+      <Events/>
+      <Events/>
+      
+      
         
         
       </div>

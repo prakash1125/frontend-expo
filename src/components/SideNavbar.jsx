@@ -16,7 +16,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const SideNavbar = () => {
+export const SideNavbar = () => { 
   const menu = [
     {
       title: "Cricket",
@@ -101,9 +101,11 @@ export const SideNavbar = () => {
       <ul className="w-full px-4">
         {menu.map((item, index) => (
           <li
+          onClick={() => toggleAccordion(index)}
             key={index}
-            className={`flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-[#22262a] rounded-md ${
+            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-[#22262a] rounded-md ${
               activeIndex === index ? "bg-[#22262a]" : ""
+              
             }`}
           >
             <div className="flex  justify-between items-center gap-3 px-4">
@@ -120,7 +122,7 @@ export const SideNavbar = () => {
                   </span>
                   <h4
                     className="flex justify-center text-[#EEE] cursor-pointer"
-                    onClick={() => toggleAccordion(index)}
+                    
                   >
                     {activeIndex === index ?<RiArrowUpSLine className="font-semibold"/> : <IoIosArrowDown className="font-semibold"/>}
                   </h4>
@@ -135,7 +137,7 @@ export const SideNavbar = () => {
                     key={dropdownIndex}
                     className="text-[#EEE] text-sm font-semibold"
                   >
-                    {dropdownItem}
+                    {dropdownItem} 
                   </h4>
                 ))}
               </div>

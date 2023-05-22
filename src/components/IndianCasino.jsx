@@ -56,7 +56,7 @@ export const IndianCasino = () => {
       </div>
       <div class="container mx-auto py-2">
         <p className="text-lg font-semibold text-white px-2 py-4">Indian Casino</p>
-        <div class="-m-1 flex flex-wrap md:-m-2">
+        <div class="flex ">
           <div class="flex w-1/4 flex-wrap">
             <div class="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
               <img
@@ -67,14 +67,14 @@ export const IndianCasino = () => {
               TeenPatti
             </div>
           </div>
-          <div class="flex w-1/4 flex-wrap">
+          {/* <div class="flex w-1/4 flex-wrap">
             <div class="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
               <img
                 alt="gallery"
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(74).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -84,7 +84,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(75).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -94,7 +94,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(70).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -104,7 +104,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(76).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -114,7 +114,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -124,7 +124,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -134,7 +134,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -144,7 +144,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -154,7 +154,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -164,7 +164,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -174,7 +174,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -184,7 +184,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -194,7 +194,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -204,7 +204,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -214,7 +214,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -224,7 +224,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -234,7 +234,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -244,7 +244,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -254,7 +254,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -264,7 +264,7 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
           </div>
           <div class="flex w-1/4 flex-wrap">
@@ -274,10 +274,10 @@ export const IndianCasino = () => {
                 class="block h-full w-full rounded-lg object-cover object-center"
                 src="https://tecdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(72).webp"
               />
-               TeenPatti
+              TeenPatti
             </div>
-          </div>
-        </div>
+          </div>*/}
+        </div> 
       </div>
     </>
   );

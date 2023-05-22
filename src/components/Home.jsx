@@ -4,12 +4,13 @@ import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from 'react';
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
-import Events from "./Events";
-import Modal from "./Modal";
+
+import { IoIosArrowDown } from 'react-icons/io';
+import { RiArrowUpSLine } from 'react-icons/ri';
 
 export const Home = () => {
 
-const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
 
 
@@ -69,7 +70,7 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
         </Slider>
       </div>
       <div className="flex overflow-x-scroll w-full scroll-x">
-        <div className="flex gap-2 rounded-xl bg-black p-1 w-full">
+        <div className="flex gap-1 rounded-xl bg-black   w-full">
           <div
             className={
               " cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
@@ -82,7 +83,7 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
                   src="https://sportsexch.com/images/icons/sports.png"
                   class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
                 />
-              </a>  
+              </a>
             </div>
             <p className="text-center">Sports</p>
           </div>
@@ -166,23 +167,41 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
             </div>
             <p className="text-center">Sports</p>
           </div>
-       </div>
+          <div
+            className={
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+            }
+          >
+            <div className="">
+              <a href="#" class="relative block">
+                <img
+                  alt="profil"
+                  src="https://sportsexch.com/images/icons/slot.png"
+                  class="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
+                />
+              </a>
+            </div>
+            <p className="text-center">Sports</p>
+          </div>
+        </div>
       </div>
 
 
-      
-        
 
-       
+
+
+
 
       <div>
         <div className="flex justify-between mt-3">
-          <p className="text-white pb-2 px-2 text-lg font-bold">Cricket</p>
-          <p className="text-white pb-2 px-2 text-lg font-bold">1 Event</p>
+          <p onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="text-white pb-2 px-2 text-lg font-semibold cursor-pointer flex">Cricket
+            {isDropdownOpen ? <RiArrowUpSLine className='ml-2 text-xl m-auto' /> : <IoIosArrowDown className='ml-2 text-lg  m-auto' />}
+          </p>
+          <p className="text-white pb-2 px-2 text-lg font-semibold">1 Event</p>
         </div>
-        
-       
-        <MarketDataCard/>
+        {isDropdownOpen && (
+        <MarketDataCard />
+        )}
       </div>
 
 
@@ -190,16 +209,18 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
       <div>
         <div className="flex justify-between mt-16">
-          <p className="text-white pb-2 px-2 text-lg font-bold">Cricket</p>
-          <p className="text-white pb-2 px-2 text-lg font-bold">1 Event</p>
+          <p className="text-white pb-2 px-2 text-lg font-semibold">Indian Casino</p>
+          <button className=" text-[#dde0e3] text-sm bg-[#22262a] px-2 p-2 mb-2  rounded-md font-semibold">
+            All Indian Casino
+          </button>
         </div>
         <Slider {...settings2}>
           {images2.map((img, index) => (
-            <div key={index} className="flex  w-full scroll-x pb-6">
-              <div key={index} className="p-1  flex flex-col">
+            <div key={index} className=" scroll-x pb-6">
+              <div key={index} className="px-1">
                 <img
                   src={img}
-                  className=" h-30 min-w-[200px] rounded-md"
+                  className="  object-cover rounded-md "
                   alt={`Slide ${index + 1}`}
                 />
               </div>
@@ -207,8 +228,9 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
           ))}
         </Slider>
       </div>
-            <Footer/>
-            {/* <Modal/> */}
+      {/* <Footer /> */}
+      {/* <Modal/> */}
+      
     </div>
   );
 };

@@ -5,8 +5,12 @@ import { RightNavbar } from "../components/RightNavbar";
 import { SideNavbar } from "../components/SideNavbar";
 import { Sports } from "../components/Sports";
 import { Outlet } from "react-router-dom";
+import Modal from "../components/Modal"
 
 export const Layout = () => {
+
+   
+
   const [toggle, setToggle] = useState(true);
   const [isAboveXl, setisAbovexl] = useState(false);
   useEffect(() => {
@@ -38,7 +42,7 @@ export const Layout = () => {
         <div className="">
           <div className="flex ">
             {toggle ? (
-              <div className="h-[90vh] overflow-y-scroll scrollbar-hide bg-black absolute md:relative z-50 w-2/4 max-w-[252px]">
+              <div className="h-[90vh] z-0 overflow-y-scroll scrollbar-hide bg-black absolute md:relative z-50 w-2/4 max-w-[252px]">
                 <SideNavbar />
               </div>
             ) : null}
@@ -49,6 +53,12 @@ export const Layout = () => {
       <div className="container mx-auto px-6 md:hidden ">
         <MobileNavbar />
       </div>
+     
     </div>
   );
 };
+
+
+
+
+
