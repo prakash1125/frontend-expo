@@ -73,18 +73,18 @@ export const Home = () => {
         </Slider>
       </div>
       <div className="flex overflow-x-scroll w-full scroll-x">
-        <div className="flex gap-1 rounded-xl bg-black   w-full">
+        <div className="flex gap-1 rounded-xl bg-skin-main   w-full">
           <div
             className={
-              " cursor-pointer px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
+              " cursor-pointer px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor  hover:text-skin-white"
             }
           >
             <div className="">
               <a href="#" class="relative block">
                 <img
-                  alt="profil"
+                  alt="profil"  
                   src="https://sportsexch.com/images/icons/sports.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
+                  class="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
                 />
               </a>
             </div>
@@ -92,7 +92,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
             }
           >
             <div className="">
@@ -100,7 +100,7 @@ export const Home = () => {
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/live.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a] "
+                  class="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav "
                 />
               </a>
             </div>
@@ -108,7 +108,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
             }
           >
             <div className="">
@@ -124,7 +124,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
             }
           >
             <div className="">
@@ -132,7 +132,7 @@ export const Home = () => {
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/indian-casino.png"
-                  class="mx-auto object-cover h-5 w-5 bg-[#22262a] "
+                  class="mx-auto object-cover h-5 w-5 bg-skin-nav "
                 />
               </a>
             </div>
@@ -140,7 +140,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
             }
           >
             <div className="">
@@ -148,7 +148,7 @@ export const Home = () => {
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/live-casino.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
+                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
                 />
               </a>
             </div>
@@ -156,7 +156,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
             }
           >
             <div className="">
@@ -164,7 +164,7 @@ export const Home = () => {
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/slot.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
+                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
                 />
               </a>
             </div>
@@ -172,7 +172,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
             }
           >
             <div className="">
@@ -180,7 +180,7 @@ export const Home = () => {
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/slot.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-[#22262a]"
+                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
                 />
               </a>
             </div>
@@ -197,10 +197,10 @@ export const Home = () => {
 
       <div>
         <div className="flex justify-between mt-3">
-          <p onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="text-white pb-2 px-2 text-lg font-semibold cursor-pointer flex">Cricket
+          <p onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="text-skin-white pb-2 px-2 text-lg font-semibold cursor-pointer flex">Cricket
             {isDropdownOpen ? <RiArrowUpSLine className='ml-2 text-xl m-auto' /> : <IoIosArrowDown className='ml-2 text-lg  m-auto' />}
           </p>
-          <p className="text-white pb-2 px-2 text-lg font-semibold">1 Event</p>
+          <p className="text-skin-white pb-2 px-2 text-lg font-semibold">1 Event</p>
         </div>
         {isDropdownOpen && (
         <MarketDataCard />
@@ -212,8 +212,8 @@ export const Home = () => {
 
       <div>
         <div className="flex justify-between mt-16">
-          <p className="text-white pb-2 px-2 text-lg font-semibold">Indian Casino</p>
-          <button className=" text-[#dde0e3] text-sm bg-[#22262a] px-2 p-2 mb-2  rounded-md font-semibold">
+          <p className="text-skin-white pb-2 px-2 text-lg font-semibold">Indian Casino</p>
+          <button className=" text-skin-primary text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
             All Indian Casino
           </button>
         </div>

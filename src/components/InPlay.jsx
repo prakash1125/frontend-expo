@@ -107,8 +107,8 @@
 //                 "w-full rounded-md p-1 py-2 text-xs font-medium leading-5 ",
 //                 "  ",
 //                 selected
-//                   ? "bg-[#FFF] "
-//                   : "text-[#CCD1D5] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+//                   ? "bg-skin-imgbg "
+//                   : "text-[#CCD1D5] bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
 //               )
 //               }
 //             >
@@ -132,15 +132,15 @@
 //                     key={post.id}
 //                     className="relative pb-2"
 //                   >
-//                     <div class="rounded-md shadow-md w-full bg-[#22262a]">
+//                     <div class="rounded-md shadow-md w-full bg-skin-nav">
 //                       <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
 //                         <div class="flex items-center space-x-3">
-//                           <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
+//                           <div class="flex items-center text-sm text-skin-secondary font-bold ">
 //                             {post.title}
 //                           </div>
 //                         </div>
 //                         <div class="flex items-center space-x-8 px-6">
-//                           <div class="text-sm font-bold text-[#f9fafa]">2</div>
+//                           <div class="text-sm font-bold text-skin-secondary">2</div>
 //                         </div>
 //                       </div>
 
@@ -354,8 +354,8 @@ export const InPlay = () => {
                   "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
                   "  ",
                   selected
-                    ? "bg-[#FFF]  font-semibold"
-                    : "text-[#fff] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+                    ? "bg-skin-imgbg  font-semibold"
+                    : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white"
                 )
               }
             >
@@ -365,7 +365,7 @@ export const InPlay = () => {
             </Tab>
           ))}
         </Tab.List>
-        <div className="mt-2 p-2 text-sm rounded-md w-full bg-[#22262a] text-[#f9fafa] font-semibold ">There is a no match available at this time in <span className="text-green-600">InPlay.</span></div>
+        <div className="mt-2 p-2 text-sm rounded-md w-full bg-skin-nav text-skin-secondary font-semibold ">There is a no match available at this time in <span className="text-green-600">InPlay.</span></div>
         {/* <Tab.Panels className="mt-2">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel
@@ -381,15 +381,15 @@ export const InPlay = () => {
                     key={post.id}
                     className="relative pb-2"
                   >
-                    <div class="rounded-md shadow-md w-full bg-[#22262a]">
+                    <div class="rounded-md shadow-md w-full bg-skin-nav">
                       <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
                         <div class="flex items-center space-x-3">
-                          <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
+                          <div class="flex items-center text-sm text-skin-secondary font-bold ">
                             {post.title}
                           </div>
                         </div>
                         <div class="flex items-center space-x-8 px-6">
-                          <div class="text-sm font-bold text-[#f9fafa]">2</div>
+                          <div class="text-sm font-bold text-skin-secondary">2</div>
                         </div>
                       </div>
 

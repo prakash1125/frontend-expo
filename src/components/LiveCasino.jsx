@@ -1822,8 +1822,8 @@ export const LiveCasino = () => {
                   " rounded-md    px-4 py-1.5 text-xs font-medium  ",
                   "  ",
                   selected
-                    ? "bg-white"
-                    : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"
+                    ? "bg-skin-imgbg "
+                    : "text-skin-secondary bg-skin-cardhead hover:bg-skin-cardhead hover:text-skin-white"
                 )
               }
             >
@@ -1839,14 +1839,14 @@ export const LiveCasino = () => {
               key={idx}
               className={classNames(
                 ""
-                //     // 'rounded-md w-full bg-white p-3',
+                //     // 'rounded-md w-full bg-skin-imgbg  p-3',
                 //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
               <div class="-m-1 flex flex-wrap md:-m-2">
                 {posts.map((post) => (
                   <div class="flex  w-1/4 flex-wrap">
-                    <div class="w-full p-3 md:p-6 text-white text-sm font-bold flex flex-col items-center">
+                    <div class="w-full p-3 md:p-6 text-skin-white text-sm font-bold flex flex-col items-center">
                       <img
                         alt="gallery"
                         class="block h-full w-full rounded-lg object-cover object-center"

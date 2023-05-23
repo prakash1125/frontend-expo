@@ -41,9 +41,9 @@ export const RightNavbar = () => {
   return (
     <>
       {!isIndianPremierLeague && (
-        <div class="max-w-xs mx-auto bg-[#22262a] rounded-md mt-2">
+        <div class="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
           <div className="p-1 flex justify-center">
-            <button className=" text-white bg-[#32383e] p-3 text-sm rounded-md w-full font-semibold">
+            <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
               Live Casino Games
             </button>
           </div>
@@ -64,11 +64,11 @@ export const RightNavbar = () => {
 
       {location.pathname === "/indian-premier-league" && (
         <>
-          <div class="max-w-xs mx-auto bg-[#22262a] rounded-sm mt-2 mb-2">
+          <div class="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
             <div className="p-1 flex justify-center">
               <button
                 onClick={handleLiveTVClick}
-                className="flex justify-center items-center gap-2 text-white text-sm bg-[#32383e] p-3 rounded-md w-full font-semibold"
+                className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
               >
                 <span>Live TV</span>
               </button>
@@ -85,11 +85,11 @@ export const RightNavbar = () => {
             )}
           </div>
 
-          <div class="max-w-xs mx-auto bg-[#22262a] rounded-sm mt-2 mb-2">
+          <div class="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
             <div className="p-1 flex justify-center">
-              <button className="flex justify-center items-center gap-2 text-white text-sm bg-[#32383e] p-3 rounded-md w-full font-semibold">
+              <button className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
                 <span>My Bets </span>
-                <span className="flex items-center justify-center bg-[#EEE] text-[#000] rounded-full p-0.5 w-5 h-5 font-semibold text-xs">
+                <span className="flex items-center justify-center bg-skin-imgbg text-skin-dark  rounded-full p-0.5 w-5 h-5 font-semibold text-xs">
                   {myBets.length}{" "}
                 </span>
               </button>
@@ -99,19 +99,19 @@ export const RightNavbar = () => {
               <table class="overflow-scroll border-collapse w-full  text-center">
                 <thead>
                   <tr>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-white">
+                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
                       SELECTION
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-white">
+                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
                       ODD
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-white">
+                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
                       STAKE
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-white">
+                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
                       P/L
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-white">
+                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
                       TIME
                     </th>
                   </tr>
@@ -119,19 +119,19 @@ export const RightNavbar = () => {
                 <tbody>
                   {myBets.map((element, index) => (
                     <tr className="border-t-[#f9fafa]" key={index}>
-                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-[#f9fafa]">
+                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
                         {element.selection}
                       </td>
-                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-[#f9fafa]">
+                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
                         {element.odds}
                       </td>
-                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-[#f9fafa]">
+                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
                         {element.stake}
                       </td>
-                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-[#f9fafa]">
+                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
                         {element.pl}
                       </td>
-                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-[#f9fafa]">
+                      <td class="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
                         {element.time}
                       </td>
                     </tr>
@@ -143,9 +143,9 @@ export const RightNavbar = () => {
         </>
       )}
 
-      <div class="max-w-xs mx-auto bg-[#22262a] rounded-sm mt-2 mb-2">
+      <div class="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
         <div className="p-1 flex justify-center">
-          <button className=" text-white text-sm bg-[#32383e] p-3 rounded-md w-full font-semibold">
+          <button className=" text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
             Popular Events
           </button>
         </div>

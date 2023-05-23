@@ -175,8 +175,8 @@ export const Sports = () => {
                   "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
                   "  ",
                   selected
-                    ? "bg-[#FFF]  font-semibold"
-                    : "text-[#fff] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
+                    ? "bg-skin-imgbg  font-semibold"
+                    : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white"
                 )
               }
             >
@@ -201,7 +201,7 @@ export const Sports = () => {
                     key={post.id}
                     className="relative pb-2"
                   >
-                    {/* <div class="rounded-md shadow-md w-full bg-[#22262a]">
+                    {/* <div class="rounded-md shadow-md w-full bg-skin-nav ">
                       <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
                         <div class="flex items-center space-x-3">
                           <div class="flex items-center text-sm text-[#f9fafa] font-bold ">

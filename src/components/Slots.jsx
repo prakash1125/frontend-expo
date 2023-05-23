@@ -204,6 +204,9 @@ export const Slots = () => {
       },*/
     ],
   });
+
+
+
   return (
     <div>
       <Slider {...settings}>
@@ -218,7 +221,7 @@ export const Slots = () => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
+        <Tab.List className="flex gap-2 rounded-xl bg-transparent p-1 scroll-x">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
@@ -227,8 +230,8 @@ export const Slots = () => {
                   "w-full rounded-md py-2 px-2 text-sm font-medium leading-5 ",
                   " ring-opacity-60 ring-offset-2 max-w-[100px]",
                   selected
-                    ? "bg-white "
-                    : "text-blue-100 bg-[#32383e] hover:bg-[#32383e] hover:text-white"
+                    ? "bg-skin-imgbg "
+                    : "text-skin-secondary bg-skin-cardhead hover:bg-skin-cardhead hover:text-skin-white "
                 )
               }
             >
@@ -249,7 +252,7 @@ export const Slots = () => {
               <div class="-m-1 flex flex-wrap md:-m-2">
                 {posts.map((post) => (
                   <div class="flex  w-1/4 flex-wrap">
-                    <div class="w-full p-4 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                    <div class="w-full p-4 md:p-4 text-skin-white  text-sm font-bold flex flex-col items-center">
                       <img
                         alt="gallery"
                         class="block h-full w-full rounded-lg object-cover object-center"

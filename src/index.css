@@ -3,6 +3,81 @@
 @tailwind utilities;
 
 
+@layer base {
+    :root {
+        --main-background:#0b0d0e;
+        --nav-color:#22262a ;
+        --card-heading-bg-color:#32383e;
+        --card-small-card:#f9fafa; 
+        --img-bg-color:white; 
+        --hover-color:#393C40;
+        --hover-color-secondary:#4C555E;
+
+
+        --text-primary:#cfd4d8;
+        --text-secondary:#f9fafa;
+        --text-white:white;
+        --text-blue:#008EFB;
+        --text-pink:#EF5480;
+        --text-dark:#32383e;
+    }
+
+    .light-theme {
+        --main-background:#EEE;
+        --nav-color:#fffefe ;
+        --card-heading-bg-color:#dddcdc;
+        --card-small-card:#e9e7e7; 
+        --img-bg-color:rgb(245, 245, 245); 
+        --hover-color:#7aafff;
+        --hover-color-secondary:#dcedff;
+
+        --text-primary:rgb(88, 87, 87);
+        --text-secondary:rgb(51, 51, 51);
+        --text-white:rgb(56, 56, 56);
+        --text-blue:#008EFB;
+        --text-pink:#EF5480;
+        --text-dark:rgb(53, 53, 53);
+        
+    }
+
+    .light-theme .scrollbar-hide::-webkit-scrollbar-thumb 
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+        background-color: rgb(228, 224, 224);
+    }
+    
+    .colorful-theme {
+        --main-background:#c6e0bf;
+        --nav-color:#eec0c0 ;
+        --card-heading-bg-color:#c7a0a0;
+        --card-small-card:rgb(192, 187, 187); 
+        --img-bg-color:rgb(200, 204, 160); 
+        --hover-color:#f8f8f8;
+        --hover-color-secondary:#dfdfdf;
+
+
+        --text-primary:rgb(44, 44, 44);
+        --text-secondary:rgb(80, 80, 80);
+        --text-white:rgb(97, 97, 97);
+        --text-blue:#008EFB;
+        --text-pink:#EF5480;
+        --text-dark:rgb(75, 75, 75);
+    }
+
+    .pink-theme {  
+        --text-color: white;
+        --fill-color: white;
+        --fill-color-indicator: white;
+    }
+
+}
+
+@layer components {
+    .light {
+        @apply bg-[#ECEAEA];
+    }
+}
 
 
 .scrollbar-hide::-webkit-scrollbar {

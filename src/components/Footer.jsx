@@ -3,8 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <div className="footer justify-center text-[#f9fafa] pt-16 pb-28">
-        <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-[#4c555e] ">
+      <div className="footer justify-center text-skin-secondary pt-16 pb-28">
+        <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead ">
           <div className="Scroll-top_icon">
             <a href="/" className="scrollToTop">
               <span>Back to Top</span>
@@ -52,7 +52,7 @@ const Footer = () => {
                 <div className="flex footer-apk-download">
                   <a href="/get-apk" className="footer-download-apk">
                     <img
-                      className="mr-1 rounded-sm bg-white"
+                      className="mr-1 rounded-sm bg-skin-imgbg"
                       src="https://sportsexch.com/images/icons/android.png"
                       width="24px"
                       alt="apk"
@@ -85,7 +85,7 @@ const Footer = () => {
         <div className="flex justify-center mt-3 mb-3">
           <img
             src="https://sportsexch.com/images/bg/betfair.png"
-            className="bg-white mb-3 betfair"
+            className="bg-skin-imgbg mb-3 betfair"
           />
         </div>
       </div>

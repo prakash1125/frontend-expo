@@ -70,8 +70,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   return (
     <Disclosure
       as="nav"
-      className={`border-b border-gray-200/10 bg-[#22262a] ${screen ? "px-64" : ""
-        } `}
+      className={`border-b border-gray-200/10 bg-skin-nav  ${
+        screen ? "px-64" : ""
+      } `}
     >
       {({ open }) => (
         <>
@@ -79,8 +80,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
             <div className="relative flex items-center justify-between
              gap-3">
               <div
-                className={`text-white ${toggle ? "text-[20px]" : "text-[20px]"
-                  }  md:hidden`}
+                className={`text-skin-white  ${
+                  toggle ? "text-[20px]" : "text-[20px]"
+                }  md:hidden`}
                 onClick={() => setToggle(!toggle)}
               >
                 {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
@@ -90,12 +92,12 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="block h-8 w-full lg:hidden"
+                      className="block h-8 w-full lg:hidden bg-black"
                       src="https://sportsexch.com/images/logo/main.png"
                       alt="Your Company"
                     />
                     <img
-                      className="hidden h-12 w-auto lg:block"
+                      className="hidden h-12 w-auto lg:block bg-black rounded-lg "
                       src="https://sportsexch.com/images/logo/main.png"
                       alt="Your Company"
                     />
@@ -109,8 +111,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                         to={item.href}
                         className={classNames(
                           item.href == currentRoute &&
-                          "bg-[#32383e] text-white",
-                          "px-3 py-5 text-xs font-font-family font-bold text-[#cfd4d8] hover:bg-[#32383e] hover:text-white"
+                            "bg-skin-cardhead text-skin-white ",
+                          "px-3 py-5 text-xs font-font-family font-bold text-skin-primary hover:bg-skin-cardhead hover:text-skin-white "
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -122,17 +124,18 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
               </div>
 
 
+{/* AFTER LOGIN */}
 
-              {/* AFTER LOGIN */}
-              <div className="flex gap-1.5 items-center relative ">
+              {/* <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {
                   return (
                     <Link
                       key={index}
                       to={element.href}
                       type="button"
-                      className={`bg-[#1F3D34] rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white hover:text-white focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-[#1B3B55]"
-                        }`}
+                      className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${
+                        element.name === "D" ? "1f4d34" : "bg-sky-900"
+                      }`}
                     >
                       {element.name}
                     </Link>
@@ -141,32 +144,32 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
                 <div
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="  wallet bg-[#32383e] hover:bg-[#4C555E]  p-0.5 rounded-md flex items-center cursor-pointer"
+                  className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
                 >
-                  <span className="text-white text-xs font-semibold mx-2.5">
+                  <span className="text-skin-white  text-xs font-semibold mx-2.5">
                     &#x20B9;5,564.20
                   </span>
                   <button
                     type="button"
-                    className="bg-green-600 rounded-md px-2.5 font-semibold p-0.5  text-xl text-white hover:text-white focus:outline-none "
+                    className="bg-green-600 rounded-md px-2.5 font-semibold p-0.5  text-xl text-skin-white  hover:text-skin-white  focus:outline-none "
                   >
                     +
                   </button>
                 </div>
                 {isDropdownOpen && (
                   <div className="w-64 absolute top-12 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md divide-y">
-                    <div className="text-center text-white font-bold py-3 divide-y">
+                    <div className="text-center text-skin-white  font-bold py-3 divide-y">
                       Wallet Active
                       <div className="tabs flex mx-2.5 my-1.5">
                         <button
                           type="button"
-                          className="bg-[#32383e] active:bg-[#169c59] rounded-r-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-white hover:text-white focus:outline-none "
+                          className="bg-skin-cardhead active:bg-[#169c59] rounded-r-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                         >
                           Balance
                         </button>
                         <button
                           type="button"
-                          className="bg-[#32383e] active:bg-[#169c59] rounded-l-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-white hover:text-white focus:outline-none "
+                          className="bg-skin-cardhead active:bg-[#169c59] rounded-l-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                         >
                           Bonus
                         </button>
@@ -176,10 +179,10 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       {walletBalance.map((element, index) => {
                         return (
                           <div className="flex justify-between" key={index}>
-                            <span className="py-2 text-sm text-white">
+                            <span className="py-2 text-sm text-skin-white ">
                               {element.name}
                             </span>
-                            <span className="py-2 text-sm text-white">
+                            <span className="py-2 text-sm text-skin-white ">
                               {element.amount}
                             </span>
                           </div>
@@ -192,7 +195,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 <button
                   onClick={() => setIsProfileOpen(!isProfileOpen)}
                   type="button"
-                  className="bg-[#32383e] hover:bg-[#4C555E] rounded-md px-3 py-2.5 font-semibold p-2 text-md text-white hover:text-white focus:outline-none "
+                  className="bg-zinc-600 hover:bg-zinc-500 rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                 >
                   <FaUser />
                 </button>
@@ -201,15 +204,15 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     {profileMenu.map((element, index) => {
                       return (
                         <Link
-
+                        
                           onClick={handleMenuClick}
                           to={element.href}
-                          className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-[#22262a] hover:bg-[#22262a] "
+                          className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav  hover:bg-skin-nav  "
                         >
-                          <div className="text-white icon group">
+                          <div className="text-skin-white  icon group">
                             {<element.icon />}
                           </div>
-                          <div className="text-white group menu-list cursor-pointer ">
+                          <div className="text-skin-white  group menu-list cursor-pointer ">
                             {element.list}
                           </div>
                         </Link>
@@ -217,14 +220,13 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
                   </div>
                 )}
-              </div>
+              </div> */}
 
-              {/* BEFORE LOGIN */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                 <button
-                  onClick={() => { setIsLoginOpen(true); }}
+                  onClick={()=> {setIsLoginOpen(true);}}
                   type="button"
-                  className="  font-semibold p-2 text-xs text-[#cfd4d8] hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="  font-semibold p-2 text-xs text-skin-primary hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   LOG IN
                 </button>
@@ -233,9 +235,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 )}
 
                 <button
-                  onClick={() => { setIsSignupOpen(true); }}
+                  onClick={()=> {setIsSignupOpen(true);}}
                   type="button"
-                  className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   SIGN UP
                 </button>
@@ -255,8 +257,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      ? "bg-gray-900 text-skin-white "
+                      : "text-gray-300 hover:bg-gray-700 hover:text-skin-white ",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}

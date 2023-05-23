@@ -62,8 +62,8 @@ export const AccountStatement = () => {
 
   return (
     <>
-      <div className="profitloss-wrapper px-6 pb-4 bg-[#22262a] rounded">
-        <div className="text-center uppercase text-white font-bold py-3 divide-y">
+      <div className="profitloss-wrapper px-6 pb-4 bg-skin-nav rounded">
+        <div className="text-center uppercase text-skin-white font-bold py-3 divide-y">
           Account Statement
         </div>
 
@@ -91,7 +91,7 @@ export const AccountStatement = () => {
             id=""
             disabled={!isChecked}
           />
-          <span className="bg-[#169c59] rounded px-2.5 font-semibold p-1.5  text-md text-white hover:outline-green transition-colors duration-200 focus:outline-none">
+          <span className="bg-[#169c59] rounded px-2.5 font-semibold p-1.5  text-md text-skin-white hover:outline-green transition-colors duration-200 focus:outline-none">
             To
           </span>
           <input
@@ -105,7 +105,7 @@ export const AccountStatement = () => {
           />
           <button
             type="button"
-            className="bg-[#169c59] flex items-center gap-1 rounded px-2.5 font-semibold p-1.5  text-md text-white hover:bg-[#0d8247] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+            className="bg-[#169c59] flex items-center gap-1 rounded px-2.5 font-semibold p-1.5  text-md text-skin-white hover:bg-[#0d8247] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
           >
             <AiOutlineSearch className="text-lg font-bold" /> Search
           </button>
@@ -116,19 +116,19 @@ export const AccountStatement = () => {
         <table class=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
           <thead>
             <tr>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+              <th class="whitespace-nowrap bg-skin-nav w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-skin-white">
                 Date
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+              <th class="whitespace-nowrap bg-skin-nav w-96 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-skin-white">
                 Description
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th class="whitespace-nowrap bg-skin-nav w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
                 cr
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th class="whitespace-nowrap bg-skin-nav w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
                 dr
               </th>
-              <th class="whitespace-nowrap bg-[#22262a] w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-white">
+              <th class="whitespace-nowrap bg-skin-nav w-96 border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
                 balance
               </th>
             </tr>
@@ -136,19 +136,19 @@ export const AccountStatement = () => {
           <tbody>
             {AccountStarement.map((element, index) => (
               <tr key={index}>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-2 text-[#f9fafa]">
+                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead text-xs font-bold uppercase text-left px-2 py-2 text-skin-secondary">
                   {element.date}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-xs font-bold uppercase text-left px-2 py-2 text-[#f9fafa]">
+                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead text-xs font-bold uppercase text-left px-2 py-2 text-skin-secondary">
                   {element.description}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
+                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead text-sm font-bold uppercase text-right px-2 py-2 text-skin-secondary">
                   {element.cr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
+                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead text-sm font-bold uppercase text-right px-2 py-2 text-skin-secondary">
                   {element.dr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-right px-2 py-2 text-[#f9fafa]">
+                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead text-sm font-bold uppercase text-right px-2 py-2 text-skin-secondary">
                   {element.balance}
                 </td>
               </tr>

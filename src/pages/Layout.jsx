@@ -11,11 +11,17 @@ import Footer from "../components/Footer";
 
 export const Layout = () => {
 
-   
+  
+
+
 
   const [toggle, setToggle] = useState(true);
   const [isAboveXl, setisAbovexl] = useState(false);
   useEffect(() => {
+
+
+
+
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         // Show on mobile and tablet screens (max-width: 768px)
@@ -36,16 +42,17 @@ export const Layout = () => {
     };
   }, []);
   return (
-    
-    <div className="bg-black h-[100vh] overflow-y-hidden ">
-      <div className={`mx-auto `}>
-        {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl}/>}
+
+    <div className="bg-skin-main  h-[100vh] overflow-y-hidden ">
+      <div className={` mx-auto w-full `}>
+
+        {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl} />}
       </div>
       <div className={`container mx-auto md:max-w-full md:mx-0  ${isAboveXl ? 'px-64' : ''}`}>
         <div className="">
           <div className="flex ">
             {toggle ? (
-              <div className="h-[90vh] overflow-y-scroll scrollbar-hide bg-black absolute md:relative z-40 w-2/4 max-w-[252px]">
+              <div className="h-[90vh] overflow-y-scroll scrollbar-hide bg-skin-main absolute md:relative z-40 w-2/4 max-w-[252px]">
                 <SideNavbar />
               </div>
             ) : null}
@@ -57,7 +64,7 @@ export const Layout = () => {
         <MobileNavbar />
       </div>
 
-      <Footer/>
+      <Footer />
     </div>
 
   );
