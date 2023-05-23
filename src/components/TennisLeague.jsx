@@ -3,11 +3,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { GoInfo } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
+import { GoGraph } from "react-icons/go";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-
-export const CricketLeague = () => {
+export const Tennisleague = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleAccordion = (index) => {
@@ -142,7 +142,7 @@ export const CricketLeague = () => {
 
   let interval = useRef();
   const startTimer = () => {
-    const countdownDate = new Date("May 24, 2023 00:00:00").getTime();
+    const countdownDate = new Date("").getTime();
 
     interval = setInterval(() => {
       const now = new Date().getTime();
@@ -183,28 +183,43 @@ export const CricketLeague = () => {
     <>
       <ul className="w-full px-2 pr-0 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 py-2 ">
-          <h1 className="text-white text-xl">Indian Premier League</h1>
+          <h1 className="text-white text-xl">ATP Geneva 2023</h1>
           <div className="team-match text-[#fff] text-xl mb-2">
-            Gujarat Titains <span className="text-lg font-bold mx-2"> vs </span>{" "}
-            Chennai Super King
+            Nino Serdarusic <span className="text-lg font-bold mx-2"> vs </span>{" "}
+            Christopher O'Connell
           </div>
 
-          <div className="flex items-center gap-4 font-bold text-[#eee] mb-2 border border-[#eee] p-2 px-4 rounded-md text-xl">
-            <section>
-              <p>{timerDays}</p>
-            </section>
-            <span>:</span>
-            <section>
-              <p>{timerHours}</p>
-            </section>
-            <span>:</span>
-            <section>
-              <p>{timerMinutes}</p>
-            </section>
-            <span>:</span>
-            <section>
-              <p>{timerSeconds}</p>
-            </section>
+          <div>
+            {timerDays || timerHours || timerMinutes || timerSeconds ? (
+              <div className="flex items-center gap-4 font-bold text-[#eee] mb-2 border border-[#eee] p-2 px-4 rounded-md text-xl">
+                <section>
+                  <p>{timerDays}</p>
+                </section>
+                <span>:</span>
+                <section>
+                  <p>{timerHours}</p>
+                </section>
+                <span>:</span>
+                <section>
+                  <p>{timerMinutes}</p>
+                </section>
+                <span>:</span>
+                <section>
+                  <p>{timerSeconds}</p>
+                </section>
+              </div>
+            ) : (
+              <button
+                className="text-white bg-[#2EA66A] p-1 px-4 mb-1  rounded-md border-1 border-white text-sm font-semibold"
+                style={{
+                  background: "rgba(255, 255, 255, 0.3)",
+                  backdropFilter: "blur(10px)",
+                  border: "1px solid white",
+                }}
+              >
+                IN-PLAY
+              </button>
+            )}
           </div>
         </div>
 
@@ -214,7 +229,7 @@ export const CricketLeague = () => {
               onClick={handleLiveTVClick}
               className="flex justify-center items-center gap-2 text-white text-sm bg-[#32383e] p-3 rounded-md w-full font-semibold"
             >
-              <span>Live TV</span>
+              <GoGraph /> <span>Live TV</span>
             </button>
           </div>
 
@@ -225,15 +240,8 @@ export const CricketLeague = () => {
                   23 MAY | 19:30
                 </span>
                 <div className="flex items-center justify-between px-3 text-[#eee] mb-5">
-                  <div className="team-one font-semibold">Gujarat Titans</div>
-                  <div className="team-two font-semibold">
-                    Chennai Super Kings
-                  </div>
-                </div>
-
-                <div className="flex items-center text-[#eee] border-t-2 border-b-2">
-                  <div className="scorecard flex-grow cursor-pointer">Scorecard</div>
-                  <div className="statistics flex-grow cursor-pointer">Statistics</div>
+                  <div className="team-one font-semibold">Caceres, Alessandra</div>
+                  <div className="team-two font-semibold">Ferreira, Nicolly </div>
                 </div>
               </div>
             </div>
@@ -359,75 +367,75 @@ export const CricketLeague = () => {
         {/* {`${(Score !== 3 || Score !==4) ? ('hidden lg:block text-center text-[14.5px] ') */}
 
         {/* {menu.map((item, index) => (
-            <>
-              {" "}
-              <li
-                key={index}
-                className={`flex flex-col justify-between mt-2 py-3  w-full bg-[#32383e] rounded-t-md ${
-                  activeIndex === index ? "bg-[#22262a]" : ""
-                }`}
-              >
-                <div className="flex  justify-between items-center gap-3 px-4">
-                  <div className="flex items-center gap-3 ">
-                    <h4 className="text-[#EEE] text-sm font-semibold">
-                      {item.title}
-                    </h4>
-                  </div>
-                  {item?.data ? (
-                    <div className="flex items-center gap-3">
-                      <span className="flex justify-center   text-[#EEE] font-semibold text-xs">
-                        <GoInfo className="w-4 h-4" />
-                      </span>
-                      <h4
-                        className="flex justify-center text-[#EEE] cursor-pointer"
-                        onClick={() => toggleAccordion(index)}
-                      >
-                        {activeIndex === index ? (
-                          <RiArrowUpSLine className="font-semibold" />
-                        ) : (
-                          <IoIosArrowDown className="font-semibold" />
-                        )}
-                      </h4>
-                    </div>
-                  ) : null}
-                </div>
-              </li>
-              <li
-                key={index}
-                className={` ${
-                  activeIndex === index
-                    ? "flex flex-col justify-between  mb-2   w-full bg-[#22262a] rounded-b-md"
-                    : ""
-                }`}
-              >
-                {activeIndex === index && (
-                  <div className="flex flex-col items-start gap-1    ">
-                    {item.data.map((Item, Index) => (
-                      <>
-                        {" "}
-                        <hr className="border-t border-gray-300 w-full pt-1  " />
-                        <div className="flex w-full justify-between gap-3 px-4">
-                          <div className="flex text-[#EEE] text-sm font-semibold justify-start items-center">
-                            {Item.team}
-                          </div>
-                          <div className="flex items-center gap-1 rounded-md p-1 scroll-x">
-                            {Item.score.map((Score, index) => (
-                              <div
-                                key={index}
-                                className="flex justify-center w-full rounded-md py-2 px-2 scroll-x text-sm font-medium leading-5 ring-opacity-60 ring-offset-2 min-w-[60px] bg-[#32383e] text-blue-100 hover:bg-[#32383e] hover:text-white rounded-b-md"
-                              >
-                                {Score}
-                              </div>
-                            ))}
-                          </div>
+                <>
+                  {" "}
+                  <li
+                    key={index}
+                    className={`flex flex-col justify-between mt-2 py-3  w-full bg-[#32383e] rounded-t-md ${
+                      activeIndex === index ? "bg-[#22262a]" : ""
+                    }`}
+                  >
+                    <div className="flex  justify-between items-center gap-3 px-4">
+                      <div className="flex items-center gap-3 ">
+                        <h4 className="text-[#EEE] text-sm font-semibold">
+                          {item.title}
+                        </h4>
+                      </div>
+                      {item?.data ? (
+                        <div className="flex items-center gap-3">
+                          <span className="flex justify-center   text-[#EEE] font-semibold text-xs">
+                            <GoInfo className="w-4 h-4" />
+                          </span>
+                          <h4
+                            className="flex justify-center text-[#EEE] cursor-pointer"
+                            onClick={() => toggleAccordion(index)}
+                          >
+                            {activeIndex === index ? (
+                              <RiArrowUpSLine className="font-semibold" />
+                            ) : (
+                              <IoIosArrowDown className="font-semibold" />
+                            )}
+                          </h4>
                         </div>
-                      </>
-                    ))}
-                  </div>
-                )}
-              </li>
-            </>
-          ))} */}
+                      ) : null}
+                    </div>
+                  </li>
+                  <li
+                    key={index}
+                    className={` ${
+                      activeIndex === index
+                        ? "flex flex-col justify-between  mb-2   w-full bg-[#22262a] rounded-b-md"
+                        : ""
+                    }`}
+                  >
+                    {activeIndex === index && (
+                      <div className="flex flex-col items-start gap-1    ">
+                        {item.data.map((Item, Index) => (
+                          <>
+                            {" "}
+                            <hr className="border-t border-gray-300 w-full pt-1  " />
+                            <div className="flex w-full justify-between gap-3 px-4">
+                              <div className="flex text-[#EEE] text-sm font-semibold justify-start items-center">
+                                {Item.team}
+                              </div>
+                              <div className="flex items-center gap-1 rounded-md p-1 scroll-x">
+                                {Item.score.map((Score, index) => (
+                                  <div
+                                    key={index}
+                                    className="flex justify-center w-full rounded-md py-2 px-2 scroll-x text-sm font-medium leading-5 ring-opacity-60 ring-offset-2 min-w-[60px] bg-[#32383e] text-blue-100 hover:bg-[#32383e] hover:text-white rounded-b-md"
+                                  >
+                                    {Score}
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </>
+                        ))}
+                      </div>
+                    )}
+                  </li>
+                </>
+              ))} */}
       </ul>
       {/* <Footer/> */}
     </>

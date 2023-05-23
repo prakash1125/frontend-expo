@@ -6,6 +6,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export const Sports = () => {
+  
   let [categories] = useState({
     Cricket: [
         {
@@ -13,6 +14,7 @@ export const Sports = () => {
             title: "One Day Internationals",
             team1: "Ireland",
             team2: "Bangladesh",
+            
           },
           {
             id: 2,
@@ -242,7 +244,7 @@ export const Sports = () => {
                         </div>
                       </div>
                     </div> */}
-                    <MarketDataCard/>
+                    <MarketDataCard />
                   </li>
                 ))}
               </ul>

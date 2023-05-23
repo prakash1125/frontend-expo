@@ -9,12 +9,16 @@ import { WithdrawalPage } from "../pages/Withdrawal";
 import { MyMarketPage } from "../pages/MyMarket";
 import { ProfitLossPage } from "../pages/ProfitLoss";
 import { AccountStatementPage } from "../pages/AccountStatement";
+import { CricketLeague } from "../components/CricketLeague";
+import { SoccerLeague } from "../components/SoccerLeague";
+import { Tennisleague } from "../components/TennisLeague";
 export const AppRouter = () => {
   return (
     <Routes>
       <Route element={<Layout />} >
         <Route path={Paths.home} element={<HomePage />} />
-        <Route path={Paths.sports} element={<SportsPage />} />
+        {/* <Route path={Paths.sports} element={<SportsPage />} /> */}
+        <Route path={Paths.sports} element={<Tennisleague />} />        
         <Route path={Paths.inplay} element={<InPlayPage />} />
         <Route path={Paths.indianCasino} element={<IndianCasinoPage />} />
         <Route path={Paths.slots} element={<SlotsPage />} />
