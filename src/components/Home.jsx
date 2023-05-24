@@ -1,19 +1,13 @@
-import Slider from "react-slick";
+import React, { useState } from "react";
+// import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { useState } from 'react';
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
-import Modal from "./Modal";
-
-import { IoIosArrowDown } from 'react-icons/io';
-import { RiArrowUpSLine } from 'react-icons/ri';
+import { Sliders } from "./../components/common/Slider";
 
 export const Home = () => {
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-
-
 
   const settings = {
     dots: true,
@@ -35,32 +29,82 @@ export const Home = () => {
   };
   
   const images = [
-    
-    "https://sportsexch.com/images/banner/slider06.png",
-    "https://sportsexch.com/images/banner/slider05.png",
-    "https://sportsexch.com/images/banner/slider04.png",
-    "https://sportsexch.com/images/banner/slider03.png",
-    "https://sportsexch.com/images/banner/slider02.png",
+    {
+      id: 1,
+      title: "TeenPatti",
+      img: "ttps://sportsexch.com/images/banner/slider06.png",
+    },
+    {
+      id: 2,
+      title: "Teen Paati",
+      img: "https://sportsexch.com/images/banner/slider05.png",
+    },
+    {
+      id: 3,
+      title: "TeenPatti",
+      img: "https://sportsexch.com/images/banner/slider04.png",
+    },
+    {
+      id: 4,
+      title: "Teen Paati",
+      img: "https://sportsexch.com/images/banner/slider03.png",
+    },
+    {
+      id: 5,
+      title: "Teen Paati",
+      img: "https://sportsexch.com/images/banner/slider02.png",
+    }
   ];
 
   const images2 = [
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-    "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-
+    {
+      id: 1,
+      title: "TeenPatti",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 2,
+      title: "Teen Paati",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 3,
+      title: "TeenPatti",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 4,
+      title: "Teen Paati",
+      img: "ttps://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 5,
+      title: "Teen Paati",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 6,
+      title: "Teen Paati",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 7,
+      title: "Teen Paati",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    },
+    {
+      id: 8,
+      title: "Teen Paati",
+      img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+    }
   ];
 
   return (
-
     <div className="w-full sm:px-0 mb-4">
-
       <div>
-        <Slider {...settings}>
+        <Sliders dataArray={images} settings={settings} imgClassName={``} parentClassName={``} titleClassName ={``} title={false} />
+
+        {/* <Slider {...settings}>
           {images.map((img, index) => (
             <div key={index} className="">
               <img
@@ -70,7 +114,7 @@ export const Home = () => {
               />
             </div>
           ))}
-        </Slider>
+        </Slider> */}
       </div>
       <div className="flex overflow-x-scroll w-full scroll-x">
         <div className="flex gap-1 rounded-xl bg-skin-main   w-full">
@@ -100,7 +144,7 @@ export const Home = () => {
                 <img
                   alt="profil"
                   src="https://sportsexch.com/images/icons/live.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav "
+                  class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
                 />
               </a>
             </div>
@@ -140,7 +184,7 @@ export const Home = () => {
           </div>
           <div
             className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
+              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40] hover:text-white"
             }
           >
             <div className="">
@@ -170,30 +214,8 @@ export const Home = () => {
             </div>
             <p className="text-center">Sports</p>
           </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/slot.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
         </div>
       </div>
-
-
-
-
-
-
 
       <div>
         <div className="flex justify-between mt-3">
@@ -202,13 +224,9 @@ export const Home = () => {
           </p>
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">1 Event</p>
         </div>
-        {isDropdownOpen && (
+
         <MarketDataCard />
-        )}
       </div>
-
-
-
 
       <div>
         <div className="flex justify-between mt-16">
@@ -217,7 +235,14 @@ export const Home = () => {
             All Indian Casino
           </button>
         </div>
-        <Slider {...settings2}>
+        <Sliders
+          dataArray={images2}
+          settings={settings2}
+          className={`flex scroll-x pb-6`}
+          imgClassName={`flex scroll-x pb-6`} parentClassName={``} titleClassName ={``}
+          title={false}
+        />
+        {/* <Slider {...settings2}>
           {images2.map((img, index) => (
             <div key={index} className=" scroll-x pb-6">
               <div key={index} className="px-1">
@@ -229,11 +254,9 @@ export const Home = () => {
               </div>
             </div>
           ))}
-        </Slider>
+        </Slider> */}
       </div>
-      {/* <Footer /> */}
-      {/* <Modal/> */}
-      
+      <Footer />
     </div>
   );
 };
