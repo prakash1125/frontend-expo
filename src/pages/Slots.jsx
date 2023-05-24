@@ -4,7 +4,7 @@ import { Slots } from "../components/Slots";
 export const SlotsPage = () => {
   return (
     <>
-      <div className="w-full   md:p-1 overflow-y-scroll scrollbar-hide h-[91vh]  ">
+      <div className="w-full   md:p-2 overflow-y-scroll scrollbar-hide h-[91vh]  ">
         <Slots />
       </div>
     </>
