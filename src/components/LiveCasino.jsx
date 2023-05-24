@@ -1843,10 +1843,10 @@ export const LiveCasino = () => {
                 //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
-              <div class="-m-1 flex flex-wrap md:-m-2">
+              <div class="-m-1 gap-4 grid lg:grid-cols-5 md:grid-cols-3 xs:grid-cols-2 md:-m-2 ">
                 {posts.map((post) => (
-                  <div class="flex  w-1/4 flex-wrap">
-                    <div class="w-full p-3 md:p-6 text-white text-sm font-bold flex flex-col items-center">
+                  <div class="flex flex-wrap mt-4">
+                    <div class="w-full gap-3 text-white text-sm font-bold flex flex-col items-center">
                       <img
                         alt="gallery"
                         class="block h-full w-full rounded-lg object-cover object-center"

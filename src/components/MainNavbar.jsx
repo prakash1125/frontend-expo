@@ -70,7 +70,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   return (
     <Disclosure
       as="nav"
-      className={`border-b border-gray-200/10 bg-[#22262a] ${screen ? "px-64" : ""
+      className={`border-b border-gray-200/10 bg-[#22262a]   ${screen ? "px-64" : ""
         } `}
     >
       {({ open }) => (
@@ -110,7 +110,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                         className={classNames(
                           item.href == currentRoute &&
                           "bg-[#32383e] text-white",
-                          "px-3 py-5 text-xs font-font-family font-bold text-[#cfd4d8] hover:bg-[#32383e] hover:text-white"
+                          "px-3 py-5 text-xs font-font-family font-bold text-[#cfd4d8] hover:bg-[#32383e] hover:text-white break-normal"
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -123,7 +123,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
 
 
-              {/* AFTER LOGIN */}
+              {/* AFTER LOGIN
               <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {
                   return (
@@ -131,8 +131,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       key={index}
                       to={element.href}
                       type="button"
-                      className={`bg-[#1F3D34] rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white hover:text-white focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-[#1B3B55]"
-                        }`}
+                      className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white hover:text-white focus:outline-none  ${
+                        element.name === "D" ? "1f4d34" : "bg-sky-900"
+                      }`}
                     >
                       {element.name}
                     </Link>
@@ -217,7 +218,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
                   </div>
                 )}
-              </div>
+              </div> */}
 
               {/* BEFORE LOGIN */}
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">

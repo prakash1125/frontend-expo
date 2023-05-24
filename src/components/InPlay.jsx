@@ -7,7 +7,7 @@
 
 // export const InPlay = () => {
 //     let [categories] = useState({
-       
+
 //         Football: [
 //           {
 //             id: 1,
@@ -176,12 +176,8 @@
 //   )
 // }
 
-
-
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
-
-
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -191,36 +187,36 @@ export const InPlay = () => {
   const [categoryId, setCategoryId] = useState(0);
   let [categories] = useState({
     Cricket: [
-        {
-            id: 1,
-            title: "One Day Internationals",
-            team1: "Ireland",
-            team2: "Bangladesh",
-          },
-          {
-            id: 2,
-            title: "T20 Internationals",
-            team1: "Australia",
-            team2: "India",
-          },
-          {
-            id: 3,
-            title: "Test Matches",
-            team1: "England",
-            team2: "New Zealand",
-          },
-          {
-            id: 4,
-            title: "ODI Series",
-            team1: "Pakistan",
-            team2: "West Indies",
-          },
-          {
-            id: 5,
-            title: "T20 Series",
-            team1: "South Africa",
-            team2: "Sri Lanka",
-          },
+      {
+        id: 1,
+        title: "One Day Internationals",
+        team1: "Ireland",
+        team2: "Bangladesh",
+      },
+      {
+        id: 2,
+        title: "T20 Internationals",
+        team1: "Australia",
+        team2: "India",
+      },
+      {
+        id: 3,
+        title: "Test Matches",
+        team1: "England",
+        team2: "New Zealand",
+      },
+      {
+        id: 4,
+        title: "ODI Series",
+        team1: "Pakistan",
+        team2: "West Indies",
+      },
+      {
+        id: 5,
+        title: "T20 Series",
+        team1: "South Africa",
+        team2: "Sri Lanka",
+      },
     ],
     Football: [
       {
@@ -344,8 +340,8 @@ export const InPlay = () => {
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-      <Tab.List className="flex gap-1  scroll-x ">
-      {Object.keys(categories).map((category, index) => (
+        <Tab.List className="flex gap-1  scroll-x ">
+          {Object.keys(categories).map((category, index) => (
             <Tab
               key={category}
               onClick={() => setCategoryId(index)}
@@ -359,67 +355,80 @@ export const InPlay = () => {
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 `}></img>
+              <img
+                alt="profil"
+                src="https://sportsexch.com/images/icons/cricket.png"
+                class={`mx-auto ${
+                  categoryId !== index && "invert"
+                } object-cover w-5 `}
+              ></img>
 
               {category}
             </Tab>
           ))}
         </Tab.List>
-        <div className="mt-2 p-2 text-sm rounded-md w-full bg-[#22262a] text-[#f9fafa] font-semibold ">There is a no match available at this time in <span className="text-green-600">InPlay.</span></div>
-        {/* <Tab.Panels className="mt-2">
-          {Object.values(categories).map((posts, idx) => (
-            <Tab.Panel
-              key={idx}
-              className={classNames(''
-              //     // 'rounded-md w-full bg-white p-3',
-              //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+        {Object.values(categories).length > 0 ? (
+          <Tab.Panels className="mt-2">
+            {Object.values(categories).map((posts, idx) => (
+              <Tab.Panel
+                key={idx}
+                className={classNames(
+                  // 'rounded-md w-full bg-white p-3',
+                  "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                 )}
-            >
-              <ul>
-                {posts.map((post) => (
-                  <li
-                    key={post.id}
-                    className="relative pb-2"
-                  >
-                    <div class="rounded-md shadow-md w-full bg-[#22262a]">
-                      <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
-                        <div class="flex items-center space-x-3">
-                          <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
-                            {post.title}
+              >
+                <ul>
+                  {posts.map((post) => (
+                    <li key={post.id} className="relative pb-2">
+                      <div class="rounded-md shadow-md w-full bg-[#22262a]">
+                        <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
+                          <div class="flex items-center space-x-3">
+                            <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
+                              {post.title}
+                            </div>
+                          </div>
+                          <div class="flex items-center space-x-8 px-6">
+                            <div class="text-sm font-bold text-[#f9fafa]">
+                              2
+                            </div>
                           </div>
                         </div>
-                        <div class="flex items-center space-x-8 px-6">
-                          <div class="text-sm font-bold text-[#f9fafa]">2</div>
-                        </div>
-                      </div>
 
-                      <div class="flex items-center flex-1 p-4 cursor-pointer select-none">
-                        <div class="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
-                          <a href="#" class="relative block">
-                            <img
-                              alt="profil"
-                              src="https://sportsexch.com/images/icons/cricket.png"
-                              class="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
-                            />
-                          </a>
-                        </div>
-                        <div class="flex-1 pl-1 mr-16">
-                          <div class="font-medium text-[#cfd4d8]">{post.team1}</div>
+                        <div class="flex items-center flex-1 p-4 cursor-pointer select-none">
+                          <div class="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
+                            <a href="#" class="relative block">
+                              <img
+                                alt="profil"
+                                src="https://sportsexch.com/images/icons/cricket.png"
+                                class="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
+                              />
+                            </a>
+                          </div>
+                          <div class="flex-1 pl-1 mr-16">
+                            <div class="font-medium text-[#cfd4d8]">
+                              {post.team1}
+                            </div>
+                            <div class="text-xs font-bold text-[#cfd4d8] ">
+                              {post.team2}
+                            </div>
+                          </div>
                           <div class="text-xs font-bold text-[#cfd4d8] ">
-                            {post.team2}
+                            6:00 AM
                           </div>
                         </div>
-                        <div class="text-xs font-bold text-[#cfd4d8] ">
-                          6:00 AM
-                        </div>
                       </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </Tab.Panel>
-          ))}
-        </Tab.Panels> */}
+                    </li>
+                  ))}
+                </ul>
+              </Tab.Panel>
+            ))}
+          </Tab.Panels>
+        ) : (
+          <div className="mt-2 p-2 text-sm rounded-md w-full bg-[#22262a] text-[#f9fafa] font-semibold">
+            There is no match available at this time in{" "}
+            <span className="text-green-600">InPlay.</span>
+          </div>
+        )}
       </Tab.Group>
     </div>
   );

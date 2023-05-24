@@ -27,7 +27,7 @@ const MarketData = () => {
       </div>
       {isDropdownOpen && (
         <>
-          <div   className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black   ">
+          <div   className="xl:flex lg:flex lg:flex-wrap  py-[10px] mb-[2px] border-b-2 border-black   ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -57,16 +57,16 @@ const MarketData = () => {
 
             </div>
 
-            <div className="flex gap-1 rounded-sm pr-4 pl-2">
+            <div className="flex gap-1 w-full rounded-sm pr-4 pl-2">
               {data.map((item) =>
-                <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25  && 'text-[#EF5480]' } text-[#008EFB] bg-[#32383e] cursor-pointer`}>
+                <div className={`flex-grow px-4 py-2  rounded-md  flex justify-center text-md font-bold ${item === 2.25  && 'text-[#EF5480]' } text-[#008EFB] bg-[#32383e] cursor-pointer`}>
                   <span className='m-auto brightness-125'>{item}</span>
                 </div>
               )}
 
             </div>
           </div>
-          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black   ">
+          <div className="xl:flex lg:flex lg:flex-wrap py-[10px] mb-[2px] border-b-2 border-black   ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -96,9 +96,9 @@ const MarketData = () => {
 
             </div>
 
-            <div className="flex gap-1 rounded-sm pr-4 pl-2 ">
+            <div className="flex gap-1 w-full rounded-sm pr-4 pl-2 ">
               {data.map((item) =>
-                <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  ${item === 2.25  && 'text-[#EF5480]' } text-[#008EFB] bg-[#32383e] cursor-pointer`}>
+                <div className={`flex-grow px-4 py-2 rounded-md  flex justify-center text-md font-bold  ${item === 2.25  && 'text-[#EF5480]' } text-[#008EFB] bg-[#32383e] cursor-pointer`}>
                   <span className='m-auto brightness-125'>{item}</span>
                 </div>
               )}

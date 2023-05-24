@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab } from "@headlessui/react";
-import MarketDataCard from "./MarketDataCard"
+import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
 
 function classNames(...classes) {
@@ -161,26 +161,51 @@ export const Sports = () => {
     ],
   });
 
+  const [visibleCategories, setVisibleCategories] = useState([]);
+
+  useEffect(() => {
+    const updateVisibleCategories = () => {
+      const screenWidth = window.innerWidth;
+      const maxVisibleTabs = screenWidth >= 480 ? 9999 : 4; // Show all tabs if screen width is greater than or equal to 480px
+
+      const categoryKeys = Object.keys(categories);
+      const visibleTabs = categoryKeys.slice(0, maxVisibleTabs);
+      setVisibleCategories(visibleTabs);
+    };
+
+    updateVisibleCategories(); // Initial update
+
+    window.addEventListener('resize', updateVisibleCategories); // Update visible categories on window resize
+
+    return () => {
+      window.removeEventListener('resize', updateVisibleCategories); // Cleanup event listener on component unmount
+    };
+  }, [categories]);
 
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-1  scroll-x ">
-          {Object.keys(categories).map((category, index) => (
+        <Tab.List className="flex gap-1 scroll-x">
+          {visibleCategories.map((category, index) => (
             <Tab
               key={category}
               onClick={() => setCategoryId(index)}
               className={({ selected }) =>
                 classNames(
-                  "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
-                  "  ",
+                  "w-[85px] h-[52px] rounded-md  flex-grow text-xs font-semibold leading-5",
                   selected
                     ? "bg-[#FFF]  font-semibold"
                     : "text-[#fff] bg-[#22262a] hover:bg-[#393C40] hover:text-white"
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 `}></img>
+              <img
+                alt="profil"
+                src="https://sportsexch.com/images/icons/cricket.png"
+                className={`mx-auto ${
+                  categoryId !== index && "invert"
+                } object-cover w-5`}
+              ></img>
 
               {category}
             </Tab>
@@ -190,17 +215,15 @@ export const Sports = () => {
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel
               key={idx}
-              className={classNames(''
+              className={classNames(
+                ""
                 //     // 'rounded-md w-full bg-white p-3',
                 //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
               <ul>
                 {posts.map((post) => (
-                  <li
-                    key={post.id}
-                    className="relative pb-2"
-                  >
+                  <li key={post.id} className="relative pb-2">
                     {/* <div class="rounded-md shadow-md w-full bg-[#22262a]">
                       <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
                         <div class="flex items-center space-x-3">
@@ -242,7 +265,7 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

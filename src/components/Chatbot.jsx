@@ -17,7 +17,7 @@ export const Chatbot = () => {
     <>
       {!isChatOpen && (
         <div
-          className="bg-[#169c59] absolute bottom-16 left-2 p-4 rounded-md rounded-l-full rounded-br-full"
+          className="bg-[#169c59] z-50 absolute bottom-16 left-2 p-4 rounded-md rounded-l-full rounded-br-full"
           onClick={handleChatToggle}
         >
           <MdOutlineMessage className="text-3xl text-white" />

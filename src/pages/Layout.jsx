@@ -53,7 +53,7 @@ export const Layout = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-6 md:hidden ">
+      <div className="container mx-auto px-6 lg:hidden ">
         <MobileNavbar />
       </div>
 

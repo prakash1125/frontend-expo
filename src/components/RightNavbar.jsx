@@ -8,7 +8,7 @@ import img3 from "../assets/images/casinomarina.jpg";
 import img4 from "../assets/images/casinomarina.jpg";
 import img5 from "../assets/images/casinomarina.jpg";
 import { useLocation } from "react-router-dom";
-import Events from './Events'
+import Events from "./Events";
 
 export const RightNavbar = () => {
   const location = useLocation();
@@ -40,6 +40,7 @@ export const RightNavbar = () => {
 
   return (
     <>
+      {/* If the tab is IPL then this code will not render */}
       {!isIndianPremierLeague && (
         <div class="max-w-xs mx-auto bg-[#22262a] rounded-md mt-2">
           <div className="p-1 flex justify-center">
@@ -50,7 +51,7 @@ export const RightNavbar = () => {
 
           <Slider {...settings}>
             {images.map((img, index) => (
-              <div key={index} className="">
+              <div key={index} className="z-10">
                 <img
                   src={img}
                   className="w-full p-2 rounded-2xl"
@@ -61,6 +62,8 @@ export const RightNavbar = () => {
           </Slider>
         </div>
       )}
+
+      {/* If the tab is IPL then this code will render */}
 
       {location.pathname === "/indian-premier-league" && (
         <>
@@ -214,15 +217,11 @@ export const RightNavbar = () => {
             </li>
           </ul>
         </div> */}
-      <Events/>
-      <Events/>
-      <Events/>
-      <Events/>
-      <Events/>
-      
-      
-        
-        
+        <Events />
+        <Events />
+        <Events />
+        <Events />
+        <Events />
       </div>
     </>
   );
