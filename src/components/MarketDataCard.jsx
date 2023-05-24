@@ -10,7 +10,7 @@ const MarketData = () => {
 
   return (
 
-    <div class="rounded-md shadow-md w-full bg-skin-nav drop-shadow-xl">
+    <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
       <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer ">
         <div class="flex items-center ">
           <div class="flex items-center text-sm text-skin-secondary  font-medium ">
@@ -27,7 +27,7 @@ const MarketData = () => {
       </div>
       {isDropdownOpen && (
         <>
-          <div   className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2    ">
+          <div   className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg    ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -57,7 +57,7 @@ const MarketData = () => {
 
             </div>
 
-            <div className="flex gap-1 drop-shadow-md rounded-sm pr-4 pl-2">
+            <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2">
               {data.map((item) =>
                 <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25  && 'text-skin-pink' } text-skin-blue  bg-skin-cardhead  cursor-pointer`}>
                   <span className='m-auto brightness-125'>{item}</span>
@@ -66,7 +66,7 @@ const MarketData = () => {
 
             </div>
           </div>
-          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2   ">
+          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg  ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">

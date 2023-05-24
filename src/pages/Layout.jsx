@@ -47,11 +47,11 @@ export const Layout = () => {
       <div className={` mx-auto w-full `}>
         {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl} />}
       </div>
-      <div className={`container mx-auto md:max-w-full md:mx-0  ${isAboveXl ? 'px-64' : ''}`}>
+      <div className={`container drop-shadow-md  mx-auto md:max-w-full md:mx-0  ${isAboveXl ? 'px-64' : ''}`}>
         <div className="">
           <div className="flex ">
             {toggle ? (
-              <div className="h-[90vh] overflow-y-scroll scrollbar-hide bg-skin-main absolute md:relative z-40 w-2/4 max-w-[252px]">
+              <div className="h-[90vh] overflow-y-scroll scrollbar-hide bg-skin-sidebarbg absolute md:relative z-40 w-2/4 max-w-[252px]">
                 <SideNavbar />
               </div>
             ) : null}

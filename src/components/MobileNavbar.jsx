@@ -19,17 +19,17 @@ export const MobileNavbar = () => {
     const [active,setActive]=useState()
 
   return (
-    <div className='bg-nav-bg max-h-[3.5rem] px-2 pb-5 fixed inset-x-0 bottom-0 rounded-t-md '>
+    <div className='bg-skin-navtop max-h-[3.5rem] px-2 pb-5 fixed inset-x-0 bottom-0 rounded-t-md '>
         {/* text-skin-white  */}
         <ul className='flex relative justify-between'>
                 {/* <span className={`bg-rose-600 duration-500 ${Menus[active].dis} border-4 border-white h-16 w-16  -top-5 rounded-full`}></span> */}
 
             {Menus.map((menu,i)=>(
                 <li key={i} className="w-full">
-                    <Link to={menu?.link} className={`flex flex-col  pt-2 pb-2 text-skin-secondary `} onClick={()=>setActive(i)}>
+                    <Link to={menu?.link} className={`flex flex-col  pt-2 pb-2 text-skin-navtext `} onClick={()=>setActive(i)}>
                     <span className={`flex justify-center text-xl pl-2 cursor-pointer ${i=== active && " text-green-600"}`}>{React.createElement(menu?.icon,{size:"25"})}</span>
                     {/* {menu.name} */}
-                    <span className={`flex justify-center text-xs text-skin-white  font-semibold ${i=== active && " text-green-600"}`}>{menu.name}</span>
+                    <span className={`flex justify-center text-xs text-skin-navtext  font-semibold ${i=== active && " text-green-600"}`}>{menu.name}</span>
                     {/* <span className={`text-xs text-skin-white  ${active === i ? "translate-y-4 duration-700 opacity-100 text-skin-white " : "opacity-0 translate-y-10 hidden text-skin-white "}` }>{menu.name}</span> */}
                     </Link>
                 </li>

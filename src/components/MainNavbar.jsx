@@ -89,7 +89,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
               </div>
 
               <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex flex-shrink-0 items-center ">
                   <Link to="/">
                     <img
                       className="block h-8 w-full lg:hidden"
@@ -223,10 +223,17 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
               </div> */}
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
+              <button
+                  onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
+                  type="button"
+                  className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
+                >
+                  🌓
+                </button>
                 <button
                   onClick={()=> {setIsLoginOpen(true);}}
                   type="button"
-                  className="  font-semibold p-2 text-xs text-skin-primary hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   LOG IN
                 </button>
@@ -237,7 +244,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 <button
                   onClick={()=> {setIsSignupOpen(true);}}
                   type="button"
-                  className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   SIGN UP
                 </button>

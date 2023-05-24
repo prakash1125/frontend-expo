@@ -2,7 +2,7 @@ import React from 'react'
 
 const Events = () => {
   return (
-    <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b border-black">
+    <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b border-mainbg">
 
     <div class=" flex items-center flex-1  cursor-pointer select-none">
       <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -21,10 +21,10 @@ const Events = () => {
         </div>
         <div class="text-[12px] font-bold pr-4 text-skin-primary">
           <div>
-            <div className='text-[#f9fafa]'>28 May 6:00</div>
+            <div className='text-skin-secondary'>28 May 6:00</div>
             <div className='flex justify-end mt-1 '>
-              <div className=" mx-2 ml-4 px-2 w-full h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-[#32383e]">F4</div>
-              <div className=" w-full  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-[#32383e]">B</div>
+              <div className=" mx-2 ml-4 px-2 w-full h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark">F4</div>
+              <div className=" w-full  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark">B</div>
             </div>
           </div>
         </div>

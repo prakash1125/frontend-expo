@@ -93,7 +93,7 @@ export const SideNavbar = () => {
     <>
       <div className="w-full px-4 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
-          <button className="flex justify-start text-skin-primary  bg-skin-nav  p-3 rounded-md w-full text-xs font-semibold relative">
+          <button className="flex justify-start text-skin-primary  bg-skin-cardhead  p-3 rounded-md w-full text-xs font-semibold relative">
             SPORTS
           </button>
         </div>
@@ -103,8 +103,8 @@ export const SideNavbar = () => {
           <li
           onClick={() => toggleAccordion(index)}
             key={index}
-            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-skin-nav  rounded-md ${
-              activeIndex === index ? "bg-skin-nav " : ""
+            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-skin-cardhead  rounded-md ${
+              activeIndex === index ? "bg-skin-cardhead " : ""
               
             }`}
           >

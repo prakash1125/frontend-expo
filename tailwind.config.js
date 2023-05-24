@@ -13,7 +13,8 @@ module.exports = {
     extend: {
 
       colors: {
-        current: "var(--text-color)"
+        current: "var(--text-color)",
+        mainbg: "var(--main-background)",
       },
 
       textColor: {
@@ -32,6 +33,7 @@ module.exports = {
         skin: {
           main: "var(--main-background)",
           navtop:"var(--nav-colortop)",
+          sidebarbg:"var(--sidebar-color)",
           nav: "var( --nav-color)",
           cardhead: "var(--card-heading-bg-color)",
           cardsmall: "var( --card-small-card)",

@@ -7,6 +7,7 @@
     :root {
         --main-background:#0b0d0e;
         --nav-colortop:#22262a ;
+        --sidebar-color:#0b0d0e;
         --nav-color:#22262a ;
         --card-heading-bg-color:#32383e;
         --card-small-card:#f9fafa; 
@@ -25,22 +26,24 @@
 
         --scrollbar-color:#555;
     }
-
+/* #f8f9fa; */
     .light-theme {
         --main-background:#ECEAEA;
-        --nav-colortop:#22262a ;
-        --nav-color:#e2dfdf ;
-        --card-heading-bg-color:#c7c6c6;
-        --card-small-card:#e9e7e7; 
-        --img-bg-color:rgb(245, 245, 245); 
-        --hover-color:#7aafff;
-        --hover-color-secondary:#dcedff;
+        --nav-colortop:#1E8067 ;
+        --sidebar-color:#fdfffc;
+        --nav-color:#fdfffc ;
+        --card-heading-bg-color:#ddddddbd;
+        --card-small-card:#f1eeee; 
+        --img-bg-color:rgb(228, 227, 227); 
+        --hover-color:rgb(214, 211, 211);
+        --hover-color-secondary:rgb(204, 202, 202);
 
-        --text-primary:rgb (88, 87, 87);
+        --text-primary:#696b6d;
+        --text-nav:#ffffff;
         --text-secondary:rgb(54, 54, 54);
         --text-white:rgb(56, 56, 56);
-        --text-blue:#008EFB;
-        --text-pink:#EF5480;
+        --text-blue:#026cbd;
+        --text-pink:#f03b6e;
         --text-dark:rgb(53, 53, 53);
 
         --scrollbar-color:rgb(228, 224, 224);

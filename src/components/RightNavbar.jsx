@@ -143,7 +143,7 @@ export const RightNavbar = () => {
         </>
       )}
 
-      <div class="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
+      <div class="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
         <div className="p-1 flex justify-center">
           <button className=" text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
             Popular Events
