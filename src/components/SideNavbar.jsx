@@ -110,7 +110,7 @@ export const SideNavbar = () => {
           >
             <div className="flex  justify-between items-center gap-3 px-4">
               <div className="flex items-center gap-3 ">
-                <img src={item.icon} alt="" className="w-4 h-4 " />
+                <img src={item.icon} alt="" className="w-4 h-4 invert sidebar " />
                 <h4 className="text-skin-primary  text-[14px] font-semibold">
                   {item.title}
                 </h4>

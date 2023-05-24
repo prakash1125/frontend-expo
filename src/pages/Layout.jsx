@@ -45,7 +45,6 @@ export const Layout = () => {
 
     <div className="bg-skin-main  h-[100vh] overflow-y-hidden ">
       <div className={` mx-auto w-full `}>
-
         {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl} />}
       </div>
       <div className={`container mx-auto md:max-w-full md:mx-0  ${isAboveXl ? 'px-64' : ''}`}>

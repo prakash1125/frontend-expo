@@ -180,7 +180,7 @@ export const Sports = () => {
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 `}></img>
+              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 sidebar `}></img>
 
               {category}
             </Tab>

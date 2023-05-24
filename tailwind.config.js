@@ -19,6 +19,7 @@ module.exports = {
       textColor: {
         skin: {
           primary: "var( --text-primary)",
+          navtext: "var(--text-nav)",
           secondary: "var(--text-secondary)",
           white: "var(--text-white)",
           blue: "var(--text-blue)",
@@ -30,6 +31,7 @@ module.exports = {
       backgroundColor: {
         skin: {
           main: "var(--main-background)",
+          navtop:"var(--nav-colortop)",
           nav: "var( --nav-color)",
           cardhead: "var(--card-heading-bg-color)",
           cardsmall: "var( --card-small-card)",

@@ -27,7 +27,7 @@ const MarketData = () => {
       </div>
       {isDropdownOpen && (
         <>
-          <div   className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black   ">
+          <div   className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2    ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -66,7 +66,7 @@ const MarketData = () => {
 
             </div>
           </div>
-          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-black   ">
+          <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2   ">
 
             <div class=" flex items-center flex-1  cursor-pointer select-none">
               <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">

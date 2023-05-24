@@ -70,7 +70,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   return (
     <Disclosure
       as="nav"
-      className={`border-b border-gray-200/10 bg-skin-nav  ${
+      className={`border-b border-gray-200/10 bg-skin-navtop  ${
         screen ? "px-64" : ""
       } `}
     >
@@ -92,12 +92,12 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
                     <img
-                      className="block h-8 w-full lg:hidden bg-black"
+                      className="block h-8 w-full lg:hidden"
                       src="https://sportsexch.com/images/logo/main.png"
-                      alt="Your Company"
+                      alt="Your Company"  
                     />
                     <img
-                      className="hidden h-12 w-auto lg:block bg-black rounded-lg "
+                      className="hidden h-12 w-auto lg:block "
                       src="https://sportsexch.com/images/logo/main.png"
                       alt="Your Company"
                     />
@@ -112,7 +112,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                         className={classNames(
                           item.href == currentRoute &&
                             "bg-skin-cardhead text-skin-white ",
-                          "px-3 py-5 text-xs font-font-family font-bold text-skin-primary hover:bg-skin-cardhead hover:text-skin-white "
+                          "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
                         )}
                         aria-current={item.current ? "page" : undefined}
                       >
@@ -124,7 +124,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
               </div>
 
 
-{/* AFTER LOGIN */}
+  {/* AFTER LOGIN */}
 
               {/* <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {

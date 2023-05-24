@@ -6,6 +6,7 @@
 @layer base {
     :root {
         --main-background:#0b0d0e;
+        --nav-colortop:#22262a ;
         --nav-color:#22262a ;
         --card-heading-bg-color:#32383e;
         --card-small-card:#f9fafa; 
@@ -15,54 +16,64 @@
 
 
         --text-primary:#cfd4d8;
+        --text-nav:#cfd4d8;
         --text-secondary:#f9fafa;
         --text-white:white;
         --text-blue:#008EFB;
         --text-pink:#EF5480;
         --text-dark:#32383e;
+
+        --scrollbar-color:#555;
     }
 
     .light-theme {
-        --main-background:#EEE;
-        --nav-color:#fffefe ;
-        --card-heading-bg-color:#dddcdc;
+        --main-background:#ECEAEA;
+        --nav-colortop:#22262a ;
+        --nav-color:#e2dfdf ;
+        --card-heading-bg-color:#c7c6c6;
         --card-small-card:#e9e7e7; 
         --img-bg-color:rgb(245, 245, 245); 
         --hover-color:#7aafff;
         --hover-color-secondary:#dcedff;
 
-        --text-primary:rgb(88, 87, 87);
-        --text-secondary:rgb(51, 51, 51);
+        --text-primary:rgb (88, 87, 87);
+        --text-secondary:rgb(54, 54, 54);
         --text-white:rgb(56, 56, 56);
         --text-blue:#008EFB;
         --text-pink:#EF5480;
         --text-dark:rgb(53, 53, 53);
+
+        --scrollbar-color:rgb(228, 224, 224);
         
     }
 
-    .light-theme .scrollbar-hide::-webkit-scrollbar-thumb 
-    {
-        border-radius: 10px;
-        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-        background-color: rgb(228, 224, 224);
+    .light-theme .sidebar {
+        filter: invert(0);
+    }
+
+    .colorful-theme .sidebar {
+        filter: invert(0);
     }
     
     .colorful-theme {
-        --main-background:#c6e0bf;
-        --nav-color:#eec0c0 ;
-        --card-heading-bg-color:#c7a0a0;
-        --card-small-card:rgb(192, 187, 187); 
-        --img-bg-color:rgb(200, 204, 160); 
-        --hover-color:#f8f8f8;
-        --hover-color-secondary:#dfdfdf;
+        --main-background:#F6F1E9;
+        --nav-color:#FFD93D ;
+        --card-heading-bg-color:#FF8400;
+        --card-small-card:#4F200D; 
+        --img-bg-color:#FFD3A3; 
+        --hover-color:#FFB84C;
+        --hover-color-secondary:#FF8400;
 
 
-        --text-primary:rgb(44, 44, 44);
-        --text-secondary:rgb(80, 80, 80);
-        --text-white:rgb(97, 97, 97);
+        --text-primary:rgb(75, 75, 75);
+        --text-secondary:rgb(75, 75, 75);
+        --text-white:rgb(75, 75, 75);
         --text-blue:#008EFB;
         --text-pink:#EF5480;
         --text-dark:rgb(75, 75, 75);
+
+        --scrollbar-color:rgb(228, 224, 224);
+
     }
 
     .pink-theme {  
@@ -94,7 +105,7 @@
 {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: #555;
+	background-color: var(--scrollbar-color);
 }
 
 .slick-prev{
