@@ -106,7 +106,7 @@ export const Home = () => {
             return (
               <div
                 className={
-                  " cursor-pointer flex flex-col flex-grow px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
+                  " cursor-pointer flex flex-col items-center  flex-grow px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
                 }
               >
                   <a href="#" class="relative block">
