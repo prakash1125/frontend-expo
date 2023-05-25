@@ -1,16 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { AppRouter } from "./routes/AppRouter";
+import React from 'react';
+import { ThemeContext } from "./context/ThemeContext";
 
-
+const MyContext = React.createContext();
 
 export const App = () => {
 
- const [theme,setTheme] = useState(true)
+  const { theme } = useContext(ThemeContext)
 
   return (
-  <div className={theme?'':`light-theme`}>
-    <button className="bg-skin-main text-skin-white border border-blue-200 drop-shadow-2xl m-1" onClick={()=>setTheme(!theme)}>Theme Toggler</button>
-    < AppRouter />
+
+    <div className={theme ? '' : `light-theme`}>
+      < AppRouter />
     </div>
+
   )
 }

@@ -99,19 +99,19 @@ export const RightNavbar = () => {
               <table class="overflow-scroll border-collapse w-full  text-center">
                 <thead>
                   <tr>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
+                    <th class=" text-xs font-bold text-center uppercase  px-2 py-2 text-skin-white ">
                       SELECTION
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
+                    <th class=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
                       ODD
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
+                    <th class=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
                       STAKE
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
+                    <th class=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">  
                       P/L
                     </th>
-                    <th class=" text-xs font-bold text-center uppercase text-left px-2 py-2 text-skin-white ">
+                    <th class=" text-xs font-bold text-center uppercase   px-2 py-2 text-skin-white ">
                       TIME
                     </th>
                   </tr>

@@ -36,7 +36,7 @@
         --card-small-card:#f1eeee; 
         --img-bg-color:rgb(228, 227, 227); 
         --hover-color:rgb(214, 211, 211);
-        --hover-color-secondary:rgb(204, 202, 202);
+        --hover-color-secondary:rgb(184, 181, 181);
 
         --text-primary:#696b6d;
         --text-nav:#ffffff;
@@ -60,8 +60,10 @@
     
     .colorful-theme {
         --main-background:#F6F1E9;
-        --nav-color:#FFD93D ;
-        --card-heading-bg-color:#FF8400;
+        --nav-colortop:#ec871b ;
+        --sidebar-color:#f5e193;
+        --nav-color:#fae697 ;
+        --card-heading-bg-color:#eea95e;
         --card-small-card:#4F200D; 
         --img-bg-color:#FFD3A3; 
         --hover-color:#FFB84C;
@@ -75,7 +77,7 @@
         --text-pink:#EF5480;
         --text-dark:rgb(75, 75, 75);
 
-        --scrollbar-color:rgb(228, 224, 224);
+        --scrollbar-color:rgb(255, 0, 0);
 
     }
 
@@ -87,11 +89,7 @@
 
 }
 
-@layer components {
-    .light {
-        @apply bg-[#ECEAEA];
-    }
-}
+
 
 
 .scrollbar-hide::-webkit-scrollbar {

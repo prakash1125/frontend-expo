@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -10,6 +10,12 @@ import { LoginModal } from "./LoginModal";
 import { SignupModal } from "./SignupModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";
+import { ThemeContext } from "../context/ThemeContext";
+import lamp from "../assets/images/lamp.png"
+import lampDark from "../assets/images/lampdark.png"
+
+
+
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -30,6 +36,10 @@ function classNames(...classes) {
 export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const location = useLocation();
   const currentRoute = location.pathname;
+
+  const {theme, setTheme} = useContext(ThemeContext);
+
+
   console.log(currentRoute, screen, "jiii");
   const walletBalance = [
     { name: "Balance", amount: "5,564.20" },
@@ -66,6 +76,11 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     setIsLoginOpen(false);
     setIsSignupOpen(false);
   };
+
+  const handleThemeClick=()=>{
+    console.log("fffffffffffff",theme);
+    setTheme(!theme)
+  }
 
   return (
     <Disclosure
@@ -224,11 +239,12 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
               <button
-                  onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
+                  // onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
+                  onClick={handleThemeClick}
                   type="button"
                   className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
                 >
-                  🌓
+                  {theme? <img className="hover:brightness-90 w-8" src={lampDark}></img> : <img className=" hover:brightness-95 w-8" src={lamp}></img>}
                 </button>
                 <button
                   onClick={()=> {setIsLoginOpen(true);}}
