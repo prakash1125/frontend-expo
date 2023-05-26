@@ -2,6 +2,8 @@ import { Tab } from "@headlessui/react";
 import React, { useState } from "react";
 import Slider from "react-slick";
 import Footer from "./Footer";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -36,7 +38,6 @@ export const Slots = () => {
     autoplaySpeed: 2000,
   };
 
-
   const images = [
     "https://sportsexch.com/images/live-casino/poster/slider05.png",
     "https://sportsexch.com/images/live-casino/poster/slider06.png",
@@ -70,7 +71,7 @@ export const Slots = () => {
     "https://luckmedia.link/ntn_cornelius/thumb.jpg",
     "https://luckmedia.link/ntn_superstars/thumb.jpg",
     "https://luckmedia.link/ntn_wonders_of_christmas/thumb.jpg",
-    "https://luckmedia.link/ntn_cupcakes/thumb.jpg"
+    "https://luckmedia.link/ntn_cupcakes/thumb.jpg",
   ];
 
   const slidertwo = [
@@ -98,112 +99,217 @@ export const Slots = () => {
     "https://luckmedia.link/ntn_cornelius/thumb.jpg",
     "https://luckmedia.link/ntn_superstars/thumb.jpg",
     "https://luckmedia.link/ntn_wonders_of_christmas/thumb.jpg",
-    "https://luckmedia.link/ntn_cupcakes/thumb.jpg"
+    "https://luckmedia.link/ntn_cupcakes/thumb.jpg",
   ];
 
   let [categories] = useState({
     All: [
-      /*{
-        id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+      {
+        title: "Top Indian Games (14)",
+        gamePlace: "All NetEnt",
+        imageSet: [
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+        ],
       },
       {
-        id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Top Indian Games (14)",
+        gamePlace: "All Red Tiger",
+        imageSet: [
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+        ],
       },
-      {
-        id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 5,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 6,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },*/
     ],
     NetEnt: [
-      /*{
-        id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+      {
+        title: "Top Indian Games (14)",
+        gamePlace: "All NetEnt",
+        imageSet: [
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+        ],
       },
       {
-        id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Top Indian Games (14)",
+        gamePlace: "All Red Tiger",
+        imageSet: [
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+        ],
       },
       {
-        id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+        title: "Top Indian Games (14)",
+        gamePlace: "All Red Tiger",
+        imageSet: [
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+          {
+            img: "https://luckmedia.link/ezg_andar_bahar/thumb.jpg",
+            name: "Andha Bahar",
+          },
+        ],
       },
-      {
-        id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 5,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 6,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 7,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 8,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 9,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },*/
-    ],
-    RedTiger: [
-    /*{
-        id: 1,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 2,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 3,
-        title: "TeenPatti",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },
-      {
-        id: 4,
-        title: "Teen Paati",
-        img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
-      },*/
     ],
   });
+
+  const otherCarousel = {
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 6,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+    ],
+  };
+  function truncate(string, n) {
+    return string?.length > n ? string.substr(0, n - 1) + "..." : string;
+  }
   return (
     <div>
       <Slider {...settings}>
@@ -219,7 +325,7 @@ export const Slots = () => {
       </Slider>
       <Tab.Group>
         <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
-          {Object.keys(categories).map((category) => (
+          {Object.keys(categories).map((category, index) => (
             <Tab
               key={category}
               className={({ selected }) =>
@@ -236,63 +342,56 @@ export const Slots = () => {
             </Tab>
           ))}
         </Tab.List>
-        <Tab.Panels className="mt-2">
-          {Object.values(categories).map((posts, idx) => (
-            <Tab.Panel
-              key={idx}
-              className={classNames(
-                ""
-                //     // 'rounded-md w-full bg-white p-3',
-                //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
-              )}
-            >
-              <div class="-m-1 flex flex-wrap md:-m-2">
-                {posts.map((post) => (
-                  <div class="flex  w-1/4 flex-wrap">
-                    <div class="w-full p-4 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-                      <img
-                        alt="gallery"
-                        class="block h-full w-full rounded-lg object-cover object-center"
-                        src={post.img}
-                      />
-                      {post.title}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Tab.Panel>
-          ))}
-        </Tab.Panels>
+        <div className="image-tab-container">
+          <Tab.Panels className="mt-2">
+            {Object.values(categories).map((posts, idx) => (
+              <Tab.Panel
+                key={idx}
+                className={classNames(
+                  ""
+                  //     // 'rounded-md w-full bg-white p-3',
+                  //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
+                )}
+              >
+                {posts.map((post, index) => {
+                  return (
+                    <>
+                      <div className="slots-tab flex items-center justify-between mt-2 mb-0.5 text-[#fff]">
+                        <div className="slots-title text-xl text-left font-medium mb-0.5">
+                          {post.title}
+                        </div>
+                        <div className="slots-gamePlace text-sm bg-[#22262a] cursor-pointer hover:bg-[#4c555e] px-5 py-3 rounded-md w-28">
+                          <a className=" " href="#">
+                            {truncate(post.gamePlace, 10)}
+                          </a>
+                        </div>
+                      </div>
+
+                      <Slider {...otherCarousel}>
+                        {post.imageSet.map((image, index) => (
+                          <div className="flex flex-col " key={index}>
+                            <div className="casino-image mx-2">
+                              <img className=" rounded" src={image.img} alt={`Slide ${index + 1}`} />
+                              <p className="play-button fade">
+                                <span>Play</span>
+                              </p>
+                            </div>
+                            <div className="casino-name text-[#fff] text-center">{image.name}</div>
+                          </div>
+                        ))}
+                      </Slider>
+                    </>
+                  );
+                })}
+              </Tab.Panel>
+            ))}
+          </Tab.Panels>
+        </div>
       </Tab.Group>
 
-      <Slider {...settingsone}>
-        {sliderone.map((img, index) => (
-          <div key={index} className="">
-            <img
-              src={img}
-              className=" p-5 h-18 w-48 rounded-2xl"
-              alt={`Slide ${index + 1}`}
-            />
-          </div>
-        ))}
-      </Slider>
+                
 
-      
-
-      <Slider {...settingstwo}>
-        {slidertwo.map((img, index) => (
-          <div key={index} className="">
-            <img
-              src={img}
-              className=" p-5 h-18 w-48 rounded-2xl"
-              alt={`Slide ${index + 1}`}
-            />
-          </div>
-        ))}
-      </Slider>
-
-
-    <Footer/>
+      <Footer />
     </div>
   );
 };

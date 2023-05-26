@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { useState } from "react";
 import MarketDataCard from "./MarketDataCard";
+import { MdOutlineSportsSoccer } from "react-icons/md";
 import Footer from "./Footer";
 import Modal from "./Modal";
 
@@ -81,6 +82,73 @@ export const Home = () => {
     "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
   ];
 
+  const [expandedTables, setExpandedTables] = useState([]);
+
+  const handleClick = (index) => {
+    if (expandedTables.includes(index)) {
+      setExpandedTables(expandedTables.filter((item) => item !== index));
+    } else {
+      setExpandedTables([...expandedTables, index]);
+    }
+  };
+
+  const sportsLiveData = [
+    {
+      tabName: "One Day International",
+      placeScores: [
+        {
+          icon: MdOutlineSportsSoccer,
+          placeNameTop: "Ireland",
+          placeNameBottom: "Bangladesh",
+          time: "Today 19:30",
+          isLive: "LIVE",
+          leagueName: [{ name: "F 45" }, { name: "B" }],
+          values: [
+            { center: 1.73 },
+            { center: 1.73 },
+            { center: 1.73 },
+            { center: "--" },
+            { center: "--" },
+            { center: 1.73 },
+          ],
+        },
+      ],
+    },
+    {
+      tabName: "Indian Premier League",
+      placeScores: [
+        {
+          placeNameTop: "Mumbai Indians",
+          placeNameBottom: "Royal Challengers Bangalore",
+          time: "28 May 19:30",
+          leagueName: [{ name: "F 2" }, { name: "B" }],
+          values: [
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+          ],
+        },
+        {
+          placeNameTop: "Indian Premire",
+          placeNameBottom: "League",
+          time: "Today 19:30",
+          leagueName: [{ name: "F 45" }, { name: "B" }],
+          values: [
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+          ],
+        },
+      ],
+    },
+  ];
+
   return (
     <div className="w-full sm:px-0 mb-4">
       {/* Home Slider */}
@@ -109,38 +177,109 @@ export const Home = () => {
                   " cursor-pointer flex flex-col items-center  flex-grow px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-white bg-[#22262a] hover:bg-[#393C40]  hover:text-white"
                 }
               >
-                  <a href="#" class="relative block">
-                    <img
-                      alt="profil"
-                      src={element.icon}
-                      class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
-                    />
-                  </a>
-                <p className="text-center break-normal w-14">{element.buttonName}</p>
+                <a href="#" class="relative block">
+                  <img
+                    alt="profil"
+                    src={element.icon}
+                    class="mx-auto object-cover rounded-full h-5 w-5 bg-[#22262a]"
+                  />
+                </a>
+                <p className="text-center break-normal w-14">
+                  {element.buttonName}
+                </p>
               </div>
             );
           })}
         </div>
       </div>
 
-
-          {/* Dropdown games */}
+      {/* Dropdown games */}
       <div>
-        <div className="flex justify-between mt-3">
-          <p
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="text-white pb-2 px-2 text-lg font-semibold cursor-pointer flex"
-          >
-            Cricket
-            {isDropdownOpen ? (
-              <RiArrowUpSLine className="ml-2 text-xl m-auto" />
-            ) : (
-              <IoIosArrowDown className="ml-2 text-lg  m-auto" />
-            )}
-          </p>
-          <p className="text-white pb-2 px-2 text-lg font-semibold">1 Event</p>
-        </div>
-        {isDropdownOpen && <MarketDataCard />}
+        {sportsLiveData.length > 0 ? (
+          <>
+            {/* <div className="btn-wrapper">
+              {liveSportsNameBtn.map((element, index) => {
+                return (
+                  <Button
+                    icon={<element.icon />}
+                    key={index}
+                    className="live-score"
+                    name={element.tabName}
+                  />
+                );
+              })}
+            </div> */}
+
+            {sportsLiveData.map((data, index) => (
+              <div key={index} className="liveScore-table">
+                <button
+                  type="button"
+                  onClick={() => handleClick(index)}
+                  className={`flex items-center w-full p-2 mt-3 text-gray-900 bg-[#32383e] transition duration-75 rounded-lg rounded-b-none group  dark:text-white dark:hover:bg-gray-700 ${
+                    expandedTables.includes(index)
+                      ? "bg-[#32383e] dark:bg-gray-700 text-[#000]"
+                      : ""
+                  }`}
+                  aria-controls={`dropdown-example-${index}`}
+                  data-collapse-toggle={`dropdown-example-${index}`}
+                >
+                  <span className="flex-1 ml-3 text-left tab-name text-white active:text-[#000] whitespace-nowrap">
+                    {data.tabName}
+                  </span>
+                  <svg
+                    className={`w-6 h-6 ${
+                      expandedTables.includes(index)
+                        ? "rotate-animation"
+                        : "remove-rotation-animation"
+                    }`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+                <div
+                  className={`transition-transform bg-[#22262a] ${
+                    expandedTables.includes(index)
+                      ? "translate-x-0"
+                      : "translate-x-full"
+                  } ${expandedTables.includes(index) ? "block" : "hidden"}`}
+                  id={`dropdown-example-${index}`}
+                >
+                  {data.placeScores.map((element, index) => {
+                    return <MarketDataCard key={index} element={element} />;
+                  })}
+                </div>
+              </div>
+            ))}
+          </>
+        ) : (
+          <>
+            {/* <div className="btn-wrapper">
+              {liveSportsNameBtn.map((element, index) => {
+                return (
+                  <Button
+                    icon={<element.icon />}
+                    key={index}
+                    className="live-score"
+                    name={element.tabName}
+                  />
+                );
+              })}
+            </div> */}
+            <div className="match-availability">
+              <p className="message">
+                There is a no match available at this time{" "}
+                {/* <span className="message-highlight">{tabname}</span>. */}
+              </p>
+            </div>
+          </>
+        )}
       </div>
 
       <div>
