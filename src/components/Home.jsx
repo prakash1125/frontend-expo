@@ -213,7 +213,7 @@ export const Home = () => {
       <div>
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">Indian Casino</p>
-          <button className=" text-skin-primary text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
+          <button className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
             All Indian Casino
           </button>
         </div>

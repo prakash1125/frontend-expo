@@ -141,7 +141,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
   {/* AFTER LOGIN */}
 
-              {/* <div className="flex gap-1.5 items-center relative ">
+              <div className="flex gap-1.5 items-center relative ">
                 {loginRightMenu.map((element, index) => {
                   return (
                     <Link
@@ -235,7 +235,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
                   </div>
                 )}
-              </div> */}
+              </div>
 
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
               <button
