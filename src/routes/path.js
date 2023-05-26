@@ -11,4 +11,5 @@ export const Paths = {
   mymarket:'/my-market',
   pl:'/reports',
   accountstatement:'/account-statement',
+  cricketleague: '/cricket-league',
 };

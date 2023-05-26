@@ -9,7 +9,7 @@ import { WithdrawalPage } from "../pages/Withdrawal";
 import { MyMarketPage } from "../pages/MyMarket";
 import { ProfitLossPage } from "../pages/ProfitLoss";
 import { AccountStatementPage } from "../pages/AccountStatement";
-import Footer from "../components/Footer";
+import CricketLeaguePage from "../pages/CricketLeaguePage";
 export const AppRouter = () => {
   return (
     <Routes>
@@ -27,6 +27,7 @@ export const AppRouter = () => {
         <Route path={Paths.mymarket} element={<MyMarketPage />} />
         <Route path={Paths.pl} element={<ProfitLossPage />} />
         <Route path={Paths.accountstatement} element={<AccountStatementPage />} />
+        <Route path={Paths.cricketleague} element={<CricketLeaguePage />} />
       </Route>
       
     </Routes>
