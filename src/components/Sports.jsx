@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Tab } from "@headlessui/react";
+import { MdOutlineSportsSoccer } from "react-icons/md";
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
 
@@ -175,12 +176,77 @@ export const Sports = () => {
 
     updateVisibleCategories(); // Initial update
 
-    window.addEventListener('resize', updateVisibleCategories); // Update visible categories on window resize
+    window.addEventListener("resize", updateVisibleCategories); // Update visible categories on window resize
 
     return () => {
-      window.removeEventListener('resize', updateVisibleCategories); // Cleanup event listener on component unmount
+      window.removeEventListener("resize", updateVisibleCategories); // Cleanup event listener on component unmount
     };
   }, [categories]);
+  const [expandedTables, setExpandedTables] = useState([]);
+
+  const handleClick = (index) => {
+    if (expandedTables.includes(index)) {
+      setExpandedTables(expandedTables.filter((item) => item !== index));
+    } else {
+      setExpandedTables([...expandedTables, index]);
+    }
+  };
+  const sportsLiveData = [
+    {
+      tabName: "One Day International",
+      placeScores: [
+        {
+          icon: MdOutlineSportsSoccer,
+          placeNameTop: "Ireland",
+          placeNameBottom: "Bangladesh",
+          time: "Today 19:30",
+          isLive: "LIVE",
+          leagueName: [{ name: "F 45" }, { name: "B" }],
+          values: [
+            { center: 1.73 },
+            { center: 1.73 },
+            { center: 1.73 },
+            { center: "--" },
+            { center: "--" },
+            { center: 1.73 },
+          ],
+        },
+      ],
+    },
+    {
+      tabName: "Indian Premier League",
+      placeScores: [
+        {
+          placeNameTop: "Mumbai Indians",
+          placeNameBottom: "Royal Challengers Bangalore",
+          time: "28 May 19:30",
+          leagueName: [{ name: "F 2" }, { name: "B" }],
+          values: [
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+          ],
+        },
+        {
+          placeNameTop: "Indian Premire",
+          placeNameBottom: "League",
+          time: "Today 19:30",
+          leagueName: [{ name: "F 45" }, { name: "B" }],
+          values: [
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+            { top: 3.6, bottom: 100 },
+          ],
+        },
+      ],
+    },
+  ];
 
   return (
     <div className="w-full sm:px-0 mb-16 ">
@@ -221,46 +287,97 @@ export const Sports = () => {
                 //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
-              <ul>
-                {posts.map((post) => (
-                  <li key={post.id} className="relative pb-2">
-                    {/* <div class="rounded-md shadow-md w-full bg-[#22262a]">
-                      <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
-                        <div class="flex items-center space-x-3">
-                          <div class="flex items-center text-sm text-[#f9fafa] font-bold ">
-                            {post.title}
-                          </div>
-                        </div>
-                        <div class="flex items-center space-x-8 px-6">
-                          <div class="text-sm font-bold text-[#f9fafa]">2</div>
-                        </div>
-                      </div>
+              <div>
+                {sportsLiveData.length > 0 ? (
+                  <>
+                    {/* <div className="btn-wrapper">
+              {liveSportsNameBtn.map((element, index) => {
+                return (
+                  <Button
+                    icon={<element.icon />}
+                    key={index}
+                    className="live-score"
+                    name={element.tabName}
+                  />
+                );
+              })}
+            </div> */}
 
-                      <div class="flex items-center flex-1 p-4 cursor-pointer select-none">
-                        <div class="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
-                          <a href="#" class="relative block">
-                            <img
-                              alt="profil"
-                              src="https://sportsexch.com/images/icons/cricket.png"
-                              class="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
-                            />
-                          </a>
-                        </div>
-                        <div class="flex-1 pl-1 mr-16">
-                          <div class="font-medium text-[#cfd4d8]">{post.team1}</div>
-                          <div class="text-xs font-bold text-[#cfd4d8] ">
-                            {post.team2}
-                          </div>
-                        </div>
-                        <div class="text-xs font-bold text-[#cfd4d8] ">
-                          6:00 AM
+                    {sportsLiveData.map((data, index) => (
+                      <div key={index} className="liveScore-table">
+                        <button
+                          type="button"
+                          onClick={() => handleClick(index)}
+                          className={`flex items-center w-full p-2 mt-3 text-gray-900 bg-[#32383e] transition duration-75 rounded-lg rounded-b-none group  dark:text-white dark:hover:bg-gray-700 ${
+                            expandedTables.includes(index)
+                              ? "bg-[#32383e] dark:bg-gray-700 text-[#000]"
+                              : ""
+                          }`}
+                          aria-controls={`dropdown-example-${index}`}
+                          data-collapse-toggle={`dropdown-example-${index}`}
+                        >
+                          <span className="flex-1 ml-3 text-left tab-name text-white active:text-[#000] whitespace-nowrap">
+                            {data.tabName}
+                          </span>
+                          <svg
+                            className={`w-6 h-6 ${
+                              expandedTables.includes(index)
+                                ? "rotate-animation"
+                                : "remove-rotation-animation"
+                            }`}
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                        <div
+                          className={`transition-transform bg-[#22262a] ${
+                            expandedTables.includes(index)
+                              ? "translate-x-0"
+                              : "translate-x-full"
+                          } ${
+                            expandedTables.includes(index) ? "block" : "hidden"
+                          }`}
+                          id={`dropdown-example-${index}`}
+                        >
+                          {data.placeScores.map((element, index) => {
+                            return (
+                              <MarketDataCard key={index} element={element} />
+                            );
+                          })}
                         </div>
                       </div>
-                    </div> */}
-                    <MarketDataCard />
-                  </li>
-                ))}
-              </ul>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    {/* <div className="btn-wrapper">
+              {liveSportsNameBtn.map((element, index) => {
+                return (
+                  <Button
+                    icon={<element.icon />}
+                    key={index}
+                    className="live-score"
+                    name={element.tabName}
+                  />
+                );
+              })}
+            </div> */}
+                    <div className="match-availability">
+                      <p className="message">
+                        There is a no match available at this time{" "}
+                        {/* <span className="message-highlight">{tabname}</span>. */}
+                      </p>
+                    </div>
+                  </>
+                )}
+              </div>
             </Tab.Panel>
           ))}
         </Tab.Panels>

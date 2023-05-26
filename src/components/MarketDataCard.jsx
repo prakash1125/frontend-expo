@@ -3,44 +3,76 @@ import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 
-const MarketData = ({element}) => {
+const MarketData = ({ element }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
   const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25];
+
+  const place = [
+    {
+      placeNameTop: "Ireland",
+      placeNameBottom: "Ireland",
+      time: "Today 19:30",
+    },
+  ];
 
   return (
     <div className="livedata flex flex-wrap xl:flex-nowrap items-center  px-3 py-2 gap-3 border border-[#000]">
       <div className="livedata-place sm:w-full  top-name flex justify-between flex-grow leading-5 font-semibold">
-        <div className="names text-sm text-[#fff]">
-          {element.placeNameTop}
-          <br />
-          {element.placeNameBottom}
-        </div>
-        {element.time && element.leagueName && element.leagueName.length > 0 ? (
+        {place.map((element, index) => {
+          return (
+            <div className="names text-sm text-[#fff]">
+              {element.placeNameTop}
+              <br />
+              {element.placeNameBottom}
+            </div>
+          );
+        })}
+        {/* {element.time && element.leagueName && element.leagueName.length > 0 ? ( */}
           <div className="match-time flex items-center gap-3 text-[#fff]">
-            <div className="matchIsLive text-xs bg-[#169c59] px-1 rounded-sm">{element.isLive}</div>
+            <div className="matchIsLive text-xs bg-[#169c59] px-1 rounded-sm">
+              Live
+            </div>
             <div className="livedata-time text-sm font-medium">
               <div className="time">
-                {element.time}
+              Today 19:30
                 <br />
                 <div className="league-name flex justify-end gap-2">
                   {element.leagueName.map((data, index) => (
-                    <span className="text-[#000] text-xs bg-[#f9fafa]  px-1 rounded-sm"  key={index}>{data.name}</span>
+                    <span
+                      className="text-[#000] text-xs bg-[#f9fafa]  px-1 rounded-sm"
+                      key={index}
+                    >
+                      {data.name}
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
           </div>
-        ) : null}
+        {/* ) : null} */}
       </div>
 
       <div className="right-live md:gap-4 w-full">
         <div className="livedata-wrapper w-full sm:flex sm:items-center sm:justify-between flex items-center">
           {element.values.map((value, index) => {
             return (
-              <div key={index} className={`livedata-tab xs:w-1/6 xs:px-2 px-4 py-3 m-1  flex flex-col bg-[#32383e] ${index % 2 === 0 ? 'text-[#00b9ff]' : 'text-[#ff6da6]'} rounded-md text-center flex-grow`}>
-                {value.top && <span className="top text-sm font-bold">{value.top}</span>}
-                {value.bottom && <span className="bottom text-xs">{value.bottom}</span>}
-                {value.center && <span className="center text-sm font-bold ">{value.center}</span>}
+              <div
+                key={index}
+                className={`livedata-tab xs:w-1/6 xs:px-2 px-4 py-3 m-1  flex flex-col bg-[#32383e] ${
+                  index % 2 === 0 ? "text-[#00b9ff]" : "text-[#ff6da6]"
+                } rounded-md text-center flex-grow`}
+              >
+                {value.top && (
+                  <span className="top text-sm font-bold">300</span>
+                )}
+                {value.bottom && (
+                  <span className="bottom text-xs">240</span>
+                )}
+                {value.center && (
+                  <span className="center text-sm font-bold ">
+                    2.34
+                  </span>
+                )}
               </div>
             );
           })}
