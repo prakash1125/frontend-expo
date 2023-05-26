@@ -53,6 +53,7 @@ export const ChipSetting = ({ closeModal }) => {
   };
 
   return (
+    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
     <div className="z-50">
       <div className="fixed inset-0 bg-gray-100 bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
         <div className=" bg-[black]  rounded-xl w-96">
@@ -60,7 +61,7 @@ export const ChipSetting = ({ closeModal }) => {
             <button
               className="absolute top-4 right-3"
               type="button"
-              onClick={closeModal}
+              onClick={()=>closeModal(false)}
             >
               <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
             </button>
@@ -118,6 +119,7 @@ export const ChipSetting = ({ closeModal }) => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

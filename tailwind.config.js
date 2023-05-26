@@ -40,6 +40,7 @@ module.exports = {
           imgbg: "var( --img-bg-color)",
           hovercolor: "var(--hover-color)",
           hovercolorsecondary: "var(--hover-color-secondary)",
+          marketcard:"var(--market-runner-card)",
           
         }
       },

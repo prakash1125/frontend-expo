@@ -14,6 +14,7 @@
         --img-bg-color:white; 
         --hover-color:#393C40;
         --hover-color-secondary:#4C555E;
+        --market-runner-card:#32383e;
 
 
         --text-primary:#cfd4d8;
@@ -37,13 +38,14 @@
         --img-bg-color:rgb(228, 227, 227); 
         --hover-color:rgb(214, 211, 211);
         --hover-color-secondary:rgb(184, 181, 181);
+        --market-runner-card:#e5f2ff;
 
         --text-primary:#696b6d;
         --text-nav:#ffffff;
         --text-secondary:rgb(54, 54, 54);
         --text-white:rgb(56, 56, 56);
-        --text-blue:#026cbd;
-        --text-pink:#f03b6e;
+        --text-blue:#464747;
+        --text-pink:#464747;
         --text-dark:rgb(53, 53, 53);
 
         --scrollbar-color:rgb(228, 224, 224);

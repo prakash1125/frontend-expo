@@ -10,6 +10,7 @@ export const SignupModal = ({ closeModal }) => {
   };
 
   return (
+    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
     <div className="z-50">
       <div className="fixed inset-0 bg-gray-100 bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
         <div className="relative bg-[black] p-5 rounded-xl w-96">
@@ -104,5 +105,7 @@ export const SignupModal = ({ closeModal }) => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };
