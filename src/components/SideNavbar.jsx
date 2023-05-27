@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';
+import { useDispatch, useSelector } from "react-redux"
+import { getSport } from "../redux/actions"
 const navigation = [
   { name: "SPORTS", href: "#", current: true },
   { name: "IN-PLAY", href: "#", current: false },
@@ -16,7 +18,24 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export const SideNavbar = () => { 
+export const SideNavbar = () => {
+
+  // ==================================CALLING THE API DATA======================================
+
+  const dispatch = useDispatch();
+  let getSportData = useSelector((state) => state.GetSport);
+  let sportName = getSportData.getSport.data;
+
+  // let allSports = [sportName.map((item)=>(item.name))]; 
+
+  // console.log("getSportData", allSports )
+  useEffect(() => {
+    dispatch(
+      getSport()
+    );
+  }, [])
+
+
   const menu = [
     {
       title: "Cricket",
@@ -83,6 +102,7 @@ export const SideNavbar = () => {
       icon: "https://sportsexch.com/images/icons/mixed-martial-arts.png",
     },
   ];
+  
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -101,12 +121,11 @@ export const SideNavbar = () => {
       <ul className="w-full px-4">
         {menu.map((item, index) => (
           <li
-          onClick={() => toggleAccordion(index)}
+            onClick={() => toggleAccordion(index)}
             key={index}
-            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-skin-cardhead  rounded-md ${
-              activeIndex === index ? "bg-skin-cardhead " : ""
-              
-            }`}
+            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-skin-cardhead  rounded-md ${activeIndex === index ? "bg-skin-cardhead " : ""
+
+              }`}
           >
             <div className="flex  justify-between items-center gap-3 px-4">
               <div className="flex items-center gap-3 ">
@@ -122,9 +141,9 @@ export const SideNavbar = () => {
                   </span>
                   <h4
                     className="flex justify-center text-skin-secondary  cursor-pointer"
-                    
+
                   >
-                    {activeIndex === index ?<RiArrowUpSLine className="font-semibold"/> : <IoIosArrowDown className="font-semibold"/>}
+                    {activeIndex === index ? <RiArrowUpSLine className="font-semibold" /> : <IoIosArrowDown className="font-semibold" />}
                   </h4>
                 </div>
               ) : null}
@@ -137,7 +156,7 @@ export const SideNavbar = () => {
                     key={dropdownIndex}
                     className="text-skin-secondary  text-sm font-semibold"
                   >
-                    {dropdownItem} 
+                    {dropdownItem}
                   </h4>
                 ))}
               </div>

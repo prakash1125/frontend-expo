@@ -23,7 +23,7 @@ export const LoginModal = ({ closeModal }) => {
           </button>
           <h1 className="font-semibold text-center text-xl text-[#CCD1D5] mb-5 mt-1">
             Login
-          </h1>
+          </h1> 
 
           <div className="flex flex-col">
             <div className="phone-number mb-5">
