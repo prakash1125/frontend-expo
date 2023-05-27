@@ -24,17 +24,18 @@ export const SideNavbar = () => {
 
   const dispatch = useDispatch();
   let getSportData = useSelector((state) => state.GetSport);
-  let sportName = getSportData.getSport.data;
+  // let sportName = getSportData.getSport.data;
 
   // let allSports = [sportName.map((item)=>(item.name))]; 
 
-  // console.log("getSportData", allSports )
+
+  console.log("getSportData", getSportData)
   useEffect(() => {
     dispatch(
       getSport()
     );
   }, [])
-
+// ===================================================================================================
 
   const menu = [
     {
@@ -102,7 +103,7 @@ export const SideNavbar = () => {
       icon: "https://sportsexch.com/images/icons/mixed-martial-arts.png",
     },
   ];
-  
+
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleAccordion = (index) => {
@@ -113,31 +114,31 @@ export const SideNavbar = () => {
     <>
       <div className="w-full px-4 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
-          <button className="flex justify-start text-skin-primary  bg-skin-cardhead  p-3 rounded-md w-full text-xs font-semibold relative">
+          <button className="flex justify-start text-skin-primary  bg-skin-cardhead p-3 rounded-md w-full text-xs font-semibold relative">
             SPORTS
           </button>
         </div>
       </div>
       <ul className="w-full px-4">
-        {menu.map((item, index) => (
+        {getSportData?.getSport?.data?.map((item, index) => (
           <li
             onClick={() => toggleAccordion(index)}
             key={index}
-            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3  w-full  hover:bg-skin-cardhead  rounded-md ${activeIndex === index ? "bg-skin-cardhead " : ""
+            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3   w-full  hover:bg-skin-cardhead rounded-md ${activeIndex === index ? "bg-skin-cardhead" : ""
 
               }`}
           >
-            <div className="flex  justify-between items-center gap-3 px-4">
+            <div className="flex  justify-between items-center px-4">
               <div className="flex items-center gap-3 ">
                 <img src={item.icon} alt="" className="w-4 h-4 invert sidebar " />
                 <h4 className="text-skin-primary  text-[14px] font-semibold">
-                  {item.title}
+                  {item.name}
                 </h4>
               </div>
-              {item?.data ? (
+              {item?.name ? (
                 <div className="flex items-center gap-3">
                   <span className="flex justify-center bg-skin-imgbg rounded-sm w-5 h-4 rounded-xs font-semibold text-xs">
-                    {item?.data?.length}{" "}
+                    {item?.name?.length}{" "}
                   </span>
                   <h4
                     className="flex justify-center text-skin-secondary  cursor-pointer"
@@ -149,16 +150,15 @@ export const SideNavbar = () => {
               ) : null}
             </div>
             {activeIndex === index && (
-              <div className="flex flex-col items-start gap-4 pt-2 px-4">
-                {item.data.map((dropdownItem, dropdownIndex) => (
-                  // <li key={dropdownIndex}>{dropdownItem}</li>
-                  <h4
-                    key={dropdownIndex}
-                    className="text-skin-secondary  text-sm font-semibold"
-                  >
-                    {dropdownItem}
-                  </h4>
-                ))}
+              <div className="flex flex-col items-start  pt-2 m-1">
+                  <div className="justify-between pl-3 pr-4 rounded-md py-3 hover:bg-skin-cardhead  flex w-full">
+                    <h4
+                      className="text-skin-secondary text-sm font-semibold"
+                    >
+                      {item.sportsCode}
+                    </h4>
+                    <IoIosArrowDown className="font-semibold text-white text-sm" />
+                  </div>
               </div>
             )}
           </li>
