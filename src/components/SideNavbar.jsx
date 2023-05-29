@@ -6,6 +6,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from "react-redux"
 import { getSport } from "../redux/actions"
+
 const navigation = [
   { name: "SPORTS", href: "#", current: true },
   { name: "IN-PLAY", href: "#", current: false },
@@ -35,7 +36,7 @@ export const SideNavbar = () => {
       getSport()
     );
   }, [])
-// ===================================================================================================
+// ===============================================================================================
 
   const menu = [
     {
@@ -130,8 +131,9 @@ export const SideNavbar = () => {
           >
             <div className="flex  justify-between items-center px-4">
               <div className="flex items-center gap-3 ">
-                <img src={item.icon} alt="" className="w-4 h-4 invert sidebar " />
+                <img src={require(`../assets/images/sidemenu/${item.slugName}.png`)} alt="" className="w-4 h-4 invert sidebar " />
                 <h4 className="text-skin-primary  text-[14px] font-semibold">
+                  
                   {item.name}
                 </h4>
               </div>
