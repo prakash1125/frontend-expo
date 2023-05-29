@@ -1,20 +1,17 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import { RiArrowUpSLine } from "react-icons/ri";
+import { useEffect } from "react";
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
 import Modal from "./Modal";
-
-import { IoIosArrowDown } from 'react-icons/io';
-import { RiArrowUpSLine } from 'react-icons/ri';
+import { socket } from "../context/SocketContext";
 
 export const Home = () => {
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-
-
-
   const settings = {
     dots: true,
     autoplay: true,
@@ -30,12 +27,11 @@ export const Home = () => {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.1 ,
+    slidesToShow: 3.1,
     slidesToScroll: 1,
   };
-  
+
   const images = [
-    
     "https://sportsexch.com/images/banner/slider06.png",
     "https://sportsexch.com/images/banner/slider05.png",
     "https://sportsexch.com/images/banner/slider04.png",
@@ -52,13 +48,25 @@ export const Home = () => {
     "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
     "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
     "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
-
   ];
 
+  useEffect(() => {
+    socket.on("connect", () => {
+      console.log("Connected to server");
+    });
+
+    socket.on("timeNow", (data) => {
+      alert(`The time now is ${new Date(data).toLocaleString()}`);
+    });
+
+    return () => {
+      socket.off("connect");
+      socket.off("message");
+    };
+  }, []);
+
   return (
-
     <div className="w-full sm:px-0 mb-4">
-
       <div>
         <Slider {...settings}>
           {images.map((img, index) => (
@@ -82,7 +90,7 @@ export const Home = () => {
             <div className="">
               <a href="#" class="relative block">
                 <img
-                  alt="profil"  
+                  alt="profil"
                   src="https://sportsexch.com/images/icons/sports.png"
                   class="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
                 />
@@ -189,36 +197,37 @@ export const Home = () => {
         </div>
       </div>
 
-
-
-
-
-
-
       <div>
         <div className="flex justify-between mt-3">
-          <p onClick={() => setIsDropdownOpen(!isDropdownOpen)} className="text-skin-white pb-2 px-2 text-lg font-semibold cursor-pointer flex">Cricket
-            {isDropdownOpen ? <RiArrowUpSLine className='ml-2 text-xl m-auto' /> : <IoIosArrowDown className='ml-2 text-lg  m-auto' />}
+          <p
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="text-skin-white pb-2 px-2 text-lg font-semibold cursor-pointer flex"
+          >
+            Cricket
+            {isDropdownOpen ? (
+              <RiArrowUpSLine className="ml-2 text-xl m-auto" />
+            ) : (
+              <IoIosArrowDown className="ml-2 text-lg  m-auto" />
+            )}
           </p>
-          <p className="text-skin-white pb-2 px-2 text-lg font-semibold">1 Event</p>
+          <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
+            1 Event
+          </p>
         </div>
-        {isDropdownOpen && (
-        <MarketDataCard />
-        )}
+        {isDropdownOpen && <MarketDataCard />}
       </div>
-
-
-
 
       <div>
         <div className="flex justify-between mt-16">
-          <p className="text-skin-white pb-2 px-2 text-lg font-semibold">Indian Casino</p>
+          <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
+            Indian Casino
+          </p>
           <button className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
             All Indian Casino
           </button>
         </div>
         <Slider {...settings2}>
-          {images2.map((img, index) => (  
+          {images2.map((img, index) => (
             <div key={index} className=" scroll-x pb-6">
               <div key={index} className="px-1">
                 <img
@@ -233,7 +242,6 @@ export const Home = () => {
       </div>
       {/* <Footer /> */}
       {/* <Modal/> */}
-      
     </div>
   );
 };
