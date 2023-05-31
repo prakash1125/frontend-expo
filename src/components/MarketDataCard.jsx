@@ -61,7 +61,7 @@ const MarketData = () => {
 
               <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2">
                 {data.map((item) =>
-                  <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25 && 'text-skin-pink'} text-skin-blue  bg-skin-marketcard   cursor-pointer`}>
+                  <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25 && 'text-skin-pink bg-skin-marketcardpink '} text-skin-blue bg-skin-marketcardblue  bg-skin-marketcard   cursor-pointer`}>
                     <span className='m-auto brightness-125'>{item}</span>
                   </div>
                 )}
@@ -100,7 +100,7 @@ const MarketData = () => {
 
               <div className="flex gap-1 rounded-sm pr-4 pl-2 ">
                 {data.map((item) =>
-                  <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  ${item === 2.25 && 'text-skin-pink'} text-skin-blue  bg-skin-marketcard  cursor-pointer`}>
+                  <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  ${item === 2.25 && 'text-skin-pink bg-skin-marketcardpink'} text-skin-blue bg-skin-marketcardblue  bg-skin-marketcard  cursor-pointer`}>
                     <span className='m-auto brightness-125'>{item}</span>
                   </div>
                 )}

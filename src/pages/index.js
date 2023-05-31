@@ -4,5 +4,5 @@ export * from "./Layout"
 export * from "./InPlay"
 export * from "./IndianCasino"
 export * from "./Slots"
-export * from './IplClub'
+export * from './IplCup'
 export * from './LiveCasino'

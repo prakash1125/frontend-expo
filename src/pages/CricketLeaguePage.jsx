@@ -1,7 +1,6 @@
 import React from 'react'
 import { CricketLeague } from '../components/CricketLeague '
 import { RightNavbar } from '../components/RightNavbar'
-import { IplClub } from '../components/IplClub'
 
 const CricketLeaguePage = () => {
     return (

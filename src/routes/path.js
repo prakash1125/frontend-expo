@@ -4,7 +4,7 @@ export const Paths = {
   inplay: "/in-play",
   indianCasino: "/indian-casino",
   slots:"/slots",
-  iplclub:'/indian-premier-league',
+  iplcup:'/indian-premier-league',
   liveCasino:'/live-casino',
   deposit:'/deposit',
   withdrawal:'/withdrawal-request',

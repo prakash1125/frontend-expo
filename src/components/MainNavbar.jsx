@@ -20,7 +20,7 @@ import lampDark from "../assets/images/lampdark.png"
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
   { name: "IN-PLAY", href: "/in-play", current: false },
-  { name: "IPL CLUB", href: "/indian-premier-league", current: false },
+  { name: "IPL CUP", href: "/indian-premier-league", current: false },
   { name: "INDIAN CASINO", href: "/indian-casino", current: false },
   { name: "LIVE CASINO", href: "/live-casino", current: false },
   { name: "SLOTS", href: "/slots", current: false },
@@ -134,7 +134,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           className={classNames(
                             item.href == currentRoute &&
                             "bg-skin-cardhead text-skin-white ",
-                            "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
+                            "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-navheading hover:text-skin-navtext "
                           )}
                           aria-current={item.current ? "page" : undefined}
                         >
@@ -155,7 +155,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                         key={index}
                         to={element.href}
                         type="button"
-                        className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
+                        className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${element.name === "D" ? "#1f4d34" : "bg-sky-900"
                           }`}
                       >
                         {element.name}
@@ -271,7 +271,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   <button
                     onClick={() => { setIsSignupOpen(true); }}
                     type="button"
-                    className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] hover:bg-skin-nav hover:text-skin-white text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     SIGN UP
                   </button>

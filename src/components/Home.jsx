@@ -1,13 +1,14 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { useEffect } from "react";
 import MarketDataCard from "./MarketDataCard";
-import Footer from "./Footer";
-import Modal from "./Modal";
+
 import { socket } from "../context/SocketContext";
 
 export const Home = () => {
@@ -65,6 +66,33 @@ export const Home = () => {
     };
   }, []);
 
+  const sportsButtons = [
+    {
+      icon: "https://sportsexch.com/images/icons/sports.png",
+      name: "Sports",
+    },
+    {
+      icon: "https://sportsexch.com/images/icons/live.png",
+      name: "Sports",
+    },
+    {
+      icon: "https://sportsexch.com/images/icons/trophy.png",
+      name: "Sports",
+    },
+    {
+      icon: "https://sportsexch.com/images/icons/indian-casino.png",
+      name: "Sports",
+    },
+    {
+      icon: "https://sportsexch.com/images/icons/live-casino.png",
+      name: "Sports",
+    },
+    {
+      icon: "https://sportsexch.com/images/icons/trophy.png",
+      name: "Sports",
+    },
+  ];
+
   return (
     <div className="w-full sm:px-0 mb-4">
       <div>
@@ -80,121 +108,33 @@ export const Home = () => {
           ))}
         </Slider>
       </div>
-      <div className="flex overflow-x-scroll w-full scroll-x">
-        <div className="flex gap-1 rounded-xl bg-skin-main   w-full">
-          <div
-            className={
-              " cursor-pointer  px-10 w-full rounded-md  py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor  hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/sports.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/live.png"
-                  class="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav "
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/trophy.png"
-                  class="mx-auto object-contain  h-5 w-5 "
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/indian-casino.png"
-                  class="mx-auto object-cover h-5 w-5 bg-skin-nav "
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/live-casino.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/slot.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-          <div
-            className={
-              "cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white"
-            }
-          >
-            <div className="">
-              <a href="#" class="relative block">
-                <img
-                  alt="profil"
-                  src="https://sportsexch.com/images/icons/slot.png"
-                  class="mx-auto object-cover  h-5 w-5 bg-skin-nav"
-                />
-              </a>
-            </div>
-            <p className="text-center">Sports</p>
-          </div>
-        </div>
+      <div className="flex overflow-x-auto w-full scroll-x">
+        <Swiper
+          slidesPerView={5}
+          spaceBetween={6}
+          freeMode={true}
+          draggable={true}
+          className="flex gap-1 rounded-xl bg-skin-main overflow-x-auto w-full scroll-x scroll-smooth"
+        >
+          {sportsButtons.map((element, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
+              >
+                <div className="">
+                  <a href="#" className="relative block">
+                    <img
+                      alt="profil"
+                      src={element.icon}
+                      className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
+                    />
+                  </a>
+                </div>
+                <p className="text-center">{element.name}</p>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <div>

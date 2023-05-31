@@ -2,157 +2,150 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-    :root {
-        --main-background:#0b0d0e;
-        --nav-colortop:#22262a ;
-        --sidebar-color:#0b0d0e;
-        --nav-color:#22262a ;
-        --card-heading-bg-color:#32383e;
-        --card-small-card:#f9fafa; 
-        --img-bg-color:white; 
-        --hover-color:#393C40;
-        --hover-color-secondary:#4C555E;
-        --market-runner-card:#32383e;
-
-
-        --text-primary:#cfd4d8;
-        --text-nav:#cfd4d8;
-        --text-secondary:#f9fafa;
-        --text-white:white;
-        --text-blue:#008EFB;
-        --text-pink:#EF5480;
-        --text-dark:#32383e;
-
-        --scrollbar-color:#555;
-    }
-/* #f8f9fa; */
-    .light-theme {
-        --main-background:#ECEAEA;
-        --nav-colortop:#1E8067 ;
-        --sidebar-color:#fdfffc;
-        --nav-color:#fdfffc ;
-        --card-heading-bg-color:#ddddddbd;
-        --card-small-card:#f1eeee; 
-        --img-bg-color:rgb(228, 227, 227); 
-        --hover-color:rgb(214, 211, 211);
-        --hover-color-secondary:rgb(184, 181, 181);
-        --market-runner-card:#e5f2ff;
-
-        --text-primary:#696b6d;
-        --text-nav:#ffffff;
-        --text-secondary:rgb(54, 54, 54);
-        --text-white:rgb(56, 56, 56);
-        --text-blue:#464747;
-        --text-pink:#464747;
-        --text-dark:rgb(53, 53, 53);
-
-        --scrollbar-color:rgb(228, 224, 224);
-        
-    }
-
-    .light-theme .sidebar {
-        filter: invert(0);
-    }
-
-    .colorful-theme .sidebar {
-        filter: invert(0);
-    }
+  :root {
+    --main-background: #0b0d0e;
+    --nav-colortop: #22262a;
+    --sidebar-color: #0b0d0e;
+    --nav-color: #22262a;
+    --card-heading-bg-color: #32383e;
+    --card-small-card: #f9fafa;
+    --img-bg-color: white;
+    --hover-color: #393c40;
+    --hover-color-secondary: #4c555e;
+    --market-runner-card: #32383e;
     
-    .colorful-theme {
-        --main-background:#F6F1E9;
-        --nav-colortop:#ec871b ;
-        --sidebar-color:#f5e193;
-        --nav-color:#fae697 ;
-        --card-heading-bg-color:#eea95e;
-        --card-small-card:#4F200D; 
-        --img-bg-color:#FFD3A3; 
-        --hover-color:#FFB84C;
-        --hover-color-secondary:#FF8400;
 
+    --text-primary: #cfd4d8;
+    --text-nav: #cfd4d8;
+    --text-secondary: #f9fafa;
+    --text-white: white;
+    --text-blue: #008efb;
+    --text-pink: #ef5480;
+    --text-dark: #32383e;
 
-        --text-primary:rgb(75, 75, 75);
-        --text-secondary:rgb(75, 75, 75);
-        --text-white:rgb(75, 75, 75);
-        --text-blue:#008EFB;
-        --text-pink:#EF5480;
-        --text-dark:rgb(75, 75, 75);
+    --scrollbar-color: #555;
+  }
+  /* #f8f9fa; */
+  .light-theme {
+    --main-background: #eceaea;
+    --nav-colortop: #1e8067;
+    --sidebar-color: #fdfffc;
+    --nav-color: #fdfffc;
+    --nav-heading-bg-color: #169c59;
+    --card-heading-bg-color: #ddddddbd;
+    --card-small-card: #f1eeee;
+    --img-bg-color: rgb(228, 227, 227);
+    --hover-color: rgb(214, 211, 211);
+    --hover-color-secondary: rgb(184, 181, 181);
+    --market-runner-card: #e5f2ff;
+    --market-runner-card-blue: #008efb;
+    --market-runner-card-pink: #ef5480;
 
-        --scrollbar-color:rgb(255, 0, 0);
+    --text-primary: #696b6d;
+    --text-nav: #ffffff;
+    --text-secondary: rgb(54, 54, 54);
+    --text-white: rgb(56, 56, 56);
+    --text-blue: #464747;
+    --text-pink: #464747;
+    --text-dark: rgb(53, 53, 53);
 
-    }
+    --scrollbar-color: rgb(228, 224, 224);
+  }
 
-    .pink-theme {  
-        --text-color: white;
-        --fill-color: white;
-        --fill-color-indicator: white;
-    }
+  .light-theme .sidebar {
+    filter: invert(0);
+  }
 
+  .colorful-theme .sidebar {
+    filter: invert(0);
+  }
+
+  .colorful-theme {
+    --main-background: #f6f1e9;
+    --nav-colortop: #ec871b;
+    --sidebar-color: #f5e193;
+    --nav-color: #fae697;
+    --card-heading-bg-color: #eea95e;
+    --card-small-card: #4f200d;
+    --img-bg-color: #ffd3a3;
+    --hover-color: #ffb84c;
+    --hover-color-secondary: #ff8400;
+
+    --text-primary: rgb(75, 75, 75);
+    --text-secondary: rgb(75, 75, 75);
+    --text-white: rgb(75, 75, 75);
+    --text-blue: #008efb;
+    --text-pink: #ef5480;
+    --text-dark: rgb(75, 75, 75);
+
+    --scrollbar-color: rgb(255, 0, 0);
+  }
+
+  .pink-theme {
+    --text-color: white;
+    --fill-color: white;
+    --fill-color-indicator: white;
+  }
 }
 
-
-
-
 .scrollbar-hide::-webkit-scrollbar {
-    width: 8px;
-	background-color: transparent;
+  width: 8px;
+  background-color: transparent;
 }
 
 .scrollbar-hide {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.scrollbar-hide::-webkit-scrollbar-thumb 
-{
-	border-radius: 10px;
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
-	background-color: var(--scrollbar-color);
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: var(--scrollbar-color);
 }
 
-.slick-prev{
-	left: 7px !important;
-    z-index: 99;
-    border-radius: 0 5px 5px 0 !important;
-    background-color: rgba(0,0,0,0.7) !important;
+.slick-prev {
+  left: 7px !important;
+  z-index: 99;
+  border-radius: 0 5px 5px 0 !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-.slick-next{
-	right: 7px !important;
-    z-index: 99;
-    border-radius: 0 5px 5px 0 !important;
-    background-color: rgba(0,0,0,0.7) !important;
+.slick-next {
+  right: 7px !important;
+  z-index: 99;
+  border-radius: 0 5px 5px 0 !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
 }
 
-.slick-prev, .slick-next{
-	width: 30px !important;
-    height: 34px !important;
+.slick-prev,
+.slick-next {
+  width: 30px !important;
+  height: 34px !important;
 }
 
-.slick-dots{
-	bottom: 13px !important;
+.slick-dots {
+  bottom: 13px !important;
 }
-.scroll-x{
-    display: flex;
-    /* padding: 20px; */
-    overflow-x: scroll;
-    overflow-y: hidden;
+.scroll-x {
+  display: flex;
+  /* padding: 20px; */
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
-.scroll-x::-webkit-scrollbar{
-    display: none;
-}
-
-.underline{
-    border-color: #1890ff;
-    margin-top: 10px;
-    margin-bottom: 10px;
+.scroll-x::-webkit-scrollbar {
+  display: none;
 }
 
-  
+.underline {
+  border-color: #1890ff;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-  .scrollbar-hide::-webkit-scrollbar {
-    /* color: #4c555e; */
-    width: 7px;
-    background-color: transparent;
+.scrollbar-hide::-webkit-scrollbar {
+  /* color: #4c555e; */
+  width: 7px;
+  background-color: transparent;
 }

@@ -3,7 +3,7 @@ import { Paths } from "./path";
 import { SportsPage } from "../pages/Sports";
 import { HomePage } from "../pages/Home";
 import { Layout } from "../pages/Layout";
-import { InPlayPage, IndianCasinoPage, IplClubPage, LiveCasinoPage, SlotsPage } from "../pages";
+import { InPlayPage, IndianCasinoPage, IplCupPage, LiveCasinoPage, SlotsPage } from "../pages";
 import { DepositPage } from "../pages/Deposit";
 import { WithdrawalPage } from "../pages/Withdrawal";
 import { MyMarketPage } from "../pages/MyMarket";
@@ -20,7 +20,7 @@ export const AppRouter = () => {
         <Route path={Paths.inplay} element={<InPlayPage />} />
         <Route path={Paths.indianCasino} element={<IndianCasinoPage />} />
         <Route path={Paths.slots} element={<SlotsPage />} />
-        <Route path={Paths.iplclub} element={<IplClubPage />} />
+        <Route path={Paths.iplcup} element={<IplCupPage />} />
         <Route path={Paths.liveCasino} element={<LiveCasinoPage />} />
         <Route path={Paths.deposit} element={<DepositPage />} />
         <Route path={Paths.withdrawal} element={<WithdrawalPage />} />

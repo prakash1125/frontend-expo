@@ -35,12 +35,15 @@ module.exports = {
           navtop:"var(--nav-colortop)",
           sidebarbg:"var(--sidebar-color)",
           nav: "var( --nav-color)",
+          navheading: "var(--nav-heading-bg-color)",
           cardhead: "var(--card-heading-bg-color)",
           cardsmall: "var( --card-small-card)",
           imgbg: "var( --img-bg-color)",
           hovercolor: "var(--hover-color)",
           hovercolorsecondary: "var(--hover-color-secondary)",
           marketcard:"var(--market-runner-card)",
+          marketcardblue:"var(--market-runner-card-blue)",
+          marketcardpink:"var(--market-runner-card-pink)",
           
         }
       },
