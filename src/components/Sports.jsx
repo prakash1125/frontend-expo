@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.min.css";
 import { Tab } from "@headlessui/react";
-import MarketDataCard from "./MarketDataCard"
+import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
 
 function classNames(...classes) {
@@ -42,6 +44,78 @@ export const Sports = () => {
       },
     ],
     Football: [
+      {
+        id: 1,
+        title: "One Day Internationals",
+        team1: "Ireland",
+        team2: "Bhangladesh",
+        date: "5h ago",
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    BasketBall: [
+      {
+        id: 1,
+        title: "One Day Internationals",
+        team1: "Ireland",
+        team2: "Bhangladesh",
+        date: "5h ago",
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    BasketBall: [
+      {
+        id: 1,
+        title: "One Day Internationals",
+        team1: "Ireland",
+        team2: "Bhangladesh",
+        date: "5h ago",
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    BasketBall: [
+      {
+        id: 1,
+        title: "One Day Internationals",
+        team1: "Ireland",
+        team2: "Bhangladesh",
+        date: "5h ago",
+        commentCount: 5,
+        shareCount: 2,
+      },
+      {
+        id: 2,
+        title: "So you've bought coffee... now what?",
+        date: "2h ago",
+        commentCount: 3,
+        shareCount: 2,
+      },
+    ],
+    BasketBall: [
       {
         id: 1,
         title: "One Day Internationals",
@@ -161,46 +235,58 @@ export const Sports = () => {
     ],
   });
 
-
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-1  scroll-x ">
-          {Object.keys(categories).map((category, index) => (
-            <Tab
-              key={category}
-              onClick={() => setCategoryId(index)}
-              className={({ selected }) =>
-                classNames(
-                  "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
-                  "  ",
-                  selected
-                    ? "bg-skin-imgbg  font-semibold"
-                    : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white"
-                )
-              }
-            >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 sidebar `}></img>
+        <Swiper
+          slidesPerView={6}
+          spaceBetween={1}
+          freeMode={true}
+          className="flex gap-1 "
+        >
+          <Tab.List className="flex gap-5  ">
+            {Object.keys(categories).map((category, index) => (
+              <SwiperSlide>
+                <Tab
+                  key={category}
+                  onClick={() => setCategoryId(index)}
+                  className={({ selected }) =>
+                    classNames(
+                      "w-full h-[52px] rounded-md   text-xs font-semibold leading-5 ",
+                      "  ",
+                      selected
+                        ? "bg-skin-imgbg  font-semibold"
+                        : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white"
+                    )
+                  }
+                >
+                  <img
+                    alt="profil"
+                    src="https://sportsexch.com/images/icons/cricket.png"
+                    class={`mx-auto ${
+                      categoryId !== index && "invert"
+                    } object-cover w-5 sidebar `}
+                  ></img>
 
-              {category}
-            </Tab>
-          ))}
-        </Tab.List>
+                  {category}
+                </Tab>
+              </SwiperSlide>
+            ))}
+          </Tab.List>
+        </Swiper>
         <Tab.Panels className="mt-2">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel
               key={idx}
-              className={classNames(''
+              className={classNames(
+                ""
                 //     // 'rounded-md w-full bg-white p-3',
                 //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
               <ul>
                 {posts.map((post) => (
-                  <li
-                    key={post.id}
-                    className="relative pb-2"
-                  >
+                  <li key={post.id} className="relative pb-2">
                     {/* <div class="rounded-md shadow-md w-full bg-skin-nav ">
                       <div class="flex w-full items-center bg-[#32383e] rounded-t-md justify-between border-b p-3">
                         <div class="flex items-center space-x-3">
@@ -242,7 +328,7 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

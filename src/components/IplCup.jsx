@@ -147,7 +147,9 @@ export const IplCup = () => {
     <>
       <ul className="w-full px-2 pr-0 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 p-1 ">
-          <h1 className="text-skin-white text-xl m-2 ">Indian Premier League</h1>
+          <h1 className="text-skin-white text-xl m-2 ">
+            Indian Premier League
+          </h1>
           <button
             className="text-skin-white bg-[#2EA66A] p-1 px-4 mb-1  rounded-md border-1 border-white test-sm font-semibold"
             style={{
@@ -191,7 +193,8 @@ export const IplCup = () => {
                 {posts.map((item, index) => (
                   <React.Fragment key={item.id}>
                     <li
-                      className={`flex flex-col justify-between mt-2 py-3  w-full bg-skin-cardhead rounded-t-md ${
+                      onClick={() => handleClick(index)}
+                      className={`flex flex-col justify-between cursor-pointer mt-2 py-3  w-full bg-skin-cardhead rounded-t-md ${
                         expandedTables.includes(index) ? "bg-skin-cardhead" : ""
                       }`}
                     >
@@ -208,10 +211,7 @@ export const IplCup = () => {
                             <span className="flex justify-center   text-skin-white font-semibold text-xs">
                               <GoInfo className="w-4 h-4" />
                             </span>
-                            <h4
-                              className="flex justify-center text-skin-white cursor-pointer"
-                              onClick={() => handleClick(index)}
-                            >
+                            <h4 className="flex justify-center text-skin-white cursor-pointer">
                               {expandedTables.includes(index) ? (
                                 <RiArrowUpSLine className="font-semibold" />
                               ) : (
@@ -223,7 +223,9 @@ export const IplCup = () => {
                       </div>
                     </li>
                     {expandedTables.includes(index) && (
-                      <li className={`flex flex-col justify-between mb-2 w-full bg-skin-nav rounded-b-md`}>
+                      <li
+                        className={`flex flex-col justify-between mb-2 w-full bg-skin-nav rounded-b-md`}
+                      >
                         <div className="flex flex-col items-start gap-1">
                           {item.data.map((Item, Index) => (
                             <React.Fragment key={Item.team}>
