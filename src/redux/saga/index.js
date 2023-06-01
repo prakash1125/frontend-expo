@@ -4,10 +4,14 @@
 import { all } from "redux-saga/effects";
 import GetSport from "../saga/getSport/getSportSaga"
 import Login from "../saga/auth/loginSaga"
+import GetAllSportData from "./sportData/getAllSportDataSaga"
+import GlobalSportData from "./globalData/globalSportDataSaga"
 
 export default function* rootSaga() {
   yield all([
     Login(),
-    GetSport()
+    GetSport(),
+    GetAllSportData(),
+    GlobalSportData(),
   ]);
 }

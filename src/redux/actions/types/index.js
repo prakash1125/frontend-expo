@@ -6,11 +6,21 @@ export const GET_SPORT = "GET_SPORT"
 export const GET_SPORT_SUCCESS = "GET_SPORT_SUCCESS"
 export const GET_SPORT_FAILURE = "GET_SPORT_FAILURE"
 
-// =====================Login Action================================
+// =====================Login Action==============================
 
 export const LOGIN = "LOGIN"
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
 export const LOGIN_FAILURE = "LOGIN_FAILURE"
 
+// =====================Get Sport Data (leages and events)==============================
+
+export const GET_ALL_SPORT_DATA = "GET_ALL_SPORT_DATA"
+export const GET_ALL_SPORT_DATA_SUCCESS = "GET_ALL_SPORT_DATA_SUCCESS"
+export const GET_ALL_SPORT_DATA_FAILURE = "GET_ALL_SPORT_DATA_FAILURE"
+
+// =====================Get Sport Data (leages and events)==============================
+
+export const GLOBAL_SPORT_DATA = "GLOBAL_SPORT_DATA"
+export const GLOBAL_SPORT_DATA_SUCCESS = "GLOBAL_SPORT_DATA_SUCCESS"
 
 

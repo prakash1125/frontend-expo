@@ -1,12 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Tab } from "@headlessui/react";
 import MarketDataCard from "./MarketDataCard"
 import Footer from "./Footer";
+import { useSelector } from "react-redux";
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 export const Sports = () => {
+
+  // ==================================CALLING THE API DATA======================================
+
+  let globalStateData = useSelector((state) => state);
+
+
+
+
+  // ============================================================================================
+
+
+
+
   const [categoryId, setCategoryId] = useState(0);
   let [categories] = useState({
     Cricket: [
@@ -165,14 +180,14 @@ export const Sports = () => {
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-1  scroll-x ">
-          {Object.keys(categories).map((category, index) => (
+        <Tab.List className="flex gap-1 scroll-x">
+          {globalStateData?.GlobalSportData?.globalSportData?.map((category, index) => (
             <Tab
               key={category}
               onClick={() => setCategoryId(index)}
               className={({ selected }) =>
                 classNames(
-                  "w-[85px] h-[52px] rounded-md   text-xs font-semibold leading-5 ",
+                  " h-[52px] justify-center text-center rounded-md text-xs min-w-[85px] font-semibold ",
                   "  ",
                   selected
                     ? "bg-skin-imgbg  font-semibold"
@@ -180,9 +195,10 @@ export const Sports = () => {
                 )
               }
             >
-              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover w-5 sidebar `}></img>
-
-              {category}
+              <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover  w-5 sidebar `}></img>
+              <div className=" inline-block overflow-x-hidden w-16  whitespace-nowrap ">
+                {category.sportName}
+              </div>
             </Tab>
           ))}
         </Tab.List>
@@ -242,7 +258,7 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

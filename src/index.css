@@ -115,20 +115,20 @@
 	left: 7px !important;
     z-index: 99;
     border-radius: 0 5px 5px 0 !important;
-    background-color: rgba(0,0,0,0.7) !important;
+    /* background-color: rgba(0,0,0,0.7) !important; */
 }
 
 .slick-next{
 	right: 7px !important;
     z-index: 99;
     border-radius: 0 5px 5px 0 !important;
-    background-color: rgba(0,0,0,0.7) !important;
+    /* background-color: rgba(0,0,0,0.7) !important; */
 }
-
+/* 
 .slick-prev, .slick-next{
 	width: 30px !important;
     height: 34px !important;
-}
+} */
 
 .slick-dots{
 	bottom: 13px !important;

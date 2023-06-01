@@ -18,7 +18,7 @@ export const App = () => {
       < AppRouter />
     </div>
     </Provider>
-
+  
   )
 }
 

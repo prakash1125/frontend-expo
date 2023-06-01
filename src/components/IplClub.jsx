@@ -315,7 +315,7 @@ export const IplClub = () => {
                       }`}
                     >
                       {activeIndex === index && (
-                        <div className="flex flex-col items-start gap-1    ">
+                        <div className="flex flex-col pb-2 items-start gap-1    ">
                           {item.data.map((Item, Index) => (
                             <>
                               {" "}
@@ -426,7 +426,7 @@ export const IplClub = () => {
 
 
       </ul>
-      {/* <Footer/> */}
+      <Footer/>
     </>
   );
 };

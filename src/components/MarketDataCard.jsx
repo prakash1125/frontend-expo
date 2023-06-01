@@ -2,9 +2,18 @@ import React from 'react'
 import { useState } from 'react';
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-const MarketData = () => {
+const MarketData = (props) => {
+
+
+   // ==================================CALLING THE API DATA======================================
+
+   let globalStateData = useSelector((state) => state);
+ 
+ 
+ // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
   const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25,]
@@ -15,7 +24,7 @@ const MarketData = () => {
       <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer ">
         <div class="flex items-center ">
           <div class="flex items-center text-sm text-skin-secondary  font-medium ">
-            Indian Premeier Leauge
+            {props.leagueName}
           </div>
         </div>
         <div class="flex items-center space-x-8 px-1">
