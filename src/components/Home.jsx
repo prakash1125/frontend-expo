@@ -50,21 +50,6 @@ export const Home = () => {
     "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
   ];
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to server");
-    });
-
-    socket.on("timeNow", (data) => {
-      alert(`The time now is ${new Date(data).toLocaleString()}`);
-    });
-
-    return () => {
-      socket.off("connect");
-      socket.off("message");
-    };
-  }, []);
-
   return (
     <div className="w-full sm:px-0 mb-4">
       <div>

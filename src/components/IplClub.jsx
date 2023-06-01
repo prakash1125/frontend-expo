@@ -9,93 +9,10 @@ function classNames(...classes) {
 }
 export const IplClub = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-//   const menu = [
-//     {
-//       id: 1,
-//       title: "Winner",
-//       data: [
-//         {
-//           team: "Gujarat",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//         {
-//           team: "Punjab",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//         {
-//           team: "Rajastan",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//         {
-//           team: "Lucknow",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//         {
-//           team: "Chennai",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//         {
-//           team: "Delhi Capitals",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//       ],
-//     },
-//     {
-//       id: 2,
-//       title: "Winner",
-//       data: [
-//         {
-//           team: "Gujarat",
-//           score: [1, 2, 3, 4, 5, 6],
-//         },
-//       ],
-//     },
-//   ];
-  //   const menu = [
-  //     {
-  //       id: 1,
-  //       title: "Winner",
-  //       data: [
-  //         {
-  //           team: "Gujarat",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //         {
-  //           team: "Punjab",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //         {
-  //           team: "Rajastan",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //         {
-  //           team: "Lucknow",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //         {
-  //           team: "Chennai",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //         {
-  //           team: "Delhi Capitals",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       id: 2,
-  //       title: "Winner",
-  //       data: [
-  //         {
-  //           team: "Gujarat",
-  //           score: [1, 2, 3, 4, 5, 6],
-  //         },
-  //       ],
-  //     },
-  //   ];
+
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
-  }; 
+  };
   let [categories] = useState({
     All: [
       {
@@ -117,7 +34,7 @@ export const IplClub = () => {
           {
             team: "Lucknow",
             score: [1, 2, 3, 4, 5, 6],
-          }
+          },
         ],
       },
       {
@@ -180,52 +97,49 @@ export const IplClub = () => {
           },
         ],
       },
-     
     ],
     BookMarker: [
-        {
-            id: 1,
-            title: "Book Marker",
-            data: [
-              {
-                team: "Gujarat",
-                score: [1, 2, 3, 4, 5, 6],
-              },
-              {
-                team: "Punjab",
-                score: [1, 2, 3, 4, 5, 6],
-              },
-              {
-                team: "Rajastan",
-                score: [1, 2, 3, 4, 5, 6],
-              },
-              {
-                team: "Lucknow",
-                score: [1, 2, 3, 4, 5, 6],
-              }
-            ],
+      {
+        id: 1,
+        title: "Book Marker",
+        data: [
+          {
+            team: "Gujarat",
+            score: [1, 2, 3, 4, 5, 6],
           },
+          {
+            team: "Punjab",
+            score: [1, 2, 3, 4, 5, 6],
+          },
+          {
+            team: "Rajastan",
+            score: [1, 2, 3, 4, 5, 6],
+          },
+          {
+            team: "Lucknow",
+            score: [1, 2, 3, 4, 5, 6],
+          },
+        ],
+      },
     ],
     Fancy: [
-        {
-            id: 2,
-            title: "Winner",
-            data: [
-              {
-                team: "Gujarat",
-                score: [1, 2, 3, 4, 5, 6],
-              },
-            ],
+      {
+        id: 2,
+        title: "Winner",
+        data: [
+          {
+            team: "Gujarat",
+            score: [1, 2, 3, 4, 5, 6],
           },
+        ],
+      },
     ],
   });
-
 
   return (
     <>
       <ul className="w-full px-2 pr-0 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 p-1 ">
-          
           <h1 className="text-skin-white text-xl m-2 ">
             Indian Premier League
           </h1>
@@ -249,7 +163,7 @@ export const IplClub = () => {
                 className={({ selected }) =>
                   classNames(
                     "w-full rounded-md outline-none text-center text-sm font-medium ",
-                 
+
                     selected
                       ? "bg-skin-hovercolorsecondary text-skin-white"
                       : "text-skin-white bg-skin-nav hover:bg-skin-hovercolorsecondary  hover:text-skin-white"
@@ -322,7 +236,6 @@ export const IplClub = () => {
                               <hr className="border-t border-gray-200/10  w-full pt-1  " />
                               <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                                 <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
-                                  
                                   <p>{Item.team}</p>
                                   <span className="flex ">stake amount</span>
                                 </div>
@@ -332,12 +245,19 @@ export const IplClub = () => {
                                       key={index}
                                       className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                     >
-                                      <p className={`${Score !==3 && ('hidden md:block ')}text-center text-[14.5px] `}>{Score}</p>
-                                      <p className="text-center text-skin-primary text-[11px]">20</p>
-
-                                    </div>  
+                                      <p
+                                        className={`${
+                                          Score !== 3 && "hidden md:block "
+                                        }text-center text-[14.5px] `}
+                                      >
+                                        {Score}
+                                      </p>
+                                      <p className="text-center text-skin-primary text-[11px]">
+                                        20
+                                      </p>
+                                    </div>
                                   ))}
-                                </div> 
+                                </div>
                               </div>
                             </>
                           ))}
@@ -352,7 +272,7 @@ export const IplClub = () => {
         </Tab.Group>
 
         {/* {`${(Score !== 3 || Score !==4) ? ('hidden lg:block text-center text-[14.5px] ') */}
-                                      
+
         {/* {menu.map((item, index) => (
           <>
             {" "}
@@ -423,8 +343,6 @@ export const IplClub = () => {
             </li>
           </>
         ))} */}
-
-
       </ul>
       {/* <Footer/> */}
     </>
