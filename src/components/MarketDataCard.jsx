@@ -37,48 +37,54 @@ const MarketData = ({ league }) => {
       </div>
       {isDropdownOpen && (
         <>
-        {league?.events?.map((event, index) => (
-          <Link to="/cricket-league" >
-            <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
+          {league?.events?.map((event, index) => (
+            <Link to="/cricket-league" >
+              <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
 
-              <div class=" flex items-center flex-1  cursor-pointer select-none">
-                <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
-                  <a href="#" class="rounded-full relative block">
-                    <img
-                      alt="profil"
-                      src="https://sportsexch.com/images/icons/cricket.png"
-                      class="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg  p-1.5"
-                    />
-                  </a>
-                </div>     
+                <div class=" flex items-center flex-1  cursor-pointer select-none">
+                  <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
+                    <a href="#" class="rounded-full relative block">
+                      <img
+                        alt="profil"
+                        src="https://sportsexch.com/images/icons/cricket.png"
+                        class="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg  p-1.5"
+                      />
+                    </a>
+                  </div>
                   <div class="flex pl-3 justify-between w-full">
                     <div>
+
                       <div class="w-32 font-medium  text-skin-primary  text-sm">{event?.name}</div>
                       {/* <div class="w-32 font-medium  text-skin-primary  text-sm">League</div> */}
                     </div>
                     <div class="text-[12px] font-bold pr-4 text-skin-primary ">
                       <div>
-                        <div className='text-skin-secondary '>{new Date(event?.eventDate).toLocaleString()}</div>
+                        {<div className='text-skin-secondary '>{new Date(event?.eventDate).toLocaleString("en-US", {
+                          day: "2-digit",
+                          month: "short",
+                          hour: "2-digit",
+                          minute: "2-digit",
+                        })}</div>}
                         <div className='flex justify-end mt-1 '>
-                          <div className=" mx-2 ml-4 px-2 w-full h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">F4</div>
-                          <div className=" w-full  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">B</div>
+                          <div className=" mx-2 ml-4 px-2  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">F 4</div>
+                          <div className="  px-1 h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">B</div>
                         </div>
                       </div>
                     </div>
-                  </div>      
-              </div>
-
-              <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2">
-                {data.map((item) =>
-                  <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25 && 'text-skin-pink'} text-skin-blue  bg-skin-marketcard   cursor-pointer`}>
-                    <span className='m-auto brightness-125'>{item}</span>
                   </div>
-                )}
+                </div>
 
+                <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2">
+                  {data.map((item) =>
+                    <div className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${item === 2.25 && 'text-skin-pink'} text-skin-blue  bg-skin-marketcard   cursor-pointer`}>
+                      <span className='m-auto brightness-125'>{item}</span>
+                    </div>
+                  )}
+
+                </div>
               </div>
-            </div>
-      
-          </Link>
+
+            </Link>
           ))}
         </>
       )}
