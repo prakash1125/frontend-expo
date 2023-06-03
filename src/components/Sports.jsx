@@ -43,8 +43,8 @@ export const Sports = () => {
                   " h-[52px] justify-center text-center rounded-md text-xs min-w-[85px] font-semibold ",
                   "  ",
                   selected
-                    ? "bg-skin-imgbg  font-semibold "
-                    : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white"
+                    ? "bg-skin-imgbg  font-semibold duration-300  "
+                    : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-300"
                 )
               }
             >

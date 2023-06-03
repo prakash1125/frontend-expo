@@ -4,6 +4,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import {DateTime } from 'luxon'
 
 const MarketData = ({ league }) => {
 
@@ -17,11 +18,11 @@ const MarketData = ({ league }) => {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
   const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25,]
-
+  const word = " v " || " @ ";
   return (
 
     <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
-      <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer ">
+      <div onClick={() => setIsDropdownOpen(!isDropdownOpen)}  class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer ">
         <div class="flex items-center ">
           <div class="flex items-center text-sm text-skin-secondary  font-medium ">
             {league?.leagueName}
@@ -54,17 +55,12 @@ const MarketData = ({ league }) => {
                   <div class="flex pl-3 justify-between w-full">
                     <div>
 
-                      <div class="w-32 font-medium  text-skin-primary  text-sm">{event?.name}</div>
-                      {/* <div class="w-32 font-medium  text-skin-primary  text-sm">League</div> */}
+                      <div class=" font-medium  text-skin-primary  text-sm">{event?.name?.includes("@") ? event?.name?.split(" @ ")[0]?.trim() : event?.name?.split(" v ")[0]?.trim()}</div>
+                      <div class=" font-medium  text-skin-primary  text-sm">{event?.name?.includes("@") ? event?.name?.split(" @ ")[1]?.trim() : event?.name?.split(" v ")[1]?.trim()}</div>
                     </div>
                     <div class="text-[12px] font-bold pr-4 text-skin-primary ">
                       <div>
-                        {<div className='text-skin-secondary '>{new Date(event?.eventDate).toLocaleString("en-US", {
-                          day: "2-digit",
-                          month: "short",
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}</div>}
+                        <div className='text-skin-secondary '>{DateTime.fromISO(event?.eventDate).toFormat("dd MMM HH:mm")}</div>
                         <div className='flex justify-end mt-1 '>
                           <div className=" mx-2 ml-4 px-2  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">F 4</div>
                           <div className="  px-1 h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">B</div>
