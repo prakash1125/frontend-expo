@@ -80,8 +80,12 @@ export const Home = () => {
     },
   ];
 
-  let globalStateData = useSelector((state) => state);
-  console.log("globalStateDataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", globalStateData);
+// ==================================CALLING THE API DATA======================================
+  
+  let globalStateData = useSelector((state) => state?.GlobalSportData);
+  let sportsArray = globalStateData?.globalSportData;
+
+// ============================================================================================
 
 
   useEffect(() => {
@@ -160,13 +164,9 @@ export const Home = () => {
             1 Event
           </p>
         </div>
-        {globalStateData?.GlobalSportData?.globalSportData?.map((i)=>(
-          i?.leagues?.map((j)=>(
-            isDropdownOpen && <MarketDataCard leagueName={j?.leagueName} />
-          ))
-          
-        ))}
-        
+       
+        {/* {isDropdownOpen && <MarketDataCard  />} */}
+
       </div>
 
       <div>
