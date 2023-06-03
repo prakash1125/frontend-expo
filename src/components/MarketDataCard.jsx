@@ -24,7 +24,7 @@ const MarketData = (props) => {
       <div onClick={() => setIsDropdownOpen(!isDropdownOpen)} class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer ">
         <div class="flex items-center ">
           <div class="flex items-center text-sm text-skin-secondary  font-medium ">
-            {props.leagueName}
+            asdff
           </div>
         </div>
         <div class="flex items-center space-x-8 px-1">

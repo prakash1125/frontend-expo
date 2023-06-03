@@ -13,6 +13,7 @@ export const Sports = () => {
   // ==================================CALLING THE API DATA======================================
 
   let globalStateData = useSelector((state) => state);
+  console.log("Data is ", globalStateData);
 
 
 
@@ -181,7 +182,7 @@ export const Sports = () => {
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
         <Tab.List className="flex gap-1 scroll-x">
-          {globalStateData?.GlobalSportData?.globalSportData?.map((category, index) => (
+          {globalStateData?.GetSport?.getSport?.data?.map((category, index) => (
             <Tab
               key={category}
               onClick={() => setCategoryId(index)}
@@ -197,7 +198,7 @@ export const Sports = () => {
             >
               <img alt="profil" src="https://sportsexch.com/images/icons/cricket.png" class={`mx-auto ${categoryId !== index && 'invert'} object-cover  w-5 sidebar `}></img>
               <div className=" inline-block overflow-x-hidden w-16  whitespace-nowrap ">
-                {category.sportName}
+                {category.name}
               </div>
             </Tab>
           ))}
