@@ -208,19 +208,24 @@ export const CricketLeague = () => {
                         })
                     }
                     <div className="team-match text-[#fff] text-lg font-bold mb-2">
-                        { 
+                        {
                             globalStateData?.GlobalSportData?.globalSportData?.map((element, index) => {
                                 if (element.sportName === 'Cricket') {
                                     if (element.leagues.length > 0) {
                                         const league = element.leagues[0];
+                                        const eventName = league.events.length > 0 ? league.events[1].name : '';
+
+                                        const updatedEventName = eventName.replace(/\bv\b/gi, 'vs');
 
                                         return (
                                             <React.Fragment key={index}>
-                                                {league.events.length > 0 && (
-                                                    <p className="text-center" key={league.events[0]._id}>
-                                                        {league.events[0].name}
-                                                    </p>
-                                                )}
+                                                <div className="flex gap-2 flex-row">
+                                                    {updatedEventName.split(' ').map((part, partIndex) => (
+                                                        <p className={`text-center ${part.toLowerCase() === 'vs' ? 'individual-vs' : ' '}`} key={partIndex}>
+                                                            {part}
+                                                        </p>
+                                                    ))}
+                                                </div>
                                             </React.Fragment>
                                         );
                                     }
