@@ -208,7 +208,7 @@ export const CricketLeague = () => {
                         })
                     }
                     <div className="team-match text-[#fff] text-lg font-bold mb-2">
-                        {
+                        { 
                             globalStateData?.GlobalSportData?.globalSportData?.map((element, index) => {
                                 if (element.sportName === 'Cricket') {
                                     if (element.leagues.length > 0) {
