@@ -148,7 +148,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
                 {/* AFTER LOGIN */}
 
-                <div className="flex gap-1.5 items-center relative ">
+                {/* <div className="flex gap-1.5 items-center relative ">
                   {loginRightMenu.map((element, index) => {
                     return (
                       <Link
@@ -242,7 +242,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       })}
                     </div>
                   )}
-                </div>
+                </div> */}
 
 
                 {/* BEFORE LOGIN */}
@@ -253,7 +253,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     type="button"
                     className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
                   >
-                    {theme ? <img className="hover:brightness-90 w-8" src={lampDark}></img> : <img className=" hover:brightness-95 w-8" src={lamp}></img>}
+                    {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
                   </button>
                   <button
                     onClick={() => { setIsLoginOpen(true); }}

@@ -225,7 +225,6 @@ export const IplClub = () => {
     <>
       <ul className="w-full px-2 pr-0 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 p-1 ">
-
           <h1 className="text-skin-white text-xl m-2 ">
             Indian Premier League
           </h1>
@@ -248,11 +247,11 @@ export const IplClub = () => {
                 key={category}
                 className={({ selected }) =>
                   classNames(
-                    "w-full rounded-md outline-none text-center text-sm font-medium ",
+                    "w-full rounded-md outline-none text-center text-sm font-medium  ",
 
                     selected
-                      ? "bg-skin-hovercolorsecondary text-skin-white"
-                      : "text-skin-white bg-skin-nav hover:bg-skin-hovercolorsecondary  hover:text-skin-white"
+                      ? "bg-skin-hovercolorsecondary text-skin-white  "
+                      : "text-skin-white bg-skin-nav hover:bg-skin-hovercolorsecondary  hover:text-skin-white hover:duration-300"
                   )
                 }
               >

@@ -8,8 +8,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { useEffect } from "react";
 import MarketDataCard from "./MarketDataCard";
-import Footer from "./Footer";
-import Modal from "./Modal";
 import { socket } from "../context/SocketContext";
 import { useSelector } from "react-redux";
 
@@ -103,8 +101,10 @@ export const Home = () => {
     };
   }, []);
 
+
+
   return (
-    <div className="w-full sm:px-0 mb-4">
+    <div  className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
           {images.map((img, index) => (
@@ -164,8 +164,8 @@ export const Home = () => {
             1 Event
           </p>
         </div>
-       
-        {/* {isDropdownOpen && <MarketDataCard  />} */}
+        
+        {isDropdownOpen && <MarketDataCard />}
 
       </div>
 
@@ -192,8 +192,6 @@ export const Home = () => {
           ))}
         </Slider>
       </div>
-      {/* <Footer /> */}
-      {/* <Modal/> */}
     </div>
   );
 };
