@@ -54,7 +54,6 @@ const MarketData = ({ league }) => {
                   </div>
                   <div class="flex pl-3 justify-between w-full">
                     <div>
-
                       <div class=" font-medium  text-skin-primary  text-sm">{event?.name?.includes("@") ? event?.name?.split(" @ ")[0]?.trim() : event?.name?.split(" v ")[0]?.trim()}</div>
                       <div class=" font-medium  text-skin-primary  text-sm">{event?.name?.includes("@") ? event?.name?.split(" @ ")[1]?.trim() : event?.name?.split(" v ")[1]?.trim()}</div>
                     </div>
