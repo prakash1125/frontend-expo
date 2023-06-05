@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from "react-redux"
@@ -166,12 +167,18 @@ export const SideNavbar = () => {
                       {dropdownIndex === index && (
 
                         <div className="flex flex-col items-start  pt-2 ">
-                          {league?.events.map(((i, index) => (
-                            < div className="justify-between pl-2 pr-4 rounded-md py-3 hover:bg-skin-cardhead flex w-full">
+                          {league?.events.map(((event, index) => (
+                            <Link to="/cricket-league" state={
+                              { leagueName: league?.leagueName,
+                                eventName: event?.name,
+                                eventDate: event?.eventDate }
+                               } >
+                            <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:bg-skin-cardhead flex w-full">
                             <div className="text-skin-secondary block text-xs w-full font-semibold">
-                              {i?.name}
+                              {event?.name}
                             </div>
                             </div>
+                            </Link>
                           )))}
                         </div>
 

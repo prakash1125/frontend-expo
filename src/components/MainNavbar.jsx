@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
 import { LoginModal } from "./LoginModal";
-import { SignupModal } from "./SignupModal";
+// import { SignupModal } from "./SignupModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";
 import { ThemeContext } from "../context/ThemeContext";
@@ -91,7 +91,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
   return (
     <>
-
       <Disclosure
         as="nav"
         className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
@@ -248,7 +247,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 {/* BEFORE LOGIN */}
                 <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                   <button
-                    // onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
                     onClick={handleThemeClick}
                     type="button"
                     className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
@@ -263,12 +261,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     LOG IN
                   </button>
 
-
-                  {/* {isChipSettingOpen && (
-                    <ChipSetting className="z-50" closeModal={setisChipSettingOpen} />
-                  )} */}
-
-                  <button
+                  {/* <button
                     onClick={() => { setIsSignupOpen(true); }}
                     type="button"
                     className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -277,7 +270,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   </button>
                   {isSignupOpen && (
                     <SignupModal className="z-50" closeModal={closeModal} />
-                  )}
+                  )} */}
 
                 </div>
 
