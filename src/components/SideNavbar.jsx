@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { Fragment } from "react";
-// import { Disclosure, Menu, Transition } from "@headlessui/react";
-// import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link } from 'react-router-dom';
 import { IoIosArrowDown } from 'react-icons/io';
 import { RiArrowUpSLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from "react-redux"
@@ -46,13 +44,14 @@ export const SideNavbar = () => {
             const id = data?._id
             dispatch(getAllSportData({
               id, callback: (res) => {
+                console.log(res,"all ressssss");
+                const sport = {
+                  sportName: data?.name,
+                  sportSlugName: data?.slugName,
+                  sportsCode: data?.sportsCode,
+                  sportId: data?._id,
+                }
                 if (res.length !== 0) {
-                  const sport = {
-                    sportName: data?.name,
-                    sportSlugName: data?.slugName,
-                    sportsCode: data?.sportsCode,
-                    sportId: data?._id,
-                  }
                   const leagues = res?.map((item) => {
                     const leagues = {
                       leagueId: item?._id,
@@ -76,6 +75,10 @@ export const SideNavbar = () => {
                   // console.log('allSport res zzzzzzzzz', sport);
                   // console.log(allSportData, "allSportDataallSportDataallSportDataallSportDataallSportDataallSportDataallSportDataallSportData");
                   return sport;
+                }else{          
+                  setdata(prevState => (
+                    [...prevState, sport]
+                  ))
                 }
               }
             }))
@@ -122,16 +125,16 @@ export const SideNavbar = () => {
           <li
 
             key={index}
-            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3   w-full  hover:bg-skin-cardhead rounded-md ${activeIndex === index ? "bg-skin-cardhead" : ""
+            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3   w-full  hover:bg-skin-cardhead hover:duration-200 rounded-md ${activeIndex === index ? "bg-skin-cardhead" : ""
 
               }`}
           >
             <div onClick={() => toggleAccordion(index)} className="flex  justify-between items-center px-2">
               <div className="flex items-center gap-3 ">
-                <img src={require(`../assets/images/sidemenu/${item.sportSlugName}.png`)} alt="" className="w-4 h-4 invert sidebar " />
-                <h4 className="text-skin-primary  text-[14px] font-semibold">
+                <img src={require(`../assets/images/sidemenu/${item?.sportSlugName}.png`)} alt="" className="w-4 h-4 invert sidebar " />
+                <h4 className=" text-skin-primary  text-[14px] font-semibold">
 
-                  {item.sportName}
+                  {item?.sportName}
                 </h4>
               </div>
               {item?.sportName ? (
@@ -150,7 +153,7 @@ export const SideNavbar = () => {
             </div>
             {activeIndex === index && (
               <div className="flex flex-col items-start  pt-2 m-1">
-                {item?.leagues.map((league, index) => (
+                {item?.leagues?.map((league, index) => (
                   < div  onClick={() => toggleDropdown(index)} className="justify-between pl-3 pr-4 rounded-md py-3 hover:bg-skin-hovercolorsecondary flex w-full">
 
                     <div>
@@ -164,12 +167,18 @@ export const SideNavbar = () => {
                       {dropdownIndex === index && (
 
                         <div className="flex flex-col items-start  pt-2 ">
-                          {league?.events.map(((i, index) => (
-                            < div className="justify-between pl-2 pr-4 rounded-md py-3 hover:bg-skin-cardhead flex w-full">
+                          {league?.events.map(((event, index) => (
+                            <Link to="/cricket-league" state={
+                              { leagueName: league?.leagueName,
+                                eventName: event?.name,
+                                eventDate: event?.eventDate }
+                               } >
+                            <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:bg-skin-cardhead flex w-full">
                             <div className="text-skin-secondary block text-xs w-full font-semibold">
-                              {i?.name}
+                              {event?.name}
                             </div>
                             </div>
+                            </Link>
                           )))}
                         </div>
 

@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
 import { LoginModal } from "./LoginModal";
-import { SignupModal } from "./SignupModal";
+// import { SignupModal } from "./SignupModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";
 import { ThemeContext } from "../context/ThemeContext";
@@ -89,18 +89,17 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
         handleMenuClick()
     }
 
-    return (
-        <>
-
-            <Disclosure
-                as="nav"
-                className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
-                    } `}
-            >
-                {({ open }) => (
-                    <>
-                        <div className="px-2 sm:px-6 lg:px-6">
-                            <div className="relative flex items-center justify-between
+  return (
+    <>
+      <Disclosure
+        as="nav"
+        className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
+          } `}
+      >
+        {({ open }) => (
+          <>
+            <div className="px-2 sm:px-6 lg:px-6">
+              <div className="relative flex items-center justify-between
              gap-3">
                                 <div
                                     className={`text-skin-white  ${toggle ? "text-[20px]" : "text-[20px]"
@@ -242,40 +241,36 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       })}
                     </div>
                   )}
-                </div> */}
+                </div>
+ */}
 
+                {/* BEFORE LOGIN */}
+                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
+                  <button
+                    onClick={handleThemeClick}
+                    type="button"
+                    className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
+                  >
+                    {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
+                  </button>
+                  <button
+                    onClick={() => { setIsLoginOpen(true); }}
+                    type="button"
+                    className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    LOG IN
+                  </button>
 
-                                {/* BEFORE LOGIN */}
-                                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
-                                    <button
-                                        // onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
-                                        onClick={handleThemeClick}
-                                        type="button"
-                                        className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
-                                    >
-                                        {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
-                                    </button>
-                                    <button
-                                        onClick={() => { setIsLoginOpen(true); }}
-                                        type="button"
-                                        className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    >
-                                        LOG IN
-                                    </button>
-
-
-                                    {/* {isChipSettingOpen && (
-                    <ChipSetting className="z-50" closeModal={setisChipSettingOpen} />
+                  {/* <button
+                    onClick={() => { setIsSignupOpen(true); }}
+                    type="button"
+                    className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    SIGN UP
+                  </button>
+                  {isSignupOpen && (
+                    <SignupModal className="z-50" closeModal={closeModal} />
                   )} */}
-
-                                    <button
-                                        onClick={() => { setIsSignupOpen(true); }}
-                                        type="button"
-                                        className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                                    >
-                                        SIGN UP
-                                    </button>
-
 
                                 </div>
 
@@ -309,9 +304,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
             {isLoginOpen && (
                 <LoginModal className="z-50" closeModal={closeModal} />
             )}
-            {isSignupOpen && (
+            {/* {isSignupOpen && (
                 <SignupModal className="z-50" closeModal={closeModal} />
-            )}
+            )} */}
             {isChipSettingOpen && (
                 <ChipSetting className="z-50" closeModal={setisChipSettingOpen} />
             )}
