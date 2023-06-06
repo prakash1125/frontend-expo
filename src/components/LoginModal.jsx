@@ -1,41 +1,32 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
+import { connect } from 'react-redux';
+import { login } from '../redux/actions/auth/loginAction';
 
-export const LoginModal = ({ closeModal }) => {
+export const LoginModal = ({ closeModal, login }) => {
+
     const [phoneNumberValue, setPhoneNumberValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
-    const [message, setMessage] = useState('');
-    const [error, setError] = useState('');
 
     const handlePhoneNumberValueChange = (e) => {
         setPhoneNumberValue(e.target.value);
     };
 
-    const handlePasswordChange = (e) => {
+    const handlePasswordValueChange = (e) => {
         setPasswordValue(e.target.value);
     };
 
-    const handleSubmit = () => {
-        axios
-            .post('/login', { phoneNumber: phoneNumberValue, password: passwordValue })
-            .then((response) => {
-                setMessage(response.data.message); // Assuming the server returns a 'message' field in the response
-                setError('');
-            })
-            .catch((error) => {
-                setError(error.response.data.error); // Assuming the server returns an 'error' field in the response
-                setMessage('');
-            });
+    const handleLogin = () => {
+        login(phoneNumberValue, passwordValue);
     };
 
+    // const [phoneNumber, setPhoneNumber] = useState("");
+    // const [password, setPassword] = useState("");
 
-    const [phoneNumber, setPhoneNumber] = useState("");
-
-    const handlePhoneNumberChange = (event) => {
-        setPhoneNumber(event.target.value);
-    };
+    // const handlePhoneNumberChange = (event) => {
+    //     setPhoneNumber(event.target.value);
+    // };
 
     return (
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
@@ -77,13 +68,11 @@ export const LoginModal = ({ closeModal }) => {
                                     className="bg-[#22262a] w-full p-2 rounded focus:outline-none text-[#CCD1D5]"
                                     placeholder="Password"
                                     value={passwordValue}
-                                    onChange={handlePasswordChange}
+                                    onChange={handlePasswordValueChange}
                                 />
                             </div>
                             <div className="text-sm text-right mt-1">
-                                <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">
-                                    Forget Password?
-                                </span>
+                                <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">Forget Password?</span>
                             </div>
                             <div className="flex items-center mb-2 mt-4">
                                 <input className="mr-1 w-4 h-4" type="checkbox" name="" id="signed-in" />
@@ -94,7 +83,7 @@ export const LoginModal = ({ closeModal }) => {
                             <button
                                 type="button"
                                 className="p-2 px-4 uppercase font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none"
-                                onClick={handleSubmit}
+                                onClick={handleLogin}
                             >
                                 Log in
                             </button>
@@ -127,8 +116,11 @@ export const LoginModal = ({ closeModal }) => {
                     </div>
                 </div>
             </div>
-            {message && <p>{message}</p>}
-            {error && <p>Error: {error}</p>}
         </div>
     );
 };
+const mapDispatchToProps = (dispatch) => ({
+    login: (phoneNumber, password) => dispatch(login(phoneNumber, password)),
+});
+
+export default connect(null, mapDispatchToProps)(LoginModal);

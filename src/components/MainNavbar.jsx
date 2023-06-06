@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
-import { LoginModal } from "./LoginModal";
+import LoginModal from "./LoginModal";
 // import { SignupModal } from "./SignupModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";

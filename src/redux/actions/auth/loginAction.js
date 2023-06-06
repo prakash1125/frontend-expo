@@ -1,8 +1,9 @@
 import { LOGIN, LOGIN_SUCCESS, LOGIN_FAILURE } from "../types";
 
 
-export const login = () => ({
-    type: LOGIN
+export const login = (phoneNumberValue, passwordValue) => ({
+    type: LOGIN, 
+    payload: { phoneNumberValue, passwordValue },
 });
 
 export const loginSuccess = (payload) => ({
@@ -10,6 +11,7 @@ export const loginSuccess = (payload) => ({
     payload,
 });
 
-export const loginFailure = () => ({
+export const loginFailure = (error) => ({
     type: LOGIN_FAILURE,
+    payload: error,
 });

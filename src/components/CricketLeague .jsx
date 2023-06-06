@@ -15,7 +15,7 @@ export const CricketLeague = () => {
 
     const location = useLocation();
 
-    
+
 
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -151,7 +151,7 @@ export const CricketLeague = () => {
 
     let interval = useRef();
     const startTimer = () => {
-        const countdownDate = new Date("May 24, 2023 00:00:00").getTime();
+        const countdownDate = new Date("June 15, 2023 00:00:00").getTime();
 
         interval = setInterval(() => {
             const now = new Date().getTime();
@@ -187,9 +187,9 @@ export const CricketLeague = () => {
         setIsLive(!isLive);
     };
 
-    console.log(location , "asdfasfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd");
+    // console.log(location, "asdfasfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd");
 
-    const firstRunner =  location?.state?.eventName?.includes("@") ? location?.state?.eventName?.split(" @ ")[0]?.trim() : location?.state?.eventName?.split(" v ")[0]?.trim();
+    const firstRunner = location?.state?.eventName?.includes("@") ? location?.state?.eventName?.split(" @ ")[0]?.trim() : location?.state?.eventName?.split(" v ")[0]?.trim();
     const secondRunner = location?.state?.eventName?.includes("@") ? location?.state?.eventName?.split(" @ ")[1]?.trim() : location?.state?.eventName?.split(" v ")[1]?.trim()
 
     return (
@@ -198,7 +198,7 @@ export const CricketLeague = () => {
                 <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 py-2 ">
                     <h1 className="text-white text-xl">{location?.state?.leagueName}</h1>
                     <div className="team-match text-[#fff] text-xl mb-2">
-                        {firstRunner} 
+                        {firstRunner}
                         <span className="text-lg font-bold mx-2">{secondRunner && " vs "}</span>
                         {secondRunner}
                     </div>
@@ -227,7 +227,7 @@ export const CricketLeague = () => {
                                 <div className="flex items-center justify-between px-3 text-[#eee] mb-5">
                                     <div className="team-one font-semibold">{firstRunner} </div>
                                     <div className="team-two font-semibold">
-                                    {secondRunner}
+                                        {secondRunner}
                                     </div>
                                 </div>
 
@@ -307,8 +307,8 @@ export const CricketLeague = () => {
                                         <li
                                             key={index}
                                             className={` ${activeIndex === index
-                                                    ? "flex flex-col justify-between  mb-2 pb-2   w-full bg-skin-nav  rounded-b-md"
-                                                    : ""
+                                                ? "flex flex-col justify-between  mb-2 pb-2   w-full bg-skin-nav  rounded-b-md"
+                                                : ""
                                                 }`}
                                         >
                                             {activeIndex === index && (
