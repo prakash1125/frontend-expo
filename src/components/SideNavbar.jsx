@@ -11,25 +11,11 @@ import {
 } from "../redux/actions";
 import { socket } from "../context/SocketContext";
 
-const navigation = [
-  { name: "SPORTS", href: "#", current: true },
-  { name: "IN-PLAY", href: "#", current: false },
-  { name: "IPL CLUB", href: "#", current: false },
-  { name: "INDIAN CASINO", href: "#", current: false },
-  { name: "LIVE CASINO", href: "#", current: false },
-  { name: "SLOTS", href: "#", current: false },
-];
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
-
 export const SideNavbar = () => {
   // ==================================CALLING THE API DATA======================================
 
   const dispatch = useDispatch();
-  let getSportData = useSelector((state) => state.GetSport);
-  let AllSportData = useSelector((state) => state.GetAllSportData);
-  let globalStateData = useSelector((state) => state.GlobalSportData);
+
   const [data, setdata] = useState([]);
   const [allMarkets, setAllMarkets] = useState([]);
 
@@ -82,11 +68,8 @@ export const SideNavbar = () => {
                       ...sport,
                     };
                     sport.leagues = leagues;
-                    // console.log(leagues, "leeeaagueeessss");
                     setdata((prevState) => [...prevState, sport]);
 
-                    // console.log('allSport res zzzzzzzzz', sport);
-                    // console.log(allSportData, "allSportDataallSportDataallSportDataallSportDataallSportDataallSportDataallSportDataallSportData");
                     return sport;
                   } else {
                     setdata((prevState) => [...prevState, sport]);
@@ -125,20 +108,13 @@ export const SideNavbar = () => {
   };
 
   useEffect(() => {
-    // let sdfds = allMarkets.filter(())
     allMarkets.forEach((market, index) => {
       const key = Object?.keys(market)[0];
       socket.on(key, (data) => {
         console.log("1111111111111111111111111111111", data);
         console.log(index, "updated index");
-        // const updatedArray = [...allMarkets];
-        // console.log(updatedArray, "updated Array");
-        // const newData = {};
-        // newData[key] = data;
-        // updatedArray[index] = newData;
-        // setAllMarkets(updatedArray);
         setAllMarkets((prevDataArray) => {
-          const updatedArray = prevDataArray.map((val, i) =>
+          const updatedArray = prevDataArray?.map((val) =>
             Object.keys(val)[0] === key ? { [key]: data } : val
           );
           return updatedArray;

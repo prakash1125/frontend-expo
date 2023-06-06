@@ -171,7 +171,7 @@ export const Home = () => {
           )
         )}
 
-        {isDropdownOpen && <MarketDataCard />}
+        {/* {isDropdownOpen && <MarketDataCard />} */}
       </div>
 
       <div>

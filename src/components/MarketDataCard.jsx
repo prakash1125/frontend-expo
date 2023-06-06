@@ -13,7 +13,7 @@ const MarketData = ({ league }) => {
   // ==================================CALLING THE API DATA======================================
 
   let globalMarketOddsData = useSelector(
-    (state) => state.GobalMarketOdds.globalMarketOdds
+    (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
   console.log(globalMarketOddsData, "----globalMarketOddsData----");
   // ===============================================================================================
@@ -36,7 +36,7 @@ const MarketData = ({ league }) => {
           </div>
         </div>
         <div class="flex items-center space-x-8 px-1">
-          <div class="flex text-sm font-bold text-skin-primary   ">
+          <div class="flex text-sm font-bold text-skin-primary">
             2
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
@@ -104,12 +104,19 @@ const MarketData = ({ league }) => {
                 <div>
                   {event?.markets?.map((item, index) => {
                     var exist;
-                    if (item.slugName === "odds_match") {
+                    if (item?.slugName === "odds_match") {
                       exist = globalMarketOddsData?.find((obj) =>
-                        Object.keys(obj)?.includes(item.marketCode)
+                        Object.keys(obj)?.includes(item?.marketCode)
                       );
                     }
-                    if (exist) {
+                    if (
+                      exist &&
+                      Object.keys(Object.values(exist)[0]).length !== 0
+                    ) {
+                      console.log(
+                        Object.keys(Object.values(exist)[0]).length,
+                        "iiovalalala"
+                      );
                       return (
                         <>
                           <div className="inline-block ">
