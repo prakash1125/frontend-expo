@@ -15,7 +15,7 @@ const loginReducer = (state = INIT_STATE, action) => {
         case LOGIN_SUCCESS:
             return { ...state, login: action.payload, loading: false };
         case LOGIN_FAILURE:
-            return { ...state, loading: false, error: action.payload.error  };
+            return { ...state, loading: false};
         default:
             return state;
     }

@@ -1,32 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
-import { connect } from 'react-redux';
-import { login } from '../redux/actions/auth/loginAction';
+import { useDispatch } from 'react-redux';
+import { login } from '../redux/actions';
 
-export const LoginModal = ({ closeModal, login }) => {
+export const LoginModal = ({ closeModal, onLogin }) => {
+    const dispatch = useDispatch();
+    const [phoneNumberValue, setPhoneNumber] = useState("");
+    const [passwordValue, setPassword] = useState("");
 
-    const [phoneNumberValue, setPhoneNumberValue] = useState('');
-    const [passwordValue, setPasswordValue] = useState('');
-
-    const handlePhoneNumberValueChange = (e) => {
-        setPhoneNumberValue(e.target.value);
+    const handlePhoneNumberChange = (event) => {
+        setPhoneNumber(event.target.value);
     };
 
-    const handlePasswordValueChange = (e) => {
-        setPasswordValue(e.target.value);
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
     };
 
-    const handleLogin = () => {
-        login(phoneNumberValue, passwordValue);
+    const handleSubmit = () => {
+        const inputValues = {
+            username: phoneNumberValue,
+            password: passwordValue
+        };
+
+        console.log('Input Values:', inputValues);
+
+        dispatch(
+            login({
+                inputValues,
+                callback: () => {
+                    closeModal();
+                    onLogin();
+                }
+            })
+        )
+
+        // Dispatch your login action with the input values here
+        // For example: dispatch(loginAction(inputValues));
+
     };
-
-    // const [phoneNumber, setPhoneNumber] = useState("");
-    // const [password, setPassword] = useState("");
-
-    // const handlePhoneNumberChange = (event) => {
-    //     setPhoneNumber(event.target.value);
-    // };
 
     return (
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
@@ -55,7 +68,7 @@ export const LoginModal = ({ closeModal, login }) => {
                                     className="bg-[#22262a] w-full p-2 rounded focus:outline-none text-[#CCD1D5]"
                                     placeholder="+91XXXXXX"
                                     value={phoneNumberValue}
-                                    onChange={handlePhoneNumberValueChange}
+                                    onChange={handlePhoneNumberChange}
                                 />
                             </div>
                             <div className="password">
@@ -68,11 +81,13 @@ export const LoginModal = ({ closeModal, login }) => {
                                     className="bg-[#22262a] w-full p-2 rounded focus:outline-none text-[#CCD1D5]"
                                     placeholder="Password"
                                     value={passwordValue}
-                                    onChange={handlePasswordValueChange}
+                                    onChange={handlePasswordChange}
                                 />
                             </div>
                             <div className="text-sm text-right mt-1">
-                                <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">Forget Password?</span>
+                                <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">
+                                    Forget Password?
+                                </span>
                             </div>
                             <div className="flex items-center mb-2 mt-4">
                                 <input className="mr-1 w-4 h-4" type="checkbox" name="" id="signed-in" />
@@ -83,7 +98,7 @@ export const LoginModal = ({ closeModal, login }) => {
                             <button
                                 type="button"
                                 className="p-2 px-4 uppercase font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none"
-                                onClick={handleLogin}
+                                onClick={handleSubmit}
                             >
                                 Log in
                             </button>
@@ -119,8 +134,3 @@ export const LoginModal = ({ closeModal, login }) => {
         </div>
     );
 };
-const mapDispatchToProps = (dispatch) => ({
-    login: (phoneNumber, password) => dispatch(login(phoneNumber, password)),
-});
-
-export default connect(null, mapDispatchToProps)(LoginModal);

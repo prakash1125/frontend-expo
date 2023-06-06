@@ -6,7 +6,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
-import LoginModal from "./LoginModal";
+import { LoginModal } from "./LoginModal";
 // import { SignupModal } from "./SignupModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";
@@ -89,17 +89,24 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
         handleMenuClick()
     }
 
-  return (
-    <>
-      <Disclosure
-        as="nav"
-        className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
-          } `}
-      >
-        {({ open }) => (
-          <>
-            <div className="px-2 sm:px-6 lg:px-6">
-              <div className="relative flex items-center justify-between
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    const handleLogin = () => {
+        // Update the loggedIn state to true
+        setLoggedIn(true);
+    };
+
+    return (
+        <>
+            <Disclosure
+                as="nav"
+                className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
+                    } `}
+            >
+                {({ open }) => (
+                    <>
+                        <div className="px-2 sm:px-6 lg:px-6">
+                            <div className="relative flex items-center justify-between
              gap-3">
                                 <div
                                     className={`text-skin-white  ${toggle ? "text-[20px]" : "text-[20px]"
@@ -146,122 +153,128 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
 
                                 {/* AFTER LOGIN */}
+                                {
+                                    loggedIn && (
+                                        <div className="flex gap-1.5 items-center relative" >
+                                            {loginRightMenu.map((element, index) => {
+                                                return (
+                                                    <Link
+                                                        key={index}
+                                                        to={element.href}
+                                                        type="button"
+                                                        className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
+                                                            }`}
+                                                    >
+                                                        {element.name}
+                                                    </Link>
+                                                );
+                                            })}
 
-                                {/* <div className="flex gap-1.5 items-center relative ">
-                  {loginRightMenu.map((element, index) => {
-                    return (
-                      <Link
-                        key={index}
-                        to={element.href}
-                        type="button"
-                        className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
-                          }`}
-                      >
-                        {element.name}
-                      </Link>
-                    );
-                  })}
+                                            <div
+                                                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                                                className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
+                                            >
+                                                <span className="text-skin-white  text-xs font-semibold mx-2.5">
+                                                    &#x20B9;5,564.20
+                                                </span>
+                                                <button
+                                                    type="button"
+                                                    className="bg-green-600 rounded-md px-2.5 font-semibold p-0.5  text-xl text-skin-white  hover:text-skin-white  focus:outline-none "
+                                                >
+                                                    +
+                                                </button>
+                                            </div>
+                                            {isDropdownOpen && (
+                                                <div className="w-64 absolute rounded-md top-12 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md divide-y">
+                                                    <div className="text-center text-skin-white  font-bold py-3 divide-y">
+                                                        Wallet Active
+                                                        <div className="tabs flex mx-2.5 my-1.5">
+                                                            <button
+                                                                onClick={() => alert("Wallet changed")}
+                                                                type="button"
+                                                                className="bg-skin-cardhead active:bg-[#169c59]  hover:bg-[#169c59] rounded-r-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                                                            >
+                                                                Balance
+                                                            </button>
+                                                            <button
+                                                                onClick={() => alert("Wallet changed")}
+                                                                type="button"
+                                                                className="bg-skin-cardhead active:bg-[#169c59] hover:bg-[#169c59] rounded-l-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                                                            >
+                                                                Bonus
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div className="wallet-balance px-2.5 py-1 rounded">
+                                                        {walletBalance.map((element, index) => {
+                                                            return (
+                                                                <div className="flex justify-between" key={index}>
+                                                                    <span className="py-2 text-sm text-skin-white ">
+                                                                        {element.name}
+                                                                    </span>
+                                                                    <span className="py-2 text-sm text-skin-white ">
+                                                                        {element.amount}
+                                                                    </span>
+                                                                </div>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                            )}
 
-                  <div
-                    onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
-                  >
-                    <span className="text-skin-white  text-xs font-semibold mx-2.5">
-                      &#x20B9;5,564.20
-                    </span>
-                    <button
-                      type="button"
-                      className="bg-green-600 rounded-md px-2.5 font-semibold p-0.5  text-xl text-skin-white  hover:text-skin-white  focus:outline-none "
-                    >
-                      +
-                    </button>
-                  </div>
-                  {isDropdownOpen && (
-                    <div className="w-64 absolute rounded-md top-12 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md divide-y">
-                      <div className="text-center text-skin-white  font-bold py-3 divide-y">
-                        Wallet Active
-                        <div className="tabs flex mx-2.5 my-1.5">
-                          <button
-                            onClick={()=>alert("Wallet changed")}
-                            type="button"
-                            className="bg-skin-cardhead active:bg-[#169c59]  hover:bg-[#169c59] rounded-r-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
-                          >
-                            Balance
-                          </button>
-                          <button
-                          onClick={()=>alert("Wallet changed")}
-                            type="button"
-                            className="bg-skin-cardhead active:bg-[#169c59] hover:bg-[#169c59] rounded-l-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
-                          >
-                            Bonus
-                          </button>
-                        </div>
-                      </div>
-                      <div className="wallet-balance px-2.5 py-1 rounded">
-                        {walletBalance.map((element, index) => {
-                          return (
-                            <div className="flex justify-between" key={index}>
-                              <span className="py-2 text-sm text-skin-white ">
-                                {element.name}
-                              </span>
-                              <span className="py-2 text-sm text-skin-white ">
-                                {element.amount}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
+                                            <button
+                                                onClick={() => setIsProfileOpen(!isProfileOpen)}
+                                                type="button"
+                                                className="bg-zinc-600 hover:bg-zinc-500 rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                                            >
+                                                <FaUser />
+                                            </button>
+                                            {isProfileOpen && (
+                                                <div className="w-64 absolute top-12 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md rounded ">
+                                                    {profileMenu.map((element, index) => {
+                                                        return (
+                                                            <Link
+                                                                onClick={element?.modal ? () => handleModal(element?.list) : handleMenuClick}
+                                                                to={element.href}
+                                                                className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav  hover:bg-skin-nav  "
+                                                            >
+                                                                <div className="text-skin-white  icon group">
+                                                                    {<element.icon />}
+                                                                </div>
+                                                                <div className="text-skin-white  group menu-list cursor-pointer ">
+                                                                    {element.list}
+                                                                </div>
+                                                            </Link>
+                                                        );
+                                                    })}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )
+                                }
 
-                  <button
-                    onClick={() => setIsProfileOpen(!isProfileOpen)}
-                    type="button"
-                    className="bg-zinc-600 hover:bg-zinc-500 rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
-                  >
-                    <FaUser />
-                  </button>
-                  {isProfileOpen && (
-                    <div className="w-64 absolute top-12 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md rounded ">
-                      {profileMenu.map((element, index) => {
-                        return (
-                          <Link
-                            onClick={element?.modal ? () => handleModal(element?.list) : handleMenuClick}
-                            to={element.href}
-                            className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav  hover:bg-skin-nav  "
-                          >
-                            <div className="text-skin-white  icon group">
-                              {<element.icon />}
-                            </div>
-                            <div className="text-skin-white  group menu-list cursor-pointer ">
-                              {element.list}
-                            </div>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
- */}
 
-                {/* BEFORE LOGIN */}
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
-                  <button
-                    onClick={handleThemeClick}
-                    type="button"
-                    className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
-                  >
-                    {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
-                  </button>
-                  <button
-                    onClick={() => { setIsLoginOpen(true); }}
-                    type="button"
-                    className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    LOG IN
-                  </button>
 
-                  {/* <button
+                                {/* BEFORE LOGIN */}
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
+                                    <button
+                                        onClick={handleThemeClick}
+                                        type="button"
+                                        className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
+                                    >
+                                        {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
+                                    </button>
+                                    {!loggedIn && (
+                                        <button
+                                            onClick={() => { setIsLoginOpen(true); }}
+                                            type="button"
+                                            className="font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                        >
+                                            LOG IN
+                                        </button>
+                                    )}
+
+                                    {/* <button
                     onClick={() => { setIsSignupOpen(true); }}
                     type="button"
                     className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -302,7 +315,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 )}
             </Disclosure>
             {isLoginOpen && (
-                <LoginModal className="z-50" closeModal={closeModal} />
+                <LoginModal className="z-50" closeModal={closeModal} onLogin={handleLogin} />
             )}
             {/* {isSignupOpen && (
                 <SignupModal className="z-50" closeModal={closeModal} />
