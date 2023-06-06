@@ -33,7 +33,7 @@ export const Sports = () => {
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
-        <Tab.List className="flex gap-1 scroll-x">
+        <Tab.List className="flex gap-1 my-2 scroll-x">
           {sportsArray?.map((category, index) => (
             <Tab
               key={category}

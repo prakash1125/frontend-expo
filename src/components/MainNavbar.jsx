@@ -18,137 +18,137 @@ import lampDark from "../assets/images/lampdark.png"
 
 
 const navigation = [
-  { name: "SPORTS", href: "/all-sports", current: true },
-  { name: "IN-PLAY", href: "/in-play", current: false },
-  { name: "IPL CLUB", href: "/indian-premier-league", current: false },
-  { name: "INDIAN CASINO", href: "/indian-casino", current: false },
-  { name: "LIVE CASINO", href: "/live-casino", current: false },
-  { name: "SLOTS", href: "/slots", current: false },
+    { name: "SPORTS", href: "/all-sports", current: true },
+    { name: "IN-PLAY", href: "/in-play", current: false },
+    { name: "IPL CLUB", href: "/indian-premier-league", current: false },
+    { name: "INDIAN CASINO", href: "/indian-casino", current: false },
+    { name: "LIVE CASINO", href: "/live-casino", current: false },
+    { name: "SLOTS", href: "/slots", current: false },
 ];
 const loginRightMenu = [
-  { name: "D", href: "/deposit", current: false },
-  { name: "W", href: "/withdrawal-request", current: false },
+    { name: "D", href: "/deposit", current: false },
+    { name: "W", href: "/withdrawal-request", current: false },
 ];
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+    return classes.filter(Boolean).join(" ");
 }
 
 export const MainNavbar = ({ setToggle, toggle, screen }) => {
-  const location = useLocation();
-  const currentRoute = location.pathname;
+    const location = useLocation();
+    const currentRoute = location.pathname;
 
-  const { theme, setTheme } = useContext(ThemeContext);
-
-
-  console.log(currentRoute, screen, "jiii");
-  const walletBalance = [
-    { name: "Balance", amount: "5,564.20" },
-    { name: "Bonus", amount: "0.20" },
-    { name: "Exposure", amount: "1500.00" },
-  ];
-  const profileMenu = [
-    { icon: FaUser, list: "My Market", href: "/my-market", current: false },
-    { icon: IoIosStats, list: "Profit-loss", href: "/reports", current: false },
-    { icon: IoIosStats, list: "Account Statement", href: "/account-statement", current: false },
-    { icon: IoIosStats, list: "Chips Setting", modal: true },
-    { icon: IoIosStats, list: "Terms & condition" },
-    { icon: IoIosStats, list: "Change Password", modal: true },
-    { icon: IoIosStats, list: "Logout" },
-  ];
-
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const handleMenuClick = () => {
-    setIsProfileOpen(!isProfileOpen);
-    setIsDropdownOpen(isDropdownOpen);
-  };
-
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
-  const [isChangePasswordOpen, setisChangePasswordOpen] = useState(false);
+    const { theme, setTheme } = useContext(ThemeContext);
 
 
-  const closeModal = () => {
-    setIsLoginOpen(false);
-    setIsSignupOpen(false);
-  };
+    console.log(currentRoute, screen, "jiii");
+    const walletBalance = [
+        { name: "Balance", amount: "5,564.20" },
+        { name: "Bonus", amount: "0.20" },
+        { name: "Exposure", amount: "1500.00" },
+    ];
+    const profileMenu = [
+        { icon: FaUser, list: "My Market", href: "/my-market", current: false },
+        { icon: IoIosStats, list: "Profit-loss", href: "/reports", current: false },
+        { icon: IoIosStats, list: "Account Statement", href: "/account-statement", current: false },
+        { icon: IoIosStats, list: "Chips Setting", modal: true },
+        { icon: IoIosStats, list: "Terms & condition" },
+        { icon: IoIosStats, list: "Change Password", modal: true },
+        { icon: IoIosStats, list: "Logout" },
+    ];
 
-  const handleThemeClick = () => {
-    setTheme(!theme)
-  }
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isProfileOpen, setIsProfileOpen] = useState(false);
+    const handleMenuClick = () => {
+        setIsProfileOpen(!isProfileOpen);
+        setIsDropdownOpen(isDropdownOpen);
+    };
 
-  const handleModal = (id) => {
-    
-    if (id === "Change Password") {
-      setisChangePasswordOpen(true)
-    } else if (id === "Chips Setting") {
-      setisChipSettingOpen(true)
+    const [isLoginOpen, setIsLoginOpen] = useState(false);
+    const [isSignupOpen, setIsSignupOpen] = useState(false);
+    const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
+    const [isChangePasswordOpen, setisChangePasswordOpen] = useState(false);
+
+
+    const closeModal = () => {
+        setIsLoginOpen(false);
+        setIsSignupOpen(false);
+    };
+
+    const handleThemeClick = () => {
+        setTheme(!theme)
     }
 
-    handleMenuClick()
-  }
+    const handleModal = (id) => {
 
-  return (
-    <>
+        if (id === "Change Password") {
+            setisChangePasswordOpen(true)
+        } else if (id === "Chips Setting") {
+            setisChipSettingOpen(true)
+        }
 
-      <Disclosure
-        as="nav"
-        className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
-          } `}
-      >
-        {({ open }) => (
-          <>
-            <div className="px-2 sm:px-6 lg:px-6">
-              <div className="relative flex items-center justify-between
+        handleMenuClick()
+    }
+
+    return (
+        <>
+
+            <Disclosure
+                as="nav"
+                className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
+                    } `}
+            >
+                {({ open }) => (
+                    <>
+                        <div className="px-2 sm:px-6 lg:px-6">
+                            <div className="relative flex items-center justify-between
              gap-3">
-                <div
-                  className={`text-skin-white  ${toggle ? "text-[20px]" : "text-[20px]"
-                    }  md:hidden`}
-                  onClick={() => setToggle(!toggle)}
-                >
-                  {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
-                </div>
+                                <div
+                                    className={`text-skin-white  ${toggle ? "text-[20px]" : "text-[20px]"
+                                        }  md:hidden`}
+                                    onClick={() => setToggle(!toggle)}
+                                >
+                                    {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
+                                </div>
 
-                <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center ">
-                    <Link to="/">
-                      <img
-                        className="block h-8 w-full lg:hidden"
-                        src="https://sportsexch.com/images/logo/main.png"
-                        alt="Your Company"
-                      />
-                      <img
-                        className="hidden h-12 w-auto lg:block "
-                        src="https://sportsexch.com/images/logo/main.png"
-                        alt="Your Company"
-                      />
-                    </Link>
-                  </div>
-                  <div className="hidden sm:ml-6 md:block">
-                    <div className="flex h-full items-center">
-                      {navigation.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className={classNames(
-                            item.href == currentRoute &&
-                            "bg-skin-cardhead text-skin-white ",
-                            "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
-                          )}
-                          aria-current={item.current ? "page" : undefined}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                                <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
+                                    <div className="flex flex-shrink-0 items-center ">
+                                        <Link to="/">
+                                            <img
+                                                className="block h-8 w-full lg:hidden"
+                                                src="https://sportsexch.com/images/logo/main.png"
+                                                alt="Your Company"
+                                            />
+                                            <img
+                                                className="hidden h-12 w-auto lg:block "
+                                                src="https://sportsexch.com/images/logo/main.png"
+                                                alt="Your Company"
+                                            />
+                                        </Link>
+                                    </div>
+                                    <div className="hidden sm:ml-6 lg:block">
+                                        <div className="flex h-full items-center">
+                                            {navigation.map((item) => (
+                                                <Link
+                                                    key={item.name}
+                                                    to={item.href}
+                                                    className={classNames(
+                                                        item.href == currentRoute &&
+                                                        "bg-skin-cardhead text-skin-white ",
+                                                        "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
+                                                    )}
+                                                    aria-current={item.current ? "page" : undefined}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
 
 
-                {/* AFTER LOGIN */}
+                                {/* AFTER LOGIN */}
 
-                {/* <div className="flex gap-1.5 items-center relative ">
+                                {/* <div className="flex gap-1.5 items-center relative ">
                   {loginRightMenu.map((element, index) => {
                     return (
                       <Link
@@ -245,78 +245,79 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div> */}
 
 
-                {/* BEFORE LOGIN */}
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
-                  <button
-                    // onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
-                    onClick={handleThemeClick}
-                    type="button"
-                    className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
-                  >
-                    {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
-                  </button>
-                  <button
-                    onClick={() => { setIsLoginOpen(true); }}
-                    type="button"
-                    className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    LOG IN
-                  </button>
+                                {/* BEFORE LOGIN */}
+                                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
+                                    <button
+                                        // onClick={()=> {document.getElementById("theme").classList.add("light-theme")}}
+                                        onClick={handleThemeClick}
+                                        type="button"
+                                        className="  font-semibold p-2 text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
+                                    >
+                                        {theme ? <img className="hover:brightness-90 w-7" src={lampDark}></img> : <img className=" hover:brightness-95 w-7" src={lamp}></img>}
+                                    </button>
+                                    <button
+                                        onClick={() => { setIsLoginOpen(true); }}
+                                        type="button"
+                                        className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    >
+                                        LOG IN
+                                    </button>
 
 
-                  {/* {isChipSettingOpen && (
+                                    {/* {isChipSettingOpen && (
                     <ChipSetting className="z-50" closeModal={setisChipSettingOpen} />
                   )} */}
 
-                  <button
-                    onClick={() => { setIsSignupOpen(true); }}
-                    type="button"
-                    className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                  >
-                    SIGN UP
-                  </button>
-                  {isSignupOpen && (
-                    <SignupModal className="z-50" closeModal={closeModal} />
-                  )}
-
-                </div>
+                                    <button
+                                        onClick={() => { setIsSignupOpen(true); }}
+                                        type="button"
+                                        className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    >
+                                        SIGN UP
+                                    </button>
 
 
-              </div>
-            </div>
+                                </div>
 
-            <Disclosure.Panel className="sm:hidden">
-              <div className="space-y-1 px-2 pb-3 pt-2">
-                {navigation.map((item) => (
-                  <Disclosure.Button
-                    key={item.name}
-                    as="a"
-                    href={item.href}
-                    className={classNames(
-                      item.current
-                        ? "bg-gray-900 text-skin-white "
-                        : "text-gray-300 hover:bg-gray-700 hover:text-skin-white ",
-                      "block rounded-md px-3 py-2 text-base font-medium"
-                    )}
-                    aria-current={item.current ? "page" : undefined}
-                  >
-                    {item.name}
-                  </Disclosure.Button>
-                ))}
-              </div>
-            </Disclosure.Panel>
-          </>
-        )}
-      </Disclosure>
-      {isLoginOpen && (
-        <LoginModal className="z-50" closeModal={closeModal} />
-      )}
-      {isChipSettingOpen && (
-        <ChipSetting className="z-50" closeModal={setisChipSettingOpen} />
-      )}
-      {isChangePasswordOpen && (
-        <ChangePassword className="z-50" closeModal={setisChangePasswordOpen} />
-      )}
-    </>
-  );
+
+                            </div>
+                        </div>
+
+                        <Disclosure.Panel className="sm:hidden">
+                            <div className="space-y-1 px-2 pb-3 pt-2">
+                                {navigation.map((item) => (
+                                    <Disclosure.Button
+                                        key={item.name}
+                                        as="a"
+                                        href={item.href}
+                                        className={classNames(
+                                            item.current
+                                                ? "bg-gray-900 text-skin-white "
+                                                : "text-gray-300 hover:bg-gray-700 hover:text-skin-white ",
+                                            "block rounded-md px-3 py-2 text-base font-medium"
+                                        )}
+                                        aria-current={item.current ? "page" : undefined}
+                                    >
+                                        {item.name}
+                                    </Disclosure.Button>
+                                ))}
+                            </div>
+                        </Disclosure.Panel>
+                    </>
+                )}
+            </Disclosure>
+            {isLoginOpen && (
+                <LoginModal className="z-50" closeModal={closeModal} />
+            )}
+            {isSignupOpen && (
+                <SignupModal className="z-50" closeModal={closeModal} />
+            )}
+            {isChipSettingOpen && (
+                <ChipSetting className="z-50" closeModal={setisChipSettingOpen} />
+            )}
+            {isChangePasswordOpen && (
+                <ChangePassword className="z-50" closeModal={setisChangePasswordOpen} />
+            )}
+        </>
+    );
 };
