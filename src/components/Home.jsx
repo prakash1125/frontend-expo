@@ -83,6 +83,14 @@ export const Home = () => {
   let globalStateData = useSelector((state) => state?.GlobalSportData);
   let sportsArray = globalStateData?.globalSportData;
 
+  const cricketData = globalStateData?.globalSportData?.filter(
+    (sport) => sport.sportName === "Cricket"
+  );
+
+  console.log(
+    cricketData,
+    "cricketDataasdfffffffffffffffffffffffffffffffffffffffffffffffff"
+  );
   // ============================================================================================
 
   useEffect(() => {
@@ -157,6 +165,11 @@ export const Home = () => {
             1 Event
           </p>
         </div>
+        {cricketData?.map((i) =>
+          i?.leagues?.map(
+            (j) => isDropdownOpen && <MarketDataCard league={j} />
+          )
+        )}
 
         {isDropdownOpen && <MarketDataCard />}
       </div>

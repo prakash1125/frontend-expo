@@ -20,8 +20,14 @@ const MarketData = ({ league }) => {
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25];
-  const word = " v " || " @ ";
+  const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25,]
+  const handleMarketClick = (leagueName)=>{
+   alert(leagueName);
+   
+  }
+
+
+
   return (
     <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
       <div
@@ -47,9 +53,15 @@ const MarketData = ({ league }) => {
       {isDropdownOpen && (
         <>
           {league?.events?.map((event, index) => (
-            <Link to="/cricket-league">
-              <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
-                <div class=" flex items-center flex-1  cursor-pointer select-none">
+            <Link to="/cricket-league" state={
+              { leagueName: league?.leagueName,
+                eventName: event?.name,
+                eventDate: event?.eventDate }
+               } >
+              <div
+              className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
+
+                <div class="  flex items-center flex-1  cursor-pointer select-none">
                   <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
                     <a href="#" class="rounded-full relative block">
                       <img
