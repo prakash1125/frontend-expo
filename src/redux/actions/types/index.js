@@ -23,4 +23,9 @@ export const GET_ALL_SPORT_DATA_FAILURE = "GET_ALL_SPORT_DATA_FAILURE"
 export const GLOBAL_SPORT_DATA = "GLOBAL_SPORT_DATA"
 export const GLOBAL_SPORT_DATA_SUCCESS = "GLOBAL_SPORT_DATA_SUCCESS"
 
+// ===================== Market Odds Data(Global)==============================
+
+export const GLOBAL_MARKET_ODDS = "GLOBAL_MARKET_ODDS"
+export const GLOBAL_MARKET_ODDS_SUCCESS = "GLOBAL_MARKET_ODDS_SUCCESS"
+
 

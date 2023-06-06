@@ -78,21 +78,16 @@ export const Home = () => {
     },
   ];
 
-// ==================================CALLING THE API DATA======================================
-  
+  // ==================================CALLING THE API DATA======================================
+
   let globalStateData = useSelector((state) => state?.GlobalSportData);
   let sportsArray = globalStateData?.globalSportData;
 
-// ============================================================================================
-
+  // ============================================================================================
 
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected to server");
-    });
-
-    socket.on("timeNow", (data) => {
-      alert(`The time now is ${new Date(data).toLocaleString()}`);
     });
 
     return () => {
@@ -101,10 +96,8 @@ export const Home = () => {
     };
   }, []);
 
-
-
   return (
-    <div  className="w-full sm:px-0 mb-4">
+    <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
           {images.map((img, index) => (
@@ -164,9 +157,8 @@ export const Home = () => {
             1 Event
           </p>
         </div>
-        
-        {isDropdownOpen && <MarketDataCard />}
 
+        {isDropdownOpen && <MarketDataCard />}
       </div>
 
       <div>

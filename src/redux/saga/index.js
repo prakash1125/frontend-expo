@@ -2,10 +2,11 @@
 //Add it inside the array like function eg:mySaga()
 
 import { all } from "redux-saga/effects";
-import GetSport from "../saga/getSport/getSportSaga"
-import Login from "../saga/auth/loginSaga"
-import GetAllSportData from "./sportData/getAllSportDataSaga"
-import GlobalSportData from "./globalData/globalSportDataSaga"
+import GetSport from "../saga/getSport/getSportSaga";
+import Login from "../saga/auth/loginSaga";
+import GetAllSportData from "./sportData/getAllSportDataSaga";
+import GlobalSportData from "./globalData/globalSportDataSaga";
+import GlobalMarketOdds from "./globalData/marketOddsSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -13,5 +14,6 @@ export default function* rootSaga() {
     GetSport(),
     GetAllSportData(),
     GlobalSportData(),
+    GlobalMarketOdds(),
   ]);
 }
