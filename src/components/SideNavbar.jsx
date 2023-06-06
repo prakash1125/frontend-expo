@@ -130,21 +130,27 @@ export const SideNavbar = () => {
       const key = Object?.keys(market)[0];
       socket.on(key, (data) => {
         console.log("1111111111111111111111111111111", data);
-        const updatedArray = [...allMarkets];
-        console.log(updatedArray, "updated Array");
         console.log(index, "updated index");
-        const newData = {};
-        newData[key] = data;
-        updatedArray[index] = newData;
-        setAllMarkets(updatedArray);
+        // const updatedArray = [...allMarkets];
+        // console.log(updatedArray, "updated Array");
+        // const newData = {};
+        // newData[key] = data;
+        // updatedArray[index] = newData;
+        // setAllMarkets(updatedArray);
+        setAllMarkets((prevDataArray) => {
+          const updatedArray = prevDataArray.map((val, i) =>
+            Object.keys(val)[0] === key ? { [key]: data } : val
+          );
+          return updatedArray;
+        });
       });
     });
-    return () => {
-      allMarkets.forEach((channel) => {
-        socket.off(Object?.keys(channel)[0]);
-      });
-      // socket.disconnect();
-    };
+    // return () => {
+    //   allMarkets.forEach((channel) => {
+    //     socket.off(Object?.keys(channel)[0]);
+    //   });
+    //   // socket.disconnect();
+    // };
   }, [allMarkets]);
 
   return (

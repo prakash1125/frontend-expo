@@ -103,86 +103,96 @@ const MarketData = ({ league }) => {
 
                 <div>
                   {event?.markets?.map((item, index) => {
-                    const exist = globalMarketOddsData?.find((obj) =>
-                      Object.keys(obj)?.includes(item.marketCode)
-                    );
-
-                    if (exist) {
-                      console.log("exist", exist);
-                      console.log(Object.values(exist), "Object.values(exist)");
-
-                      return (
-                        <div>
-                          {Object.values(exist)[0]?.runners?.map((runner) => {
-                            console.log("runner", runner);
-                            return (
-                              <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2 mb-1">
-                                {runner?.ex?.availableToBack?.map(
-                                  (elem, index) => {
-                                    console.log(elem, "its emeleele");
-                                    return (
-                                      // <div >
-                                      <div
-                                        key={index}
-                                        className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${
-                                          item._id === 2.25 && "text-skin-pink"
-                                        } text-skin-blue  bg-skin-marketcard   cursor-pointer`}
-                                      >
-                                        <span className="m-auto brightness-125">
-                                          {elem?.price === 0
-                                            ? "-"
-                                            : elem?.price}
-                                        </span>
-                                      </div>
-                                      // </div>
-                                    );
-                                  }
-                                )}
-                                {runner?.ex?.availableToLay?.map(
-                                  (elem, index) => {
-                                    console.log(elem, "its emeleele");
-                                    return (
-                                      // <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2">
-                                      <div
-                                        key={index}
-                                        className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold  text-skin-pink  bg-skin-marketcard   cursor-pointer`}
-                                      >
-                                        <span className="m-auto brightness-125">
-                                          {elem?.price === 0
-                                            ? "-"
-                                            : elem?.price}
-                                        </span>
-                                      </div>
-                                    );
-                                  }
-                                )}
-                              </div>
-                            );
-                          })}
-                        </div>
+                    var exist;
+                    if (item.slugName === "odds_match") {
+                      exist = globalMarketOddsData?.find((obj) =>
+                        Object.keys(obj)?.includes(item.marketCode)
                       );
-                    } else {
-                      console.log("render else");
-
+                    }
+                    if (exist) {
                       return (
-                        <div key={index}>
-                          <p className="text-green-600">Market Closed</p>
-                        </div>
+                        <>
+                          <div className="inline-block ">
+                            <div className="flex drop-shadow-sm rounded-sm ">
+                              <div
+                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                              >
+                                <span className="m-auto brightness-125">
+                                  {
+                                    Object.values(exist)[0]?.runners[0]?.ex
+                                      ?.availableToBack[0]?.price
+                                  }
+                                </span>
+                              </div>
+                              <div
+                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                              >
+                                <span className="m-auto brightness-125">
+                                  {
+                                    Object.values(exist)[0]?.runners[0]?.ex
+                                      ?.availableToLay[0]?.price
+                                  }
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* middle runner */}
+                          <div className="inline-block ">
+                            <div className="flex drop-shadow-sm rounded-sm ">
+                              <div
+                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                              >
+                                <span className="m-auto brightness-125">
+                                  {Object.values(exist)[0]?.runners[2]?.ex
+                                    ?.availableToBack[0]?.price
+                                    ? Object.values(exist)[0]?.runners[2]?.ex
+                                        ?.availableToBack[0]?.price
+                                    : "-"}
+                                </span>
+                              </div>
+                              <div
+                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                              >
+                                <span className="m-auto brightness-125">
+                                  {Object.values(exist)[0]?.runners[2]?.ex
+                                    ?.availableToLay[0]?.price
+                                    ? Object.values(exist)[0]?.runners[2]?.ex
+                                        ?.availableToLay[0]?.price
+                                    : "-"}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          {/* Last Runner  */}
+                          <div className="inline-block ">
+                            <div className="flex drop-shadow-sm rounded-sm ">
+                              <div
+                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                              >
+                                <span className="m-auto brightness-125 ">
+                                  {
+                                    Object.values(exist)[0]?.runners[1]?.ex
+                                      ?.availableToBack[0]?.price
+                                  }
+                                </span>
+                              </div>
+                              <div
+                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                              >
+                                <span className="m-auto brightness-125 ">
+                                  {
+                                    Object.values(exist)[0]?.runners[1]?.ex
+                                      ?.availableToLay[0]?.price
+                                  }
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                        </>
                       );
                     }
                   })}
                 </div>
-                {/* <div className="flex gap-1 drop-shadow-sm rounded-sm pr-4 pl-2">
-                  {data.map((item) => (
-                    <div
-                      className={`w-[50px] h-9 rounded-md  flex justify-center text-md font-bold ${
-                        item === 2.25 && "text-skin-pink"
-                      } text-skin-blue  bg-skin-marketcard   cursor-pointer`}
-                    >
-                      <span className="m-auto brightness-125">{item}</span>
-                    </div>
-                  ))}
-                </div> */}
               </div>
             </Link>
           ))}
