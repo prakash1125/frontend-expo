@@ -19,10 +19,6 @@ const MarketData = ({ league }) => {
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  const data = [2.18, 2.25, 2.18, 2.25, 2.18, 2.25];
-  const handleMarketClick = (leagueName) => {
-    alert(leagueName);
-  };
 
   return (
     <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
@@ -55,6 +51,7 @@ const MarketData = ({ league }) => {
                 leagueName: league?.leagueName,
                 eventName: event?.name,
                 eventDate: event?.eventDate,
+                marketArray: event?.markets
               }}
             >
               <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
@@ -104,7 +101,7 @@ const MarketData = ({ league }) => {
                 <div>
                   {event?.markets?.map((item, index) => {
                     var exist;
-                    if (item?.slugName === "odds_match") {
+                    if (item?.slugName === "match-odds") {
                       exist = globalMarketOddsData?.find((obj) =>
                         Object.keys(obj)?.includes(item?.marketCode)
                       );
@@ -120,7 +117,7 @@ const MarketData = ({ league }) => {
                       return (
                         <>
                           <div className="inline-block ">
-                            <div className="flex drop-shadow-sm rounded-sm ">
+                            <div className="flex  drop-shadow-sm rounded-sm ">
                               <div
                                 className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
                               >
