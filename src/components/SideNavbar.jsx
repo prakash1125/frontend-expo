@@ -109,13 +109,13 @@ export const SideNavbar = () => {
 
   useEffect(() => {
     allMarkets.forEach((market, index) => {
-      const key = Object?.keys(market)[0];
-      socket.on(key, (data) => {
+      const socketKey = Object?.keys(market)[0];
+      socket.on(socketKey, (data) => {
         console.log("1111111111111111111111111111111", data);
         console.log(index, "updated index");
         setAllMarkets((prevDataArray) => {
           const updatedArray = prevDataArray?.map((val) =>
-            Object.keys(val)[0] === key ? { [key]: data } : val
+            Object.keys(val)[0] === socketKey ? { [socketKey]: data } : val
           );
           return updatedArray;
         });
@@ -163,7 +163,7 @@ export const SideNavbar = () => {
               {item?.sportName ? (
                 <div className="flex items-center gap-3">
                   <span className="flex justify-center bg-skin-imgbg rounded-sm w-5 h-4 rounded-xs font-semibold text-xs">
-                    {item?.sportName?.length}{" "}
+                    {item?.leagues ? item?.leagues?.length : 0}
                   </span>
                   <h5 className="flex justify-center text-skin-secondary  cursor-pointer">
                     {activeIndex === index ? (
