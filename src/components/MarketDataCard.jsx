@@ -19,9 +19,6 @@ const MarketData = ({ league }) => {
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  const handleMarketClick = (leagueName) => {
-    alert(leagueName);
-  };
 
   return (
     <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
@@ -59,6 +56,7 @@ const MarketData = ({ league }) => {
                   leagueName: league?.leagueName,
                   eventName: event?.name,
                   eventDate: event?.eventDate,
+                  marketArray: event?.markets,
                 }}
               >
                 <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
