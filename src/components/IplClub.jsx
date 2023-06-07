@@ -117,7 +117,7 @@ export const IplClub = () => {
           {
             team: "Lucknow",
             score: [1, 2, 3, 4, 5, 6],
-          }
+          },
         ],
       },
       {
@@ -180,7 +180,6 @@ export const IplClub = () => {
           },
         ],
       },
-
     ],
     BookMarker: [
       {
@@ -202,7 +201,7 @@ export const IplClub = () => {
           {
             team: "Lucknow",
             score: [1, 2, 3, 4, 5, 6],
-          }
+          },
         ],
       },
     ],
@@ -219,7 +218,6 @@ export const IplClub = () => {
       },
     ],
   });
-
 
   return (
     <>
@@ -274,8 +272,9 @@ export const IplClub = () => {
                     {" "}
                     <li
                       key={index}
-                      className={`flex flex-col justify-between mt-2 py-3  w-full bg-skin-cardhead rounded-t-md ${activeIndex === index ? "bg-skin-cardhead" : ""
-                        }`}
+                      className={`flex flex-col justify-between mt-2 py-3  w-full bg-skin-cardhead rounded-t-md ${
+                        activeIndex === index ? "bg-skin-cardhead" : ""
+                      }`}
                     >
                       <div className="flex  justify-between items-center gap-3 px-4">
                         <div className="flex items-center gap-3  ">
@@ -306,10 +305,11 @@ export const IplClub = () => {
                     </li>
                     <li
                       key={index}
-                      className={` ${activeIndex === index
+                      className={` ${
+                        activeIndex === index
                           ? "flex flex-col justify-between  mb-2   w-full bg-skin-nav rounded-b-md"
                           : ""
-                        }`}
+                      }`}
                     >
                       {activeIndex === index && (
                         <div className="flex flex-col pb-2 items-start gap-1    ">
@@ -319,7 +319,6 @@ export const IplClub = () => {
                               <hr className="border-t border-gray-200/10  w-full pt-1  " />
                               <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                                 <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
-
                                   <p>{Item.team}</p>
                                   <span className="flex ">stake amount</span>
                                 </div>
@@ -329,9 +328,16 @@ export const IplClub = () => {
                                       key={index}
                                       className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                     >
-                                      <p className={`${Score !== 3 && ('hidden md:block ')}text-center text-[14.5px] `}>{Score}</p>
-                                      <p className="text-center text-skin-primary text-[11px]">20</p>
-
+                                      <p
+                                        className={`${
+                                          Score !== 3 && "hidden md:block "
+                                        }text-center text-[14.5px] `}
+                                      >
+                                        {Score}
+                                      </p>
+                                      <p className="text-center text-skin-primary text-[11px]">
+                                        20
+                                      </p>
                                     </div>
                                   ))}
                                 </div>
@@ -420,8 +426,6 @@ export const IplClub = () => {
             </li>
           </>
         ))} */}
-
-
       </ul>
       <Footer />
     </>

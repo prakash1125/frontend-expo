@@ -78,8 +78,8 @@ export const Home = () => {
     },
   ];
 
-// ==================================CALLING THE API DATA======================================
-  
+  // ==================================CALLING THE API DATA======================================
+
   let globalStateData = useSelector((state) => state?.GlobalSportData);
   let sportsArray = globalStateData?.globalSportData;
 
@@ -87,17 +87,15 @@ export const Home = () => {
     (sport) => sport.sportName === "Cricket"
   );
 
-  console.log(cricketData, "cricketDataasdfffffffffffffffffffffffffffffffffffffffffffffffff");
-// ============================================================================================
-
+  console.log(
+    cricketData,
+    "cricketDataasdfffffffffffffffffffffffffffffffffffffffffffffffff"
+  );
+  // ============================================================================================
 
   useEffect(() => {
     socket.on("connect", () => {
       console.log("Connected to server");
-    });
-
-    socket.on("timeNow", (data) => {
-      alert(`The time now is ${new Date(data).toLocaleString()}`);
     });
 
     return () => {
@@ -106,10 +104,8 @@ export const Home = () => {
     };
   }, []);
 
-
-
   return (
-    <div  className="w-full sm:px-0 mb-4">
+    <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
           {images.map((img, index) => (
@@ -169,16 +165,13 @@ export const Home = () => {
             1 Event
           </p>
         </div>
-        {cricketData?.map((i)=>(
+        {cricketData?.map((i) =>
+          i?.leagues?.map(
+            (j) => isDropdownOpen && <MarketDataCard league={j} />
+          )
+        )}
 
-          i?.leagues?.map((j)=>(
-            isDropdownOpen && <MarketDataCard league={j} />
-          ))
-
-           
-        ))}
-       
-
+        {/* {isDropdownOpen && <MarketDataCard />} */}
       </div>
 
       <div>
