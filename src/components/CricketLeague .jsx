@@ -13,6 +13,17 @@ function classNames(...classes) {
 
 export const CricketLeague = () => {
 
+    const [expandedTables, setExpandedTables] = useState([]);
+
+    const handleClick = (index) => {
+        if (expandedTables.includes(index)) {
+            setExpandedTables(expandedTables.filter((item) => item !== index));
+        } else {
+            setExpandedTables([...expandedTables, index]);
+        }
+    };
+
+
     const location = useLocation();
 
 
@@ -26,7 +37,7 @@ export const CricketLeague = () => {
         All: [
             {
                 id: 1,
-                title: "Book Marker",
+                title: "All",
                 data: [
                     {
                         team: "Gujarat",
@@ -46,34 +57,7 @@ export const CricketLeague = () => {
                     },
                 ],
             },
-            {
-                id: 2,
-                title: "Fancy Market",
-                data: [
-                    {
-                        team: "Gujarat",
-                        score: [1, 2, 3, 4, 5, 6],
-                    },
-                    {
-                        team: "Hyderabad",
-                        score: [1, 2, 3, 4, 5, 6],
-                    },
-                    {
-                        team: "RCB",
-                        score: [1, 2, 3, 4, 5, 6],
-                    },
-                ],
-            },
-            {
-                id: 2,
-                title: "Winner",
-                data: [
-                    {
-                        team: "Gujarat",
-                        score: [1, 2, 3, 4, 5, 6],
-                    },
-                ],
-            },
+
         ],
         MatchOdd: [
             {
@@ -188,9 +172,16 @@ export const CricketLeague = () => {
     };
 
     // console.log(location, "asdfasfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd");
+    console.log(location, "asdfasfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd");
+
 
     const firstRunner = location?.state?.eventName?.includes("@") ? location?.state?.eventName?.split(" @ ")[0]?.trim() : location?.state?.eventName?.split(" v ")[0]?.trim();
     const secondRunner = location?.state?.eventName?.includes("@") ? location?.state?.eventName?.split(" @ ")[1]?.trim() : location?.state?.eventName?.split(" v ")[1]?.trim()
+
+    useEffect(() => {
+        const defaultIndices = Object.keys(categories).map((_, index) => index);
+        setExpandedTables(defaultIndices);
+    }, [categories]);
 
     return (
         <>
@@ -198,6 +189,7 @@ export const CricketLeague = () => {
                 <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 py-2 ">
                     <h1 className="text-white text-xl">{location?.state?.leagueName}</h1>
                     <div className="team-match text-[#fff] text-xl mb-2">
+                        {firstRunner}
                         {firstRunner}
                         <span className="text-lg font-bold mx-2">{secondRunner && " vs "}</span>
                         {secondRunner}
@@ -260,28 +252,28 @@ export const CricketLeague = () => {
                         ))}
                     </Tab.List>
                     <Tab.Panels className="mt-2">
-                        {Object.values(categories).map((posts, idx) => (
+                        {Object.entries(categories).map(([category, posts], idx) => (
                             <Tab.Panel
-                                key={idx}
+                                key={category}
                                 className={classNames(
                                     ""
                                     //     // 'rounded-md w-full bg-white p-3',
                                     //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
                                 )}
                             >
-                                {posts.map((item, index) => (
+                                {posts?.map((item, index) => (
                                     <>
                                         {" "}
                                         <li
                                             key={index}
-                                            className={`flex flex-col justify-between mt-2 py-3  w-full bg-skin-cardhead  rounded-t-md ${activeIndex === index ? "bg-skin-cardhead " : ""
+                                            className={`flex flex-col justify-between mt-2 py-3  w-full bg-skin-cardhead  rounded-t-md ${expandedTables.includes(index) ? "bg-skin-cardhead " : ""
                                                 }`}
                                         >
                                             <div className="flex  justify-between items-center gap-3 px-4">
                                                 <div className="flex items-center gap-3  ">
                                                     {/* <img src={item.icon} alt="" className="w-4 h-4 invert" /> */}
                                                     <h4 className="text-skin-white  text-sm font-semibold">
-                                                        {item.title}
+                                                        {item?.title}
                                                     </h4>
                                                     {/* <p className='text-green-500 '>.</p> */}
                                                 </div>
@@ -292,9 +284,9 @@ export const CricketLeague = () => {
                                                         </span>
                                                         <h4
                                                             className="flex justify-center text-skin-white  cursor-pointer"
-                                                            onClick={() => toggleAccordion(index)}
+                                                            onClick={() => handleClick(index)}
                                                         >
-                                                            {activeIndex === index ? (
+                                                            {expandedTables.includes(index) ? (
                                                                 <RiArrowUpSLine className="font-semibold" />
                                                             ) : (
                                                                 <IoIosArrowDown className="font-semibold" />
@@ -304,25 +296,26 @@ export const CricketLeague = () => {
                                                 ) : null}
                                             </div>
                                         </li>
-                                        <li
-                                            key={index}
-                                            className={` ${activeIndex === index
-                                                ? "flex flex-col justify-between  mb-2 pb-2   w-full bg-skin-nav  rounded-b-md"
-                                                : ""
-                                                }`}
-                                        >
-                                            {activeIndex === index && (
+                                        {expandedTables.includes(index) && (
+                                            <li
+                                                key={index}
+                                                className={` ${expandedTables.includes(index)
+                                                    ? "flex flex-col justify-between  mb-2 pb-2   w-full bg-skin-nav  rounded-b-md"
+                                                    : ""
+                                                    }`}
+                                            >
+
                                                 <div className="flex flex-col items-start gap-1    ">
-                                                    {item.data.map((Item, Index) => (
-                                                        <>
+                                                    {location?.state?.marketArray?.map((Item, Index) => (
+                                                        <React.Fragment key={Item?.name}>
                                                             {" "}
                                                             <hr className="border-t border-gray-200/10  w-full pt-1  " />
                                                             <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                                                                 <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
-                                                                    <p>{Item.team}</p>
-                                                                    <span className="flex ">stake amount</span>
+                                                                    <p>{Item?.name}</p>
+                                                                    <span className="flex invisible ">stake amount</span>
                                                                 </div>
-                                                                <div className="flex items-center gap-1 rounded-md scroll-x">
+                                                                {/* <div className="flex items-center gap-1 rounded-md scroll-x">
                                                                     {Item.score.map((Score, index) => (
                                                                         <div
                                                                             key={index}
@@ -339,13 +332,13 @@ export const CricketLeague = () => {
                                                                             </p>
                                                                         </div>
                                                                     ))}
-                                                                </div>
+                                                                </div> */}
                                                             </div>
-                                                        </>
+                                                        </React.Fragment>
                                                     ))}
                                                 </div>
-                                            )}
-                                        </li>
+                                            </li>
+                                        )}
                                     </>
                                 ))}
                             </Tab.Panel>
