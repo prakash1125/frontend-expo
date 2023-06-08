@@ -196,6 +196,7 @@ export const SideNavbar = () => {
                                 leagueName: league?.leagueName,
                                 eventName: event?.name,
                                 eventDate: event?.eventDate,
+                                marketArray: event?.markets,
                               }}
                             >
                               <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:bg-skin-cardhead flex w-full">

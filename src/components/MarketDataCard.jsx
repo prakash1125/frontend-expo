@@ -118,13 +118,9 @@ const MarketData = ({ league }) => {
                         );
                       }
                     })()}
-                    {console.log(exist, "exist")}
-                    {console.log(Object.keys(Object.values(exist)[0]), "exist")}
-                    {console.log(matchOdds, "matchOddsdsdsddsdsd")}
                     {exist &&
                     Object.keys(Object.values(exist)[0]).length !== 0 ? (
                       <>
-                        {console.log("get inside", Object.values(exist))}
                         <div className="inline-block ">
                           <div className="flex drop-shadow-sm rounded-sm ">
                             <div
@@ -203,7 +199,7 @@ const MarketData = ({ league }) => {
                         </div>
                       </>
                     ) : (
-                      "nothing here"
+                      ""
                     )}
                   </div>
                 </div>
