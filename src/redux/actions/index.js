@@ -4,3 +4,4 @@ export * from "./auth/loginAction";
 export * from "./sportData/getAllSportDataAction";
 export * from "./globalData/globalSportDataAction";
 export * from "./globalData/marketOddsAction";
+export * from "./runnerData/getRunnerDataAction";

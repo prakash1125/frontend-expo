@@ -288,13 +288,11 @@ export const CricketLeague = () => {
                                       </div>
 
                                       {/* Runners Starts Here  */}
-                                      <div className="flex items-center gap-1 rounded-md scroll-x">
-                                        <div className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md">
+                                      <div className="flex gap-1 rounded-md w-[55%]">
+                                        {/* First  */}
+                                        <div className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x  font-medium cursor-pointer  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md">
                                           <p
-                                            className={`${
-                                              "Score" !== 3 &&
-                                              "hidden md:block "
-                                            }text-center text-[14.5px] `}
+                                            className="font-bold text-[14.5px]"
                                           >
                                             {Object.values(currentRuner)[0]
                                               ?.runners[0]?.ex
@@ -304,7 +302,7 @@ export const CricketLeague = () => {
                                                   ?.availableToBack[0]?.price
                                               : "-"}
                                           </p>
-                                          <p className="text-center text-skin-primary text-[11px] ">
+                                          <p className=" text-skin-primary text-[11px] ">
                                             {Object.values(currentRuner)[0]
                                               ?.runners[0]?.ex
                                               ?.availableToBack[0]?.size
@@ -317,10 +315,7 @@ export const CricketLeague = () => {
                                         <div className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md">
 
                                           <p
-                                            className={`${
-                                              "Score" !== 3 &&
-                                              "hidden md:block "
-                                            }text-center text-[14.5px] `}
+                                            className={`font-bold text-[14.5px] `}
                                           >
                                             {Object.values(currentRuner)[0]
                                               ?.runners[0]?.ex
@@ -343,10 +338,7 @@ export const CricketLeague = () => {
                                         <div className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md">
                         
                                           <p
-                                            className={`${
-                                              "Score" !== 3 &&
-                                              "hidden md:block "
-                                            }text-center text-skin-blue text-[14.5px] `}
+                                            className={`font-bold text-skin-blue text-[14.5px] `}
                                           >
                                             {Object.values(currentRuner)[0]
                                               ?.runners[2]?.ex
@@ -367,15 +359,11 @@ export const CricketLeague = () => {
                                           </p>
                                         </div>
                                         <div
-                                          key={index}
-                                          className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
+                                          className="flex flex-col items-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium cursor-pointer bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                         >
 
                                           <p
-                                            className={`${
-                                              "Score" !== 3 &&
-                                              "hidden md:block "
-                                            }text-center text-[14.5px] text-skin-pink`}
+                                            className={`font-bold text-[14.5px] text-skin-pink`}
                                           >
                                             {Object.values(currentRuner)[0]
                                               ?.runners[2]?.ex
@@ -395,16 +383,13 @@ export const CricketLeague = () => {
                                               : "-"}
                                           </p>
                                         </div>
+                                        {/* Third  */}
                                         <div
-                                          key={index}
-                                          className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
+                                          className="flex flex-col items-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium cursor-pointer bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                         >
 
                                           <p
-                                            className={`${
-                                              "Score" !== 3 &&
-                                              "hidden md:block "
-                                            }text-center text-[14.5px] `}
+                                            className={`font-bold text-[14.5px] `}
                                           >
                                             {Object.values(currentRuner)[0]
                                               ?.runners[1]?.ex
@@ -425,16 +410,12 @@ export const CricketLeague = () => {
                                           </p>
                                         </div>
                                         <div
-                                          key={index}
-                                          className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
+                                          className="flex flex-col items-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium cursor-pointer bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                         >
 
                                           <p
-                                            className={`${
-                                              "Score" !== 3 &&
-                                              "hidden md:block "
-                                            }text-center text-[14.5px] `}
-                                          >
+                                            className={`font-bold text-[14.5px] `}
+                                          > 
                                             {Object.values(currentRuner)[0]
                                               ?.runners[1]?.ex
                                               ?.availableToLay[0]?.price
