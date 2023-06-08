@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -91,9 +91,21 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
     const [loggedIn, setLoggedIn] = useState(false);
 
+    useEffect(() => {
+        // Check if the login status is stored in localStorage
+        const storedLoggedIn = localStorage.getItem('loggedIn');
+
+        if (storedLoggedIn) {
+            setLoggedIn(true);
+        }
+    }, []);
+
     const handleLogin = () => {
         // Update the loggedIn state to true
         setLoggedIn(true);
+
+        // Store the login status in localStorage
+        localStorage.setItem('loggedIn', 'true');
     };
 
     return (

@@ -165,9 +165,9 @@ export const Home = () => {
             1 Event
           </p>
         </div>
-        {cricketData?.map((i) =>
-          i?.leagues?.map(
-            (j) => isDropdownOpen && <MarketDataCard league={j} />
+        {cricketData?.map((element) =>
+          element?.leagues?.map(
+            (j) => isDropdownOpen && <MarketDataCard league={j}   />
           )
         )}
 
