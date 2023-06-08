@@ -1,13 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { Tab } from "@headlessui/react";
-import React, { useEffect, useRef, useState } from "react";
-import { GoInfo } from "react-icons/go";
-import { IoIosArrowDown } from "react-icons/io";
-import { RiArrowUpSLine } from "react-icons/ri";
+import React, { useEffect, useState } from "react";
 import Countdown from "./Countdown";
 import { useDispatch, useSelector } from "react-redux";
 import RunnersCard from "./RunnersCard";
 import { getRunnerData } from "../redux/actions/runnerData/getRunnerDataAction";
+import { Footer } from "flowbite-react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -22,8 +20,6 @@ export const CricketLeague = () => {
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
-
-  console.log(globalMarketOddsData, "globalMarketOddsData in CricketLeagues");
 
   const handleClick = (index) => {
     if (expandedTables.includes(index)) {
@@ -130,18 +126,11 @@ export const CricketLeague = () => {
     ],
   });
 
-  const runnersDummy = [1, 2, 3, 4, 5, 6];
-
   const [isLive, setIsLive] = useState(false);
 
   const handleLiveTVClick = () => {
     setIsLive(!isLive);
   };
-
-  console.log(
-    location,
-    "asdfasfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd"
-  );
 
   const firstRunner = location?.state?.eventName?.includes("@")
     ? location?.state?.eventName?.split(" @ ")[0]?.trim()
@@ -157,25 +146,25 @@ export const CricketLeague = () => {
 
   useEffect(() => {
     location?.state?.marketArray?.map((market, index) => {
-      return (
-        dispatch(getRunnerData({
-          id: market?._id, callback: (data) => {
+      return dispatch(
+        getRunnerData({
+          id: market?._id,
+          callback: (data) => {
             console.log(data, "callback data");
             if (data?.length !== 0) {
-
               const allData = {
                 marketName: market?.name,
                 marketId: market?._id,
                 marketCode: market?.marketCode,
-                runners: data
-              }
-              setEventMarkets((prev) => [...prev, allData])
+                runners: data,
+              };
+              setEventMarkets((prev) => [...prev, allData]);
             }
-          }
-        }))
-      )
-    })
-  }, [])
+          },
+        })
+      );
+    });
+  }, [dispatch, location?.state?.marketArray]);
 
   console.log(eventMarkets, "EventMArkets");
   return (
@@ -251,16 +240,18 @@ export const CricketLeague = () => {
           </Tab.List>
           <Tab.Panels className="mt-2">
             {eventMarkets?.map((market, index) => {
-              return (
-               
-                  <RunnersCard market={market} />
-             
-              )
+              const odds = globalMarketOddsData.find((odds) =>
+                Object.keys(odds).includes(market?.marketCode)
+              );
+              console.log(odds, "oooodddsdsdsds");
+              if (odds && Object.keys(Object.values(odds)[0]).length) {
+                return <RunnersCard market={market} odds={odds} key={index} />;
+              }
             })}
           </Tab.Panels>
         </Tab.Group>
       </ul>
-      {/* <Footer/> */}
+       <Footer/> 
     </>
   );
 };
