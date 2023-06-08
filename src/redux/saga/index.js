@@ -7,6 +7,7 @@ import Login from "../saga/auth/loginSaga";
 import GetAllSportData from "./sportData/getAllSportDataSaga";
 import GlobalSportData from "./globalData/globalSportDataSaga";
 import GlobalMarketOdds from "./globalData/marketOddsSaga";
+import GetRunnerData from "./runnerData/getRunnerDataSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -15,5 +16,6 @@ export default function* rootSaga() {
     GetAllSportData(),
     GlobalSportData(),
     GlobalMarketOdds(),
+    GetRunnerData(),
   ]);
 }
