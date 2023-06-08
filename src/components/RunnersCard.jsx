@@ -9,7 +9,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
 }
 
-const RunnersCard = () => {
+const RunnersCard = ({market}) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
@@ -22,7 +22,7 @@ const RunnersCard = () => {
             >
                 <div class="flex items-center ">
                     <div class="flex items-center text-sm text-skin-secondary  font-medium ">
-                        TITLE
+                        {market?.marketName}
                     </div>
                 </div>
                 <div class="flex items-center space-x-8 px-1">
@@ -40,20 +40,25 @@ const RunnersCard = () => {
 
 
 
-                <div className="flex flex-col items-start gap-1    ">
+                <div className="flex flex-col items-start gap-1 pb-1   ">
 
 
 
-                    <hr className="border-t border-gray-200/10  w-full pt-1  " />
-                    <div className="flex w-full justify-between gap-3 pl-4 pr-1">
+                    
+
+                   {market?.runners?.map((runner, index)=>{
+                    return (
+                        <>
+                        <hr className="border-t border-gray-200/10  w-full   " />
+                        <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                         <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
-                            <p>Runner</p>
-                            <span className="flex  ">stake amount</span>
+                            <p>{runner?.name}</p>
+                            <span className="flex invisible  ">stake amount</span>
                         </div>
-                        <div className="flex items-center gap-1 rounded-md mb-2 scroll-x">
+                        <div className="flex items-center gap-1 w-[55%] rounded-md  scroll-x">
 
                             <Link
-                                className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
+                                className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
                                 <p className={`text-center text-[14.5px] `} >
                                     4000
                                 </p>
@@ -62,7 +67,7 @@ const RunnersCard = () => {
                                 </p>
                             </Link>
                             <Link
-                                className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
+                                className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
                                 <p className={`text-center text-[14.5px] `} >
                                     4000
                                 </p>
@@ -71,7 +76,34 @@ const RunnersCard = () => {
                                 </p>
                             </Link>
                             <Link
-                                className="flex flex-col justify-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
+                                className="flex flex-col items-center w-full rounded-md py-1 px-7 text-skin-blue scroll-x  font-medium  bg-skin-cardhead  hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
+                                <p className={`text-center text-[14.5px] `} >
+                                    4000
+                                </p>
+                                <p className="text-center text-skin-primary text-[11px]">
+                                    20
+                                </p>
+                            </Link>
+                            <Link
+                                className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x text-skin-pink  font-medium  bg-skin-cardhead  hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
+                                <p className={`text-center text-[14.5px] `} >
+                                    4000
+                                </p>
+                                <p className="text-center text-skin-primary text-[11px]">
+                                    20
+                                </p>
+                            </Link>
+                            <Link
+                                className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
+                                <p className={`text-center text-[14.5px] `} >
+                                    4000
+                                </p>
+                                <p className="text-center text-skin-primary text-[11px]">
+                                    20
+                                </p>
+                            </Link>
+                            <Link
+                                className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md" >
                                 <p className={`text-center text-[14.5px] `} >
                                     4000
                                 </p>
@@ -82,6 +114,9 @@ const RunnersCard = () => {
 
                         </div>
                     </div>
+                    </>
+                    )
+                   }) }
 
 
                 </div>

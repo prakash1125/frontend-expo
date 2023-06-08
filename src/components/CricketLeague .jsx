@@ -5,8 +5,9 @@ import { GoInfo } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import Countdown from "./Countdown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import RunnersCard from "./RunnersCard";
+import { getRunnerData } from "../redux/actions/runnerData/getRunnerDataAction";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -14,6 +15,9 @@ function classNames(...classes) {
 
 export const CricketLeague = () => {
   const [expandedTables, setExpandedTables] = useState([]);
+  const [eventMarkets, setEventMarkets] = useState([]);
+
+  const dispatch = useDispatch();
 
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
@@ -151,6 +155,29 @@ export const CricketLeague = () => {
     setExpandedTables(defaultIndices);
   }, [categories]);
 
+  useEffect(() => {
+    location?.state?.marketArray?.map((market, index) => {
+      return (
+        dispatch(getRunnerData({
+          id: market?._id, callback: (data) => {
+            console.log(data, "callback data");
+            if (data?.length !== 0) {
+
+              const allData = {
+                marketName: market?.name,
+                marketId: market?._id,
+                marketCode: market?.marketCode,
+                runners: data
+              }
+              setEventMarkets((prev) => [...prev, allData])
+            }
+          }
+        }))
+      )
+    })
+  }, [])
+
+  console.log(eventMarkets, "EventMArkets");
   return (
     <>
       <ul className="w-full px-2 pr-0 pt-2">
@@ -223,7 +250,13 @@ export const CricketLeague = () => {
             ))}
           </Tab.List>
           <Tab.Panels className="mt-2">
-          <RunnersCard/>
+            {eventMarkets?.map((market, index) => {
+              return (
+               
+                  <RunnersCard market={market} />
+             
+              )
+            })}
           </Tab.Panels>
         </Tab.Group>
       </ul>
