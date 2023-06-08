@@ -11,10 +11,9 @@ export const HomePage = () => {
         <Home />
         <Footer />
       </div>
-      <div className="px-2 z-0 hidden md:block w-1/4  ">
+      <div className="px-2 z-0 hidden md:block w-1/4">
         <RightNavbar />
       </div>
-      
     </>
   );
 };  

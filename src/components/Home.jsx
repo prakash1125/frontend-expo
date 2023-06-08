@@ -23,7 +23,6 @@ export const Home = () => {
     slidesToScroll: 1,
   };
   const settings2 = {
-    // dots: true,
     autoplay: true,
     arrows: false,
     infinite: true,
@@ -87,15 +86,11 @@ export const Home = () => {
     (sport) => sport.sportName === "Cricket"
   );
 
-  console.log(
-    cricketData,
-    "cricketDataasdfffffffffffffffffffffffffffffffffffffffffffffffff"
-  );
+
   // ============================================================================================
 
   useEffect(() => {
     socket.on("connect", () => {
-      console.log("Connected to server");
     });
 
     return () => {
@@ -172,8 +167,7 @@ export const Home = () => {
             (j) => isDropdownOpen && <MarketDataCard league={j} />
           )
         )}
-
-        {/* {isDropdownOpen && <MarketDataCard />} */}
+        
       </div>
 
       <div>

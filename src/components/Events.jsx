@@ -4,22 +4,22 @@ const Events = () => {
   return (
     <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b border-mainbg">
 
-    <div class=" flex items-center flex-1  cursor-pointer select-none">
-      <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
-        <a href="#" class="rounded-full relative block">
+    <div className=" flex items-center flex-1  cursor-pointer select-none">
+      <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
+        <a href="#" className="rounded-full relative block">
           <img
             alt="profil"
             src="https://sportsexch.com/images/icons/cricket.png"
-            class="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg p-1.5"
+            className="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg p-1.5"
           />
         </a>
       </div>
-      <div class="flex pl-3 justify-between w-full">
+      <div className="flex pl-3 justify-between w-full">
         <div>
-          <div class="w-32 font-medium  text-skin-primary text-sm">Punjab Kings</div>
-          <div class="w-32 font-medium  text-skin-primary text-sm">Rajasthan Royals</div>
+          <div className="w-32 font-medium  text-skin-primary text-sm">Punjab Kings</div>
+          <div className="w-32 font-medium  text-skin-primary text-sm">Rajasthan Royals</div>
         </div>
-        <div class="text-[12px] font-bold pr-4 text-skin-primary">
+        <div className="text-[12px] font-bold pr-4 text-skin-primary">
           <div>
             <div className='text-skin-secondary'>28 May 6:00</div>
             <div className='flex justify-end mt-1 '>

@@ -39,8 +39,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
   const { theme, setTheme } = useContext(ThemeContext);
 
-
-  console.log(currentRoute, screen, "jiii");
   const walletBalance = [
     { name: "Balance", amount: "5,564.20" },
     { name: "Bonus", amount: "0.20" },

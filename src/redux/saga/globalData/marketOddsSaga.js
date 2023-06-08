@@ -1,13 +1,11 @@
 import { all, put, takeEvery } from "redux-saga/effects";
 import { GLOBAL_MARKET_ODDS } from "../../actions/types";
 import { globalMaketOddsSuccess } from "../../actions/globalData/marketOddsAction";
-import API from "../../../utils/api";
 
 function* addGlobalMarketOdds(action) {
   try {
     yield put(globalMaketOddsSuccess(action.payload.data));
   } catch (error) {
-    console.log(error);
   }
 }
 

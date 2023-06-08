@@ -5,10 +5,8 @@ import API from "../../../utils/api"
 
 
 function* getSportRequest(action) {
-    console.log("action",action)
     try {
         const { data } = yield API.get("admin/get-sports-data");
-       console.log(data,"saga sport data");
         if (data.meta.code === 200) {
             yield put(getSportSuccess(data));
             yield call(action.payload.callback, data.data);

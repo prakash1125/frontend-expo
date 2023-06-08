@@ -7,32 +7,29 @@ import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 
 const MarketData = ({ league }) => {
-  // const marketCodes = league?.events?.flatMap((event) =>
-  //   event.markets.map(({ marketCode }) => marketCode)
-  // );
   // ==================================CALLING THE API DATA======================================
 
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
-  console.log(globalMarketOddsData, "----globalMarketOddsData----");
+  
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   return (
-    <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
+    <div className="rounded-md  w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
+        className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
       >
-        <div class="flex items-center ">
-          <div class="flex items-center text-sm text-skin-secondary  font-medium ">
+        <div className="flex items-center ">
+          <div className="flex items-center text-sm text-skin-secondary  font-medium ">
             {league?.leagueName}
           </div>
         </div>
-        <div class="flex items-center space-x-8 px-1">
-          <div class="flex text-sm font-bold text-skin-primary">
+        <div className="flex items-center space-x-8 px-1">
+          <div className="flex text-sm font-bold text-skin-primary">
             {league?.events?.length}
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
@@ -60,30 +57,30 @@ const MarketData = ({ league }) => {
                 }}
               >
                 <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
-                  <div class="  flex items-center flex-1  cursor-pointer select-none">
-                    <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
-                      <a href="#" class="rounded-full relative block">
+                  <div className="  flex items-center flex-1  cursor-pointer select-none">
+                    <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
+                      <a href="#" className="rounded-full relative block">
                         <img
                           alt="profil"
                           src="https://sportsexch.com/images/icons/cricket.png"
-                          class="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg  p-1.5"
+                          className="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg  p-1.5"
                         />
                       </a>
                     </div>
-                    <div class="flex pl-3 justify-between w-full">
+                    <div className="flex pl-3 justify-between w-full">
                       <div>
-                        <div class=" font-medium  text-skin-primary  text-sm">
+                        <div className=" font-medium  text-skin-primary  text-sm">
                           {event?.name?.includes("@")
                             ? event?.name?.split(" @ ")[0]?.trim()
                             : event?.name?.split(" v ")[0]?.trim()}
                         </div>
-                        <div class=" font-medium  text-skin-primary  text-sm">
+                        <div className=" font-medium  text-skin-primary  text-sm">
                           {event?.name?.includes("@")
                             ? event?.name?.split(" @ ")[1]?.trim()
                             : event?.name?.split(" v ")[1]?.trim()}
                         </div>
                       </div>
-                      <div class="text-[12px] font-bold pr-4 text-skin-primary ">
+                      <div className="text-[12px] font-bold pr-4 text-skin-primary ">
                         <div>
                           <div className="text-skin-secondary ">
                             {DateTime.fromISO(event?.eventDate).toFormat(
@@ -105,7 +102,7 @@ const MarketData = ({ league }) => {
 
                   <div>
                     {(() => {
-                      // Code logic inside the IIFE
+                 
                       if (matchOdds) {
                         exist = globalMarketOddsData?.find((obj) =>
                           Object.keys(obj)?.includes(matchOdds?.marketCode)

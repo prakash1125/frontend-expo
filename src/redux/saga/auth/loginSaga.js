@@ -5,7 +5,6 @@ import API from "../../../utils/api"
 
 
 function* loginRequest(action) {
-    console.log("action",action)
     try {
         const { data } = yield API.get("admin/login");
         if (data.meta.code === 200) {

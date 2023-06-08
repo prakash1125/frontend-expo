@@ -192,22 +192,22 @@ export const ProfitLoss = () => {
       </div>
 
       <div className="table-wrapper max-w-full overflow-x-auto">
-        <table class=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
+        <table className=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
           <thead>
             <tr>
-              <th class="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-skin-white">
+              <th className="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-skin-white">
                 Date
               </th>
-              <th class="whitespace-nowrap bg-skin-nav  w-3/5 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-skin-white">
+              <th className="whitespace-nowrap bg-skin-nav  w-3/5 border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-skin-white">
                 Description
               </th>
-              <th class="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
+              <th className="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
                 cr
               </th>
-              <th class="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
+              <th className="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
                 dr
               </th>
-              <th class="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
+              <th className="whitespace-nowrap bg-skin-nav  border border-gray-600 text-xs font-bold uppercase text-right px-2 py-2 text-skin-white">
                 balance
               </th>
             </tr>
@@ -215,10 +215,10 @@ export const ProfitLoss = () => {
           <tbody>
             {PLReport.map((element, index) => (
               <tr key={index}>
-                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-xs font-bold uppercase text-left px-2 py-3.5 text-skin-secondary">
+                <td className="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-xs font-bold uppercase text-left px-2 py-3.5 text-skin-secondary">
                   {element.date}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-xs font-bold uppercase text-left px-2 py-3.5 text-skin-secondary">
+                <td className="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-xs font-bold uppercase text-left px-2 py-3.5 text-skin-secondary">
                   {element.description.map((element) => {
                     return (
                       <div className="flex flex-col">
@@ -230,13 +230,13 @@ export const ProfitLoss = () => {
                     );
                   })}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-sm font-bold uppercase text-right px-2 py-3.5 text-skin-secondary">
+                <td className="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-sm font-bold uppercase text-right px-2 py-3.5 text-skin-secondary">
                   {element.cr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-sm font-bold uppercase text-right px-2 py-3.5 text-skin-secondary">
+                <td className="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-sm font-bold uppercase text-right px-2 py-3.5 text-skin-secondary">
                   {element.dr}
                 </td>
-                <td class="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-sm font-bold uppercase text-right px-2 py-3.5 text-skin-secondary">
+                <td className="whitespace-nowrap border border-slate-700 bg-skin-cardhead  text-sm font-bold uppercase text-right px-2 py-3.5 text-skin-secondary">
                   {element.balance}
                 </td>
               </tr>

@@ -19,8 +19,6 @@ export const getDefaultState = (keyName) => {
   if (storedValue !== null && storedValue !== undefined) {
     try {
       const value = JSON.parse(storedValue);
-
-      console.log("Parsed value:", value);
       return value;
     } catch (error) {
       console.error("Error parsing localStorage value:", error);

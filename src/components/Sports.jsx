@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
@@ -11,18 +11,10 @@ export const Sports = () => {
   // ==================================CALLING THE API DATA======================================
 
   let globalStateData = useSelector((state) => state.GlobalSportData);
-  let globalMarketOddsData = useSelector((state) => state.GobalMarketOdds);
 
   let sportsArray = globalStateData?.globalSportData;
   let leaguesArray = sportsArray?.map((i) => i?.leagues);
   let eventsArray = leaguesArray?.map((i) => i?.map((j) => j?.events));
-
-  // console.log("EventsArrayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", eventsArray);
-  // console.log("LeaguesArrayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", leaguesArray);
-  console.log(
-    "globalMarketOddsDatayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
-    globalMarketOddsData
-  );
 
   // ============================================================================================
 

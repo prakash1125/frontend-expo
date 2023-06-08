@@ -8,7 +8,7 @@ const INIT_STATE = {
 
 
 const globalSportDataReducer = (state = INIT_STATE, action) => {
-    console.log(action, "actionnnn ");
+   
     switch (action.type) {
         case GLOBAL_SPORT_DATA:
             return { ...state };

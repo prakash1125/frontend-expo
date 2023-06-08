@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   getSport,
@@ -19,23 +19,18 @@ export const SideNavbar = () => {
   const [data, setdata] = useState([]);
   const [allMarkets, setAllMarkets] = useState([]);
 
-  // console.log("globalStateData", globalStateData);
-  // console.log("getSportData", getSportData);
   useEffect(() => {
     setdata([]);
     dispatch(
       getSport({
         callback: (data) => {
           let datas = {};
-          // console.log(data, "qwedfghjnm");
-          const allSportData = [];
           data?.map((data) => {
             const id = data?._id;
             dispatch(
               getAllSportData({
                 id,
                 callback: (res) => {
-                  // console.log(res, "all ressssss");
                   const sport = {
                     sportName: data?.name,
                     sportSlugName: data?.slugName,
@@ -78,7 +73,6 @@ export const SideNavbar = () => {
               })
             );
           });
-          // console.log("datas", datas);
         },
       })
     );
@@ -89,12 +83,9 @@ export const SideNavbar = () => {
   }, [data, dispatch]);
 
   useEffect(() => {
-    // console.log(allMarkets, "alalalalalalaalalalalaayayyayaya");
     dispatch(globalMaketOdds({ data: allMarkets }));
   }, [allMarkets, dispatch]);
   // ===============================================================================================
-
-  // console.log("data", data);
 
   const [activeIndex, setActiveIndex] = useState(null);
   const [dropdownIndex, setdropdownIndex] = useState(null);
@@ -111,8 +102,7 @@ export const SideNavbar = () => {
     allMarkets.forEach((market, index) => {
       const socketKey = Object?.keys(market)[0];
       socket.on(socketKey, (data) => {
-        console.log("1111111111111111111111111111111", data);
-        console.log(index, "updated index");
+     
         setAllMarkets((prevDataArray) => {
           const updatedArray = prevDataArray?.map((val) =>
             Object.keys(val)[0] === socketKey ? { [socketKey]: data } : val
@@ -121,12 +111,7 @@ export const SideNavbar = () => {
         });
       });
     });
-    // return () => {
-    //   allMarkets.forEach((channel) => {
-    //     socket.off(Object?.keys(channel)[0]);
-    //   });
-    //   // socket.disconnect();
-    // };
+
   }, [allMarkets]);
 
   return (

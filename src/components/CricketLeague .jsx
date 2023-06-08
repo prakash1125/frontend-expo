@@ -18,8 +18,6 @@ export const CricketLeague = () => {
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
 
-  console.log(globalMarketOddsData, "globalMarketOddsData in CricketLeagues");
-
   const handleClick = (index) => {
     if (expandedTables.includes(index)) {
       setExpandedTables(expandedTables.filter((item) => item !== index));
@@ -133,11 +131,6 @@ export const CricketLeague = () => {
     setIsLive(!isLive);
   };
 
-  console.log(
-    location,
-    "asdfasfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsd"
-  );
-
   const firstRunner = location?.state?.eventName?.includes("@")
     ? location?.state?.eventName?.split(" @ ")[0]?.trim()
     : location?.state?.eventName?.split(" v ")[0]?.trim();
@@ -225,11 +218,6 @@ export const CricketLeague = () => {
             {Object.entries(categories).map(([category, posts], idx) => (
               <Tab.Panel
                 key={category}
-                className={classNames(
-                  ""
-                  //     // 'rounded-md w-full bg-white p-3',
-                  //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
-                )}
               >
                 {posts?.map((item, index) => (
                   <React.Fragment key={item.id}>
@@ -327,7 +315,6 @@ export const CricketLeague = () => {
                                           </p>
                                         </div>
                                         <div className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md">
-                                          {console.log(currentRuner, "pppppp")}
 
                                           <p
                                             className={`${
@@ -354,8 +341,7 @@ export const CricketLeague = () => {
                                           </p>
                                         </div>
                                         <div className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md">
-                                          {console.log(currentRuner, "pppppp")}
-
+                        
                                           <p
                                             className={`${
                                               "Score" !== 3 &&
@@ -384,7 +370,6 @@ export const CricketLeague = () => {
                                           key={index}
                                           className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                         >
-                                          {console.log(currentRuner, "pppppp")}
 
                                           <p
                                             className={`${
@@ -414,7 +399,6 @@ export const CricketLeague = () => {
                                           key={index}
                                           className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                         >
-                                          {console.log(currentRuner, "pppppp")}
 
                                           <p
                                             className={`${
@@ -444,7 +428,6 @@ export const CricketLeague = () => {
                                           key={index}
                                           className="flex flex-col justify-center w-full min-w-3xl rounded-md py-1 px-7 scroll-x  font-medium  bg-skin-cardhead text-skin-white hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
                                         >
-                                          {console.log(currentRuner, "pppppp")}
 
                                           <p
                                             className={`${

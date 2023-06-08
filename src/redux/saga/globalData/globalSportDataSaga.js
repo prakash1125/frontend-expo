@@ -6,7 +6,6 @@ function* addGlobalSportData(action) {
   try {
     yield put(globalSportDataSuccess(action.payload.data));
   } catch (error) {
-    console.log(error);
   }
 }
 

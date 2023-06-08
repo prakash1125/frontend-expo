@@ -5,10 +5,8 @@ import API from "../../../utils/api"
 
 
 function* getAllSportDataRequest(action) {
-    console.log("action get all",action)
     try {
         const { data } = yield API.get(`admin/exchange-book?sportId=${action?.payload?.id}`);
-       console.log(data,'get All Sport Data');
         if (data.meta.code === 200) {
             yield put(getAllSportDataSuccess(data));
             yield call(action.payload.callback, data.data);
