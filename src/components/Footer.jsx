@@ -1,4 +1,5 @@
 import React from "react";
+import { BsWhatsapp } from "react-icons/bs"
 
 const Footer = () => {
     const goToBtn = () => {
@@ -72,26 +73,26 @@ const Footer = () => {
                 </div>
 
 
-                <div className="border w-72 m-auto rounded-xl helpline-numbers text-center p-1 flex flex-col">
-                    <div className="helpline-heading font-semibold ">
-                        <h5>Helpline Number</h5>
+                <div className="border border-[#333] w-72 m-auto rounded-xl helpline-numbers text-center p-6 flex flex-col">
+                    <div className="helpline-heading font-semibold mb-3">
+                        <p className="text-xl font-bold">Helpline Number</p>
                     </div>
                     <a
                         href="https://wa.me/+917835999999"
-                        className="support-number my-3 "
+                        className="flex items-center justify-center gap-1 font-bold support-number my-3 text-[18px] text-[#169c59]"
                     >
-                        <i aria-hidden="true" className="fa fa-whatsapp mr-2 fa-2x" />+ 91
+                        <BsWhatsapp className="mr-2 fa-2x text-2xl" />+ 91
                         783 599 9999
                     </a>
-                    <a href="https://wa.me/7834999999" className="support-number ">
-                        <i aria-hidden="true" className="fa fa-whatsapp mr-2 fa-2x" />+ 91
+                    <a href="https://wa.me/7834999999" className="flex items-center justify-center gap-1 font-bold support-number text-[18px] text-[#169c59]">
+                        <BsWhatsapp className="mr-2 fa-2x text-2xl" />+ 91
                         783 499 9999
                     </a>
                 </div>
                 <div className="flex justify-center mt-3 mb-3">
                     <img
                         src="https://sportsexch.com/images/bg/betfair.png"
-                        className="bg-white mb-3 betfair"
+                        className="invert mb-3 betfair"
                     />
                 </div>
             </div>
