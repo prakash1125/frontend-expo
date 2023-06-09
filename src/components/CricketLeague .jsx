@@ -174,7 +174,7 @@ export const CricketLeague = () => {
           <h1 className="text-white text-xl">{location?.state?.leagueName}</h1>
           <div className="team-match text-[#fff] text-xl mb-2">
             {firstRunner}
-            <span className="text-lg font-bold mx-2">
+            <span className="text-lg  font-bold mx-2">
               {secondRunner && " vs "}
             </span>
             {secondRunner}
