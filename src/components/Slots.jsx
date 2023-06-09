@@ -325,7 +325,7 @@ export const Slots = () => {
       </Slider>
       <Tab.Group>
         <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
-          {Object.keys(categories).map((category, index) => (
+          {Object.keys(categories).map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
@@ -356,7 +356,7 @@ export const Slots = () => {
                 {posts.map((post, index) => {
                   return (
                     <>
-                      <div className="slots-tab flex items-center justify-between mt-2 mb-0.5 text-[#fff]">
+                      <div className="slots-tab flex items-center justify-between mt-2 mb-0.5 text-[#fff]" key={index}>
                         <div className="slots-title text-xl text-left font-medium mb-0.5">
                           {post.title}
                         </div>
@@ -371,10 +371,15 @@ export const Slots = () => {
                         {post.imageSet.map((image, index) => (
                           <div className="flex flex-col " key={index}>
                             <div className="casino-image mx-2">
-                              <img className="rounded" src={image.img} alt={`Slide ${index + 1}`} />
-                              
+                              <img
+                                className="rounded"
+                                src={image.img}
+                                alt={`Slide ${index + 1}`}
+                              />
                             </div>
-                            <div className="casino-name text-[#fff] text-center">{image.name}</div>
+                            <div className="casino-name text-[#fff] text-center">
+                              {image.name}
+                            </div>
                           </div>
                         ))}
                       </Slider>
@@ -386,8 +391,6 @@ export const Slots = () => {
           </Tab.Panels>
         </div>
       </Tab.Group>
-
-                
 
       <Footer />
     </div>

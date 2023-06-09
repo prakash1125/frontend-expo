@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   getSport,
@@ -19,77 +19,74 @@ export const SideNavbar = () => {
   const [data, setdata] = useState([]);
   const [allMarkets, setAllMarkets] = useState([]);
 
-  // console.log("globalStateData", globalStateData);
-  // console.log("getSportData", getSportData);
   useEffect(() => {
-    setdata([]);
-    dispatch(
-      getSport({
-        callback: (data) => {
-          let datas = {};
-          // console.log(data, "qwedfghjnm");
-          const allSportData = [];
-          data?.map((data) => {
-            const id = data?._id;
+    const fetchData = async () => {
+      try {
+        const sportData = await new Promise((resolve, reject) => {
+          dispatch(getSport({ callback: resolve, errorCallback: reject }));
+        });
+
+        const allDataPromises = sportData.map(async (data) => {
+          const id = data._id;
+          const res = await new Promise((resolve, reject) => {
             dispatch(
-              getAllSportData({
-                id,
-                callback: (res) => {
-                  // console.log(res, "all ressssss");
-                  const sport = {
-                    sportName: data?.name,
-                    sportSlugName: data?.slugName,
-                    sportsCode: data?.sportsCode,
-                    sportId: data?._id,
-                  };
-                  if (res.length !== 0) {
-                    const leagues = res?.map((item) => {
-                      const leagues = {
-                        leagueId: item?._id,
-                        leagueCode: item?.leagueCode,
-                        leagueName: item?.name,
-                        events: item?.events,
-                      };
-                      item?.events?.map((data) => {
-                        data.markets.map((market) => {
-                          const obj = {};
-
-                          obj[market?.marketCode] = {};
-                          if (!allMarkets.includes(market?.marketCode)) {
-                            setAllMarkets((markets) => [...markets, obj]);
-                          }
-                          return null;
-                        });
-                        return null;
-                      });
-                      return leagues;
-                    });
-                    datas = {
-                      ...sport,
-                    };
-                    sport.leagues = leagues;
-                    setdata((prevState) => [...prevState, sport]);
-
-                    return sport;
-                  } else {
-                    setdata((prevState) => [...prevState, sport]);
-                  }
-                },
-              })
+              getAllSportData({ id, callback: resolve, errorCallback: reject })
             );
           });
-          // console.log("datas", datas);
-        },
-      })
-    );
-  }, []);
+
+          const sport = {
+            sportName: data.name,
+            sportSlugName: data.slugName,
+            sportsCode: data.sportsCode,
+            sportId: data._id,
+            leagues: [],
+          };
+
+          if (res.length !== 0) {
+            const leagues = res.map((item) => {
+              const leagues = {
+                leagueId: item._id,
+                leagueCode: item.leagueCode,
+                leagueName: item.name,
+                events: item.events,
+              };
+
+              item.events?.forEach((data) => {
+                data.markets.forEach((market) => {
+                  const obj = { [market.marketCode]: {} };
+                  allMarketsSet.add(obj);
+                });
+              });
+
+              return leagues;
+            });
+
+            sport.leagues = leagues;
+          }
+
+          return sport;
+        });
+
+        const allData = await Promise.all(allDataPromises);
+
+        setAllMarkets(Array.from(allMarketsSet));
+        setdata(allData);
+      } catch (error) {
+        // Handle error
+      }
+    };
+
+    const allMarketsSet = new Set();
+    setdata([]);
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(globalSportData({ data: data }));
   }, [data, dispatch]);
 
   useEffect(() => {
-    // console.log(allMarkets, "alalalalalalaalalalalaayayyayaya");
     dispatch(globalMaketOdds({ data: allMarkets }));
   }, [allMarkets, dispatch]);
   // ===============================================================================================
@@ -108,11 +105,9 @@ export const SideNavbar = () => {
   };
 
   useEffect(() => {
-    allMarkets.forEach((market, index) => {
+    allMarkets.forEach((market) => {
       const socketKey = Object?.keys(market)[0];
       socket.on(socketKey, (data) => {
-        console.log("1111111111111111111111111111111", data);
-        console.log(index, "updated index");
         setAllMarkets((prevDataArray) => {
           const updatedArray = prevDataArray?.map((val) =>
             Object.keys(val)[0] === socketKey ? { [socketKey]: data } : val
@@ -121,12 +116,6 @@ export const SideNavbar = () => {
         });
       });
     });
-    // return () => {
-    //   allMarkets.forEach((channel) => {
-    //     socket.off(Object?.keys(channel)[0]);
-    //   });
-    //   // socket.disconnect();
-    // };
   }, [allMarkets]);
 
   return (
@@ -179,6 +168,7 @@ export const SideNavbar = () => {
               <div className="flex flex-col items-start  pt-2 m-1">
                 {item?.leagues?.map((league, index) => (
                   <div
+                    key={index}
                     onClick={() => toggleDropdown(index)}
                     className="justify-between pl-3 pr-4 rounded-md py-3 hover:bg-skin-hovercolorsecondary flex w-full"
                   >
@@ -191,6 +181,7 @@ export const SideNavbar = () => {
                         <div className="flex flex-col items-start  pt-2 ">
                           {league?.events.map((event, index) => (
                             <Link
+                              key={index}
                               to="/cricket-league"
                               state={{
                                 leagueName: league?.leagueName,

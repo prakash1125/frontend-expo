@@ -49,25 +49,25 @@ export const Withdrawal = () => {
         </div>
 
         <div className="max-w-full overflow-x-auto mt-3">
-          <table class=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
+          <table className=" border-collapse w-full border border-[#4c555e] overflow-x-scroll">
             <thead>
               <tr>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Account Number
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Account Name
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Bank Name
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   IFSC Code
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Account Type
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Action
                 </th>
               </tr>
@@ -75,22 +75,22 @@ export const Withdrawal = () => {
             <tbody>
               {AccountDetails.map((element, index) => (
                 <tr key={index}>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.account_number}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.account_name}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.bank_name}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.ifsc_code}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.account_type}
                   </td>
-                  <td class="border border-slate-700 bg-[#32383e] text-4xl font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="border border-slate-700 bg-[#32383e] text-4xl font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {
                       <element.action className="bg-[#17a2b8] rounded p-1 cursor-pointer text-white" />
                     }
@@ -148,31 +148,31 @@ export const Withdrawal = () => {
         </div>
 
         <div className="max-w-full overflow-x-auto status mt-6">
-          <table class="border-collapse w-full border border-[#4c555e] overflow-x-scroll">
+          <table className="border-collapse w-full border border-[#4c555e] overflow-x-scroll">
             <thead>
               <tr>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Account Number
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Account Name
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Amount
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Bank Name
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   IFSC Code
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Account Type
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Date
                 </th>
-                <th class="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
                   Status
                 </th>
               </tr>
@@ -180,28 +180,28 @@ export const Withdrawal = () => {
             <tbody>
               {WithdrawalStatus.map((element, index) => (
                 <tr key={index}>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.account_number}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.account_name}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.amount}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.bank_name}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.ifsc_code}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.account_type}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     {element.date}
                   </td>
-                  <td class="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
+                  <td className="whitespace-nowrap border border-slate-700 bg-[#32383e] text-sm font-bold uppercase text-left px-2 py-3.5 text-[#f9fafa]">
                     <button
                       type="button"
                       className="bg-[#f12e5e] rounded px-2.5 font-semibold p-1  text-xs text-white  transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"

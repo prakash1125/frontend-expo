@@ -6,9 +6,7 @@ import "swiper/swiper-bundle.min.css";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { useEffect } from "react";
 import MarketDataCard from "./MarketDataCard";
-import { socket } from "../context/SocketContext";
 import { useSelector } from "react-redux";
 
 export const Home = () => {
@@ -81,28 +79,12 @@ export const Home = () => {
   // ==================================CALLING THE API DATA======================================
 
   let globalStateData = useSelector((state) => state?.GlobalSportData);
-  let sportsArray = globalStateData?.globalSportData;
 
   const cricketData = globalStateData?.globalSportData?.filter(
     (sport) => sport.sportName === "Cricket"
   );
 
-  console.log(
-    cricketData,
-    "cricketDataasdfffffffffffffffffffffffffffffffffffffffffffffffff"
-  );
   // ============================================================================================
-
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to server");
-    });
-
-    return () => {
-      socket.off("connect");
-      socket.off("message");
-    };
-  }, []);
 
   return (
     <div className="w-full sm:px-0 mb-4">
@@ -169,7 +151,8 @@ export const Home = () => {
         </div>
         {cricketData?.map((i) =>
           i?.leagues?.map(
-            (j) => isDropdownOpen && <MarketDataCard league={j} />
+            (j, idx) =>
+              isDropdownOpen && <MarketDataCard league={j} key={idx} />
           )
         )}
 

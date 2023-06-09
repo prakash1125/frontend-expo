@@ -11,18 +11,10 @@ export const Sports = () => {
   // ==================================CALLING THE API DATA======================================
 
   let globalStateData = useSelector((state) => state.GlobalSportData);
-  let globalMarketOddsData = useSelector((state) => state.GobalMarketOdds);
 
   let sportsArray = globalStateData?.globalSportData;
   let leaguesArray = sportsArray?.map((i) => i?.leagues);
   let eventsArray = leaguesArray?.map((i) => i?.map((j) => j?.events));
-
-  // console.log("EventsArrayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", eventsArray);
-  // console.log("LeaguesArrayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy", leaguesArray);
-  console.log(
-    "globalMarketOddsDatayyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy",
-    globalMarketOddsData
-  );
 
   // ============================================================================================
 
@@ -34,22 +26,24 @@ export const Sports = () => {
         <Tab.List className="flex gap-1 scroll-x">
           {sportsArray?.map((category, index) => (
             <Tab
-              key={category}
+              key={category.sportSlugName}
               onClick={() => setCategoryId(index)}
               className={({ selected }) =>
                 classNames(
-                  " h-[52px] justify-center text-center rounded-md text-xs min-w-[85px] font-semibold ",
-                  "  ",
-                  selected
-                    ? "bg-skin-imgbg  font-semibold duration-200  "
-                    : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-200"
+                  ` h-[52px] justify-center text-center rounded-md text-xs min-w-[85px] font-semibold 
+                  ${
+                    selected
+                      ? "bg-skin-imgbg  font-semibold duration-200  "
+                      : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-200"
+                  }
+                `
                 )
               }
             >
               <img
                 alt="profil"
                 src={require(`../assets/images/sidemenu/${category.sportSlugName}.png`)}
-                class={`mx-auto ${
+                className={`mx-auto ${
                   categoryId !== index && "invert"
                 } object-cover  w-5 sidebar `}
               ></img>
@@ -61,8 +55,8 @@ export const Sports = () => {
         </Tab.List>
         <Tab.Panels className="mt-2">
           {sportsArray?.map((posts, idx) => (
-            <Tab.Panel key={idx}>
-              <ul>
+            <Tab.Panel>
+              <ul key={idx}>
                 {posts?.leagues?.map((post) => (
                   <li key={post.id} className="relative pb-2">
                     <MarketDataCard league={post} />

@@ -317,7 +317,10 @@ export const IplClub = () => {
                             <>
                               {" "}
                               <hr className="border-t border-gray-200/10  w-full pt-1  " />
-                              <div className="flex w-full justify-between gap-3 pl-4 pr-1">
+                              <div
+                                className="flex w-full justify-between gap-3 pl-4 pr-1"
+                                key={index}
+                              >
                                 <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                                   <p>{Item.team}</p>
                                   <span className="flex ">stake amount</span>

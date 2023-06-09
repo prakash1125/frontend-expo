@@ -29,7 +29,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer-column mt-4 flex-grow">
-            <div className="footer-title text-lg font-semibold mb-4">Get started</div>
+            <div className="footer-title text-lg font-semibold mb-4">
+              Get started
+            </div>
             <ul className="footer-menu-list">
               <li className="py-3 text-sm">
                 <a href="/about-us" className>
@@ -65,7 +67,6 @@ const Footer = () => {
           </div>
         </div>
 
-
         <div className="border w-72 m-auto rounded-xl helpline-numbers text-center p-1 flex flex-col">
           <div className="helpline-heading font-semibold ">
             <h5>Helpline Number</h5>
@@ -86,6 +87,7 @@ const Footer = () => {
           <img
             src="https://sportsexch.com/images/bg/betfair.png"
             className="bg-skin-imgbg mb-3 betfair"
+            alt=""
           />
         </div>
       </div>

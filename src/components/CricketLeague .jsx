@@ -145,12 +145,12 @@ export const CricketLeague = () => {
   }, [categories]);
 
   useEffect(() => {
-    location?.state?.marketArray?.map((market, index) => {
+    setEventMarkets([]);
+    location?.state?.marketArray?.map((market) => {
       return dispatch(
         getRunnerData({
           id: market?._id,
           callback: (data) => {
-            console.log(data, "callback data");
             if (data?.length !== 0) {
               const allData = {
                 marketName: market?.name,
@@ -166,7 +166,6 @@ export const CricketLeague = () => {
     });
   }, [dispatch, location?.state?.marketArray]);
 
-  console.log(eventMarkets, "EventMArkets");
   return (
     <>
       <ul className="w-full px-2 pr-0 pt-2">
@@ -227,7 +226,6 @@ export const CricketLeague = () => {
                 className={({ selected }) =>
                   classNames(
                     "w-full rounded-md outline-none text-center text-sm font-medium ",
-
                     selected
                       ? "bg-skin-hovercolorsecondary text-skin-white "
                       : "text-skin-white  bg-skin-nav hover:bg-skin-hovercolorsecondary  hover:text-skin-white hover:duration-200 "
@@ -243,15 +241,15 @@ export const CricketLeague = () => {
               const odds = globalMarketOddsData.find((odds) =>
                 Object.keys(odds).includes(market?.marketCode)
               );
-              console.log(odds, "oooodddsdsdsds");
               if (odds && Object.keys(Object.values(odds)[0]).length) {
                 return <RunnersCard market={market} odds={odds} key={index} />;
               }
+              return null;
             })}
           </Tab.Panels>
         </Tab.Group>
       </ul>
-       <Footer/> 
+      <Footer />
     </>
   );
 };
