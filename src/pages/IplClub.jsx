@@ -6,7 +6,7 @@ export const IplClubPage = () => {
   return (
     <>
       <div className="w-full overflow-y-scroll scrollbar-hide h-[91vh]  "><IplClub /></div>
-      <div className="px-2 hidden lg:block w-1/4" >
+      <div className="px-2 hidden lg:block w-80" >
         <RightNavbar />
       </div>
     </>

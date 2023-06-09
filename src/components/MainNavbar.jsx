@@ -124,12 +124,11 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
         <>
             <Disclosure
                 as="nav"
-                className={`border-b z-0 border-gray-200/10 bg-skin-navtop  ${screen ? "px-64" : ""
-                    } `}
+                className={`border-b z-0 border-gray-200/10 bg-skin-navtop  `}
             >
                 {({ open }) => (
                     <>
-                        <div className="px-2 sm:px-6 lg:px-6">
+                        <div className="px-2 sm:px-6 lg:px-6 mx-auto  max-w-[1440px]">
                             <div className="relative flex items-center justify-between
              gap-3">
                                 <div

@@ -49,8 +49,7 @@ const RunnersCard = ({ market, odds }) => {
             const currentMarket = Object.values(odds)[0]?.runners.find(
               (odd) => {
                 const data =
-                  parseFloat(odd?.selectionId) ===
-                  parseFloat(runner?.runnerCode);
+                  parseFloat(odd?.selectionId) === parseFloat(runner?.runnerCode);
                 return data;
               }
             );
