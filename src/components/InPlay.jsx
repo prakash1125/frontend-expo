@@ -7,8 +7,6 @@ function classNames(...classes) {
 }
 
 export const InPlay = () => {
-
-
   const [categoryId, setCategoryId] = useState(0);
   // ==================================CALLING THE API DATA======================================
 
@@ -17,10 +15,6 @@ export const InPlay = () => {
   let sportsArray = globalStateData?.globalSportData;
   // ============================================================================================
 
-
- 
-
- 
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
@@ -39,14 +33,23 @@ export const InPlay = () => {
                 )
               }
             >
-              <img alt="profil" src={require(`../assets/images/sidemenu/${category.sportSlugName}.png`)} class={`mx-auto ${categoryId !== index && 'invert'} object-cover  w-5 sidebar `}></img>
+              <img
+                alt="profil"
+                src={require(`../assets/images/sidemenu/${category.sportSlugName}.png`)}
+                class={`mx-auto ${
+                  categoryId !== index && "invert"
+                } object-cover  w-5 sidebar `}
+              ></img>
               <div className=" inline-block overflow-x-hidden w-16  whitespace-nowrap ">
                 {category?.sportName}
               </div>
             </Tab>
           ))}
         </Tab.List>
-        <div className="mt-2 p-2 text-sm rounded-md w-full bg-skin-nav text-skin-secondary font-semibold ">There is a no match available at this time in <span className="text-green-600">InPlay.</span></div>
+        <div className="mt-2 p-2 text-sm rounded-md w-full bg-skin-nav text-skin-secondary font-semibold ">
+          There is a no match available at this time in{" "}
+          <span className="text-green-600">InPlay.</span>
+        </div>
         {/* <Tab.Panels className="mt-2">
           {Object.values(categories).map((posts, idx) => (
             <Tab.Panel

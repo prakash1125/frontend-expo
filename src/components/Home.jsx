@@ -162,7 +162,9 @@ export const Home = () => {
             )}
           </p>
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
-            1 Event
+            {cricketData !== undefined && cricketData.length !== 0
+              ? `${cricketData[0]?.leagues?.length} Events`
+              : "Events"}
           </p>
         </div>
         {cricketData?.map((element) =>
@@ -186,7 +188,7 @@ export const Home = () => {
         <Slider {...settings2}>
           {images2.map((img, index) => (
             <div key={index} className=" scroll-x pb-6">
-              <div key={index} className="px-1">
+              <div className="px-1">
                 <img
                   src={img}
                   className="  object-cover rounded-md "
