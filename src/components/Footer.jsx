@@ -7,6 +7,7 @@ const Footer = () => {
             top: 0,
             behavior: 'smooth',
         });
+        console.log("asfasdf");
     };
     return (
         <>

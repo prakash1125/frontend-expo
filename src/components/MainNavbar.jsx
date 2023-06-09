@@ -108,6 +108,18 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
         localStorage.setItem('loggedIn', 'true');
     };
 
+    const handleLogout = () => {
+        // Update the loggedIn state to false
+        setLoggedIn(false);
+
+        // Remove the login status from localStorage
+        localStorage.removeItem('loggedIn');
+
+        // Log the logout message
+        console.log('User logged out');
+    };
+
+
     return (
         <>
             <Disclosure
@@ -243,22 +255,23 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                                             </button>
                                             {isProfileOpen && (
                                                 <div className="w-64 absolute top-12 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md rounded ">
-                                                    {profileMenu.map((element, index) => {
-                                                        return (
-                                                            <Link
-                                                                onClick={element?.modal ? () => handleModal(element?.list) : handleMenuClick}
-                                                                to={element.href}
-                                                                className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav  hover:bg-skin-nav  "
-                                                            >
-                                                                <div className="text-skin-white  icon group">
-                                                                    {<element.icon />}
-                                                                </div>
-                                                                <div className="text-skin-white  group menu-list cursor-pointer ">
-                                                                    {element.list}
-                                                                </div>
-                                                            </Link>
-                                                        );
-                                                    })}
+                                                    {profileMenu.map((element, index) => (
+                                                        <Link
+                                                            onClick={
+                                                                element.list === 'Logout' ? handleLogout : element?.modal ? () => handleModal(element?.list) : undefined
+                                                            }
+                                                            to={element.href}
+                                                            className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"
+                                                            key={index}
+                                                        >
+                                                            <div className="text-skin-white icon group">
+                                                                {React.createElement(element.icon)}
+                                                            </div>
+                                                            <div className="text-skin-white group menu-list cursor-pointer">
+                                                                {element.list}
+                                                            </div>
+                                                        </Link>
+                                                    ))}
                                                 </div>
                                             )}
                                         </div>
