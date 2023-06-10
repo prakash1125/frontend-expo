@@ -7,22 +7,20 @@ import GetAllSportData from "./sportData/getAllSportDataReducer";
 import GlobalSportData from "./globalData/globalSportDataReducer";
 import GobalMarketOdds from "./globalData/marketOddsReducer";
 import GetRunnerData from "./runnerData/getRunnerDataReducer";
-import ChangePassword from "./changePassword/changePasswordReducer";
 
 /* ---------------------------- //example// ---------------------------- */
 // import exampleReducer from "./path"
 
 const appReducer = combineReducers({
-    //exampleReducer
-    Login,
-    GetSport,
-    GetAllSportData,
-    GlobalSportData,
-    GobalMarketOdds,
-    GetRunnerData,
-    ChangePassword,
+  //exampleReducer
+  Login,
+  GetSport,
+  GetAllSportData,
+  GlobalSportData,
+  GobalMarketOdds,
+  GetRunnerData,
 });
 const reducers = (state, action) => {
-    return appReducer(state, action);
+  return appReducer(state, action);
 };
 export default reducers;

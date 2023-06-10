@@ -8,7 +8,6 @@ import GetAllSportData from "./sportData/getAllSportDataSaga";
 import GlobalSportData from "./globalData/globalSportDataSaga";
 import GlobalMarketOdds from "./globalData/marketOddsSaga";
 import GetRunnerData from "./runnerData/getRunnerDataSaga";
-import changePasswordSaga from "./changePassword/changePasswordSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -18,6 +17,5 @@ export default function* rootSaga() {
     GlobalSportData(),
     GlobalMarketOdds(),
     GetRunnerData(),
-    changePasswordSaga(),
   ]);
 }

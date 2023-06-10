@@ -100,20 +100,13 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
         }
     }, []);
 
-    const handleLogin = () => {
-        // Update the loggedIn state to true
-        setLoggedIn(true);
-
-        // Store the login status in localStorage
-        localStorage.setItem('loggedIn', 'true');
-    };
-
     const handleLogout = () => {
         // Update the loggedIn state to false
         setLoggedIn(false);
 
         // Remove the login status from localStorage
         localStorage.removeItem('loggedIn');
+        localStorage.removeItem('token');
 
         // Log the logout message
         console.log('User logged out');
@@ -339,7 +332,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 )}
             </Disclosure>
             {isLoginOpen && (
-                <LoginModal className="z-50" closeModal={closeModal} onLogin={handleLogin} />
+                <LoginModal className="z-50" closeModal={closeModal} onLogin={setLoggedIn}/>
             )}
             {/* {isSignupOpen && (
                 <SignupModal className="z-50" closeModal={closeModal} />

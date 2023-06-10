@@ -1,5 +1,5 @@
 import { Tab } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GoInfo } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
@@ -13,7 +13,22 @@ function classNames(...classes) {
 const RunnersCard = ({ market, odds }) => {
     const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
-    console.log(odds, "runner-global-odds");
+    // ======================Responsive market======================
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const isMobile = windowWidth <= 768;
 
     return (
         <div class="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
@@ -65,27 +80,30 @@ const RunnersCard = ({ market, odds }) => {
                                         <p>{runner?.name}</p>
                                         <span className="flex invisible  ">stake amount</span>
                                     </div>
-                                    <div className="flex items-center gap-1 w-[55%] rounded-md  scroll-x">
+                                    <div className={`flex items-center justify-end gap-1 w-full rounded-md  scroll-x ${isMobile ? "justify-end" : ""}`}>
                                         {currentMarket?.ex?.availableToBack?.map((back, index) => {
+                                            if (isMobile && index !== 2) {
+                                                return null; // Skip rendering for indices other than 2 in mobile view
+                                            }
+
                                             return (
                                                 <Link
                                                     key={index}
-                                                    className="flex flex-col items-center w-full rounded-md py-1 px-7 text-skin-blue scroll-x  font-medium  bg-skin-cardhead  hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
+                                                    className={`flex flex-col items-center ${isMobile ? "w-[80px]" : "w-[4rem]"}  rounded-md py-1  text-skin-blue scroll-x font-medium bg-skin-cardhead hover:bg-skin-cardhead hover:text-skin-white rounded-b-md`}
                                                 >
-                                                    <p className={`text-center text-[14.5px] `}>
-                                                        {back?.price}
-                                                    </p>
-                                                    <p className="text-center text-skin-primary text-[11px]">
-                                                        {back?.size}
-                                                    </p>
+                                                    <p className={`text-center text-[14.5px]`}>{back?.price}</p>
+                                                    <p className="text-center text-skin-primary text-[11px]">{back?.size}</p>
                                                 </Link>
                                             );
                                         })}
                                         {currentMarket?.ex?.availableToBack?.map((lay, index) => {
+                                            if (isMobile && index !== 0) {
+                                                return null; // Skip rendering for indices other than 0 in mobile view
+                                            }
                                             return (
                                                 <Link
                                                     key={index}
-                                                    className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x text-skin-pink  font-medium  bg-skin-cardhead  hover:bg-skin-cardhead hover:text-skin-white rounded-b-md"
+                                                    className={`flex flex-col items-center ${isMobile ? "w-[80px]" : "w-[4rem]"}  rounded-md py-1 scroll-x text-skin-pink  font-medium  bg-skin-cardhead  hover:bg-skin-cardhead hover:text-skin-white rounded-b-md`}
                                                 >
                                                     <p className={`text-center text-[14.5px] `}>
                                                         {lay?.price}

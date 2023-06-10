@@ -9,7 +9,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
     const dispatch = useDispatch();
     const [phoneNumberValue, setPhoneNumber] = useState("");
     const [passwordValue, setPassword] = useState("");
-
+ 
     const handlePhoneNumberChange = (event) => {
         setPhoneNumber(event.target.value);
     };
@@ -29,9 +29,12 @@ export const LoginModal = ({ closeModal, onLogin }) => {
         dispatch(
             login({
                 inputValues,
-                callback: () => {
-                    closeModal();
-                    onLogin();
+                callback: (data) => {
+                    if(data){
+                        closeModal();
+                        localStorage?.setItem("token",data?.meta?.token)
+                        onLogin(true);
+                    }
                 }
             })
         )
