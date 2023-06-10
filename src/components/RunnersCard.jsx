@@ -78,10 +78,12 @@ const RunnersCard = ({ market, odds }) => {
                           {parseInt(bookAmount)}
                         </span>
                         <span
-                          className={`${
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
                             slipData?.type === "lay"
-                              ? "text-red-600"
-                              : " text-green-500"
+                              ? "text-red-500"
+                              : " text-green-600"
                           }`}
                         >{`>`}</span>
                         <span
@@ -110,10 +112,12 @@ const RunnersCard = ({ market, odds }) => {
                           {bookAmount}
                         </span>
                         <span
-                          className={`${
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
                             slipData?.type === "lay"
-                              ? "text-green-600"
-                              : " text-red-500"
+                              ? "text-green-500"
+                              : " text-red-600"
                           }`}
                         >{`>`}</span>
                         <span
@@ -144,7 +148,9 @@ const RunnersCard = ({ market, odds }) => {
                               )
                             }
                             key={index}
-                            className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-blue  font-medium  bg-skin-cardhead   rounded-b-md"
+                            className={`flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] ${
+                              index === 2 ? "text-skin-blue" : "text-white"
+                            }  font-bold  bg-skin-cardhead   rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px] `}>
                               {back?.price}
@@ -162,7 +168,9 @@ const RunnersCard = ({ market, odds }) => {
                           <div
                             onClick={() => handleOddsClick(lay?.price, "lay")}
                             key={index}
-                            className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-pink font-medium  bg-skin-cardhead   rounded-b-md"
+                            className={`flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] ${
+                              index === 0 ? "text-skin-pink" : "text-white"
+                            } font-bold  bg-skin-cardhead   rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px] `}>
                               {lay?.price}
