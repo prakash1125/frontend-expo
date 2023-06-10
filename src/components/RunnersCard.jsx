@@ -12,12 +12,18 @@ function classNames(...classes) {
 }
 
 const RunnersCard = ({ market, odds }) => {
-const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [isBetSlipOpen, setIsBetSlipOpen ] = useState(false);
+
 
   console.log(odds, "runner-global-odds");
 
+  const handleOddsClick = (price)=>{
+    setIsBetSlipOpen(true)
+  }
+
   return (
-    
+
     <div class="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -38,10 +44,10 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
           </div>
         </div>
       </div>
-      
+
       {isDropdownOpen && (
         <div className="flex flex-col items-start gap-1 pb-1   ">
-                      
+
 
           {market?.runners?.map((runner, index) => {
             console.log(runner);
@@ -71,12 +77,13 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
                     <p>{runner?.name}</p>
                     <span className="flex text-xs invisible  ">stake amount</span>
                   </div>
-                  <div className="flex items-center gap-1 w-[55%] rounded-md  scroll-x">
+                  <div className="flex items-center gap-1 w-[55%] rounded-md ">
                     {currentMarket?.ex?.availableToBack?.reverse()?.map((back, index) => {
                       return (
-                        <Link
+                        <div
+                          onClick={()=>handleOddsClick(back?.price)}
                           key={index}
-                          className="flex flex-col items-center w-full rounded-md py-1 px-7 text-skin-blue scroll-x  font-medium  bg-skin-cardhead   rounded-b-md"
+                          className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-blue  font-medium  bg-skin-cardhead   rounded-b-md"
                         >
                           <p className={`text-center text-[14.5px] `}>
                             {back?.price}
@@ -84,32 +91,33 @@ const [isDropdownOpen, setIsDropdownOpen] = useState(true);
                           <p className="text-center text-skin-primary text-[11px]">
                             {back?.size}
                           </p>
-                        </Link>
+                        </div>
                       );
                     })}
-                    {currentMarket?.ex?.availableToBack?.reverse()?.map((lay, index) => {
+                    {currentMarket?.ex?.availableToLay?.reverse()?.map((lay, index) => {
                       return (
-                        <Link 
+                        <div
                           key={index}
-                          className="flex flex-col items-center w-full rounded-md py-1 px-7 scroll-x text-skin-pink font-medium  bg-skin-cardhead   rounded-b-md"
+                          className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-pink font-medium  bg-skin-cardhead   rounded-b-md"
                         >
-                          <p className={`text-center text-[14.5px] `}>  
+                          <p className={`text-center text-[14.5px] `}>
                             {lay?.price}
                           </p>
                           <p className="text-center text-skin-primary text-[11px]">
                             {lay?.size}
                           </p>
-                        </Link>
+                        </div>
                       );
                     })}
                   </div>
-                  
+
                 </div>
               </>
-              
+
             );
           })}
-          <BetSlip/>
+          {isBetSlipOpen &&
+          <BetSlip closeBetslip={setIsBetSlipOpen} />}
         </div>
       )}
     </div>

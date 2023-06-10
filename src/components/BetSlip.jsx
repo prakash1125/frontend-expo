@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Input from './Input';
 
-const BetSlip = () => {
+const BetSlip = ({closeBetslip}) => {
     const [stake, setStake] = useState(0);
 
     const handleStakeChange = (value) => {
@@ -22,7 +22,7 @@ const BetSlip = () => {
             <div className="bg-[#1F3140] border-y-[3px] border-[#0F60A0] pr-2">
                 <div className="offer-form flex flex-col items-end">
                     <div className="offer-input-group flex gap-2 mt-2 w-[55%]">
-                        <Input placeholder="0" />
+                        <Input  placeholder="0" />
                         <Input
                             placeholder="0"
                             value={stake}
@@ -86,7 +86,7 @@ const BetSlip = () => {
                     </div>
                     <div className="multi-form-button pt-2 ">
                         <div className="d-flex justify-content-end flex-wrap align-items-center mb-2 ">
-                            <button className="mr-1 bg-[#EF5049] font-medium rounded-md px-4 py-1 text-center">
+                            <button onClick={()=>closeBetslip(false)} className="mr-1 bg-[#EF5049] font-medium rounded-md px-4 py-1 text-center">
                                 <span>Cancel</span>
                             </button>
                             <button className="bg-[#169C59] font-medium rounded-md px-5 py-1 text-center">

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 const Input = (props) => {
     const [value, setValue] = useState(props.value || null);
 
- 
     const decrement = () => {
         setValue((prevValue) => (prevValue !== null ? prevValue - 1 : null));
     };
