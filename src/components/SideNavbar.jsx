@@ -89,6 +89,7 @@ export const SideNavbar = () => {
   useEffect(() => {
     dispatch(globalMaketOdds({ data: allMarkets }));
   }, [allMarkets, dispatch]);
+
   // ===============================================================================================
 
   // console.log("data", data);
@@ -139,7 +140,7 @@ export const SideNavbar = () => {
               onClick={() => toggleAccordion(index)}
               className="flex  justify-between items-center px-2"
             >
-              <div className="flex items-center gap-3 ">
+              <div className="flex items-center gap-3">
                 <img
                   src={require(`../assets/images/sidemenu/${item?.sportSlugName}.png`)}
                   alt=""

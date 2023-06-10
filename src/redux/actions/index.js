@@ -5,3 +5,5 @@ export * from "./sportData/getAllSportDataAction";
 export * from "./globalData/globalSportDataAction";
 export * from "./globalData/marketOddsAction";
 export * from "./runnerData/getRunnerDataAction";
+export * from "./bet/placeBetAction";
+export * from "./bet/getBetAction";

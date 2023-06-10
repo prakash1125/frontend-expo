@@ -33,3 +33,13 @@ export const GLOBAL_MARKET_ODDS_SUCCESS = "GLOBAL_MARKET_ODDS_SUCCESS";
 export const GET_RUNNER_DATA = "GET_RUNNER_DATA";
 export const GET_RUNNER_DATA_SUCCESS = "GET_RUNNER_DATA_SUCCESS";
 export const GET_RUNNER_DATA_FAILURE = "GET_RUNNER_DATA_FAILURE";
+
+// =====================PLACE BET (ADD)===========================
+export const PLACE_BET = "PLACE_BET";
+export const PLACE_BET_SUCCESS = "PLACE_BET_SUCCESS";
+export const PLACE_BET_FAILURE = "PLACE_BET_FAILURE";
+
+// =====================GET BET (ADD)===========================
+export const GET_BET = "GET_BET";
+export const GET_BET_SUCCESS = "GET_BET_SUCCESS";
+export const GET_BET_FAILURE = "GET_BET_FAILURE";

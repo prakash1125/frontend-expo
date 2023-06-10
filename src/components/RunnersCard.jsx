@@ -16,7 +16,7 @@ const RunnersCard = ({ market, odds }) => {
         className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
       >
         <div className="flex items-center ">
-          <div className="flex items-center text-sm text-skin-secondary  font-medium ">
+          <div className="flex items-center text-sm text-skin-secondary  font-medium">
             {market?.marketName}
           </div>
         </div>
@@ -56,6 +56,7 @@ const RunnersCard = ({ market, odds }) => {
                     {currentMarket?.ex?.availableToBack
                       ?.reverse()
                       ?.map((back, index) => {
+                        console.log(currentMarket, "currentMarket");
                         return (
                           <Link
                             key={index}
@@ -74,7 +75,7 @@ const RunnersCard = ({ market, odds }) => {
                           </Link>
                         );
                       })}
-                    {currentMarket?.ex?.availableToBack
+                    {currentMarket?.ex?.availableToLay
                       ?.reverse()
                       ?.map((lay, index) => {
                         return (

@@ -14,7 +14,6 @@ export const HomePage = () => {
       <div className="px-2 z-0 hidden md:block w-1/4  ">
         <RightNavbar />
       </div>
-      
     </>
   );
-};  
+};
