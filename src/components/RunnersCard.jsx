@@ -10,17 +10,19 @@ function classNames(...classes) {
 
 const RunnersCard = ({ market, odds }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  const [isBetSlipOpen, setIsBetSlipOpen ] = useState(false);
+  const [isBetSlipOpen, setIsBetSlipOpen] = useState(false);
+  const [slipData, setSlipData] = useState({ price: 0, type: "" });
+  const [stakeAmount, setStakeAmount] = useState(null);
+  const [stake, setStake] = useState(null);
+  const [bookAmount, setBookAmount] = useState(0);
 
-
-  console.log(odds, "runner-global-odds");
-
-  const handleOddsClick = (price)=>{
-    setIsBetSlipOpen(true)
-  }
+  const handleOddsClick = (price, type, selectionId) => {
+    console.log(selectionId);
+    setIsBetSlipOpen(true);
+    setSlipData({ price: price, type: type, selectionId: selectionId });
+  };
 
   return (
-
     <div class="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -44,8 +46,6 @@ const RunnersCard = ({ market, odds }) => {
 
       {isDropdownOpen && (
         <div className="flex flex-col items-start gap-1 pb-1   ">
-
-
           {market?.runners?.map((runner, index) => {
             const currentMarket = Object.values(odds)[0]?.runners.find(
               (odd) => {
@@ -64,49 +64,129 @@ const RunnersCard = ({ market, odds }) => {
                 <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                   <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                     <p>{runner?.name}</p>
-                    <span className="flex text-xs invisible  ">stake amount</span>
+                    {currentMarket?.selectionId === slipData?.selectionId ? (
+                      <div className="flex items-center gap-1">
+                        <span
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
+                            slipData?.type === "lay"
+                              ? "text-red-600"
+                              : " text-green-500"
+                          }`}
+                        >
+                          {parseInt(bookAmount)}
+                        </span>
+                        <span
+                          className={`${
+                            slipData?.type === "lay"
+                              ? "text-red-600"
+                              : " text-green-500"
+                          }`}
+                        >{`>`}</span>
+                        <span
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
+                            slipData?.type === "lay"
+                              ? "text-red-600"
+                              : " text-green-500"
+                          }`}
+                        >
+                          {parseInt(stakeAmount)}
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="flex items-center gap-1">
+                        <span
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
+                            slipData?.type === "lay"
+                              ? "text-green-500"
+                              : " text-red-600"
+                          }`}
+                        >
+                          {bookAmount}
+                        </span>
+                        <span
+                          className={`${
+                            slipData?.type === "lay"
+                              ? "text-green-600"
+                              : " text-red-500"
+                          }`}
+                        >{`>`}</span>
+                        <span
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
+                            slipData?.type === "lay"
+                              ? "text-green-500"
+                              : " text-red-600"
+                          }`}
+                        >
+                          {stake}
+                        </span>
+                      </div>
+                    )}
                   </div>
                   <div className="flex items-center gap-1 w-[55%] rounded-md ">
-                    {currentMarket?.ex?.availableToBack?.reverse()?.map((back, index) => {
-                      return (
-                        <div
-                          onClick={()=>handleOddsClick(back?.price)}
-                          key={index}
-                          className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-blue  font-medium  bg-skin-cardhead   rounded-b-md"
-                        >
-                          <p className={`text-center text-[14.5px] `}>
-                            {back?.price}
-                          </p>
-                          <p className="text-center text-skin-primary text-[11px]">
-                            {back?.size}
-                          </p>
-                        </div>
-                      );
-                    })}
-                    {currentMarket?.ex?.availableToLay?.reverse()?.map((lay, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-pink font-medium  bg-skin-cardhead   rounded-b-md"
-                        >
-                          <p className={`text-center text-[14.5px] `}>
-                            {lay?.price}
-                          </p>
-                          <p className="text-center text-skin-primary text-[11px]">
-                            {lay?.size}
-                          </p>
-                        </div>
-                      );
-                    })}
+                    {currentMarket?.ex?.availableToBack
+                      ?.reverse()
+                      ?.map((back, index) => {
+                        return (
+                          <div
+                            onClick={() =>
+                              handleOddsClick(
+                                back?.price,
+                                "back",
+                                currentMarket?.selectionId
+                              )
+                            }
+                            key={index}
+                            className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-blue  font-medium  bg-skin-cardhead   rounded-b-md"
+                          >
+                            <p className={`text-center text-[14.5px] `}>
+                              {back?.price}
+                            </p>
+                            <p className="text-center text-skin-primary text-[11px]">
+                              {back?.size}
+                            </p>
+                          </div>
+                        );
+                      })}
+                    {currentMarket?.ex?.availableToLay
+                      ?.reverse()
+                      ?.map((lay, index) => {
+                        return (
+                          <div
+                            onClick={() => handleOddsClick(lay?.price, "lay")}
+                            key={index}
+                            className="flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] text-skin-pink font-medium  bg-skin-cardhead   rounded-b-md"
+                          >
+                            <p className={`text-center text-[14.5px] `}>
+                              {lay?.price}
+                            </p>
+                            <p className="text-center text-skin-primary text-[11px]">
+                              {lay?.size}
+                            </p>
+                          </div>
+                        );
+                      })}
                   </div>
-
                 </div>
               </>
-
             );
           })}
-          {isBetSlipOpen &&
-          <BetSlip closeBetslip={setIsBetSlipOpen} />}
+          {isBetSlipOpen && (
+            <BetSlip
+              closeBetslip={setIsBetSlipOpen}
+              slipData={slipData}
+              setStakeAmount={setStakeAmount}
+              stake={stake}
+              setStake={setStake}
+            />
+          )}
         </div>
       )}
     </div>
