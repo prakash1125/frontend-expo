@@ -5,9 +5,7 @@ import API from "../../../utils/api";
 
 function* placeBetRequest(action) {
   try {
-    console.log(action?.payload);
     const { data } = yield API.post("api/v1/bet-sport", action?.payload?.data); // change with backend URL
-    console.log(data);
     if (data?.meta?.code === 200) {
       yield put(placeBetSuccess());
       yield call(action?.payload?.callback, data);

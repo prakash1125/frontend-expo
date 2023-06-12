@@ -43,3 +43,7 @@ export const PLACE_BET_FAILURE = "PLACE_BET_FAILURE";
 export const GET_BET = "GET_BET";
 export const GET_BET_SUCCESS = "GET_BET_SUCCESS";
 export const GET_BET_FAILURE = "GET_BET_FAILURE";
+
+//=====================USER LOGOUT===========================
+
+export const LOGOUT = "LOGOUT";

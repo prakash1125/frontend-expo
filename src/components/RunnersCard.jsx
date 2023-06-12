@@ -68,15 +68,19 @@ const RunnersCard = ({ market, odds, eventId }) => {
       selection: slipData?.selectionName,
       marketType: slipData?.marketType,
     };
-    console.log(data, "bet-place-data");
-    dispatch(
-      placeBet({
-        data,
-        callback: (data) => {
-          if (data?.meta?.code === 200) handleBetSlipClose();
-        },
-      })
-    );
+    if (localStorage?.getItem("token")) {
+      console.log(data, "bet_place");
+      dispatch(
+        placeBet({
+          data,
+          callback: (data) => {
+            if (data?.meta?.code === 200) handleBetSlipClose();
+          },
+        })
+      );
+    } else {
+      alert("Please Login to Bet");
+    }
   };
   return (
     <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
@@ -214,10 +218,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
-                              {back?.price}
+                              {back?.price ? back?.price : "-"}
                             </p>
                             <p className="text-center text-skin-primary text-[11px]">
-                              {back?.size}
+                              {back?.size ? back?.size : "-"}
                             </p>
                           </div>
                         );
@@ -231,7 +235,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               handleOddsClick(
                                 lay?.price,
                                 "lay",
-                                currentMarket?.selectionId
+                                currentMarket?.selectionId,
+                                eventMarket?.marketId,
+                                eventMarket?.marketType,
+                                runner?.name
                               )
                             }
                             key={index}
@@ -240,10 +247,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
-                              {lay?.price}
+                              {lay?.price ? lay?.price : "-"}
                             </p>
                             <p className="text-center text-skin-primary text-[11px]">
-                              {lay?.size}
+                              {lay?.size ? lay?.size : "-"}
                             </p>
                           </div>
                         );

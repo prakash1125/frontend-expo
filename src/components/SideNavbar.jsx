@@ -92,8 +92,6 @@ export const SideNavbar = () => {
 
   // ===============================================================================================
 
-  // console.log("data", data);
-
   const [activeIndex, setActiveIndex] = useState(null);
   const [dropdownIndex, setdropdownIndex] = useState(null);
 
