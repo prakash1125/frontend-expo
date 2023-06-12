@@ -3,6 +3,7 @@ import { Tab } from "@headlessui/react";
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
 import { useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -19,6 +20,7 @@ export const Sports = () => {
   // ============================================================================================
 
   const [categoryId, setCategoryId] = useState(0);
+  const { i18n, t } = useTranslation();
 
   return (
     <div className="w-full sm:px-0 mb-16 ">

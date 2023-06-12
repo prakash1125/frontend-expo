@@ -4,6 +4,7 @@ import {AiFillHome} from 'react-icons/ai'
 import {GiCardAceClubs} from 'react-icons/gi'
 import {BsFillDice5Fill} from 'react-icons/bs'
 import {MdOutlineScoreboard,MdAccessTimeFilled} from 'react-icons/md'
+import { useTranslation } from 'react-i18next';
 
 export const MobileNavbar = () => {
     const Menus=[
@@ -16,7 +17,7 @@ export const MobileNavbar = () => {
         // {name:'Slots',link:'/slots',icon:BsFillDice5Fill,dis:"translate-x-16"},
     ]
 
-    const [active,setActive]=useState()
+    const [active,setActive]=useState();
 
   return (
     <div className='bg-skin-navtop max-h-[3.5rem] px-2 pb-5 fixed inset-x-0 bottom-0 rounded-t-md '>
@@ -37,6 +38,4 @@ export const MobileNavbar = () => {
         </ul>
     </div>
   )
-
 }
-    

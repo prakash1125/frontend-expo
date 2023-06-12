@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MdOutlineMessage } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
+import { useTranslation } from 'react-i18next';
 
 export const Chatbot = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -12,6 +13,8 @@ export const Chatbot = () => {
   const handleCloseChat = () => {
     setIsChatOpen(false);
   };
+   
+  const { i18n, t } = useTranslation();
 
   return (
     <>
@@ -43,7 +46,7 @@ export const Chatbot = () => {
               />
             </div>
             <div className="info text-white pt-3 pb-2 font-bold">
-              Chat with us
+              Chat with us {t("CHAT_WITH_US")} 
             </div>
           </div>
 

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { BsWhatsapp } from "react-icons/bs";
 import { MdOutlineClose } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 export const SignupModal = ({ closeModal }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
-
+  const { i18n, t } = useTranslation();
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
   };
@@ -22,7 +23,7 @@ export const SignupModal = ({ closeModal }) => {
             <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
           </button>
           <h1 className="font-semibold text-center text-xl text-[#CCD1D5] mb-5 mt-1">
-            Signup
+            Signup {t("SIGNUP")}
           </h1>
 
           <div className="flex flex-col">
@@ -31,7 +32,7 @@ export const SignupModal = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold mb-2"
                 htmlFor=""
               >
-                Phone Number
+                Phone Number {t("PHONE_NUMBER")}
               </label>
               <div className="flex items-center gap-2">
                 <input
@@ -54,7 +55,7 @@ export const SignupModal = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold mb-2"
                 htmlFor=""
               >
-                Password
+                Password {t("PASSWORD")}
               </label>
               <input
                 type="password"
@@ -67,7 +68,7 @@ export const SignupModal = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold mb-2"
                 htmlFor=""
               >
-                Confirm Password
+                Confirm Password {t("CONFIRM_PASSWORD")}
               </label>
               <input
                 type="password"
@@ -81,14 +82,14 @@ export const SignupModal = ({ closeModal }) => {
               className="p-2 px-4 mt-5 uppercase font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none "
             >
               {" "}
-              Join Now
+              Join Now {t("JOIN_NOW")}
             </button>
           </div>
 
           <div className="text-sm text-center my-3">
             <p className="text-[#CCD1D5]">
-              Already have account?{" "}
-              <span className="text-[#01932d] cursor-pointer">Login</span>
+              Already have account? {t("ALREADY_HAVE_ACCOUNT")} {" "}
+              <span className="text-[#01932d] cursor-pointer">Login {t("LOGIN")} </span>
             </p>
           </div>
 
@@ -99,7 +100,7 @@ export const SignupModal = ({ closeModal }) => {
             >
               {" "}
               <BsWhatsapp className="text-2xl" />
-              Get id easily on whatsapp
+              Get id easily on whatsapp {t("GET_ID_EASILY_ON_WHATSAPP")}
             </button>
           </div>
         </div>

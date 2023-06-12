@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+
+
+
 import { RiArrowUpSLine } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -11,11 +14,12 @@ import {
 } from "../redux/actions";
 import { socket } from "../context/SocketContext";
 
+
 export const SideNavbar = () => {
   // ==================================CALLING THE API DATA======================================
 
   const dispatch = useDispatch();
-
+  const { i18n, t } = useTranslation();
   const [data, setdata] = useState([]);
   const [allMarkets, setAllMarkets] = useState([]);
 
@@ -119,7 +123,7 @@ export const SideNavbar = () => {
       <div className="w-full px-4 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
           <button className="flex justify-start text-skin-primary  bg-skin-cardhead p-3 rounded-md w-full text-xs font-semibold relative">
-            SPORTS
+            SPORTS   {t("SPORTS")}
           </button>
         </div>
       </div>

@@ -4,6 +4,8 @@ import Slider from "react-slick";
 import Footer from "./Footer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { useTranslation } from 'react-i18next';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -101,6 +103,8 @@ export const Slots = () => {
     "https://luckmedia.link/ntn_wonders_of_christmas/thumb.jpg",
     "https://luckmedia.link/ntn_cupcakes/thumb.jpg",
   ];
+
+  const { i18n, t } = useTranslation();
 
   let [categories] = useState({
     All: [

@@ -5,6 +5,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
+import { useTranslation } from 'react-i18next';
 
 const MarketData = ({ league }) => {
   // ==================================CALLING THE API DATA======================================

@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from 'react-i18next';
+
 import moment from "moment";
 
+const { i18n, t } = useTranslation();
 const Countdown = ({ targetDateTime }) => {
   const [countdown, setCountdown] = useState("");
 

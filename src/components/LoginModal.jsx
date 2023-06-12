@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 export const LoginModal = ({ closeModal }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
-
+  const { i18n, t } = useTranslation();
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
   };
@@ -22,13 +23,13 @@ export const LoginModal = ({ closeModal }) => {
             <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
           </button>
           <h1 className="font-semibold text-center text-xl text-[#CCD1D5] mb-5 mt-1">
-            Login
+            Login {t("LOGIN")}
           </h1> 
 
           <div className="flex flex-col">
             <div className="phone-number mb-5">
               <label className="text-[#CCD1D5] text-xs font-semibold mb-2" htmlFor="">
-                Phone Number
+                Phone Number {t("PHONE_NUMBER")}
               </label>
               <input
                 type="tel"
@@ -40,7 +41,7 @@ export const LoginModal = ({ closeModal }) => {
             </div>
             <div className="password">
               <label className="text-[#CCD1D5] text-xs font-semibold mb-2" htmlFor="">
-                Password
+                Password {t("PASSWORD")}
               </label>
               <input
                 type="password"
@@ -50,7 +51,7 @@ export const LoginModal = ({ closeModal }) => {
             </div>
             <div className="text-sm text-right mt-1  ">
               <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">
-                Forget Password?
+                Forget Password? {t("FORGET_PASSWORD")}
               </span>
             </div>
             <div className="flex items-center mb-2 mt-4">
@@ -61,7 +62,7 @@ export const LoginModal = ({ closeModal }) => {
                 id="signed-in"
               />
               <label className="text-sm text-[#CCD1D5]" htmlFor="signed-in">
-                Keep me signed in
+                Keep me signed in {t("KEEP_ME_SIGNED_IN")}
               </label>
             </div>
 
@@ -70,14 +71,14 @@ export const LoginModal = ({ closeModal }) => {
               className="p-2 px-4 uppercase font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none "
             >
               {" "}
-              log in
+              log in {t("LOG_IN")}
             </button>
           </div>
 
           <div className="text-center text-xs font-bold text-[#CCD1D5] leading-4 mt-1.5">
             <p className="mb-4">
               Easy bet place on multiple sports,casino with our mobile
-              application
+              application {t("EASY_BET")}
             </p>
           </div>
 
@@ -87,15 +88,15 @@ export const LoginModal = ({ closeModal }) => {
               className="flex items-center justify-center gap-2 text-center p-1.5 px-4 w-full uppercase font-semibold rounded-md bg-[#32383e] text-lg text-white focus:outline-none "
             >
               {" "}
-              download apk
+              download apk {t("DOWNLOAD_APK")}
               <AiFillAndroid className="text-2xl" />
             </button>
           </div>
 
           <div className="text-sm text-center my-1">
             <p className="text-[#CCD1D5]">
-              Don't have an account?{" "}
-              <span className="text-[#01932d] cursor-pointer">Join now</span>
+              Don't have an account? {t("DONT_HAVE_AN_ACC")} {" "}
+              <span className="text-[#01932d] cursor-pointer">Join now {t("JOIN_NOW")} </span>
             </p>
           </div>
         </div>

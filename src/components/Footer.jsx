@@ -1,5 +1,7 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
 
+const { i18n, t } = useTranslation();
 const Footer = () => {
   return (
     <>
@@ -7,45 +9,45 @@ const Footer = () => {
         <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead ">
           <div className="Scroll-top_icon">
             <a href="/" className="scrollToTop">
-              <span>Back to Top</span>
+              <span>Back to Top {t("BACK_TO_TOP")}</span>
             </a>
           </div>
         </div>
-        <div className="flex justify-between flex-wrap footer-menu gap-8 p-2 ">
+        <div className="flex justify-between flex-wrap footer-menu gap-8 p-2">
           <div className="footer-column mt-4 flex-grow ">
-            <div className="font-semibold text-lg footer-title mb-4">Info</div>
+            <div className="font-semibold text-lg footer-title mb-4"> Info {t("INFO")}</div>
             <ul className="footer-menu-list">
               <li className="py-3 text-sm">
                 <a href="/privacy-policy" target="_blank">
-                  Privacy Policy
+                  Privacy Policy {t("PRIVACY_POLICY")}
                 </a>
               </li>
               <li className="py-3 text-sm">
-                <a href="/terms-and-conditions">Terms and Conditions</a>
+                <a href="/terms-and-conditions">Terms and Conditions {t("TERMS_AND_CONDITIONS")}</a>
               </li>
               <li className="py-3 text-sm">
-                <a href="/responsible-gambling">Gambling can be addictive</a>
+                <a href="/responsible-gambling">Gambling can be addictive {t("GAMBLING_CAN_BE_ADDICTIVE")}</a>
               </li>
             </ul>
           </div>
           <div className="footer-column mt-4 flex-grow">
-            <div className="footer-title text-lg font-semibold mb-4">Get started</div>
+            <div className="footer-title text-lg font-semibold mb-4">Get started {t("GET_STARTED")}</div>
             <ul className="footer-menu-list">
               <li className="py-3 text-sm">
                 <a href="/about-us" className>
-                  About Us
+                  About Us {t("ABOUT_US")}
                 </a>
               </li>
               <li className="py-3 text-sm">
                 <a href="/general-policy" className>
-                  KYC and Privacy Policy
+                  KYC and Privacy Policy {t("KYC_AND_PRIVACY_POLICY")}
                 </a>
               </li>
             </ul>
           </div>{" "}
           <div className="footer-column mt-4 flex-grow">
             <div className="flex footer-title text-lg font-semibold mb-4">
-              Sportsexch
+              Sportsexch {t("SPORTSSEXCH")}
             </div>
             <ul className="flex footer-menu-list">
               <li className=" py-3 flex text-sm">
@@ -58,7 +60,7 @@ const Footer = () => {
                       alt="apk"
                     />
                   </a>
-                  <span className="animate-btn">Download our mobile app</span>
+                  <span className="animate-btn">Download our mobile app {t("DOWNLOAD_OUR_MOBILE_APP")}</span>
                 </div>
               </li>
             </ul>
@@ -68,7 +70,7 @@ const Footer = () => {
 
         <div className="border w-72 m-auto rounded-xl helpline-numbers text-center p-1 flex flex-col">
           <div className="helpline-heading font-semibold ">
-            <h5>Helpline Number</h5>
+            <h5>Helpline Number {t("HELPLINE_NUMBER")}</h5>
           </div>
           <a
             href="https://wa.me/+917835999999"

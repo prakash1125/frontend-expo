@@ -1,5 +1,6 @@
 import React from "react";
 import { RiPencilLine } from "react-icons/ri";
+import { useTranslation } from 'react-i18next';
 
 export const Withdrawal = () => {
   const AccountDetails = [
@@ -33,17 +34,20 @@ export const Withdrawal = () => {
       status: "Payment Rejected",
     },
   ];
+
+  const { i18n, t } = useTranslation();
+
   return (
     <>
       <div className="deposit wrapper max-w-full pt-4 bg-[#22262a] rounded">
         <div className="flex justify-between px-6">
-          <div className="text-white text-lg font-bold">Bank Accounts</div>
+          <div className="text-white text-lg font-bold">Bank Accounts {t("BANK_ACCCOUNTS")} </div>
           <div className="">
             <button
               type="button"
               className="bg-[#169c59] rounded px-2.5 font-semibold p-1.5  text-sm text-white hover:bg-[#0d8247] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
             >
-              Add Bank Account
+              Add Bank Account {t("ADD_BANK_ACCOUNT")}
             </button>
           </div>
         </div>
@@ -53,22 +57,22 @@ export const Withdrawal = () => {
             <thead>
               <tr>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Account Number
+                  Account Number {t("ACCOUNT_NUMBER")}
+                </th>
+                <th className="whitespace-border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
+                  Account Name {t("ACCOUNT_NAME")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Account Name
+                  Bank Name {t("BANK_NAME")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Bank Name
+                  IFSC Code {t("IFSC_CODE")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  IFSC Code
+                  Account Type {t("ACCOUNT_TYPE")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Account Type
-                </th>
-                <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Action
+                  Action {t("ACTION")}
                 </th>
               </tr>
             </thead>
@@ -104,7 +108,7 @@ export const Withdrawal = () => {
 
       <div className="deposit-wrapper bg-[#22262a] rounded mt-2">
         <div className="text-center text-white font-bold py-3 divide-y">
-          Withdrawal Request
+          Withdrawal Request {t("WITHDRAWAL_REQUEST")}
         </div>
 
         <div className="px-6">
@@ -114,7 +118,7 @@ export const Withdrawal = () => {
                 className="text-xs text-[#f9fafa] font-semibold my-2"
                 htmlFor=""
               >
-                Amount
+                Amount {t("AMOUNT")}
               </label>
               <input
                 className="w-full bg-transparent border border-gray-700 rounded p-2.5 px-3 focus:outline-none"
@@ -129,7 +133,7 @@ export const Withdrawal = () => {
                 className="text-xs text-[#f9fafa] font-semibold my-2"
                 htmlFor=""
               >
-                Select Bank Account
+                Select Bank Account {t("SELECT_BANK_ACCOUNT")}
               </label>
               <select
                 className="appearance-none w-full bg-transparent border border-gray-700 rounded p-2.5 px-3  focus:outline-none"
@@ -143,7 +147,7 @@ export const Withdrawal = () => {
             type="button"
             className="bg-[#169c59] rounded px-2.5 font-semibold p-1.5  text-sm text-white hover:bg-[#0d8247] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
           >
-            Submit Request
+            Submit Request {t("SUBMIT_REQUEST")}
           </button>
         </div>
 
@@ -152,28 +156,28 @@ export const Withdrawal = () => {
             <thead>
               <tr>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Account Number
+                  Account Number {t("ACCOUNT_NUMBER")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Account Name
+                  Account Name {t("ACCOUNT_NAME")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Amount
+                  Amount {t("AMOUNT")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Bank Name
+                  Bank Name {t("BANK_NAME")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  IFSC Code
+                  IFSC Code {t("IFSC_CODE")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Account Type
+                  Account Type {t("ACCOUNT_TYPE")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Date
+                  Date {t("DATE")}
                 </th>
                 <th className="whitespace-nowrap border border-gray-600 text-xs font-bold uppercase text-left px-2 py-2 text-white">
-                  Status
+                  Status {t("STATUS")}
                 </th>
               </tr>
             </thead>

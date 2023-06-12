@@ -13,9 +13,7 @@ import { ChangePassword } from "./ChangePassword";
 import { ThemeContext } from "../context/ThemeContext";
 import lamp from "../assets/images/lamp.png"
 import lampDark from "../assets/images/lampdark.png"
-
-
-
+import { useTranslation } from 'react-i18next';
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -38,6 +36,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const currentRoute = location.pathname;
 
   const { theme, setTheme } = useContext(ThemeContext);
+  const { i18n, t } = useTranslation();
 
   const walletBalance = [
     { name: "Balance", amount: "5,564.20" },
@@ -256,7 +255,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     type="button"
                     className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
-                    LOG IN
+                    LOG IN {t("LOG_IN")}
                   </button>
 
                   {/* <button

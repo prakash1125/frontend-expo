@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
 export const ChipSetting = ({ closeModal }) => {
   const [inputValues, setInputValues] = useState([
@@ -52,6 +53,8 @@ export const ChipSetting = ({ closeModal }) => {
     setInputValues(updatedInputValues);
   };
 
+  const { i18n, t } = useTranslation();
+
   return (
     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
     <div className="z-50">
@@ -66,7 +69,7 @@ export const ChipSetting = ({ closeModal }) => {
               <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
             </button>
             <h1 className="font-semibold text-center uppercase text-xl text-[#CCD1D5] mb-5 mt-1">
-              Chips setting
+              Chips setting {t("CHIPS_SETTING")} 
             </h1>
 
             <div className="chip-container">
@@ -77,7 +80,7 @@ export const ChipSetting = ({ closeModal }) => {
                       className="text-[#CCD1D5] text-xs font-semibold"
                       htmlFor=""
                     >
-                      Name
+                      Name {t("NAME")} 
                     </label>
                     <input
                       name={`input${index * 2 + 1}`}
@@ -93,7 +96,7 @@ export const ChipSetting = ({ closeModal }) => {
                       className="text-[#CCD1D5] text-xs font-semibold"
                       htmlFor=""
                     >
-                      Value
+                      Value {t("VALUE")} 
                     </label>
                     <input
                       name={`input${index * 2 + 2}`}
@@ -114,7 +117,7 @@ export const ChipSetting = ({ closeModal }) => {
               className="p-1.5 px-3 uppercase font-semibold rounded-md hover:bg-[#0069d9  ] bg-[#007bff] text-lg text-white focus:outline-none "
             >
               {" "}
-              Update
+              Update {t("UPDATE")} 
             </button>
           </div>
         </div>

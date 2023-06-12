@@ -1,7 +1,8 @@
 import React from "react";
 import { MdOutlineClose } from "react-icons/md";
+import { useTranslation } from 'react-i18next';
 
-
+const { i18n, t } = useTranslation();
 export const ChangePassword = ({ closeModal }) => {
   return (
     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
@@ -16,16 +17,16 @@ export const ChangePassword = ({ closeModal }) => {
             <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
           </button>
           <h1 className="font-semibold capitalize text-center text-xl text-[#CCD1D5] mb-5 mt-1">
-            Change Password
+            Change Password {t("CHANGE_PASSWORD")} 
           </h1>
 
           <div className="flex flex-col">
             <div className="current-password mt-3">
               <label
-                className="text-[#CCD1D5] text-xs font-semibold "
+                className="text-[#CCD1D5] text-xs font-semibold"
                 htmlFor=""
               >
-                Current Password
+                Current Password {t("CURRENT_PASSWORD")} 
               </label>
               <input
                 type="password"
@@ -38,7 +39,7 @@ export const ChangePassword = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold "
                 htmlFor=""
               >
-                New Password
+                New Password {t("NEW_PASSWORD")} 
               </label>
               <input
                 type="password"
@@ -51,7 +52,7 @@ export const ChangePassword = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold"
                 htmlFor=""
               >
-                Confirm New Password
+                Confirm New Password {t("CONFIRM_NEW_PASSWORD")} 
               </label>
               <input
                 type="password"
@@ -65,12 +66,9 @@ export const ChangePassword = ({ closeModal }) => {
               className="p-2 px-4 mt-5 mb-10 capitalize font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none "
             >
               {" "}
-              change password
+              change password {t("CHANGE_PASSWORD")} 
             </button>
           </div>
-
-         
-
           
         </div>
       </div>

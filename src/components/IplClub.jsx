@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import { GoInfo } from "react-icons/go";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
+import { useTranslation } from 'react-i18next';
 import Footer from "./Footer";
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -26,7 +28,6 @@ export const IplClub = () => {
   //           team: "Rajastan",
   //           score: [1, 2, 3, 4, 5, 6],
   //         },
-  //         {
   //           team: "Lucknow",
   //           score: [1, 2, 3, 4, 5, 6],
   //         },
@@ -96,6 +97,8 @@ export const IplClub = () => {
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+  const { i18n, t } = useTranslation();
+
   let [categories] = useState({
     All: [
       {
@@ -224,7 +227,7 @@ export const IplClub = () => {
       <ul className="w-full px-2 pr-0 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 p-1 ">
           <h1 className="text-skin-white text-xl m-2 ">
-            Indian Premier League
+            Indian Premier League {t("INDIAN_PREMIER_LEAGUE")}
           </h1>
           <button
             className="text-skin-white bg-[#2EA66A] p-1 px-4 mb-1  rounded-md border-1 border-white test-sm font-semibold"
@@ -234,7 +237,7 @@ export const IplClub = () => {
               border: "1px solid white",
             }}
           >
-            IN-PLAY
+            IN-PLAY {t("IN_PLAY")}
           </button>
         </div>
 
@@ -320,7 +323,7 @@ export const IplClub = () => {
                               <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                                 <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                                   <p>{Item.team}</p>
-                                  <span className="flex ">stake amount</span>
+                                  <span className="flex ">stake amount {t("STAKE_AMOUNT")} </span>
                                 </div>
                                 <div className="flex items-center gap-1 rounded-md scroll-x">
                                   {Item.score.map((Score, index) => (

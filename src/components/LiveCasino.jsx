@@ -2,6 +2,8 @@ import { Tab } from "@headlessui/react";
 import React, { useState } from "react";
 import Slider from "react-slick";
 import Footer from "./Footer";
+import { useTranslation } from 'react-i18next';
+
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }

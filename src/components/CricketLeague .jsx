@@ -6,6 +6,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import Countdown from "./Countdown";
 import { useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -27,6 +28,7 @@ export const CricketLeague = () => {
   };
 
   const location = useLocation();
+  const { i18n, t } = useTranslation();
 
   let [categories] = useState({
     All: [
@@ -167,7 +169,7 @@ export const CricketLeague = () => {
               onClick={handleLiveTVClick}
               className="flex justify-center items-center gap-2 text-skin-white text-sm bg-skin-cardhead p-3 rounded-md w-full font-semibold"
             >
-              <span>Live TV</span>
+              <span>Live TV {t("LIVE_TV")} </span>
             </button>
           </div>
 
@@ -184,10 +186,10 @@ export const CricketLeague = () => {
 
                 <div className="flex items-center text-[#eee] border-t-2 border-b-2">
                   <div className="scorecard flex-grow cursor-pointer">
-                    Scorecard
+                    Scorecard {t("SCORECARD")}
                   </div>
                   <div className="statistics flex-grow cursor-pointer">
-                    Statistics
+                    Statistics {t("STATISTICS")}
                   </div>
                 </div>
               </div>
@@ -283,7 +285,7 @@ export const CricketLeague = () => {
                                       <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                                         <p>{Item?.name}</p>
                                         <span className="flex invisible ">
-                                          stake amount
+                                          stake amount {t("STAKE_AMOUNT")} 
                                         </span>
                                       </div>
 

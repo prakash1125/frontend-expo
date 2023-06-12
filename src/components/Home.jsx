@@ -10,9 +10,11 @@ import { useEffect } from "react";
 import MarketDataCard from "./MarketDataCard";
 import { socket } from "../context/SocketContext";
 import { useSelector } from "react-redux";
+import { useTranslation } from 'react-i18next';
 
 export const Home = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const { i18n, t } = useTranslation();
   const settings = {
     dots: true,
     autoplay: true,
@@ -149,7 +151,7 @@ export const Home = () => {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="text-skin-white pb-2 px-2 text-lg font-semibold cursor-pointer flex"
           >
-            Cricket
+            Cricket {t("CRICKET")}
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
             ) : (
@@ -173,10 +175,10 @@ export const Home = () => {
       <div>
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
-            Indian Casino
+            Indian Casino {t("INDIAN_CASINO")}
           </p>
           <button className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
-            All Indian Casino
+            All Indian Casino {t("ALL_INDIAN_CASINO")}
           </button>
         </div>
         <Slider {...settings2}>

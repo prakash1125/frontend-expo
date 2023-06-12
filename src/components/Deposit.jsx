@@ -1,10 +1,14 @@
 import React from "react";
+import { useTranslation } from 'react-i18next';
+
+const { i18n, t } = useTranslation();
+
 
 export const Deposit = () => {
   return (
     <div className="deposit wrapper px-6 pb-9 bg-[#22262a] rounded">
       <div className="text-center text-white font-bold py-3 divide-y">
-        Deposit
+        Deposit {t("DEPOSIT")}
       </div>
       <div className="flex items-center gap-2">
         <div className="scan-barcode w-64">
@@ -15,7 +19,7 @@ export const Deposit = () => {
               alt="scan barcode"
             />
             <p className="text-xs text-left mt-6 mb-4 ml-2 font-bold text-[#333333] group-hover:underline">
-              UPI <br /> <span className="">SCAN BARCODE</span>
+              UPI{t("UPI")} <br /> <span className="">SCAN BARCODE {t("SCAN_BARCODE")}</span>
             </p>
           </button>
         </div>
@@ -40,7 +44,7 @@ export const Deposit = () => {
         type="button"
         className="bg-[#169c59] rounded px-2.5 font-semibold p-1.5  text-md text-white hover:bg-[#0d8247] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
       >
-        Deposit Via Upi
+        Deposit Via Upi {t("DEPOSIT_VIA_UPI")}
       </button>
     </div>
   );
