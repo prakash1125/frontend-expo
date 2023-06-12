@@ -52,6 +52,7 @@ const MarketData = ({ league }) => {
                 state={{
                   leagueName: league?.leagueName,
                   eventName: event?.name,
+                  eventId: event?._id,
                   eventDate: event?.eventDate,
                   marketArray: event?.markets,
                 }}

@@ -186,6 +186,7 @@ export const SideNavbar = () => {
                               to="/cricket-league"
                               state={{
                                 leagueName: league?.leagueName,
+                                eventId: event?._id,
                                 eventName: event?.name,
                                 eventDate: event?.eventDate,
                                 marketArray: event?.markets,
