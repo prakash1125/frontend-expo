@@ -7,6 +7,7 @@ const BetSlip = ({
   setStakeAmount,
   stake,
   setStake,
+  clearBetSlip
 }) => {
   //   const [stake, setStake] = useState(null);
   const [slipPrice, setSlipPrice] = useState(0);
@@ -27,13 +28,10 @@ const BetSlip = ({
     setStakeAmount(amount);
   };
 
-  const handleClearClick = () => {
-    setStake(0);
-    setStakeAmount(null);
-  };
+ 
 
   return (
-    <div className="w-full text-white text-base">
+    <div className="w-full z-0 text-white text-base">
       <div
         className={` border-y-[3px] ${
           slipData?.type === "lay"
@@ -101,7 +99,7 @@ const BetSlip = ({
                 <span>100,000</span>
               </a>
               <a
-                onClick={handleClearClick}
+                onClick={()=>clearBetSlip()}
                 className="bg-[#DADADA] text-[#1c1c1c] rounded-md cursor-pointer px-4 py-1 text-center font-medium"
               >
                 Clear

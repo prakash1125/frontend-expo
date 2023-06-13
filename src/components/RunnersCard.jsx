@@ -17,9 +17,15 @@ const RunnersCard = ({ market, odds }) => {
   const [bookAmount, setBookAmount] = useState(0);
 
   const handleOddsClick = (price, type, selectionId) => {
+    handleClearClick()
     console.log(selectionId);
     setIsBetSlipOpen(true);
     setSlipData({ price: price, type: type, selectionId: selectionId });
+  };
+
+  const handleClearClick = () => {
+    setStake(0);
+    setStakeAmount(null);
   };
 
   return (
@@ -65,74 +71,67 @@ const RunnersCard = ({ market, odds }) => {
                   <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                     <p>{runner?.name}</p>
                     {currentMarket?.selectionId === slipData?.selectionId ? (
-                      <div className="flex items-center gap-1">
-                        <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-red-600"
-                              : " text-green-500"
-                          }`}
-                        >
-                          {parseInt(bookAmount)}
-                        </span>
-                        <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-red-500"
-                              : " text-green-600"
-                          }`}
-                        >{`>`}</span>
-                        <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-red-600"
-                              : " text-green-500"
-                          }`}
-                        >
-                          {parseInt(stakeAmount)}
-                        </span>
+                      <div className="">
+                        <div className="flex items-center gap-1">
+                          <span
+                            className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                              } ${slipData?.type === "lay"
+                                ? "text-red-600"
+                                : " text-green-500"
+                              }`}
+                          >
+                            {parseInt(bookAmount)}
+                          </span>
+                          <span
+                            className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                              } ${slipData?.type === "lay"
+                                ? "text-red-500"
+                                : " text-green-600"
+                              }`}
+                          >{`>`}</span>
+                          <span
+                            className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                              } ${slipData?.type === "lay"
+                                ? "text-red-600"
+                                : " text-green-500"
+                              }`}
+                          >
+                            {parseInt(stakeAmount)}
+                          </span>
+
+                        </div>
+                       
                       </div>
                     ) : (
                       <div className="flex items-center gap-1">
                         <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
+                          className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                            } ${slipData?.type === "lay"
                               ? "text-green-500"
                               : " text-red-600"
-                          }`}
+                            }`}
                         >
                           {bookAmount}
                         </span>
                         <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
+                          className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                            } ${slipData?.type === "lay"
                               ? "text-green-500"
                               : " text-red-600"
-                          }`}
+                            }`}
                         >{`>`}</span>
                         <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
+                          className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                            } ${slipData?.type === "lay"
                               ? "text-green-500"
                               : " text-red-600"
-                          }`}
+                            }`}
                         >
                           {stake}
                         </span>
                       </div>
                     )}
+                    
                   </div>
                   <div className="flex items-center gap-1 w-[55%] rounded-md ">
                     {currentMarket?.ex?.availableToBack
@@ -148,9 +147,8 @@ const RunnersCard = ({ market, odds }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] ${
-                              index === 2 ? "text-skin-blue" : "text-white"
-                            }  font-bold  bg-skin-cardhead   rounded-b-md`}
+                            className={`flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] ${index === 2 ? "text-skin-blue" : "text-white"
+                              }  font-bold  bg-skin-cardhead   rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px] `}>
                               {back?.price}
@@ -166,11 +164,11 @@ const RunnersCard = ({ market, odds }) => {
                       ?.map((lay, index) => {
                         return (
                           <div
-                            onClick={() => handleOddsClick(lay?.price, "lay")}
+                            onClick={() => handleOddsClick(lay?.price, "lay", currentMarket?.selectionId
+                            )}
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] ${
-                              index === 0 ? "text-skin-pink" : "text-white"
-                            } font-bold  bg-skin-cardhead   rounded-b-md`}
+                            className={`flex cursor-pointer flex-col items-center py-1  rounded-md w-[30%] ${index === 0 ? "text-skin-pink" : "text-white"
+                              } font-bold  bg-skin-cardhead   rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px] `}>
                               {lay?.price}
@@ -183,18 +181,22 @@ const RunnersCard = ({ market, odds }) => {
                       })}
                   </div>
                 </div>
+               
+                          {currentMarket?.selectionId === slipData?.selectionId    &&  isBetSlipOpen? (
+                            <BetSlip
+                              closeBetslip={setIsBetSlipOpen}
+                              slipData={slipData}
+                              setStakeAmount={setStakeAmount}
+                              stake={stake}
+                              setStake={setStake}
+                              clearBetSlip={handleClearClick}
+                            />
+                          ):''}
+                        
               </>
             );
           })}
-          {isBetSlipOpen && (
-            <BetSlip
-              closeBetslip={setIsBetSlipOpen}
-              slipData={slipData}
-              setStakeAmount={setStakeAmount}
-              stake={stake}
-              setStake={setStake}
-            />
-          )}
+
         </div>
       )}
     </div>
