@@ -40,11 +40,7 @@ export const Layout = () => {
           />
         }
       </div>
-      <div
-        className={`container drop-shadow-md  mx-auto md:max-w-full md:mx-0  ${
-          isAboveXl ? "px-64" : ""
-        }`}
-      >
+      <div className={`container drop-shadow-md  mx-auto  max-w-[1440px] `}>
         <div className="">
           <div className="flex ">
             {toggle ? (

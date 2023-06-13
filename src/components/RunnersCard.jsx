@@ -253,6 +253,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                     stake={stake}
                     setStake={setStake}
                     clearBetSlip={handleClearClick}
+                    handlePlaceBet={handlePlaceBet}
                   />
                 ) : ''}
               </React.Fragment>
