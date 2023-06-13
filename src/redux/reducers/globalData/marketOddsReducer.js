@@ -8,7 +8,6 @@ const INIT_STATE = {
 };
 
 const globalMarketOddsReducer = (state = INIT_STATE, action) => {
-  console.log(action, "actionnnn global Market");
   switch (action.type) {
     case GLOBAL_MARKET_ODDS:
       return { ...state };

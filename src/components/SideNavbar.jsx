@@ -92,8 +92,6 @@ export const SideNavbar = () => {
 
   // ===============================================================================================
 
-  // console.log("data", data);
-
   const [activeIndex, setActiveIndex] = useState(null);
   const [dropdownIndex, setdropdownIndex] = useState(null);
 
@@ -186,6 +184,7 @@ export const SideNavbar = () => {
                               to="/cricket-league"
                               state={{
                                 leagueName: league?.leagueName,
+                                eventId: event?._id,
                                 eventName: event?.name,
                                 eventDate: event?.eventDate,
                                 marketArray: event?.markets,

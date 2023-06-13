@@ -1,4 +1,9 @@
-import { GET_BET, GET_BET_SUCCESS, GET_BET_FAILURE } from "../../actions/types";
+import {
+  GET_BET,
+  GET_BET_SUCCESS,
+  GET_BET_FAILURE,
+  LOGOUT,
+} from "../../actions/types";
 
 const INIT_STATE = {
   loading: false,
@@ -13,6 +18,8 @@ const getBetReducer = (state = INIT_STATE, action) => {
       return { ...state, allBets: action?.payload, loading: false };
     case GET_BET_FAILURE:
       return { ...state, loading: false };
+    case LOGOUT:
+      return { ...state, allBets: null, loading: false };
     default:
       return state;
   }

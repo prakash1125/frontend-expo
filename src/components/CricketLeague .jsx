@@ -156,6 +156,7 @@ export const CricketLeague = () => {
                 marketName: market?.name,
                 marketId: market?._id,
                 marketCode: market?.marketCode,
+                marketType: market?.type,
                 runners: data,
               };
               setEventMarkets((prev) => [...prev, allData]);
@@ -242,7 +243,14 @@ export const CricketLeague = () => {
                 Object.keys(odds).includes(market?.marketCode)
               );
               if (odds && Object.keys(Object.values(odds)[0]).length) {
-                return <RunnersCard market={market} odds={odds} key={index} />;
+                return (
+                  <RunnersCard
+                    market={market}
+                    odds={odds}
+                    eventId={location?.state?.eventId}
+                    key={index}
+                  />
+                );
               }
               return null;
             })}

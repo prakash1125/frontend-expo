@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -9,10 +9,15 @@ import img4 from "../assets/images/casinomarina.jpg";
 import img5 from "../assets/images/casinomarina.jpg";
 import { useLocation } from "react-router-dom";
 import Events from "./Events";
+import MyBets from "./MyBets";
+import { useDispatch, useSelector } from "react-redux";
+import { getBet } from "../redux/actions";
 
 export const RightNavbar = () => {
-  const location = useLocation();
-  const isIndianPremierLeague = location.pathname === "/indian-premier-league";
+  const dispatch = useDispatch();
+  const myBets = useSelector((state) => state?.GetBet?.allBets);
+  const Login = useSelector((state) => state?.Login?.login);
+  const newBet = useSelector((state) => state?.PlaceBet);
   const settings = {
     // dots: true,
     infinite: true,
@@ -22,25 +27,20 @@ export const RightNavbar = () => {
   };
   const images = [img1, img2, img3, img4, img5];
 
-  const myBets = [
-    {
-      selection: "Mumbai Indians",
-      odds: 10,
-      stake: 500,
-      pl: "4,500",
-      time: "2023-05-19 02:30:50",
-    },
-  ];
-
   const [isLive, setIsLive] = useState(false);
 
   const handleLiveTVClick = () => {
     setIsLive(!isLive);
   };
+  //Fetching my Bets
+
+  useEffect(() => {
+    dispatch(getBet());
+  }, [dispatch, Login, newBet]);
 
   return (
     <>
-      {!isIndianPremierLeague && (
+      {/* {!isIndianPremierLeague && (
         <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
           <div className="p-1 flex justify-center">
             <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
@@ -60,88 +60,56 @@ export const RightNavbar = () => {
             ))}
           </Slider>
         </div>
-      )}
+      )} */}
 
-      {location.pathname === "/indian-premier-league" && (
-        <>
-          <div className="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
-            <div className="p-1 flex justify-center">
-              <button
-                onClick={handleLiveTVClick}
-                className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
-              >
-                <span>Live TV</span>
-              </button>
-            </div>
-
-            {isLive && (
-              <div className="live-matches px-3 py-2 transition-transform duration-2000">
-                <div className="bg-[#000] text-center pt-5 h-64 w-full rounded">
-                  <span className="text-2xl font-extrabold text-[#d3d3d3]">
-                    Match Not live
-                  </span>
-                </div>
-              </div>
-            )}
+      {/* {location.pathname === "/indian-premier-league" && ( */}
+      <>
+        <div className="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
+          <div className="p-1 flex justify-center">
+            <button
+              onClick={handleLiveTVClick}
+              className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
+            >
+              <span>Live TV</span>
+            </button>
           </div>
 
-          <div className="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
-            <div className="p-1 flex justify-center">
-              <button className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
-                <span>My Bets </span>
-                <span className="flex items-center justify-center bg-skin-imgbg text-skin-dark  rounded-full p-0.5 w-5 h-5 font-semibold text-xs">
-                  {myBets.length}
+          {isLive && (
+            <div className="live-matches px-3 py-2 transition-transform duration-2000">
+              <div className="bg-[#000] text-center pt-5 h-64 w-full rounded">
+                <span className="text-2xl font-extrabold text-[#d3d3d3]">
+                  Match Not live
                 </span>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {myBets && myBets.length !== 0 ? (
+          <MyBets bets={myBets} />
+        ) : (
+          <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
+            <div className="p-1 flex justify-center">
+              <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
+                Live Casino Games
               </button>
             </div>
 
-            <div className="h-80">
-              <table className="overflow-scroll border-collapse w-full  text-center">
-                <thead>
-                  <tr>
-                    <th className=" text-xs font-bold text-center uppercase  px-2 py-2 text-skin-white ">
-                      SELECTION
-                    </th>
-                    <th className=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
-                      ODD
-                    </th>
-                    <th className=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
-                      STAKE
-                    </th>
-                    <th className=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
-                      P/L
-                    </th>
-                    <th className=" text-xs font-bold text-center uppercase   px-2 py-2 text-skin-white ">
-                      TIME
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {myBets.map((element, index) => (
-                    <tr className="border-t-[#f9fafa]" key={index}>
-                      <td className="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
-                        {element.selection}
-                      </td>
-                      <td className="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
-                        {element.odds}
-                      </td>
-                      <td className="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
-                        {element.stake}
-                      </td>
-                      <td className="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
-                        {element.pl}
-                      </td>
-                      <td className="bg-[#008efb] text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary ">
-                        {element.time}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <Slider {...settings}>
+              {images.map((img, index) => (
+                <div key={index} className="">
+                  <img
+                    src={img}
+                    className="w-full p-2 rounded-2xl"
+                    alt={`Slide ${index + 1}`}
+                  />
+                </div>
+              ))}
+            </Slider>
           </div>
-        </>
-      )}
+        )}
+      </>
+      {/* )} */}
 
       <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
         <div className="p-1 flex justify-center">
