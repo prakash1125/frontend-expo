@@ -23,13 +23,13 @@ export const LoginModal = ({ closeModal }) => {
             <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
           </button>
           <h1 className="font-semibold text-center text-xl text-[#CCD1D5] mb-5 mt-1">
-            Login {t("LOGIN")}
+           {t("LOGIN")}
           </h1> 
 
           <div className="flex flex-col">
             <div className="phone-number mb-5">
               <label className="text-[#CCD1D5] text-xs font-semibold mb-2" htmlFor="">
-                Phone Number {t("PHONE_NUMBER")}
+               {t("PHONE_NUMBER")}
               </label>
               <input
                 type="tel"
@@ -41,7 +41,7 @@ export const LoginModal = ({ closeModal }) => {
             </div>
             <div className="password">
               <label className="text-[#CCD1D5] text-xs font-semibold mb-2" htmlFor="">
-                Password {t("PASSWORD")}
+                {t("PASSWORD")}
               </label>
               <input
                 type="password"
@@ -51,7 +51,7 @@ export const LoginModal = ({ closeModal }) => {
             </div>
             <div className="text-sm text-right mt-1  ">
               <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">
-                Forget Password? {t("FORGET_PASSWORD")}
+               {t("FORGET_PASSWORD")}
               </span>
             </div>
             <div className="flex items-center mb-2 mt-4">
@@ -62,7 +62,7 @@ export const LoginModal = ({ closeModal }) => {
                 id="signed-in"
               />
               <label className="text-sm text-[#CCD1D5]" htmlFor="signed-in">
-                Keep me signed in {t("KEEP_ME_SIGNED_IN")}
+               {t("KEEP_ME_SIGNED_IN")}
               </label>
             </div>
 
@@ -71,14 +71,13 @@ export const LoginModal = ({ closeModal }) => {
               className="p-2 px-4 uppercase font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none "
             >
               {" "}
-              log in {t("LOG_IN")}
+               {t("LOG_IN")}
             </button>
           </div>
 
           <div className="text-center text-xs font-bold text-[#CCD1D5] leading-4 mt-1.5">
             <p className="mb-4">
-              Easy bet place on multiple sports,casino with our mobile
-              application {t("EASY_BET")}
+       {t("EASY_BET")}
             </p>
           </div>
 
@@ -88,14 +87,14 @@ export const LoginModal = ({ closeModal }) => {
               className="flex items-center justify-center gap-2 text-center p-1.5 px-4 w-full uppercase font-semibold rounded-md bg-[#32383e] text-lg text-white focus:outline-none "
             >
               {" "}
-              download apk {t("DOWNLOAD_APK")}
+              {t("DOWNLOAD_APK")}
               <AiFillAndroid className="text-2xl" />
             </button>
           </div>
 
           <div className="text-sm text-center my-1">
             <p className="text-[#CCD1D5]">
-              Don't have an account? {t("DONT_HAVE_AN_ACC")} {" "}
+             {t("DONT_HAVE_AN_ACC")} {" "}
               <span className="text-[#01932d] cursor-pointer">Join now {t("JOIN_NOW")} </span>
             </p>
           </div>

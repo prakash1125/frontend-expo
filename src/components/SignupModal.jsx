@@ -23,7 +23,7 @@ export const SignupModal = ({ closeModal }) => {
             <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
           </button>
           <h1 className="font-semibold text-center text-xl text-[#CCD1D5] mb-5 mt-1">
-            Signup {t("SIGNUP")}
+           {t("SIGNUP")}
           </h1>
 
           <div className="flex flex-col">
@@ -32,7 +32,7 @@ export const SignupModal = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold mb-2"
                 htmlFor=""
               >
-                Phone Number {t("PHONE_NUMBER")}
+                 {t("PHONE_NUMBER")}
               </label>
               <div className="flex items-center gap-2">
                 <input
@@ -55,7 +55,7 @@ export const SignupModal = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold mb-2"
                 htmlFor=""
               >
-                Password {t("PASSWORD")}
+                {t("PASSWORD")}
               </label>
               <input
                 type="password"
@@ -68,7 +68,7 @@ export const SignupModal = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold mb-2"
                 htmlFor=""
               >
-                Confirm Password {t("CONFIRM_PASSWORD")}
+                 {t("CONFIRM_PASSWORD")}
               </label>
               <input
                 type="password"
@@ -82,14 +82,14 @@ export const SignupModal = ({ closeModal }) => {
               className="p-2 px-4 mt-5 uppercase font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none "
             >
               {" "}
-              Join Now {t("JOIN_NOW")}
+               {t("JOIN_NOW")}
             </button>
           </div>
 
           <div className="text-sm text-center my-3">
             <p className="text-[#CCD1D5]">
-              Already have account? {t("ALREADY_HAVE_ACCOUNT")} {" "}
-              <span className="text-[#01932d] cursor-pointer">Login {t("LOGIN")} </span>
+              {t("ALREADY_HAVE_ACCOUNT")} {" "}
+              <span className="text-[#01932d] cursor-pointer">{t("LOGIN")} </span>
             </p>
           </div>
 
@@ -100,7 +100,7 @@ export const SignupModal = ({ closeModal }) => {
             >
               {" "}
               <BsWhatsapp className="text-2xl" />
-              Get id easily on whatsapp {t("GET_ID_EASILY_ON_WHATSAPP")}
+               {t("GET_ID_EASILY_ON_WHATSAPP")}
             </button>
           </div>
         </div>

@@ -17,7 +17,7 @@ export const ChangePassword = ({ closeModal }) => {
             <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
           </button>
           <h1 className="font-semibold capitalize text-center text-xl text-[#CCD1D5] mb-5 mt-1">
-            Change Password {t("CHANGE_PASSWORD")} 
+            {t("CHANGE_PASSWORD")} 
           </h1>
 
           <div className="flex flex-col">
@@ -26,7 +26,7 @@ export const ChangePassword = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold"
                 htmlFor=""
               >
-                Current Password {t("CURRENT_PASSWORD")} 
+                 {t("CURRENT_PASSWORD")} 
               </label>
               <input
                 type="password"
@@ -39,7 +39,7 @@ export const ChangePassword = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold "
                 htmlFor=""
               >
-                New Password {t("NEW_PASSWORD")} 
+              {t("NEW_PASSWORD")} 
               </label>
               <input
                 type="password"
@@ -52,7 +52,7 @@ export const ChangePassword = ({ closeModal }) => {
                 className="text-[#CCD1D5] text-xs font-semibold"
                 htmlFor=""
               >
-                Confirm New Password {t("CONFIRM_NEW_PASSWORD")} 
+                {t("CONFIRM_NEW_PASSWORD")} 
               </label>
               <input
                 type="password"
@@ -66,7 +66,7 @@ export const ChangePassword = ({ closeModal }) => {
               className="p-2 px-4 mt-5 mb-10 capitalize font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-lg text-white focus:outline-none "
             >
               {" "}
-              change password {t("CHANGE_PASSWORD")} 
+               {t("CHANGE_PASSWORD")} 
             </button>
           </div>
           

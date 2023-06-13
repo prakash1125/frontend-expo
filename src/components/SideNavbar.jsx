@@ -123,7 +123,7 @@ export const SideNavbar = () => {
       <div className="w-full px-4 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
           <button className="flex justify-start text-skin-primary  bg-skin-cardhead p-3 rounded-md w-full text-xs font-semibold relative">
-            SPORTS   {t("SPORTS")}
+            {t("SPORTS")}
           </button>
         </div>
       </div>

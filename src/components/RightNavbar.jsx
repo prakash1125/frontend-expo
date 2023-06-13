@@ -82,7 +82,7 @@ export const RightNavbar = () => {
               <div className="live-matches px-3 py-2 transition-transform duration-2000">
                 <div className="bg-[#000] text-center pt-5 h-64 w-full rounded">
                   <span className="text-2xl font-extrabold text-[#d3d3d3]">
-                    Match Not live {t("MATCH_NOT_LIVE")}
+                     {t("MATCH_NOT_LIVE")}
                   </span>
                 </div>
               </div>
@@ -92,7 +92,7 @@ export const RightNavbar = () => {
           <div className="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
             <div className="p-1 flex justify-center">
               <button className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
-                <span>My Bets {t("MY_BETS")} </span>
+                <span> {t("MY_BETS")} </span>
                 <span className="flex items-center justify-center bg-skin-imgbg text-skin-dark  rounded-full p-0.5 w-5 h-5 font-semibold text-xs">
                   {myBets.length}{" "}
                 </span>
@@ -104,19 +104,19 @@ export const RightNavbar = () => {
                 <thead>
                   <tr>
                     <th className=" text-xs font-bold text-center uppercase  px-2 py-2 text-skin-white ">
-                      SELECTION {t("SELECTION")}
+                       {t("SELECTION")}
                     </th>
                     <th className=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
-                      ODD {t("ODD")}
+                      {t("ODD")}
                     </th>
                     <th className=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">
-                      STAKE {t("STAKE")}
+                      {t("STAKE")}
                     </th>
                     <th className=" text-xs font-bold text-center uppercase px-2 py-2 text-skin-white ">  
-                      P/L {t("P/L")}
+                     {t("P/L")}
                     </th>
                     <th className=" text-xs font-bold text-center uppercase   px-2 py-2 text-skin-white ">
-                      TIME {t("TIME")}
+                       {t("TIME")}
                     </th>
                   </tr>
                 </thead>
@@ -150,7 +150,7 @@ export const RightNavbar = () => {
       <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
         <div className="p-1 flex justify-center">
           <button className=" text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
-            Popular Events {t("POPULAR_EVENTS")}
+            {t("POPULAR_EVENTS")}
           </button>
         </div>
 

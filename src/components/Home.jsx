@@ -151,7 +151,7 @@ export const Home = () => {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="text-skin-white pb-2 px-2 text-lg font-semibold cursor-pointer flex"
           >
-            Cricket {t("CRICKET")}
+           {t("CRICKET")}
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
             ) : (
@@ -175,10 +175,10 @@ export const Home = () => {
       <div>
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
-            Indian Casino {t("INDIAN_CASINO")}
+            {t("INDIAN_CASINO")}
           </p>
           <button className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
-            All Indian Casino {t("ALL_INDIAN_CASINO")}
+             {t("ALL_INDIAN_CASINO")}
           </button>
         </div>
         <Slider {...settings2}>

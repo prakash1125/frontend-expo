@@ -50,8 +50,8 @@ export const InPlay = () => {
           ))}
         </Tab.List>
         <div className="mt-2 p-2 text-sm rounded-md w-full bg-skin-nav text-skin-secondary font-semibold ">
-          There is a no match available at this time in {t("NO_MATCH")} {" "}
-          <span className="text-green-600">InPlay {t("IN_PLAY")} </span>
+          {t("NO_MATCH")} {" "}
+          <span className="text-green-600"> {t("IN_PLAY")} </span>
         </div>
         {/* <Tab.Panels className="mt-2">
           {Object.values(categories).map((posts, idx) => (

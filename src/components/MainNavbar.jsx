@@ -255,7 +255,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     type="button"
                     className="  font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
-                    LOG IN {t("LOG_IN")}
+                    {t("LOG_IN")}
                   </button>
 
                   {/* <button

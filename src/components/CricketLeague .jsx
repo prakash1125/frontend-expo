@@ -169,7 +169,7 @@ export const CricketLeague = () => {
               onClick={handleLiveTVClick}
               className="flex justify-center items-center gap-2 text-skin-white text-sm bg-skin-cardhead p-3 rounded-md w-full font-semibold"
             >
-              <span>Live TV {t("LIVE_TV")} </span>
+              <span>{t("LIVE_TV")} </span>
             </button>
           </div>
 
@@ -186,10 +186,10 @@ export const CricketLeague = () => {
 
                 <div className="flex items-center text-[#eee] border-t-2 border-b-2">
                   <div className="scorecard flex-grow cursor-pointer">
-                    Scorecard {t("SCORECARD")}
+                     {t("SCORECARD")}
                   </div>
                   <div className="statistics flex-grow cursor-pointer">
-                    Statistics {t("STATISTICS")}
+                    {t("STATISTICS")}
                   </div>
                 </div>
               </div>

@@ -69,7 +69,7 @@ export const ChipSetting = ({ closeModal }) => {
               <MdOutlineClose className="text-[#CCD1D5] text-3xl font-bold" />
             </button>
             <h1 className="font-semibold text-center uppercase text-xl text-[#CCD1D5] mb-5 mt-1">
-              Chips setting {t("CHIPS_SETTING")} 
+              {t("CHIPS_SETTING")} 
             </h1>
 
             <div className="chip-container">
@@ -80,7 +80,7 @@ export const ChipSetting = ({ closeModal }) => {
                       className="text-[#CCD1D5] text-xs font-semibold"
                       htmlFor=""
                     >
-                      Name {t("NAME")} 
+                      {t("NAME")} 
                     </label>
                     <input
                       name={`input${index * 2 + 1}`}
@@ -96,7 +96,7 @@ export const ChipSetting = ({ closeModal }) => {
                       className="text-[#CCD1D5] text-xs font-semibold"
                       htmlFor=""
                     >
-                      Value {t("VALUE")} 
+                       {t("VALUE")} 
                     </label>
                     <input
                       name={`input${index * 2 + 2}`}
@@ -117,7 +117,7 @@ export const ChipSetting = ({ closeModal }) => {
               className="p-1.5 px-3 uppercase font-semibold rounded-md hover:bg-[#0069d9  ] bg-[#007bff] text-lg text-white focus:outline-none "
             >
               {" "}
-              Update {t("UPDATE")} 
+             {t("UPDATE")} 
             </button>
           </div>
         </div>

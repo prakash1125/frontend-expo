@@ -227,7 +227,7 @@ export const IplClub = () => {
       <ul className="w-full px-2 pr-0 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 p-1 ">
           <h1 className="text-skin-white text-xl m-2 ">
-            Indian Premier League {t("INDIAN_PREMIER_LEAGUE")}
+             {t("INDIAN_PREMIER_LEAGUE")}
           </h1>
           <button
             className="text-skin-white bg-[#2EA66A] p-1 px-4 mb-1  rounded-md border-1 border-white test-sm font-semibold"
@@ -237,7 +237,7 @@ export const IplClub = () => {
               border: "1px solid white",
             }}
           >
-            IN-PLAY {t("IN_PLAY")}
+             {t("IN_PLAY")}
           </button>
         </div>
 
@@ -323,7 +323,7 @@ export const IplClub = () => {
                               <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                                 <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                                   <p>{Item.team}</p>
-                                  <span className="flex ">stake amount {t("STAKE_AMOUNT")} </span>
+                                  <span className="flex "> {t("STAKE_AMOUNT")} </span>
                                 </div>
                                 <div className="flex items-center gap-1 rounded-md scroll-x">
                                   {Item.score.map((Score, index) => (

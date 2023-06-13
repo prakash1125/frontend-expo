@@ -46,7 +46,7 @@ export const Chatbot = () => {
               />
             </div>
             <div className="info text-white pt-3 pb-2 font-bold">
-              Chat with us {t("CHAT_WITH_US")} 
+              {t("CHAT_WITH_US")} 
             </div>
           </div>
 
