@@ -26,14 +26,20 @@ const BetSlip = ({
   };
 
   const handleSpanClick = (spanValue) => {
-    setStake((prevStake) => prevStake + spanValue);
+    // setStake((prevStake) => prevStake + spanValue);
     const val = stake + spanValue;
     if (slipData?.type === "back") {
-      let amount = betOnBack.profit(slipData?.price, val);
-      setStakeAmount(amount);
+      let profit = betOnBack.profit(slipData?.price, val);
+      let lose = betOnBack.lose(val);
+      setStake(lose);
+      setStakeAmount(profit);
     } else {
-      let amount = betOnLay.lose(slipData?.price, val);
-      setStakeAmount(amount);
+      let lose = betOnLay.lose(slipData?.price, val);
+      let profit = betOnLay.profit(val);
+      console.log(lose, "lose");
+      console.log(profit, "profit");
+      setStakeAmount(lose);
+      setStake(profit);
     }
   };
 

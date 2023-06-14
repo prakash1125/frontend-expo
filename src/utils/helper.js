@@ -108,7 +108,7 @@ WarningToast.propTypes = {
 
 export const betOnBack = {
   profit: (odds, stake) => {
-    return parseFloat(odds - 1).toFixed(2) * stake;
+    return Math.round(parseFloat(odds - 1).toFixed(2) * stake);
   },
   lose: (stake) => {
     return -1 * stake;
@@ -119,7 +119,7 @@ export const betOnBack = {
 
 export const betOnLay = {
   lose: (odds, stake) => {
-    return -1 * (parseFloat(odds - 1).toFixed(2) * stake);
+    return -1 * Math.round(parseFloat(odds - 1).toFixed(2) * stake);
   },
   profit: (stake) => {
     return stake;

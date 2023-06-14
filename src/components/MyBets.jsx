@@ -1,4 +1,5 @@
 import React from "react";
+import { betOnBack } from "../utils/helper";
 
 const MyBets = ({ bets }) => {
   return (
@@ -71,7 +72,7 @@ const MyBets = ({ bets }) => {
                         : "bg-[#E9564D]"
                     } text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary `}
                   >
-                    {parseFloat(bet?.odds - 1).toFixed(2) * bet?.stake}
+                    {Math.round(betOnBack.profit(bet?.odds, bet?.stake))}
                   </td>
                   <td
                     className={`${

@@ -17,45 +17,76 @@ const RunnersCard = ({ market, odds, eventId }) => {
   const [stakeAmount, setStakeAmount] = useState(null);
   const [stake, setStake] = useState(null);
   const [eventMarket, setEventMarket] = useState(market);
-  const [bookData, setBookData] = useState({
-    type: "",
-    amount: 0,
-    runner: "",
-    stake: 0,
-    marketId: "",
-  });
+  const [bookData, setBookData] = useState([]);
   const myBets = useSelector((state) => state?.GetBet?.allBets);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const currentBet = myBets?.find(
-      (bet) => bet?.marketId === market?.marketId
-    );
-    console.log(currentBet, "currentBet");
-    if (currentBet) {
-      let amount;
-      let stake;
-      if (currentBet?.selectionType === "back") {
-        amount = betOnBack.profit(currentBet?.odds, currentBet?.stake);
-        stake = betOnBack.lose(currentBet?.stake);
-      } else {
-        amount = betOnLay.lose(currentBet?.odds, currentBet?.stake);
-        stake = betOnLay.profit(currentBet?.stake);
+    // const currentBet = myBets?.find(
+    //   (bet) => bet?.marketId === market?.marketId
+    // );
+    let currentBet = {};
+    myBets?.forEach((bet) => {
+      if (bet?.marketId === market?.marketId) {
+        currentBet.marketId = market?.marketId;
+        if (currentBet?.hasOwnProperty(bet?.selection)) {
+          if (bet?.selectionType === "back") {
+            const profit = betOnBack.profit(bet?.odds, bet?.stake);
+            const lose = betOnBack.lose(bet?.stake);
+            console.log(profit);
+            currentBet[bet.selection] = currentBet[bet.selection] + profit;
+            currentBet.stake = currentBet.stake + lose;
+          } else {
+            const lose = betOnLay.lose(bet?.odds, bet?.stake);
+            const profit = betOnLay.profit(bet?.stake);
+            currentBet[bet.selection] = currentBet[bet.selection] + lose;
+            currentBet.stake = currentBet.stake + profit;
+          }
+        } else {
+          currentBet[bet.selection] = 0;
+          currentBet.stake = 0;
+          if (bet?.selectionType === "back") {
+            const profit = betOnBack.profit(bet?.odds, bet?.stake);
+            const lose = betOnBack.lose(bet?.stake);
+            console.log(profit);
+            currentBet[bet.selection] = currentBet[bet.selection] + profit;
+            currentBet.stake = currentBet.stake + lose;
+          } else {
+            const lose = betOnLay.lose(bet?.odds, bet?.stake);
+            const profit = betOnLay.profit(bet?.stake);
+            currentBet[bet.selection] = currentBet[bet.selection] + lose;
+            currentBet.stake = currentBet.stake + profit;
+          }
+        }
       }
-      setBookData({
-        type: currentBet?.selectionType,
-        amount: amount,
-        runner: currentBet?.selection,
-        stake: stake,
-        marketId: currentBet?.marketId,
-      });
-    }
+    });
+    console.log(currentBet, "currentBet");
+    setBookData(currentBet);
+    // if (currentBet) {
+    //   let amount;
+    //   let stake;
+    //   if (currentBet?.selectionType === "back") {
+    //     amount = betOnBack.profit(currentBet?.odds, currentBet?.stake);
+    //     stake = betOnBack.lose(currentBet?.stake);
+    //   } else {
+    //     amount = betOnLay.lose(currentBet?.odds, currentBet?.stake);
+    //     stake = betOnLay.profit(currentBet?.stake);
+    //   }
+    //   setBookData({
+    //     type: currentBet?.selectionType,
+    //     amount: amount,
+    //     runner: currentBet?.selection,
+    //     stake: stake,
+    //     marketId: currentBet?.marketId,
+    //   });
+    // }
   }, [myBets, market?.marketId]);
 
   useEffect(() => {
     // Update the Event market data immediately
     setEventMarket(market);
   }, [market]);
+
   const handleOddsClick = (
     price,
     type,
@@ -156,15 +187,15 @@ const RunnersCard = ({ market, odds, eventId }) => {
                     {bookData &&
                     bookData?.marketId === eventMarket?.marketId ? (
                       <div className="flex items-center gap-1">
-                        {bookData?.runner === runner?.name ? (
+                        {bookData?.hasOwnProperty(runner?.name) ? (
                           <span
                             className={`flex text-xs ${
-                              bookData?.amount > 0
+                              bookData?.[runner?.name] > 0
                                 ? "text-green-400"
                                 : "text-red-400"
                             }`}
                           >
-                            {Math.abs(bookData?.amount)}
+                            {Math.abs(bookData?.[runner?.name])}
                           </span>
                         ) : (
                           <span
@@ -196,21 +227,35 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             className={`flex text-xs ${
                               !stakeAmount ? "invisible" : ""
                             } ${
-                              bookData?.amount + stakeAmount === 0
+                              bookData?.[runner?.name]
+                                ? bookData?.[runner?.name] + stakeAmount === 0
+                                  ? "text-white"
+                                  : bookData?.[runner?.name] + stakeAmount > 0
+                                  ? "text-green-400"
+                                  : "text-red-400"
+                                : bookData?.stake + stakeAmount === 0
                                 ? "text-white"
-                                : bookData?.amount + stakeAmount > 0
+                                : bookData?.stake + stakeAmount > 0
                                 ? "text-green-400"
                                 : "text-red-400"
                             }`}
                           >
-                            {bookData?.amount + stakeAmount}
+                            {bookData?.[runner?.name]
+                              ? Math.abs(bookData?.[runner?.name] + stakeAmount)
+                              : Math.abs(bookData?.stake + stakeAmount)}
                           </span>
                         ) : (
                           <span
                             className={`flex text-xs ${
                               !stakeAmount ? "invisible" : ""
                             } ${
-                              bookData?.stake + stake === 0
+                              bookData?.[runner?.name]
+                                ? bookData?.[runner?.name] + stake === 0
+                                  ? "text-white"
+                                  : bookData?.[runner?.name] + stake > 0
+                                  ? "text-green-400"
+                                  : "text-red-400"
+                                : bookData?.stake + stake === 0
                                 ? "text-white"
                                 : bookData?.stake + stake > 0
                                 ? "text-green-400"
@@ -218,7 +263,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             }
                             `}
                           >
-                            {bookData?.stake + stake}
+                            {bookData?.[runner?.name]
+                              ? Math.abs(bookData?.[runner?.name] + stake)
+                              : Math.abs(bookData?.stake + stake)}
                           </span>
                         )}
                       </div>
@@ -229,15 +276,15 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             !stakeAmount ? "invisible" : ""
                           } text-white`}
                         >
-                          {bookData?.stake}
+                          0
                         </span>
                         <span
                           className={`flex text-xs ${
                             !stakeAmount ? "invisible" : ""
                           } ${
                             slipData?.type === "lay"
-                              ? "text-green-500"
-                              : "text-red-600"
+                              ? "text-red-500"
+                              : "text-green-600"
                           }`}
                         >
                           {`>`}
@@ -253,7 +300,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                                 : "text-red-400"
                             }`}
                           >
-                            {stakeAmount}
+                            {Math.abs(stakeAmount)}
                           </span>
                         ) : (
                           <span
@@ -265,7 +312,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                                 : "text-red-400"
                             }`}
                           >
-                            {stake}
+                            {Math.abs(stake)}
                           </span>
                         )}
                       </div>
