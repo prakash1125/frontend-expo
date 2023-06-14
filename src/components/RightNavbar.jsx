@@ -39,9 +39,10 @@ export const RightNavbar = () => {
   }, [dispatch, Login, newBet]);
 
   return (
-    <>
-      {/* {!isIndianPremierLeague && (
-        <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
+    <div className="overflow-y-auto h-[100vh] px-2 scrollbar-hide overflow-x-hidden">
+      <ul>
+        {/* {!isIndianPremierLeague && (
+        <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
           <div className="p-1 flex justify-center">
             <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
               Live Casino Games
@@ -62,132 +63,68 @@ export const RightNavbar = () => {
         </div>
       )} */}
 
-      {/* {location.pathname === "/indian-premier-league" && ( */}
-      <>
-        <div className="max-w-xs mx-auto bg-skin-nav  rounded-sm mt-2 mb-2">
-          <div className="p-1 flex justify-center">
-            <button
-              onClick={handleLiveTVClick}
-              className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
-            >
-              <span>Live TV</span>
-            </button>
-          </div>
-
-          {isLive && (
-            <div className="live-matches px-3 py-2 transition-transform duration-2000">
-              <div className="bg-[#000] text-center pt-5 h-64 w-full rounded">
-                <span className="text-2xl font-extrabold text-[#d3d3d3]">
-                  Match Not live
-                </span>
-              </div>
-            </div>
-          )}
-        </div>
-
-        {myBets && myBets.length !== 0 ? (
-          <MyBets bets={myBets} />
-        ) : (
-          <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
+        {/* {location.pathname === "/indian-premier-league" && ( */}
+        <>
+          <div className=" mx-auto bg-skin-nav  rounded-sm my-2">
             <div className="p-1 flex justify-center">
-              <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
-                Live Casino Games
+              <button
+                onClick={handleLiveTVClick}
+                className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
+              >
+                <span>Live TV</span>
               </button>
             </div>
 
-            <Slider {...settings}>
-              {images.map((img, index) => (
-                <div key={index} className="">
-                  <img
-                    src={img}
-                    className="w-full p-2 rounded-2xl"
-                    alt={`Slide ${index + 1}`}
-                  />
+            {isLive && (
+              <div className="live-matches px-3 py-2 transition-transform duration-2000">
+                <div className="bg-[#000] text-center pt-5 h-64 w-full rounded">
+                  <span className="text-2xl font-extrabold text-[#d3d3d3]">
+                    Match Not live
+                  </span>
                 </div>
-              ))}
-            </Slider>
+              </div>
+            )}
           </div>
-        )}
-      </>
-      {/* )} */}
 
-      <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
-        <div className="p-1 flex justify-center">
-          <button className=" text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
-            Popular Events
-          </button>
+          {myBets && myBets.length !== 0 ? (
+            <MyBets bets={myBets} />
+          ) : (
+            <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
+              <div className="p-1 flex justify-center">
+                <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
+                  Live Casino Games
+                </button>
+              </div>
+
+              <Slider {...settings}>
+                {images.map((img, index) => (
+                  <div key={index} className="">
+                    <img
+                      src={img}
+                      className="w-full p-2 rounded-2xl"
+                      alt={`Slide ${index + 1}`}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          )}
+        </>
+        {/* )} */}
+
+        <div className=" mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
+          <div className="p-1 flex justify-center">
+            <button className=" text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
+              Popular Events
+            </button>
+          </div>
+          <Events />
+          <Events />
+          <Events />
+          <Events />
+          <Events />
         </div>
-
-        {/* <div className="container flex flex-col items-center justify-center w-full mx-auto rounded-lg shadow dark:bg-gray-800">
-          <ul className="flex flex-col divide-y divide-black w-full">
-            <li className="flex flex-row">
-              <div className="flex items-center flex-1 p-3 cursor-pointer select-none">
-                <div className="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
-                  <a href="#" className="relative block">
-                    <img
-                      alt="profil"
-                      src="https://sportsexch.com/images/icons/cricket.png"
-                      className="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
-                    />
-                  </a>
-                </div>
-                <div className="flex-1 pl-1 mr-16">
-                  <div className="font-medium text-[#cfd4d8]">IreLand</div>
-                  <div className="text-xs font-bold text-[#cfd4d8] ">
-                    Bhangladesh
-                  </div>
-                </div>
-                <div className="text-xs font-bold text-[#cfd4d8] ">6:00 AM</div>
-              </div>
-            </li>
-            <li className="flex flex-row">
-              <div className="flex items-center flex-1 p-4 cursor-pointer select-none">
-                <div className="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
-                  <a href="#" className="relative block">
-                    <img
-                      alt="profil"
-                      src="https://sportsexch.com/images/icons/cricket.png"
-                      className="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
-                    />
-                  </a>
-                </div>
-                <div className="flex-1 pl-1 mr-16">
-                  <div className="font-medium text-[#cfd4d8]">IreLand</div>
-                  <div className="text-xs font-bold text-[#cfd4d8] ">
-                    Bhangladesh
-                  </div>
-                </div>
-                <div className="text-xs font-bold text-[#cfd4d8] ">6:00 AM</div>
-              </div>
-            </li>
-            <li className="flex flex-row">
-              <div className="flex items-center flex-1 p-4 cursor-pointer select-none">
-                <div className="flex flex-col items-center justify-center w-10 h-10 mr-4 ">
-                  <a href="#" className="relative block">
-                    <img
-                      alt="profil"
-                      src="https://sportsexch.com/images/icons/cricket.png"
-                      className="mx-auto object-cover rounded-full h-10 w-10 bg-white p-2"
-                    />
-                  </a>
-                </div>
-                <div className="flex-1 pl-1 mr-16">
-                  <div className="font-medium text-[#cfd4d8]">IreLand</div>
-                  <div className="text-xs font-bold text-[#cfd4d8] ">
-                    Bhangladesh
-                  </div>
-                </div>
-                <div className="text-xs font-bold text-[#cfd4d8] ">6:00 AM</div>
-              </div>
-            </li>
-          </ul>
-        </div> */}
-        <Events />
-        <Events />
-        <Events />
-        <Events />
-        <Events />
-      </div>
-    </>
+      </ul>
+    </div>
   );
 };

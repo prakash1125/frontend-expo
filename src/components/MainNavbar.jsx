@@ -128,7 +128,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 <div
                   className={`text-skin-white  ${
                     toggle ? "text-[20px]" : "text-[20px]"
-                  }  md:hidden`}
+                  }  lg:hidden`}
                   onClick={() => setToggle(!toggle)}
                 >
                   {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}

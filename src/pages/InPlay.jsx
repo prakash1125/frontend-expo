@@ -6,8 +6,8 @@ import { InPlay } from "../components/InPlay";
 export const InPlayPage = () => {
   return (
     <>
-      <div className="w-full   md:p-2 overflow-y-scroll scrollbar-hide h-[91vh]  "><InPlay /></div>
-      <div className="px-2 hidden md:block w-1/4" >
+      <div className="w-full p-2 overflow-y-scroll scrollbar-hide h-[91vh]  "><InPlay /></div>
+      <div className=" hidden lg:flex lg:flex-col ">
         <RightNavbar />
       </div>
     </>

@@ -3,8 +3,8 @@ import React from "react";
 
 const MyBets = ({ bets }) => {
   return (
-    <div className={` mx-auto bg-skin-nav  rounded-sm mt-2 mb-2`}>
-      <div className="p-1 flex justify-center">
+    <div className={` mx-auto bg-skin-nav rounded-sm mt-2 mb-2`}>
+      <div className="p-1 flex  justify-center">
         <button className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold">
           <span>My Bets </span>
           <span className="flex items-center justify-center bg-skin-imgbg text-skin-dark  rounded-full p-0.5 w-5 h-5 font-semibold text-xs">
@@ -13,7 +13,7 @@ const MyBets = ({ bets }) => {
         </button>
       </div>
 
-      <div className="h-80">
+      <div className=" overflow-y-auto h-80 overflow-x-hidden   scrollbar-hide">
         <table className="overflow-scroll border-collapse w-full  text-center">
           <thead>
             <tr>
@@ -34,8 +34,8 @@ const MyBets = ({ bets }) => {
               </th>
             </tr>
           </thead>
-          <tbody>
-            {bets?.lengh !== 0 &&
+          <tbody className="w-full">
+            {bets?.length !== 0 &&
               bets?.map((bet, index) => (
                 <tr key={index}>
                   <td
@@ -43,7 +43,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2 py-1 border-y-[1px]  text-skin-secondary`}
+                    } text-xs font-bold text-left px-2  border-y-[1px]  text-white`}
                   >
                     {bet?.selection}
                   </td>
@@ -52,7 +52,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2 py-1 border-y-[1px]  text-skin-secondary `}
+                    } text-xs font-bold  text-left px-2  border-y-[1px]  text-white `}
                   >
                     {bet?.odds}
                   </td>
@@ -61,7 +61,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2 py-1 border-y-[1px]  text-skin-secondary `}
+                    } text-xs font-bold  text-left px-2  border-y-[1px]  text-white `}
                   >
                     {bet?.stake}
                   </td>
@@ -70,16 +70,16 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2 py-1 border-y-[1px] text-skin-secondary `}
+                    } text-xs font-bold  text-left px-2  border-y-[1px] text-white `}
                   >
-                    {parseFloat(bet?.odds - 1).toFixed(2) * bet?.stake}
+                    {Math.round(parseFloat(bet?.odds - 1).toFixed(2) * bet?.stake)}
                   </td>
                   <td
                     className={`${
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-right px-2 py-1 border-y-[1px] text-skin-secondary `}
+                    } text-xs font-bold  text-right px-2  border-y-[1px] text-white `}
                   >
                      {DateTime.fromISO(bet?.createdAt).toFormat(
                               "yyyy-MM-dd HH:mm:ss"

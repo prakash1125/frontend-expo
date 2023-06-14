@@ -12,7 +12,7 @@ export const Layout = () => {
   const [isAboveXl, setisAbovexl] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 1024) {
         // Show on mobile and tablet screens (max-width: 768px)
         setToggle(false);
         setisAbovexl(false);
@@ -52,7 +52,7 @@ export const Layout = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-6 md:hidden ">
+      <div className="container mx-auto px-6 lg:hidden ">
         <MobileNavbar />
       </div>
 

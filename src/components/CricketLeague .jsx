@@ -169,7 +169,7 @@ export const CricketLeague = () => {
 
   return (
     <>
-      <ul className="w-full px-2 pr-0 pt-2">
+      <ul className="w-full px-2 pt-2">
         <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 py-2 ">
           <h1 className="text-white text-xl">{location?.state?.leagueName}</h1>
           <div className="team-match text-[#fff] text-xl mb-2">

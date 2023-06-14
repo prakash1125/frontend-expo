@@ -47,7 +47,7 @@ export const Sports = () => {
                   categoryId !== index && "invert"
                 } object-cover  w-5 sidebar `}
               ></img>
-              <div className=" inline-block overflow-x-hidden w-16  whitespace-nowrap ">
+              <div className=" inline-block overflow-x-hidden w-16 text-[11px] whitespace-nowrap ">
                 {category?.sportName}
               </div>
             </Tab>

@@ -90,7 +90,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       >
         <div className="flex items-center">
           <div className="flex items-center text-sm text-skin-secondary font-medium">
-            {eventMarket?.marketName}
+            <span>{eventMarket?.marketName}</span> <span className="font-extrabold text-4xl pb-5 pl-2 text-green-600">.</span>
           </div>
         </div>
         <div className="flex items-center space-x-8 px-1">

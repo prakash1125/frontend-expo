@@ -112,7 +112,7 @@ export const Home = () => {
           {sportsButtons.map((element, index) => (
             <SwiperSlide key={index}>
               <div
-                className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
+                className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
               >
                 <div className="">
                   <a href="#" className="relative block">
