@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { placeBet } from "../redux/actions";
+import { betOnBack, betOnLay } from "../utils/helper";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,16 +16,46 @@ const RunnersCard = ({ market, odds, eventId }) => {
   const [slipData, setSlipData] = useState({ price: 0, type: "" });
   const [stakeAmount, setStakeAmount] = useState(null);
   const [stake, setStake] = useState(null);
-  const [bookAmount, setBookAmount] = useState(0);
   const [eventMarket, setEventMarket] = useState(market);
-
+  const [bookData, setBookData] = useState({
+    type: "",
+    amount: 0,
+    runner: "",
+    stake: 0,
+    marketId: "",
+  });
+  const myBets = useSelector((state) => state?.GetBet?.allBets);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const currentBet = myBets?.find(
+      (bet) => bet?.marketId === market?.marketId
+    );
+    console.log(currentBet, "currentBet");
+    if (currentBet) {
+      let amount;
+      let stake;
+      if (currentBet?.selectionType === "back") {
+        amount = betOnBack.profit(currentBet?.odds, currentBet?.stake);
+        stake = betOnBack.lose(currentBet?.stake);
+      } else {
+        amount = betOnLay.lose(currentBet?.odds, currentBet?.stake);
+        stake = betOnLay.profit(currentBet?.stake);
+      }
+      setBookData({
+        type: currentBet?.selectionType,
+        amount: amount,
+        runner: currentBet?.selection,
+        stake: stake,
+        marketId: currentBet?.marketId,
+      });
+    }
+  }, [myBets, market?.marketId]);
 
   useEffect(() => {
     // Update the Event market data immediately
     setEventMarket(market);
   }, [market]);
-
   const handleOddsClick = (
     price,
     type,
@@ -50,6 +81,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
     setStake(0);
     setStakeAmount(null);
   };
+
   //To Cancel
   const handleBetSlipClose = () => {
     handleClearClick();
@@ -61,7 +93,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
   const handlePlaceBet = () => {
     const data = {
       eventId: eventId,
-      stake: stake,
+      stake: Math.abs(stake),
       selectionType: slipData?.type,
       odds: slipData?.price,
       marketId: slipData?.marketId,
@@ -69,7 +101,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
       marketType: slipData?.marketType,
     };
     if (localStorage?.getItem("token")) {
-      console.log(data, "bet_place");
       dispatch(
         placeBet({
           data,
@@ -82,6 +113,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       alert("Please Login to Bet");
     }
   };
+
   return (
     <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
@@ -121,54 +153,83 @@ const RunnersCard = ({ market, odds, eventId }) => {
                 <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                   <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
                     <p>{runner?.name}</p>
-                    {currentMarket?.selectionId === slipData?.selectionId ? (
+                    {bookData &&
+                    bookData?.marketId === eventMarket?.marketId ? (
                       <div className="flex items-center gap-1">
+                        {bookData?.runner === runner?.name ? (
+                          <span
+                            className={`flex text-xs ${
+                              bookData?.amount > 0
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            {Math.abs(bookData?.amount)}
+                          </span>
+                        ) : (
+                          <span
+                            className={`flex text-xs ${
+                              bookData?.stake < 0
+                                ? "text-red-400"
+                                : "text-green-400"
+                            }
+                            `}
+                          >
+                            {Math.abs(bookData?.stake)}
+                          </span>
+                        )}
+
                         <span
                           className={`flex text-xs ${
                             !stakeAmount ? "invisible" : ""
                           } ${
-                            slipData?.type === "lay"
-                              ? "text-red-600"
-                              : "text-green-500"
-                          }`}
-                        >
-                          {parseInt(bookAmount)}
-                        </span>
-                        <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-red-500"
-                              : "text-green-600"
+                            slipData?.type === "back"
+                              ? "text-green-400"
+                              : "text-red-400"
                           }`}
                         >
                           {`>`}
                         </span>
-                        <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-red-600"
-                              : "text-green-500"
-                          }`}
-                        >
-                          {parseInt(stakeAmount)}
-                        </span>
+                        {currentMarket?.selectionId ===
+                        slipData?.selectionId ? (
+                          <span
+                            className={`flex text-xs ${
+                              !stakeAmount ? "invisible" : ""
+                            } ${
+                              bookData?.amount + stakeAmount === 0
+                                ? "text-white"
+                                : bookData?.amount + stakeAmount > 0
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            {bookData?.amount + stakeAmount}
+                          </span>
+                        ) : (
+                          <span
+                            className={`flex text-xs ${
+                              !stakeAmount ? "invisible" : ""
+                            } ${
+                              bookData?.stake + stake === 0
+                                ? "text-white"
+                                : bookData?.stake + stake > 0
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }
+                            `}
+                          >
+                            {bookData?.stake + stake}
+                          </span>
+                        )}
                       </div>
                     ) : (
                       <div className="flex items-center gap-1">
                         <span
                           className={`flex text-xs ${
                             !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-green-500"
-                              : "text-red-600"
-                          }`}
+                          } text-white`}
                         >
-                          {bookAmount}
+                          {bookData?.stake}
                         </span>
                         <span
                           className={`flex text-xs ${
@@ -181,17 +242,32 @@ const RunnersCard = ({ market, odds, eventId }) => {
                         >
                           {`>`}
                         </span>
-                        <span
-                          className={`flex text-xs ${
-                            !stakeAmount ? "invisible" : ""
-                          } ${
-                            slipData?.type === "lay"
-                              ? "text-green-500"
-                              : "text-red-600"
-                          }`}
-                        >
-                          {stake}
-                        </span>
+                        {currentMarket?.selectionId ===
+                        slipData?.selectionId ? (
+                          <span
+                            className={`flex text-xs ${
+                              !stakeAmount ? "invisible" : ""
+                            } ${
+                              slipData?.type === "back"
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            {stakeAmount}
+                          </span>
+                        ) : (
+                          <span
+                            className={`flex text-xs ${
+                              !stakeAmount ? "invisible" : ""
+                            } ${
+                              slipData?.type === "lay"
+                                ? "text-green-400"
+                                : "text-red-400"
+                            }`}
+                          >
+                            {stake}
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>
@@ -227,7 +303,8 @@ const RunnersCard = ({ market, odds, eventId }) => {
                         );
                       })}
                     {currentMarket?.ex?.availableToLay
-                      // ?.reverse()
+                      ?.slice()
+                      ?.reverse()
                       ?.map((lay, index) => {
                         return (
                           <div

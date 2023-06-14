@@ -108,7 +108,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     // Remove the login status from localStorage
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
-    dispatch(logOut());
+    // dispatch(logOut());
     // Log the logout message
   };
 

@@ -19,7 +19,6 @@ const loginReducer = (state = INIT_STATE, action) => {
     case LOGIN_FAILURE:
       return { ...state, loading: false };
     case LOGOUT:
-      console.log("called logout in login");
       return { ...state, login: null, loading: false };
     default:
       return state;

@@ -41,7 +41,7 @@ const MyBets = ({ bets }) => {
                     className={`${
                       bet?.selectionType === "back"
                         ? "bg-[#008efb]"
-                        : "bg-[#dc3545]"
+                        : "bg-[#E9564D]"
                     } text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary`}
                   >
                     {bet?.selection}
@@ -49,8 +49,8 @@ const MyBets = ({ bets }) => {
                   <td
                     className={`${
                       bet?.selectionType === "back"
-                        ? "bg-[#008efb]"
-                        : "bg-[#dc3545]"
+                        ? "bg-[#008EFB]"
+                        : "bg-[#E9564D]"
                     } text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary `}
                   >
                     {bet?.odds}
@@ -58,8 +58,8 @@ const MyBets = ({ bets }) => {
                   <td
                     className={`${
                       bet?.selectionType === "back"
-                        ? "bg-[#008efb]"
-                        : "bg-[#dc3545]"
+                        ? "bg-[#008EFB]"
+                        : "bg-[#E9564D]"
                     } text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary `}
                   >
                     {bet?.stake}
@@ -67,8 +67,8 @@ const MyBets = ({ bets }) => {
                   <td
                     className={`${
                       bet?.selectionType === "back"
-                        ? "bg-[#008efb]"
-                        : "bg-[#dc3545]"
+                        ? "bg-[#008EFB]"
+                        : "bg-[#E9564D]"
                     } text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary `}
                   >
                     {parseFloat(bet?.odds - 1).toFixed(2) * bet?.stake}
@@ -76,8 +76,8 @@ const MyBets = ({ bets }) => {
                   <td
                     className={`${
                       bet?.selectionType === "back"
-                        ? "bg-[#008efb]"
-                        : "bg-[#dc3545]"
+                        ? "bg-[#008EFB]"
+                        : "bg-[#E9564D]"
                     } text-xs font-bold uppercase text-left px-2 py-1.5 text-skin-secondary `}
                   >
                     {new Date(bet?.createdAt).toLocaleString()}

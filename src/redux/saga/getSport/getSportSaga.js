@@ -5,7 +5,7 @@ import API from "../../../utils/api";
 
 function* getSportRequest(action) {
   try {
-    const { data } = yield API.get("admin/get-sports-data");
+    const { data } = yield API.get("api/v1/get-sports-data");
     if (data.meta.code === 200) {
       yield put(getSportSuccess(data));
       yield call(action.payload.callback, data.data);
