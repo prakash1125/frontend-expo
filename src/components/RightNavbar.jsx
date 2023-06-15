@@ -62,7 +62,7 @@ export const RightNavbar = () => {
           </Slider>
         </div>
       )} */}
-
+ 
         {/* {location.pathname === "/indian-premier-league" && ( */}
         <>
           <div className=" mx-auto bg-skin-nav  rounded-sm my-2">
@@ -88,26 +88,26 @@ export const RightNavbar = () => {
 
           {myBets && myBets.length !== 0 ? (
             <MyBets bets={myBets} />
-          ) : (
-            <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
-              <div className="p-1 flex justify-center">
-                <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
-                  Live Casino Games
-                </button>
-              </div>
+          ) : (""
+            // <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
+            //   <div className="p-1 flex justify-center">
+            //     <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
+            //       Live Casino Games
+            //     </button>
+            //   </div>
 
-              <Slider {...settings}>
-                {images.map((img, index) => (
-                  <div key={index} className="">
-                    <img
-                      src={img}
-                      className="w-full p-2 rounded-2xl"
-                      alt={`Slide ${index + 1}`}
-                    />
-                  </div>
-                ))}
-              </Slider>
-            </div>
+            //   <Slider {...settings}>
+            //     {images.map((img, index) => (
+            //       <div key={index} className="">
+            //         <img
+            //           src={img}
+            //           className="w-full p-2 rounded-2xl"
+            //           alt={`Slide ${index + 1}`}
+            //         />
+            //       </div>
+            //     ))}
+            //   </Slider>
+            // </div>
           )}
         </>
         {/* )} */}

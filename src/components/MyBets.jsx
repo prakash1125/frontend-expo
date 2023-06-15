@@ -17,19 +17,19 @@ const MyBets = ({ bets }) => {
         <table className="overflow-scroll border-collapse w-full  text-center">
           <thead>
             <tr>
-              <th className=" text-xs font-bold text-left uppercase  px-2 py-2 text-skin-white ">
+              <th className=" text-xs font-bold text-left uppercase  px-1 pr-1 py-2 text-skin-white ">
                 SELECTION
               </th>
-              <th className=" text-xs font-bold text-left uppercase px-2 py-2 text-skin-white ">
+              <th className=" text-xs font-bold text-left uppercase pr-1 py-2 text-skin-white ">
                 ODDS
               </th>
-              <th className=" text-xs font-bold text-left uppercase px-2 py-2 text-skin-white ">
+              <th className=" text-xs font-bold text-left uppercase pr-1 py-2 text-skin-white ">
                 STAKE
               </th>
-              <th className=" text-xs font-bold text-left uppercase px-2 py-2 text-skin-white ">
+              <th className=" text-xs font-bold text-left uppercase pr-1 py-2 text-skin-white ">
                 P/L
               </th>
-              <th className=" text-xs font-bold text-right    px-2 py-2 text-skin-white ">
+              <th className=" text-xs font-bold text-right    px-1 py-2 text-skin-white ">
                 Time
               </th>
             </tr>
@@ -37,13 +37,13 @@ const MyBets = ({ bets }) => {
           <tbody className="w-full">
             {bets?.length !== 0 &&
               bets?.map((bet, index) => (
-                <tr key={index}>
+                <tr key={index} >
                   <td
                     className={`${
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold text-left px-2  border-y-[1px]  text-white`}
+                    } text-[11px]  font-bold text-left py-1 px-1  border-y-[1px]  text-white`}
                   >
                     {bet?.selection}
                   </td>
@@ -52,7 +52,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2  border-y-[1px]  text-white `}
+                    } text-[11px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
                   >
                     {bet?.odds}
                   </td>
@@ -61,7 +61,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2  border-y-[1px]  text-white `}
+                    } text-[11px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
                   >
                     {bet?.stake}
                   </td>
@@ -70,7 +70,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-left px-2  border-y-[1px] text-white `}
+                    } text-[11px]  font-bold  text-left py-1   border-y-[1px] text-white `}
                   >
                     {Math.round(parseFloat(bet?.odds - 1).toFixed(2) * bet?.stake)}
                   </td>
@@ -79,7 +79,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-xs font-bold  text-right px-2  border-y-[1px] text-white `}
+                    } text-[11px]  font-bold  text-right py-1 px-1  border-y-[1px] text-white `}
                   >
                      {DateTime.fromISO(bet?.createdAt).toFormat(
                               "yyyy-MM-dd HH:mm:ss"
