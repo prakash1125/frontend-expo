@@ -104,4 +104,24 @@ WarningToast.propTypes = {
   msg: PropTypes.string,
 };
 
-// Formatting URL for BreadCrumb
+// Calculate for Bet on Back
+
+export const betOnBack = {
+  profit: (odds, stake) => {
+    return Math.round(parseFloat(odds - 1).toFixed(2) * stake);
+  },
+  lose: (stake) => {
+    return -1 * stake;
+  },
+};
+
+// Calculate for Bet on Lay
+
+export const betOnLay = {
+  lose: (odds, stake) => {
+    return -1 * Math.round(parseFloat(odds - 1).toFixed(2) * stake);
+  },
+  profit: (stake) => {
+    return stake;
+  },
+};

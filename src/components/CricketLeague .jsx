@@ -179,7 +179,6 @@ export const CricketLeague = () => {
             </span>
             {secondRunner}
           </div>
-
           <div className="flex items-center font-bold text-[#eee] mb-2 border bg-[#2EA66A] border-[#eeeeee8c] h-8 p-2 px-5 rounded-md text-xl">
             <Countdown targetDateTime={location?.state?.eventDate} />
           </div>
@@ -250,7 +249,7 @@ export const CricketLeague = () => {
                     eventId={location?.state?.eventId}
                     key={index}
                   />
-                );
+                )
               }
               return null;
             })}

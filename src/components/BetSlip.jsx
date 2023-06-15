@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
+import { betOnBack, betOnLay } from "../utils/helper";
 
 const BetSlip = ({
   closeBetslip,
@@ -17,17 +18,30 @@ const BetSlip = ({
   }, [slipData]);
 
   const handleStakeChange = (value) => {
-    setStake(value);
+    if (slipData?.type === "back") {
+      setStake(-1 * value);
+    } else {
+      setStake(value);
+    }
   };
 
   const handleSpanClick = (spanValue) => {
-    setStake((prevStake) => prevStake + spanValue);
+    // setStake((prevStake) => prevStake + spanValue);
     const val = stake + spanValue;
-    let amount = parseFloat(slipData?.price - 1).toFixed(2) * val;
-    setStakeAmount(amount);
+    if (slipData?.type === "back") {
+      let profit = betOnBack.profit(slipData?.price, val);
+      let lose = betOnBack.lose(val);
+      setStake(lose);
+      setStakeAmount(profit);
+    } else {
+      let lose = betOnLay.lose(slipData?.price, val);
+      let profit = betOnLay.profit(val);
+      console.log(lose, "lose");
+      console.log(profit, "profit");
+      setStakeAmount(lose);
+      setStake(profit);
+    }
   };
-
- 
 
   return (
     <div className="w-full z-0 text-white text-base">
@@ -40,7 +54,7 @@ const BetSlip = ({
       >
         <div className="offer-form flex flex-col items-end">
           <div className="offer-input-group flex gap-2 mt-2 w-[55%]">
-            <Input placeholder="0" value={slipPrice} />
+            <Input placeholder="0" value={slipPrice} setValue={setSlipPrice} />
             <Input
               placeholder="stake"
               value={stake}

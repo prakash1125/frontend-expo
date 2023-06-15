@@ -1,5 +1,6 @@
 import { DateTime } from "luxon";
 import React from "react";
+import { betOnBack } from "../utils/helper";
 
 const MyBets = ({ bets }) => {
   return (
@@ -72,7 +73,8 @@ const MyBets = ({ bets }) => {
                         : "bg-[#E9564D]"
                     } text-[11px]  font-bold  text-left py-1   border-y-[1px] text-white `}
                   >
-                    {Math.round(parseFloat(bet?.odds - 1).toFixed(2) * bet?.stake)}
+        
+                    {Math.round(betOnBack.profit(bet?.odds, bet?.stake))}
                   </td>
                   <td
                     className={`${
