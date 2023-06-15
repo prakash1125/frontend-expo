@@ -4,7 +4,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
 import { placeBet } from "../redux/actions";
-import { betOnBack, betOnLay } from "../utils/helper";
+import { betOnBack, betOnLay, checkOdds } from "../utils/helper";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,13 +18,13 @@ const RunnersCard = ({ market, odds, eventId }) => {
   const [stake, setStake] = useState(null);
   const [eventMarket, setEventMarket] = useState(market);
   const [bookData, setBookData] = useState([]);
+  const [maxLay, setMaxLay] = useState(0);
+  const [maxBack, setMaxBack] = useState(0);
   const myBets = useSelector((state) => state?.GetBet?.allBets);
   const dispatch = useDispatch();
 
+  // For Showing if there any previously placed Betss
   useEffect(() => {
-    // const currentBet = myBets?.find(
-    //   (bet) => bet?.marketId === market?.marketId
-    // );
     let currentBet = {};
     myBets?.forEach((bet) => {
       if (bet?.marketId === market?.marketId) {
@@ -33,7 +33,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
           if (bet?.selectionType === "back") {
             const profit = betOnBack.profit(bet?.odds, bet?.stake);
             const lose = betOnBack.lose(bet?.stake);
-            console.log(profit);
             currentBet[bet.selection] = currentBet[bet.selection] + profit;
             currentBet.stake = currentBet.stake + lose;
           } else {
@@ -48,7 +47,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
           if (bet?.selectionType === "back") {
             const profit = betOnBack.profit(bet?.odds, bet?.stake);
             const lose = betOnBack.lose(bet?.stake);
-            console.log(profit);
             currentBet[bet.selection] = currentBet[bet.selection] + profit;
             currentBet.stake = currentBet.stake + lose;
           } else {
@@ -60,26 +58,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
         }
       }
     });
-    console.log(currentBet, "currentBet");
     setBookData(currentBet);
-    // if (currentBet) {
-    //   let amount;
-    //   let stake;
-    //   if (currentBet?.selectionType === "back") {
-    //     amount = betOnBack.profit(currentBet?.odds, currentBet?.stake);
-    //     stake = betOnBack.lose(currentBet?.stake);
-    //   } else {
-    //     amount = betOnLay.lose(currentBet?.odds, currentBet?.stake);
-    //     stake = betOnLay.profit(currentBet?.stake);
-    //   }
-    //   setBookData({
-    //     type: currentBet?.selectionType,
-    //     amount: amount,
-    //     runner: currentBet?.selection,
-    //     stake: stake,
-    //     marketId: currentBet?.marketId,
-    //   });
-    // }
   }, [myBets, market?.marketId]);
 
   useEffect(() => {
@@ -87,6 +66,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
     setEventMarket(market);
   }, [market]);
 
+  //Handle the Odds Click for place Bet
   const handleOddsClick = (
     price,
     type,
@@ -132,14 +112,20 @@ const RunnersCard = ({ market, odds, eventId }) => {
       marketType: slipData?.marketType,
     };
     if (localStorage?.getItem("token")) {
-      dispatch(
-        placeBet({
-          data,
-          callback: (data) => {
-            if (data?.meta?.code === 200) handleBetSlipClose();
-          },
-        })
+      const status = checkOdds(
+        slipData?.price,
+        slipData?.type,
+        Math.random().toFixed(2)
       );
+      alert(status);
+      // dispatch(
+      //   placeBet({
+      //     data,
+      //     callback: (data) => {
+      //       if (data?.meta?.code === 200) handleBetSlipClose();
+      //     },
+      //   })
+      // );
     } else {
       alert("Please Login to Bet");
     }
@@ -227,7 +213,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             className={`flex text-xs ${
                               !stakeAmount ? "invisible" : ""
                             } ${
-                              bookData?.[runner?.name]
+                              bookData?.[runner?.name] //if this runner already have a placed bet
                                 ? bookData?.[runner?.name] + stakeAmount === 0
                                   ? "text-white"
                                   : bookData?.[runner?.name] + stakeAmount > 0
@@ -249,7 +235,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             className={`flex text-xs ${
                               !stakeAmount ? "invisible" : ""
                             } ${
-                              bookData?.[runner?.name]
+                              bookData?.[runner?.name] //if this runner already have a placed bet
                                 ? bookData?.[runner?.name] + stake === 0
                                   ? "text-white"
                                   : bookData?.[runner?.name] + stake > 0

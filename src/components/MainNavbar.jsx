@@ -7,7 +7,6 @@ import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
 import { LoginModal } from "./LoginModal";
-// import { SignupModal } from "./SignupModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";
 import { ThemeContext } from "../context/ThemeContext";
@@ -15,6 +14,13 @@ import lamp from "../assets/images/lamp.png";
 import lampDark from "../assets/images/lampdark.png";
 import { useDispatch } from "react-redux";
 import { logOut } from "../redux/actions/auth/logoutAction";
+import {
+  getAllSportData,
+  getSport,
+  globalMaketOdds,
+  globalSportData,
+} from "../redux/actions";
+import { socket } from "../context/SocketContext";
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -70,6 +76,87 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
   const [isChangePasswordOpen, setisChangePasswordOpen] = useState(false);
+
+  const [data, setdata] = useState([]);
+  const [allMarkets, setAllMarkets] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const sportData = await new Promise((resolve, reject) => {
+          dispatch(getSport({ callback: resolve, errorCallback: reject }));
+        });
+
+        const allDataPromises = sportData.map(async (data) => {
+          const id = data._id;
+          const res = await new Promise((resolve, reject) => {
+            dispatch(
+              getAllSportData({ id, callback: resolve, errorCallback: reject })
+            );
+          });
+          const sport = {
+            sportName: data.name,
+            sportSlugName: data.slugName,
+            sportsCode: data.sportsCode,
+            sportId: data._id,
+            leagues: [],
+          };
+          if (res.length !== 0) {
+            const leagues = res.map((item) => {
+              const leagues = {
+                leagueId: item._id,
+                leagueCode: item.leagueCode,
+                leagueName: item.name,
+                events: item.events,
+              };
+              item.events?.forEach((data) => {
+                data.markets.forEach((market) => {
+                  const obj = { [market.marketCode]: {} };
+                  allMarketsSet.add(obj);
+                });
+              });
+              return leagues;
+            });
+            sport.leagues = leagues;
+          }
+          return sport;
+        });
+        const allData = await Promise.all(allDataPromises);
+        setAllMarkets(Array.from(allMarketsSet));
+        setdata(allData);
+      } catch (error) {
+        // Handle error
+        console.log(error);
+      }
+    };
+    const allMarketsSet = new Set();
+    setdata([]);
+    fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(globalSportData({ data: data }));
+  }, [data, dispatch]);
+
+  useEffect(() => {
+    dispatch(globalMaketOdds({ data: allMarkets }));
+  }, [allMarkets, dispatch]);
+
+  //Taking realtime socket-Data for market Runners
+  useEffect(() => {
+    allMarkets.forEach((market) => {
+      const socketKey = Object?.keys(market)[0];
+      socket.on(socketKey, (data) => {
+        setAllMarkets((prevDataArray) => {
+          const updatedArray = prevDataArray?.map((val) =>
+            Object.keys(val)[0] === socketKey ? { [socketKey]: data } : val
+          );
+          return updatedArray;
+        });
+      });
+    });
+  }, [allMarkets]);
 
   const closeModal = () => {
     setIsLoginOpen(false);

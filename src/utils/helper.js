@@ -116,7 +116,6 @@ export const betOnBack = {
 };
 
 // Calculate for Bet on Lay
-
 export const betOnLay = {
   lose: (odds, stake) => {
     return -1 * Math.round(parseFloat(odds - 1).toFixed(2) * stake);
@@ -124,4 +123,22 @@ export const betOnLay = {
   profit: (stake) => {
     return stake;
   },
+};
+
+// Bets Validations for odds
+export const checkOdds = (odd, type, limit) => {
+  alert(limit);
+  if (type === "back") {
+    if (odd > limit) {
+      return false;
+    } else {
+      return true;
+    }
+  } else {
+    if (odd < limit) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 };

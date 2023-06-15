@@ -1,26 +1,36 @@
-import React, { useState, useEffect } from "react";
-
 const Input = (props) => {
-  const [value, setValue] = useState(props.value || null);
-
   const decrement = () => {
-    setValue((prevValue) => (prevValue !== null ? prevValue - 1 : null));
+    if (props?.placeholder === "stake") {
+      props?.setValue((prevValue) => {
+        const newValue = prevValue !== null ? prevValue - 1 : 0;
+        return newValue;
+      });
+    } else {
+      props?.setValue((prevValue) => {
+        const decrementedValue = prevValue !== null ? prevValue - 0.01 : 0;
+        const roundedValue = Number(decrementedValue.toFixed(2)); // because of JS floating point precise issue
+        return roundedValue;
+      });
+    }
   };
 
   const increment = () => {
-    setValue((prevValue) => (prevValue !== null ? prevValue + 1 : 0));
+    props.setValue((prevValue) => {
+      if (props?.placeholder === "stake") {
+        const newValue = prevValue !== null ? prevValue + 1 : 0;
+        return newValue;
+      } else {
+        const incrementedValue = prevValue !== null ? prevValue + 0.01 : 0;
+        const roundedValue = Number(incrementedValue.toFixed(2)); // because of JS floating point precise issue
+        return roundedValue;
+      }
+    });
   };
 
   const handleChange = (e) => {
     const newValue = e.target.value;
-    setValue(newValue !== "" ? newValue : null);
+    props.setValue(newValue !== "" ? newValue : null);
   };
-
-  useEffect(() => {
-    if (props.value !== value) {
-      setValue(props.value || null);
-    }
-  }, [props.value, value]);
 
   return (
     <div className="flex rounded-sm mt-1">
@@ -35,7 +45,7 @@ const Input = (props) => {
         type="text"
         className="text-center w-full bg-[#22262A] font-semibold text-md md:text-base flex items-center text-skin-white outline-none"
         name="custom-input-number"
-        value={value !== null ? value : ""}
+        value={props?.value !== null ? props?.value : ""}
         placeholder={props.placeholder}
         onChange={handleChange}
         inputMode="numeric"

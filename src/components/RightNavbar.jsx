@@ -15,6 +15,7 @@ import { getBet } from "../redux/actions";
 
 export const RightNavbar = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
   const myBets = useSelector((state) => state?.GetBet?.allBets);
   const Login = useSelector((state) => state?.Login?.login);
   const newBet = useSelector((state) => state?.PlaceBet);
@@ -35,7 +36,9 @@ export const RightNavbar = () => {
   //Fetching my Bets
 
   useEffect(() => {
-    dispatch(getBet());
+    if (localStorage.getItem("token")) {
+      dispatch(getBet());
+    }
   }, [dispatch, Login, newBet]);
 
   return (
@@ -85,8 +88,8 @@ export const RightNavbar = () => {
           )}
         </div>
 
-        {myBets && myBets.length !== 0 ? (
-          <MyBets bets={myBets} />
+        {location?.state?.hasOwnProperty("eventId") && myBets ? (
+          <MyBets bets={myBets} eventId={location?.state?.eventId} />
         ) : (
           <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
             <div className="p-1 flex justify-center">
