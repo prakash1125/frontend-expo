@@ -31,6 +31,8 @@ export const CricketLeague = () => {
 
   const location = useLocation();
 
+  console.log(location, "locations");
+
   let [categories] = useState({
     All: [
       {
@@ -146,6 +148,9 @@ export const CricketLeague = () => {
 
   useEffect(() => {
     setEventMarkets([]);
+  }, [location?.state?.eventId]);
+
+  useEffect(() => {
     location?.state?.marketArray?.map((market) => {
       return dispatch(
         getRunnerData({
@@ -238,10 +243,10 @@ export const CricketLeague = () => {
           </Tab.List>
           <Tab.Panels className="mt-2">
             {eventMarkets?.map((market, index) => {
-              const odds = globalMarketOddsData.find((odds) =>
+              const odds = globalMarketOddsData?.find((odds) =>
                 Object.keys(odds).includes(market?.marketCode)
               );
-              if (odds && Object.keys(Object.values(odds)[0]).length) {
+              if (odds && Object.keys(Object.values(odds)[0])?.length) {
                 return (
                   <RunnersCard
                     market={market}
@@ -249,9 +254,10 @@ export const CricketLeague = () => {
                     eventId={location?.state?.eventId}
                     key={index}
                   />
-                )
+                );
+              } else {
+                return null;
               }
-              return null;
             })}
           </Tab.Panels>
         </Tab.Group>

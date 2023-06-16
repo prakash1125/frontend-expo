@@ -1,97 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  getSport,
-  getAllSportData,
-  globalSportData,
-  globalMaketOdds,
-} from "../redux/actions";
-import { socket } from "../context/SocketContext";
 
 export const SideNavbar = () => {
-  // ==================================CALLING THE API DATA======================================
 
-  const dispatch = useDispatch();
-
-  const [data, setdata] = useState([]);
-  const [allMarkets, setAllMarkets] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const sportData = await new Promise((resolve, reject) => {
-          dispatch(getSport({ callback: resolve, errorCallback: reject }));
-        });
-
-        const allDataPromises = sportData.map(async (data) => {
-          const id = data._id;
-          const res = await new Promise((resolve, reject) => {
-            dispatch(
-              getAllSportData({ id, callback: resolve, errorCallback: reject })
-            );
-          });
-
-          const sport = {
-            sportName: data.name,
-            sportSlugName: data.slugName,
-            sportsCode: data.sportsCode,
-            sportId: data._id,
-            leagues: [],
-          };
-
-          if (res.length !== 0) {
-            const leagues = res.map((item) => {
-              const leagues = {
-                leagueId: item._id,
-                leagueCode: item.leagueCode,
-                leagueName: item.name,
-                events: item.events,
-              };
-
-              item.events?.forEach((data) => {
-                data.markets.forEach((market) => {
-                  const obj = { [market.marketCode]: {} };
-                  allMarketsSet.add(obj);
-                });
-              });
-
-              return leagues;
-            });
-
-            sport.leagues = leagues;
-          }
-
-          return sport;
-        });
-
-        const allData = await Promise.all(allDataPromises);
-
-        setAllMarkets(Array.from(allMarketsSet));
-        setdata(allData);
-      } catch (error) {
-        // Handle error
-      }
-    };
-
-    const allMarketsSet = new Set();
-    setdata([]);
-    fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(globalSportData({ data: data }));
-  }, [data, dispatch]);
-
-  useEffect(() => {
-    dispatch(globalMaketOdds({ data: allMarkets }));
-  }, [allMarkets, dispatch]);
-
-  // ===============================================================================================
+  let data = useSelector((state) => state.GlobalSportData?.globalSportData);
 
   const [activeIndex, setActiveIndex] = useState(null);
   const [dropdownIndex, setdropdownIndex] = useState(null);
@@ -103,20 +19,6 @@ export const SideNavbar = () => {
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-
-  useEffect(() => {
-    allMarkets.forEach((market) => {
-      const socketKey = Object?.keys(market)[0];
-      socket.on(socketKey, (data) => {
-        setAllMarkets((prevDataArray) => {
-          const updatedArray = prevDataArray?.map((val) =>
-            Object.keys(val)[0] === socketKey ? { [socketKey]: data } : val
-          );
-          return updatedArray;
-        });
-      });
-    });
-  }, [allMarkets]);
 
   return (
     <>

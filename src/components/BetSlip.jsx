@@ -26,8 +26,7 @@ const BetSlip = ({
   };
 
   const handleSpanClick = (spanValue) => {
-    // setStake((prevStake) => prevStake + spanValue);
-    const val = stake + spanValue;
+    const val = Math.abs(stake) + spanValue;
     if (slipData?.type === "back") {
       let profit = betOnBack.profit(slipData?.price, val);
       let lose = betOnBack.lose(val);
@@ -36,8 +35,6 @@ const BetSlip = ({
     } else {
       let lose = betOnLay.lose(slipData?.price, val);
       let profit = betOnLay.profit(val);
-      console.log(lose, "lose");
-      console.log(profit, "profit");
       setStakeAmount(lose);
       setStake(profit);
     }
@@ -57,7 +54,8 @@ const BetSlip = ({
             <Input placeholder="0" value={slipPrice} setValue={setSlipPrice} />
             <Input
               placeholder="stake"
-              value={stake}
+              value={Math.abs(stake)}
+              setValue={setStake}
               onChange={handleStakeChange}
             />
           </div>

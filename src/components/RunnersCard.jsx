@@ -4,7 +4,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
 import { placeBet } from "../redux/actions";
-import { betOnBack, betOnLay } from "../utils/helper";
+import { betOnBack, betOnLay, checkOdds } from "../utils/helper";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -33,7 +33,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
           if (bet?.selectionType === "back") {
             const profit = betOnBack.profit(bet?.odds, bet?.stake);
             const lose = betOnBack.lose(bet?.stake);
-            console.log(profit);
             currentBet[bet.selection] = currentBet[bet.selection] + profit;
             currentBet.stake = currentBet.stake + lose;
           } else {
@@ -48,7 +47,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
           if (bet?.selectionType === "back") {
             const profit = betOnBack.profit(bet?.odds, bet?.stake);
             const lose = betOnBack.lose(bet?.stake);
-            console.log(profit);
             currentBet[bet.selection] = currentBet[bet.selection] + profit;
             currentBet.stake = currentBet.stake + lose;
           } else {
@@ -115,14 +113,20 @@ const RunnersCard = ({ market, odds, eventId }) => {
       marketType: slipData?.marketType,
     };
     if (localStorage?.getItem("token")) {
-      dispatch(
-        placeBet({
-          data,
-          callback: (data) => {
-            if (data?.meta?.code === 200) handleBetSlipClose();
-          },
-        })
+      const status = checkOdds(
+        slipData?.price,
+        slipData?.type,
+        Math.random().toFixed(2)
       );
+      alert(status);
+      // dispatch(
+      //   placeBet({
+      //     data,
+      //     callback: (data) => {
+      //       if (data?.meta?.code === 200) handleBetSlipClose();
+      //     },
+      //   })
+      // );
     } else {
       alert("Please Login to Bet");
     }
