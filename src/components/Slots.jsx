@@ -324,7 +324,7 @@ export const Slots = () => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
+        <Tab.List className="flex gap-2 rounded-xl  p-1 scroll-x">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
@@ -360,7 +360,7 @@ export const Slots = () => {
                         <div className="slots-title text-xl text-left font-medium mb-0.5">
                           {post.title}
                         </div>
-                        <div className="slots-gamePlace text-sm bg-[#22262a] cursor-pointer hover:bg-[#4c555e] px-5 py-3 rounded-md w-28">
+                        <div className="slots-gamePlace text-sm bg-[#22262a] cursor-pointer hover:bg-[#4c555e] px-5 py-3 my-2 rounded-md w-28">
                           <a className=" " href="#">
                             {truncate(post.gamePlace, 10)}
                           </a>

@@ -2,8 +2,8 @@ import React from "react";
 
 const Events = () => {
   return (
-    <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b border-mainbg">
-      <div className=" flex items-center flex-1  cursor-pointer select-none">
+    <div className=" py-[10px] mb-[2px] border-b border-mainbg">
+      <div className=" flex items-center   cursor-pointer select-none">
         <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
           <a href="#" className="rounded-full relative block">
             <img

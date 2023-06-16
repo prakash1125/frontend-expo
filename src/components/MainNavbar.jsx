@@ -19,7 +19,7 @@ import { logOut } from "../redux/actions/auth/logoutAction";
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
   { name: "IN-PLAY", href: "/in-play", current: false },
-  { name: "IPL CLUB", href: "/indian-premier-league", current: false },
+  // { name: "IPL CLUB", href: "/indian-premier-league", current: false },
   { name: "INDIAN CASINO", href: "/indian-casino", current: false },
   { name: "LIVE CASINO", href: "/live-casino", current: false },
   { name: "SLOTS", href: "/slots", current: false },
@@ -120,25 +120,35 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
       >
         {({ open }) => (
           <>
-            <div className="px-2 sm:px-6 lg:px-6 mx-auto  max-w-[1440px]">
+            <div className="px-2  mx-auto  max-w-[1440px]">
               <div
                 className="relative flex items-center justify-between
-             gap-3"
+             sm:gap-3 gap-1"
               >
-                <div
+
+                {/* Mobile Navbar Toggle Button */}
+                {/* <div
                   className={`text-skin-white  ${
                     toggle ? "text-[20px]" : "text-[20px]"
                   }  lg:hidden`}
                   onClick={() => setToggle(!toggle)}
                 >
                   {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
-                </div>
+                </div> */}
 
+              
                 <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
-                  <div className="flex flex-shrink-0 items-center ">
+                  <div className="flex items-center ">
                     <Link to="/">
+
                       <img
-                        className="block h-8 w-full lg:hidden"
+                        className=" h-8 w-full md:hidden "
+                        src="https://sportsexch.com/images/logo/main.png"
+                        alt="Your Company"
+                      />
+
+                      <img
+                        className="md:block h-9 w-full lg:hidden hidden"
                         src="https://sportsexch.com/images/logo/main.png"
                         alt="Your Company"
                       />
@@ -147,9 +157,14 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                         src="https://sportsexch.com/images/logo/main.png"
                         alt="Your Company"
                       />
+
+
+
                     </Link>
                   </div>
-                  <div className="hidden sm:ml-6 lg:block">
+
+                  {/* Navbar Links */}
+                  <div className="hidden ml-11 lg:block">
                     <div className="flex h-full items-center">
                       {navigation.map((item) => (
                         <Link
@@ -157,7 +172,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           to={item.href}
                           className={classNames(
                             item.href == currentRoute &&
-                              "bg-skin-cardhead text-skin-white ",
+                            "bg-skin-cardhead text-skin-white ",
                             "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -170,38 +185,37 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div>
 
 
-              {/* THEME TOGGLE */}
+                {/* THEME TOGGLE */}
                 <button
-                    onClick={handleThemeClick}
-                    type="button"
-                    className="  font-semibold  text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
-                  >
-                    {theme ? (
-                      <img
-                        className="hover:brightness-90 w-7"
-                        src={lampDark}
-                      ></img>
-                    ) : (
-                      <img
-                        className=" hover:brightness-95 w-7"
-                        src={lamp}
-                      ></img>
-                    )}
-                  </button>
+                  onClick={handleThemeClick}
+                  type="button"
+                  className="  font-semibold  text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
+                >
+                  {theme ? (
+                    <img
+                      className="hover:brightness-90 w-6 lg:w-7"
+                      src={lampDark}
+                    ></img>
+                  ) : (
+                    <img
+                      className=" hover:brightness-95 w-6 lg:w-7"
+                      src={lamp}
+                    ></img>
+                  )}
+                </button>
 
 
                 {/* AFTER LOGIN */}
                 {loggedIn && (
-                  <div className="flex gap-1.5 items-center relative">
+                  <div className="flex gap-1.5 py-2 lg:p-0  items-center relative">
                     {loginRightMenu.map((element, index) => {
                       return (
                         <Link
                           key={index}
                           to={element.href}
                           type="button"
-                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${
-                            element.name === "D" ? "1f4d34" : "bg-sky-900"
-                          }`}
+                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
+                            }`}
                         >
                           {element.name}
                         </Link>
@@ -223,7 +237,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       </button>
                     </div>
                     {isDropdownOpen && (
-                      <div className="w-64 absolute rounded-md top-12 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md divide-y">
+                      <div className="w-64 absolute rounded-md top-12 right-1 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm divide-y">
                         <div className="text-center text-skin-white  font-bold py-3 divide-y">
                           Wallet Active
                           <div className="tabs flex mx-2.5 my-1.5">
@@ -268,15 +282,15 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       <FaUser />
                     </button>
                     {isProfileOpen && (
-                      <div className="w-64 absolute top-12 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-md rounded ">
+                      <div className="w-64 absolute top-12 right-1 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm rounded ">
                         {profileMenu.map((element, index) => (
                           <Link
                             onClick={
                               element.list === "Logout"
                                 ? handleLogout
                                 : element?.modal
-                                ? () => handleModal(element?.list)
-                                : undefined
+                                  ? () => handleModal(element?.list)
+                                  : undefined
                             }
                             to={element.href}
                             className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"
@@ -296,21 +310,22 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 )}
 
                 {/* BEFORE LOGIN */}
-                <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
-                  
-                  {!loggedIn && (
-                    <button
-                      onClick={() => {
-                        setIsLoginOpen(true);
-                      }}
-                      type="button"
-                      className="font-semibold p-2 text-xs text-skin-navtext hover:text-skin-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                    >
-                      LOG IN
-                    </button>
-                  )}
+                {/* <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2"> */}
 
-                  {/* <button
+                {!loggedIn && (
+                  <button
+                    onClick={() => {
+                      setIsLoginOpen(true);
+                    }}
+                    type="button"
+                    className="font-semibold p-2 py-3 text-xs text-skin-navtext hover:text-skin-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    LOG IN
+                  </button>
+
+                )}
+
+                {/* <button
                     onClick={() => { setIsSignupOpen(true); }}
                     type="button"
                     className="p-3 px-4 font-semibold rounded-md hover:bg-[#0D8247] bg-[#169c59] text-xs text-skin-navtext  focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
@@ -320,7 +335,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   {isSignupOpen && (
                     <SignupModal className="z-50" closeModal={closeModal} />
                   )} */}
-                </div>
+                {/* </div> */}
               </div>
             </div>
 

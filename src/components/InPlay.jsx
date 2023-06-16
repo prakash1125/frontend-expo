@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Tab } from "@headlessui/react";
 import { useSelector } from "react-redux";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -15,17 +16,54 @@ export const InPlay = () => {
   let sportsArray = globalStateData?.globalSportData;
   // ============================================================================================
 
+
+  const breakpoints = {
+    // Define breakpoints based on your design requirements
+    sm: 300, // Small screens (e.g., smartphones)
+    md: 768, // Medium screens (e.g., tablets)
+    lg: 1024, // Large screens (e.g., laptops, desktops)
+    xl: 1280, // Extra-large screens (e.g., large desktops, wide screens)
+  };
+
+  const slidesPerView = {
+    sm: 4, // Show 1 slide on small screens
+    md: 10, // Show 2 slides on medium screens
+    lg: 6, // Show 3 slides on large screens
+    xl: 10, // Show 4 slides on extra-large screens
+  };
+
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
+      <Swiper
+          spaceBetween={5}
+          breakpoints={{
+            // Define breakpoints and number of slides per view
+            [breakpoints.sm]: {
+              slidesPerView: slidesPerView.sm,
+            },
+            [breakpoints.md]: {
+              slidesPerView: slidesPerView.md,
+            },
+            [breakpoints.lg]: {
+              slidesPerView: slidesPerView.lg,
+            },
+            [breakpoints.xl]: {
+              slidesPerView: slidesPerView.xl,
+            },
+          }}
+        >
         <Tab.List className="flex gap-1 scroll-x">
+
           {sportsArray?.map((category, index) => (
+          <SwiperSlide>
+
             <Tab
               key={category}
               onClick={() => setCategoryId(index)}
               className={({ selected }) =>
                 classNames(
-                  " h-[52px] justify-center text-center rounded-md text-xs min-w-[85px] font-semibold ",
+                  " h-[52px] justify-center text-center rounded-md text-xs w-full font-semibold ",
                   "  ",
                   selected
                     ? "bg-skin-imgbg  font-semibold duration-200 "
@@ -40,12 +78,14 @@ export const InPlay = () => {
                   categoryId !== index && "invert"
                 } object-cover  w-5 sidebar `}
               ></img>
-              <div className=" inline-block overflow-x-hidden w-16  whitespace-nowrap ">
+              <div className=" inline-block overflow-x-hidden w-16 text-[11px] whitespace-nowrap ">
                 {category?.sportName}
               </div>
             </Tab>
+           </SwiperSlide> 
           ))}
         </Tab.List>
+        </Swiper>
         <div className="mt-2 p-2 text-sm rounded-md w-full bg-skin-nav text-skin-secondary font-semibold ">
           There is a no match available at this time in{" "}
           <span className="text-green-600">InPlay.</span>

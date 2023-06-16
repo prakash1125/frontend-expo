@@ -39,8 +39,8 @@ export const RightNavbar = () => {
   }, [dispatch, Login, newBet]);
 
   return (
-    <div className="overflow-y-auto h-[100vh] px-2 scrollbar-hide overflow-x-hidden">
-      <ul>
+    <div className="overflow-y-auto px-2 pr-0 h-[100vh] scrollbar-hide overflow-x-hidden">
+      <ul className="">
         {/* {!isIndianPremierLeague && (
         <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
           <div className="p-1 flex justify-center">
@@ -62,24 +62,24 @@ export const RightNavbar = () => {
           </Slider>
         </div>
       )} */}
- 
+
         {/* {location.pathname === "/indian-premier-league" && ( */}
         <>
           <div className=" mx-auto bg-skin-nav  rounded-sm my-2">
             <div className="p-1 flex justify-center">
               <button
                 onClick={handleLiveTVClick}
-                className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
+                className="flex justify-center items-center text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold"
               >
                 <span>Live TV</span>
               </button>
             </div>
 
             {isLive && (
-              <div className="live-matches px-3 py-2 transition-transform duration-2000">
-                <div className="bg-[#000] text-center pt-5 h-64 w-full rounded">
-                  <span className="text-2xl font-extrabold text-[#d3d3d3]">
-                    Match Not live
+              <div className="live-matches px-3 py-2 ">
+                <div className="bg-[#000] text-center pt-5 h-64 rounded">
+                  <span className="text-2xl font-bold text-[#d3d3d3]">
+                    Match Is Not live
                   </span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export const RightNavbar = () => {
 
         <div className=" mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
           <div className="p-1 flex justify-center">
-            <button className=" text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold">
+            <button className=" text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold">
               Popular Events
             </button>
           </div>

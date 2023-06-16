@@ -18,13 +18,13 @@ const RunnersCard = ({ market, odds, eventId }) => {
   const [stake, setStake] = useState(null);
   const [eventMarket, setEventMarket] = useState(market);
   const [bookData, setBookData] = useState([]);
+  const [maxLay, setMaxLay] = useState(0);
+  const [maxBack, setMaxBack] = useState(0);
   const myBets = useSelector((state) => state?.GetBet?.allBets);
   const dispatch = useDispatch();
 
+  // For Showing if there any previously placed Betss
   useEffect(() => {
-    // const currentBet = myBets?.find(
-    //   (bet) => bet?.marketId === market?.marketId
-    // );
     let currentBet = {};
     myBets?.forEach((bet) => {
       if (bet?.marketId === market?.marketId) {
@@ -60,26 +60,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
         }
       }
     });
-    console.log(currentBet, "currentBet");
     setBookData(currentBet);
-    // if (currentBet) {
-    //   let amount;
-    //   let stake;
-    //   if (currentBet?.selectionType === "back") {
-    //     amount = betOnBack.profit(currentBet?.odds, currentBet?.stake);
-    //     stake = betOnBack.lose(currentBet?.stake);
-    //   } else {
-    //     amount = betOnLay.lose(currentBet?.odds, currentBet?.stake);
-    //     stake = betOnLay.profit(currentBet?.stake);
-    //   }
-    //   setBookData({
-    //     type: currentBet?.selectionType,
-    //     amount: amount,
-    //     runner: currentBet?.selection,
-    //     stake: stake,
-    //     marketId: currentBet?.marketId,
-    //   });
-    // }
   }, [myBets, market?.marketId]);
 
   useEffect(() => {
@@ -87,6 +68,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
     setEventMarket(market);
   }, [market]);
 
+  //Handle the Odds Click for place Bet
   const handleOddsClick = (
     price,
     type,
@@ -122,6 +104,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
 
   //To place the Bet
   const handlePlaceBet = () => {
+   
     const data = {
       eventId: eventId,
       stake: Math.abs(stake),
@@ -153,7 +136,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       >
         <div className="flex items-center">
           <div className="flex items-center text-sm text-skin-secondary font-medium">
-            <span>{eventMarket?.marketName}</span> <span className="font-extrabold text-4xl pb-5 pl-2 text-green-600">.</span>
+            {eventMarket?.marketName}
           </div>
         </div>
         <div className="flex items-center space-x-8 px-1">
@@ -209,7 +192,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             {Math.abs(bookData?.stake)}
                           </span>
                         )}
-
                         <span
                           className={`flex text-xs ${
                             !stakeAmount ? "invisible" : ""
@@ -227,7 +209,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             className={`flex text-xs ${
                               !stakeAmount ? "invisible" : ""
                             } ${
-                              bookData?.[runner?.name]
+                              bookData?.[runner?.name] //if this runner already have a placed bet
                                 ? bookData?.[runner?.name] + stakeAmount === 0
                                   ? "text-white"
                                   : bookData?.[runner?.name] + stakeAmount > 0
@@ -249,7 +231,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             className={`flex text-xs ${
                               !stakeAmount ? "invisible" : ""
                             } ${
-                              bookData?.[runner?.name]
+                              bookData?.[runner?.name] //if this runner already have a placed bet
                                 ? bookData?.[runner?.name] + stake === 0
                                   ? "text-white"
                                   : bookData?.[runner?.name] + stake > 0
@@ -279,11 +261,13 @@ const RunnersCard = ({ market, odds, eventId }) => {
                           0
                         </span>
                         <span
-                          className={`flex text-xs ${!stakeAmount ? "invisible" : ""
-                            } ${slipData?.type === "lay"
+                          className={`flex text-xs ${
+                            !stakeAmount ? "invisible" : ""
+                          } ${
+                            slipData?.type === "lay"
                               ? "text-red-500"
                               : "text-green-600"
-                            }`}
+                          }`}
                         >
                           {`>`}
                         </span>
@@ -315,9 +299,8 @@ const RunnersCard = ({ market, odds, eventId }) => {
                         )}
                       </div>
                     )}
-
                   </div>
-                  <div className="flex items-center gap-1 w-[55%] rounded-md">
+                  <div className="flex justify-end gap-1 w-[55%] rounded-md">
                     {currentMarket?.ex?.availableToBack
                       ?.slice()
                       ?.reverse()
@@ -335,8 +318,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[30%] ${index === 2 ? "text-skin-blue" : "text-white"
-                              } font-bold bg-skin-cardhead rounded-b-md`}
+                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md min-w-[70px] ${
+                              index === 2 ? "text-skin-blue " : "text-white hidden md:block  "
+                            } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
                               {back?.price ? back?.price : "-"}
@@ -364,8 +348,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[30%] ${index === 0 ? "text-skin-pink" : "text-white"
-                              } font-bold bg-skin-cardhead rounded-b-md`}
+                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md min-w-[70px] ${
+                              index === 0 ? "text-skin-pink " : "text-white hidden md:block  "
+                            } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
                               {lay?.price ? lay?.price : "-"}
@@ -377,23 +362,21 @@ const RunnersCard = ({ market, odds, eventId }) => {
                         );
                       })}
                   </div>
-
                 </div>
-                {currentMarket?.selectionId === slipData?.selectionId && isBetSlipOpen ? (
-                  <BetSlip
-                    closeBetslip={setIsBetSlipOpen}
-                    slipData={slipData}
-                    setStakeAmount={setStakeAmount}
-                    stake={stake}
-                    setStake={setStake}
-                    clearBetSlip={handleClearClick}
-                    handlePlaceBet={handlePlaceBet}
-                  />
-                ) : ''}
               </React.Fragment>
             );
           })}
-
+          {isBetSlipOpen && (
+            <BetSlip
+              closeBetslip={handleBetSlipClose}
+              slipData={slipData}
+              setStakeAmount={setStakeAmount}
+              stake={stake}
+              setStake={setStake}
+              clearBetSlip={handleClearClick}
+              handlePlaceBet={handlePlaceBet}
+            />
+          )}
         </div>
       )}
     </div>

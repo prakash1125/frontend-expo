@@ -150,7 +150,7 @@ export const SideNavbar = () => {
               </div>
               {item?.sportName ? (
                 <div className="flex items-center gap-3">
-                  <span className="flex justify-center bg-skin-imgbg rounded-sm w-5 h-4 rounded-xs font-semibold text-xs">
+                  <span className="flex justify-center bg-skin-imgbg rounded-sm w-6 h-4 rounded-xs font-semibold text-xs">
                     {item?.leagues ? item?.leagues?.length : 0}
                   </span>
                   <h5 className=" text-sm justify-center text-skin-secondary  cursor-pointer">

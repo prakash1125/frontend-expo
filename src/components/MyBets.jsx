@@ -18,19 +18,19 @@ const MyBets = ({ bets }) => {
         <table className="overflow-scroll border-collapse w-full  text-center">
           <thead>
             <tr>
-              <th className=" text-xs font-bold text-left uppercase  px-1 pr-1 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-left uppercase  pl-1 pr-2 py-2 text-skin-white ">
                 SELECTION
               </th>
-              <th className=" text-xs font-bold text-left uppercase pr-1 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-2 text-skin-white ">
                 ODDS
               </th>
-              <th className=" text-xs font-bold text-left uppercase pr-1 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-2 text-skin-white ">
                 STAKE
               </th>
-              <th className=" text-xs font-bold text-left uppercase pr-1 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-right uppercase  py-2 text-skin-white ">
                 P/L
               </th>
-              <th className=" text-xs font-bold text-right    px-1 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-right    pr-1 py-2 text-skin-white ">
                 Time
               </th>
             </tr>
@@ -44,7 +44,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-[11px]  font-bold text-left py-1 px-1  border-y-[1px]  text-white`}
+                    } text-[11.5px]  font-bold text-left py-1 pl-1 border-y-[1px]  text-white`}
                   >
                     {bet?.selection}
                   </td>
@@ -53,7 +53,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-[11px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
+                    } text-[11.5px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
                   >
                     {bet?.odds}
                   </td>
@@ -62,7 +62,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-[11px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
+                    } text-[11.5px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
                   >
                     {bet?.stake}
                   </td>
@@ -71,7 +71,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-[11px]  font-bold  text-left py-1   border-y-[1px] text-white `}
+                    } text-[11.5px]  font-bold  text-right py-1   border-y-[1px] text-white `}
                   >
         
                     {Math.round(betOnBack.profit(bet?.odds, bet?.stake))}
@@ -81,7 +81,7 @@ const MyBets = ({ bets }) => {
                       bet?.selectionType === "back"
                         ? "bg-[#008EFB]"
                         : "bg-[#E9564D]"
-                    } text-[11px]  font-bold  text-right py-1 px-1  border-y-[1px] text-white `}
+                    } text-[11.5px]  font-bold  text-right py-1 pr-1 border-y-[1px] text-white `}
                   >
                      {DateTime.fromISO(bet?.createdAt).toFormat(
                               "yyyy-MM-dd HH:mm:ss"

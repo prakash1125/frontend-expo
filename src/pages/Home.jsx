@@ -11,7 +11,7 @@ export const HomePage = () => {
           <Home />
           <Footer />
         </div>
-        <div className=" hidden lg:flex lg:flex-col ">
+        <div className=" hidden lg:flex lg:flex-col lg:basis-2/6 ">
         {/* <div className="px-2 z-0 hidden md:block w-1/4  "> */}
           <RightNavbar />
         {/* </div> */}

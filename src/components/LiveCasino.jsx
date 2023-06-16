@@ -1808,16 +1808,16 @@ export const LiveCasino = () => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-md overflow-x-scroll scroll-x  ">
+        <Tab.List className="flex gap-2  rounded-md overflow-x-scroll scroll-x  ">
           {Object.keys(categories).map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
                 classNames(
-                  " rounded-md    px-4 py-1.5 text-xs font-medium  ",
+                  " rounded-md px-4 py-1.5 text-xs font-medium  ",
                   "  ",
                   selected
-                    ? "bg-skin-imgbg "
+                    ? "bg-skin-imgbg  "
                     : "text-skin-secondary bg-skin-cardhead hover:bg-skin-cardhead hover:text-skin-white"
                 )
               }
