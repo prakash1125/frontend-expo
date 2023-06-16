@@ -6,13 +6,14 @@ import { SideNavbar } from "../components/SideNavbar";
 import { Sports } from "../components/Sports";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
+import { Chatbot } from "../components/Chatbot";
 
 export const Layout = () => {
   const [toggle, setToggle] = useState(true);
   const [isAboveXl, setisAbovexl] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 1024) {
+      if (window.innerWidth < 1024) {
         // Show on mobile and tablet screens (max-width: 768px)
         setToggle(false);
         setisAbovexl(false);
@@ -30,7 +31,9 @@ export const Layout = () => {
     };
   }, []);
   return (
+    
     <div className="bg-skin-main  h-[100vh] overflow-y-hidden ">
+      <Chatbot />
       <div className={` mx-auto w-full `}>
         {
           <MainNavbar
@@ -40,7 +43,7 @@ export const Layout = () => {
           />
         }
       </div>
-      <div className={`container drop-shadow-md  mx-auto  max-w-[1440px] `}>
+      <div className={` drop-shadow-md  mx-auto  max-w-[1440px] `}>
         <div className="">
           <div className="flex ">
             {toggle ? (
@@ -52,7 +55,7 @@ export const Layout = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-6 lg:hidden ">
+      <div className=" mx-auto px-6 lg:hidden ">
         <MobileNavbar />
       </div>
 

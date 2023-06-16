@@ -373,8 +373,7 @@ export const IndianCasino = () => {
         </div>
       </div>
 
-      {/* footer */}
-      <Footer />
+    
     </>
   );
 };

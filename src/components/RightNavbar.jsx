@@ -14,6 +14,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBet } from "../redux/actions";
 
 export const RightNavbar = () => {
+
+  let globalStateData = useSelector((state) => state?.GlobalSportData);
+  const cricketData = globalStateData?.globalSportData;
+
   const dispatch = useDispatch();
   const location = useLocation();
   const myBets = useSelector((state) => state?.GetBet?.allBets);
@@ -42,7 +46,7 @@ export const RightNavbar = () => {
   }, [dispatch, Login, newBet]);
 
   return (
-    <div className="overflow-y-auto px-2 pr-0 h-[100vh] scrollbar-hide overflow-x-hidden">
+    <div className="overflow-y-auto px-2 pr-0 h-[95vh] justify-start flex scrollbar-hide overflow-x-hidden">
       <ul className="">
         {/* {!isIndianPremierLeague && (
         <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
@@ -68,7 +72,7 @@ export const RightNavbar = () => {
 
       {/* {location.pathname === "/indian-premier-league" && ( */}
       <>
-      <div className=" mx-auto bg-skin-nav  rounded-sm my-2">
+      <div className=" mx-auto bg-skin-nav    rounded-md my-2">
             <div className="p-1 flex justify-center">
               <button
                 onClick={handleLiveTVClick}
@@ -92,7 +96,7 @@ export const RightNavbar = () => {
         {location?.state?.hasOwnProperty("eventId") && myBets ? (
           <MyBets bets={myBets} eventId={location?.state?.eventId} />
         ) : (
-          <div className="w-[287px]  bg-skin-nav  rounded-md mt-2">
+          <div className="w-[291px]  bg-skin-nav  rounded-md mt-2">
             <div className="p-1 flex justify-center">
               <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
                 Live Casino Games
@@ -121,11 +125,11 @@ export const RightNavbar = () => {
               Popular Events
             </button>
           </div>
-          <Events />
-          <Events />
-          <Events />
-          <Events />
-          <Events />
+          {cricketData?.map((element) =>
+                    element?.leagues?.map(
+                        (j) => <Events league={j}/>
+                    )
+                )}
         </div>
       </ul>
     </div>

@@ -6,8 +6,7 @@ import Footer from "../components/Footer";
 export const HomePage = () => {
   return (
     <>
-      <Chatbot />
-        <div className="w-full  md:p-2 overflow-y-scroll scrollbar-hide h-[91vh] ">
+        <div className="w-full lg:p-2 p-1 overflow-y-scroll scrollbar-hide h-[91vh] ">
           <Home />
           <Footer />
         </div>

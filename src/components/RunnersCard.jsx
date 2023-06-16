@@ -367,20 +367,20 @@ const RunnersCard = ({ market, odds, eventId }) => {
                       })}
                   </div>
                 </div>
+                {currentMarket?.selectionId === slipData?.selectionId && isBetSlipOpen ? (
+                  <BetSlip
+                    closeBetslip={handleBetSlipClose}
+                    slipData={slipData}
+                    setStakeAmount={setStakeAmount}
+                    stake={stake}
+                    setStake={setStake}
+                    clearBetSlip={handleClearClick}
+                    handlePlaceBet={handlePlaceBet}
+                  />
+                ) : ''}
               </React.Fragment>
             );
           })}
-          {isBetSlipOpen && (
-            <BetSlip
-              closeBetslip={handleBetSlipClose}
-              slipData={slipData}
-              setStakeAmount={setStakeAmount}
-              stake={stake}
-              setStake={setStake}
-              clearBetSlip={handleClearClick}
-              handlePlaceBet={handlePlaceBet}
-            />
-          )}
         </div>
       )}
     </div>

@@ -43,75 +43,71 @@ const BetSlip = ({
   return (
     <div className="w-full z-0 text-white text-base">
       <div
-        className={` border-y-[3px] ${
+        className={` border-y-[3px] w-auto ${
           slipData?.type === "lay"
             ? "border-[#eb4d4da4] bg-[#372A2D]"
             : "border-[#0F60A0] bg-[#1F3140]"
         }  pr-2`}
       >
         <div className="offer-form flex flex-col items-end">
-          <div className="offer-input-group flex gap-2 mt-2 w-[55%]">
+          <div className="offer-input-group flex ml-2 gap-2 mt-2 lg:w-[70%] w-auto">
             <Input placeholder="0" value={slipPrice} setValue={setSlipPrice} />
-            <Input
-              placeholder="stake"
-              value={Math.abs(stake)}
-              setValue={setStake}
-              onChange={handleStakeChange}
+            <Input placeholder="stake" value={Math.abs(stake)} setValue={setStake} onChange={handleStakeChange}
             />
           </div>
-          <div className="default-stake mt-3">
-            <div className="stake flex">
+          <div className="default-stake mt-1 w-full">
+            <div className="grid grid-cols-3 w-full gap-1 pl-2 md:flex md:flex-wrap md:justify-end ">
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(100)}
               >
                 <span>100</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(1000)}
               >
                 <span>1,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(2000)}
               >
                 <span>2,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(5000)}
               >
                 <span>5,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(10000)}
               >
                 <span>10,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(20000)}
               >
                 <span>20,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(50000)}
               >
                 <span>50,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mr-1"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(100000)}
               >
                 <span>100,000</span>
               </span>
               <span
                 onClick={() => clearBetSlip()}
-                className="bg-[#DADADA] text-[#1c1c1c] rounded-md cursor-pointer px-4 py-1 text-center font-medium"
+                className="bg-[#DADADA] text-[#1c1c1c] rounded-md mt-2 cursor-pointer px-4 py-1 text-center font-medium"
               >
                 Clear
               </span>

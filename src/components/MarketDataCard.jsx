@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -17,7 +18,7 @@ const MarketData = ({ league }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   return (
-    <div className="rounded-md  w-full bg-skin-nav drop-shadow-md">
+    <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
@@ -31,9 +32,9 @@ const MarketData = ({ league }) => {
           <div className="flex text-sm font-bold text-skin-primary">
             {league?.events?.length}
             {isDropdownOpen ? (
-              <RiArrowUpSLine className="ml-2 text-xl m-auto" />
+              <IoIosArrowUp className="ml-2 text-lg  m-auto" />
             ) : (
-              <IoIosArrowDown className="ml-2 text-lg  m-auto" />
+              <IoIosArrowDown className="ml-2 text-lg   m-auto" />
             )}
           </div>
         </div>
@@ -57,8 +58,8 @@ const MarketData = ({ league }) => {
                   marketArray: event?.markets,
                 }}
               >
-                <div className="xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
-                  <div className="  flex items-center flex-1  cursor-pointer select-none">
+                <div className="md:flex lg:block xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
+                  <div className="flex items-center flex-1  cursor-pointer select-none">
                     <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
                       <a href="#js" className="rounded-full relative block">
                         <img
@@ -101,7 +102,7 @@ const MarketData = ({ league }) => {
                     </div>
                   </div>
 
-                  <div className="w-[100%] xl:w-[45%] flex ">
+                  <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 xl:w-[45%] flex ">
                     {(() => {
                       // Code logic inside the IIFE
                       if (matchOdds) {
