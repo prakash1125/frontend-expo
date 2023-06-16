@@ -1,10 +1,12 @@
 const Input = (props) => {
   const decrement = () => {
     if (props?.placeholder === "stake") {
-      props?.setValue((prevValue) => {
-        const newValue = prevValue !== null ? prevValue - 1 : 0;
-        return newValue;
-      });
+      if (props.value > 0) {
+        props?.setValue((prevValue) => {
+          const newValue = prevValue !== null ? prevValue - 1 : 0;
+          return newValue;
+        });
+      }
     } else {
       props?.setValue((prevValue) => {
         const decrementedValue = prevValue !== null ? prevValue - 0.01 : 0;
