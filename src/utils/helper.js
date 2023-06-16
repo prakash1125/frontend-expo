@@ -104,10 +104,21 @@ WarningToast.propTypes = {
   msg: PropTypes.string,
 };
 
+//To Find odds for the runner in Market From the API data emit by Socket
+
+export const findRunnerOdds = (odds, runnerCode) => {
+  const currentodd = Object.values(odds)[0]?.runners.find((odd) => {
+    const data = parseFloat(odd?.selectionId) === parseFloat(runnerCode);
+    return data;
+  });
+  return currentodd;
+};
+
 // Calculate for Bet on Back
 
 export const betOnBack = {
   profit: (odds, stake) => {
+    console.log(odds, stake);
     return Math.round(parseFloat(odds - 1).toFixed(2) * stake);
   },
   lose: (stake) => {
@@ -126,19 +137,41 @@ export const betOnLay = {
 };
 
 // Bets Validations for odds
-export const checkOdds = (odd, type, limit) => {
-  alert(limit);
+export const checkOdds = (odd, type, oddsObj) => {
+  // oddsObj contains lay, and back arrays
   if (type === "back") {
-    if (odd > limit) {
+    const limit = findMaxFromArrayOfObjects(oddsObj?.availableToBack);
+    console.log(limit?.price);
+    console.log(odd);
+    if (odd > limit?.price) {
       return false;
     } else {
       return true;
     }
   } else {
-    if (odd < limit) {
-      return true;
-    } else {
+    const limit = findMinFromArrayOfObjects(oddsObj?.availableToLay);
+    if (odd < limit?.price) {
       return false;
+    } else {
+      return true;
     }
   }
 };
+
+//Find the greatest value from array of objects
+const findMaxFromArrayOfObjects = (array) => {
+  let maxObject = array.reduce(function (previous, current) {
+    return previous.price > current.price ? previous : current;
+  });
+  return maxObject;
+};
+
+//Find the Minimum value from array of objects
+const findMinFromArrayOfObjects = (array) => {
+  let maxObject = array.reduce(function (previous, current) {
+    return previous.price < current.price ? previous : current;
+  });
+  return maxObject;
+};
+
+export { findMaxFromArrayOfObjects, findMinFromArrayOfObjects }; // because this function used in this same file also

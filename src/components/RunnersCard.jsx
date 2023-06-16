@@ -4,7 +4,13 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
 import { placeBet } from "../redux/actions";
-import { betOnBack, betOnLay, checkOdds } from "../utils/helper";
+import {
+  betOnBack,
+  betOnLay,
+  checkOdds,
+  findMaxFromArrayOfObjects,
+  findRunnerOdds,
+} from "../utils/helper";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -102,31 +108,32 @@ const RunnersCard = ({ market, odds, eventId }) => {
 
   //To place the Bet
   const handlePlaceBet = () => {
-   
-    const data = {
-      eventId: eventId,
-      stake: Math.abs(stake),
-      selectionType: slipData?.type,
-      odds: slipData?.price,
-      marketId: slipData?.marketId,
-      selection: slipData?.selectionName,
-      marketType: slipData?.marketType,
-    };
     if (localStorage?.getItem("token")) {
-      const status = checkOdds(
-        slipData?.price,
-        slipData?.type,
-        Math.random().toFixed(2)
-      );
+      const betdOdds = findRunnerOdds(odds, slipData?.selectionId);
+      const status = checkOdds(slipData?.price, slipData?.type, betdOdds?.ex);
       alert(status);
-      // dispatch(
-      //   placeBet({
-      //     data,
-      //     callback: (data) => {
-      //       if (data?.meta?.code === 200) handleBetSlipClose();
-      //     },
-      //   })
-      // );
+      if (status) {
+        const data = {
+          eventId: eventId,
+          stake: Math.abs(stake),
+          selectionType: slipData?.type,
+          odds: slipData?.price,
+          marketId: slipData?.marketId,
+          selection: slipData?.selectionName,
+          marketType: slipData?.marketType,
+        };
+        // dispatch(
+        //   placeBet({
+        //     data,
+        //     callback: (data) => {
+        //       if (data?.meta?.code === 200) handleBetSlipClose();
+        //     },
+        //   })
+        // );
+        alert("bet done");
+      } else {
+        alert("Odds Changed");
+      }
     } else {
       alert("Please Login to Bet");
     }
@@ -157,14 +164,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       {isDropdownOpen && (
         <div className="flex flex-col items-start gap-1 pb-1">
           {eventMarket?.runners?.map((runner, index) => {
-            const currentMarket = Object.values(odds)[0]?.runners.find(
-              (odd) => {
-                const data =
-                  parseFloat(odd?.selectionId) ===
-                  parseFloat(runner?.runnerCode);
-                return data;
-              }
-            );
+            const currentMarket = findRunnerOdds(odds, runner?.runnerCode);
             return (
               <React.Fragment key={index}>
                 <hr className="border-t border-gray-200/10 w-full" />
@@ -323,7 +323,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             }
                             key={index}
                             className={`flex cursor-pointer flex-col items-center py-1 rounded-md min-w-[70px] ${
-                              index === 2 ? "text-skin-blue " : "text-white hidden md:block  "
+                              index === 2
+                                ? "text-skin-blue "
+                                : "text-white hidden md:block  "
                             } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
@@ -353,7 +355,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                             }
                             key={index}
                             className={`flex cursor-pointer flex-col items-center py-1 rounded-md min-w-[70px] ${
-                              index === 0 ? "text-skin-pink " : "text-white hidden md:block  "
+                              index === 0
+                                ? "text-skin-pink "
+                                : "text-white hidden md:block  "
                             } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
@@ -367,20 +371,24 @@ const RunnersCard = ({ market, odds, eventId }) => {
                       })}
                   </div>
                 </div>
+                {currentMarket?.selectionId === slipData?.selectionId &&
+                isBetSlipOpen ? (
+                  <BetSlip
+                    closeBetslip={handleBetSlipClose}
+                    slipData={slipData}
+                    setSlipData={setSlipData}
+                    setStakeAmount={setStakeAmount}
+                    stake={stake}
+                    setStake={setStake}
+                    clearBetSlip={handleClearClick}
+                    handlePlaceBet={handlePlaceBet}
+                  />
+                ) : (
+                  ""
+                )}
               </React.Fragment>
             );
           })}
-          {isBetSlipOpen && (
-            <BetSlip
-              closeBetslip={handleBetSlipClose}
-              slipData={slipData}
-              setStakeAmount={setStakeAmount}
-              stake={stake}
-              setStake={setStake}
-              clearBetSlip={handleClearClick}
-              handlePlaceBet={handlePlaceBet}
-            />
-          )}
         </div>
       )}
     </div>
