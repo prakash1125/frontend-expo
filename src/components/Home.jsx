@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -12,6 +14,7 @@ import { socket } from "../context/SocketContext";
 import { useSelector } from "react-redux";
 
 export const Home = () => {
+  const navigate = useNavigate();
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
   const settings = {
     dots: true,
@@ -55,26 +58,32 @@ export const Home = () => {
     {
       icon: "https://sportsexch.com/images/icons/sports.png",
       name: "Sports",
+      route: "/all-sports"
     },
     {
       icon: "https://sportsexch.com/images/icons/live.png",
       name: "Sports",
+      route: "/in-play"
     },
     {
       icon: "https://sportsexch.com/images/icons/trophy.png",
       name: "Sports",
+      route: "/indian-premier-league"
     },
     {
       icon: "https://sportsexch.com/images/icons/indian-casino.png",
       name: "Sports",
+      route: "/indian-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/live-casino.png",
       name: "Sports",
+      route: "/live-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/trophy.png",
       name: "Sports",
+      route: "/slots"
     },
   ];
 
@@ -128,21 +137,26 @@ export const Home = () => {
           className="flex gap-1 rounded-xl bg-skin-main overflow-x"
         >
           {sportsButtons.map((element, index) => (
+
             <SwiperSlide key={index}>
+               <Link to={element.route}>
               <div
                 className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
               >
                 <div className="">
-                  <a href="#" className="relative block">
-                    <img
-                      alt="profil"
-                      src={element.icon}
-                      className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
-                    />
-                  </a>
+                 
+                    <a href="#" className="relative block">
+                      <img
+                        alt="profil"
+                        src={element.icon}
+                        className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
+                      />
+                    </a>
+                  
                 </div>
                 <p className="text-center">{element.name}</p>
               </div>
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>
@@ -179,8 +193,8 @@ export const Home = () => {
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
             Indian Casino
           </p>
-          <button className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
-            All Indian Casino
+          <button onClick={() => navigate("/indian-casino")} className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
+            All Indian Casino 
           </button>
         </div>
         <Slider {...settings2}>

@@ -28,8 +28,8 @@ export const AppRouter = () => {
         <Route path={Paths.pl} element={<ProfitLossPage />} />
         <Route path={Paths.accountstatement} element={<AccountStatementPage />} />
         <Route path={Paths.cricketleague} element={<CricketLeaguePage />} />
+        
       </Route>
-      
     </Routes>
   );
 };
