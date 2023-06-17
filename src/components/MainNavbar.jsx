@@ -265,12 +265,12 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 >
                   {theme ? (
                     <img
-                      className="hover:brightness-90 w-6 lg:w-7"
+                      className="hover:brightness-90 w-5  sm:w-6 lg:w-7"
                       src={lampDark}
                     ></img>
                   ) : (
                     <img
-                      className=" hover:brightness-95 w-6 lg:w-7"
+                      className=" hover:brightness-95 w-5  sm:w-6 lg:w-7"
                       src={lamp}
                     ></img>
                   )}

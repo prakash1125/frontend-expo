@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import { betOnBack, betOnLay } from "../utils/helper";
+import { BiCheck } from "react-icons/bi";
+
 
 const BetSlip = ({
   closeBetslip,
@@ -190,7 +192,9 @@ const BetSlip = ({
                 onClick={() => handlePlaceBet()}
                 className="bg-[#169C59] font-medium rounded-md px-5 py-1 text-center"
               >
-                <span>Place Bet</span>
+                <span className="flex items-center gap-1">
+                  <span className="h-3  items-center"><BiCheck/></span> 
+                  Place Bet</span>
               </button>
             </div>
           </div>

@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from "react-redux";
 import RunnersCard from "./RunnersCard";
 import { getRunnerData } from "../redux/actions/runnerData/getRunnerDataAction";
 import { Footer } from "flowbite-react";
+import { IoMdTrendingUp } from "react-icons/io";
+
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -191,12 +194,12 @@ export const CricketLeague = () => {
           <div className="p-1 flex justify-center">
             <button
               onClick={handleLiveTVClick}
-              className="flex justify-center items-center gap-2 text-skin-white text-sm bg-skin-cardhead p-3 rounded-md w-full font-semibold"
+              className={`flex justify-center items-center gap-2 text-skin-white text-sm ${isLive ? "bg-skin-hovercolorsecondary" : "bg-skin-nav"}  p-2.5 rounded-md w-full font-bold`}
             >
-              <span>Live TV</span>
+              <span className="flex items-center gap-2 text-md"><IoMdTrendingUp  /> Live Score</span>
             </button>
           </div>
-
+          
           {isLive && (
             <div className="live-matches px-3 py-2 transition-transform duration-2000">
               <div className="bg-[#000] text-center h-64 w-full rounded ">
@@ -228,7 +231,7 @@ export const CricketLeague = () => {
                 key={category}
                 className={({ selected }) =>
                   classNames(
-                    "w-full rounded-md outline-none text-center text-sm font-medium ",
+                    "w-full rounded-md outline-none text-center text-sm font-bold ",
                     selected
                       ? "bg-skin-hovercolorsecondary text-skin-white "
                       : "text-skin-white  bg-skin-nav hover:bg-skin-hovercolorsecondary  hover:text-skin-white hover:duration-200 "

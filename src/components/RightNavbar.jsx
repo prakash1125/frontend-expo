@@ -12,6 +12,8 @@ import Events from "./Events";
 import MyBets from "./MyBets";
 import { useDispatch, useSelector } from "react-redux";
 import { getBet } from "../redux/actions";
+import { IoMdDesktop } from "react-icons/io";
+
 
 export const RightNavbar = () => {
 
@@ -70,15 +72,15 @@ export const RightNavbar = () => {
         </div>
       )} */}
 
-      {/* {location.pathname === "/indian-premier-league" && ( */}
-      <>
-      <div className=" mx-auto bg-skin-nav    rounded-md my-2">
+        {/* {location.pathname === "/indian-premier-league" && ( */}
+        <>
+          <div className=" mx-auto bg-skin-nav    rounded-md my-2">
             <div className="p-1 flex justify-center">
               <button
                 onClick={handleLiveTVClick}
                 className="flex justify-center items-center text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold"
               >
-                <span>Live TV</span>
+                <span className="flex items-center gap-2"><IoMdDesktop /> Live TV</span>
               </button>
             </div>
 
@@ -93,30 +95,30 @@ export const RightNavbar = () => {
             )}
           </div>
 
-        {location?.state?.hasOwnProperty("eventId") && myBets ? (
-          <MyBets bets={myBets} eventId={location?.state?.eventId} />
-        ) : (
-          <div className="w-[291px]  bg-skin-nav  rounded-md mt-2">
-            <div className="p-1 flex justify-center">
-              <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
-                Live Casino Games
-              </button>
-            </div>
+          {location?.state?.hasOwnProperty("eventId") && myBets ? (
+            <MyBets bets={myBets} eventId={location?.state?.eventId} />
+          ) : (
+            <div className="w-[295px]  bg-skin-nav  rounded-md mt-2">
+              <div className="p-1 flex justify-center">
+                <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
+                  Live Casino Games
+                </button>
+              </div>
 
-            <Slider {...settings}>
-              {images.map((img, index) => (
-                <div key={index} className="">
-                  <img
-                    src={img}
-                    className="w-full p-2 rounded-2xl"
-                    alt={`Slide ${index + 1}`}
-                  />
-                </div>
-              ))}
-            </Slider>
-          </div>
-        )}
-      </>
+              <Slider {...settings}>
+                {images.map((img, index) => (
+                  <div key={index} className="">
+                    <img
+                      src={img}
+                      className="w-full p-2 rounded-2xl"
+                      alt={`Slide ${index + 1}`}
+                    />
+                  </div>
+                ))}
+              </Slider>
+            </div>
+          )}
+        </>
         {/* )} */}
 
         <div className=" mx-auto bg-skin-nav  rounded-md mt-2 mb-2">
@@ -126,10 +128,10 @@ export const RightNavbar = () => {
             </button>
           </div>
           {cricketData?.map((element) =>
-                    element?.leagues?.map(
-                        (j) => <Events league={j}/>
-                    )
-                )}
+            element?.leagues?.map(
+              (j) => <Events league={j} />
+            )
+          )}
         </div>
       </ul>
     </div>
