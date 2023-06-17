@@ -98,7 +98,7 @@ export const Home = () => {
 
   console.log(
     cricketData,
-    "cricketDataasdfffffffffffffffffffffffffffffffffffffffffffffffff"
+    "cricketData"
   );
   // ============================================================================================
 
@@ -137,14 +137,13 @@ export const Home = () => {
           className="flex gap-1 rounded-xl bg-skin-main overflow-x"
         >
           {sportsButtons.map((element, index) => (
-
             <SwiperSlide key={index}>
-               <Link to={element.route}>
-              <div
-                className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
-              >
-                <div className="">
-                 
+              <Link to={element.route}>
+                <div
+                  className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
+                >
+                  <div className="">
+
                     <a href="#" className="relative block">
                       <img
                         alt="profil"
@@ -152,10 +151,10 @@ export const Home = () => {
                         className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
                       />
                     </a>
-                  
+
+                  </div>
+                  <p className="text-center">{element.name}</p>
                 </div>
-                <p className="text-center">{element.name}</p>
-              </div>
               </Link>
             </SwiperSlide>
           ))}
@@ -188,13 +187,14 @@ export const Home = () => {
         {/* {isDropdownOpen && <MarketDataCard />} */}
       </div>
 
+
       <div>
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
             Indian Casino
           </p>
-          <button onClick={() => navigate("/indian-casino")} className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2  rounded-md font-semibold">
-            All Indian Casino 
+          <button onClick={() => navigate("/indian-casino")} className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2 rounded-md font-semibold">
+            All Indian Casino
           </button>
         </div>
         <Slider {...settings2}>
@@ -203,7 +203,7 @@ export const Home = () => {
               <div key={index} className="px-1">
                 <img
                   src={img}
-                  className="  object-cover rounded-md "
+                  className=" object-cover rounded-md "
                   alt={`Slide ${index + 1}`}
                 />
               </div>
