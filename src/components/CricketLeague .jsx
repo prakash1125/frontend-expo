@@ -31,8 +31,6 @@ export const CricketLeague = () => {
 
   const location = useLocation();
 
-  console.log(location, "locations");
-
   let [categories] = useState({
     All: [
       {

@@ -18,7 +18,9 @@ const MarketData = ({ league }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   return (
-    <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
+    <>
+    {league?.events?.length !== 0 && (
+      <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
         className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
@@ -207,7 +209,8 @@ const MarketData = ({ league }) => {
           })}
         </>
       )}
-    </div>
+    </div>)}
+    </>
   );
 };
 
