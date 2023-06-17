@@ -223,30 +223,15 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
                 </div> */}
 
-              
+
                 <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
                   <div className="flex items-center ">
                     <Link to="/">
-
                       <img
-                        className=" h-8 w-full md:hidden "
+                        className=" h-7 w-full sm:h-9  lg:h-12 "
                         src="https://sportsexch.com/images/logo/main.png"
                         alt="Your Company"
                       />
-
-                      <img
-                        className="md:block h-9 w-full lg:hidden hidden"
-                        src="https://sportsexch.com/images/logo/main.png"
-                        alt="Your Company"
-                      />
-                      <img
-                        className="hidden h-12 w-auto lg:block "
-                        src="https://sportsexch.com/images/logo/main.png"
-                        alt="Your Company"
-                      />
-
-
-
                     </Link>
                   </div>
 
@@ -280,12 +265,12 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 >
                   {theme ? (
                     <img
-                      className="hover:brightness-90 w-6 lg:w-7"
+                      className="hover:brightness-90 w-5  sm:w-6 lg:w-7"
                       src={lampDark}
                     ></img>
                   ) : (
                     <img
-                      className=" hover:brightness-95 w-6 lg:w-7"
+                      className=" hover:brightness-95 w-5  sm:w-6 lg:w-7"
                       src={lamp}
                     ></img>
                   )}

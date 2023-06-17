@@ -8,6 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import MarketDataCard from "./MarketDataCard";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
@@ -53,26 +54,32 @@ export const Home = () => {
     {
       icon: "https://sportsexch.com/images/icons/sports.png",
       name: "Sports",
+      route: "/all-sports"
     },
     {
       icon: "https://sportsexch.com/images/icons/live.png",
-      name: "Sports",
+      name: "In-Play",
+      route: "/in-play"
     },
-    {
-      icon: "https://sportsexch.com/images/icons/trophy.png",
-      name: "Sports",
-    },
+    // {
+    //   icon: "https://sportsexch.com/images/icons/trophy.png",
+    //   name: "Sports",
+    //   route: "/indian-premier-league"
+    // },
     {
       icon: "https://sportsexch.com/images/icons/indian-casino.png",
-      name: "Sports",
+      name: "Indian Casino",
+      route: "/indian-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/live-casino.png",
-      name: "Sports",
+      name: "Live Casino",
+      route: "/live-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/trophy.png",
-      name: "Sports",
+      name: "Slots",
+      route: "/slots"
     },
   ];
 
@@ -103,7 +110,7 @@ export const Home = () => {
       </div>
       <div className="flex overflow-x-auto w-full scroll-x">
         <Swiper
-          slidesPerView={5.2}
+          slidesPerView={4.2}
           spaceBetween={6}
           freeMode={true}
           draggable={true}
@@ -111,20 +118,23 @@ export const Home = () => {
         >
           {sportsButtons.map((element, index) => (
             <SwiperSlide key={index}>
-              <div
-                className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
-              >
-                <div className="">
-                  <a href="#" className="relative block">
-                    <img
-                      alt="profil"
-                      src={element.icon}
-                      className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
-                    />
-                  </a>
-                </div>
-                <p className="text-center">{element.name}</p>
-              </div>
+              <Link to={element.route}>
+                <div
+                  className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
+                >
+                  
+                    <a href="#" className="relative block">
+                      <img
+                        alt="profil"
+                        src={element.icon}
+                        className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
+                      />
+                    </a>
+                    <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
+                  </div>
+                  
+                
+              </Link>
             </SwiperSlide>
           ))}
         </Swiper>

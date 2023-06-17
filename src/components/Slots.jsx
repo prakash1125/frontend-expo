@@ -391,8 +391,6 @@ export const Slots = () => {
           </Tab.Panels>
         </div>
       </Tab.Group>
-
-      <Footer />
     </div>
   );
 };

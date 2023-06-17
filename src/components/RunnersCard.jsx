@@ -3,18 +3,13 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
-import { placeBet } from "../redux/actions";
 import {
   betOnBack,
   betOnLay,
   checkOdds,
-  findMaxFromArrayOfObjects,
   findRunnerOdds,
 } from "../utils/helper";
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+import { placeBet } from "../redux/actions";
 
 const RunnersCard = ({ market, odds, eventId }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
@@ -24,8 +19,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
   const [stake, setStake] = useState(null);
   const [eventMarket, setEventMarket] = useState(market);
   const [bookData, setBookData] = useState([]);
-  const [maxLay, setMaxLay] = useState(0);
-  const [maxBack, setMaxBack] = useState(0);
   const myBets = useSelector((state) => state?.GetBet?.allBets);
   const dispatch = useDispatch();
 
@@ -122,14 +115,14 @@ const RunnersCard = ({ market, odds, eventId }) => {
           selection: slipData?.selectionName,
           marketType: slipData?.marketType,
         };
-        // dispatch(
-        //   placeBet({
-        //     data,
-        //     callback: (data) => {
-        //       if (data?.meta?.code === 200) handleBetSlipClose();
-        //     },
-        //   })
-        // );
+        dispatch(
+          placeBet({
+            data,
+            callback: (data) => {
+              if (data?.meta?.code === 200) handleBetSlipClose();
+            },
+          })
+        );
         alert("bet done");
       } else {
         alert("Odds Changed");
@@ -147,7 +140,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       >
         <div className="flex items-center">
           <div className="flex items-center text-sm text-skin-secondary font-medium">
-            {eventMarket?.marketName}
+            {eventMarket?.marketName} <span className="ml-2 text-[45px] font-bold pb-7 text-green-600">.</span>
           </div>
         </div>
         <div className="flex items-center space-x-8 px-1">

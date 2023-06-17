@@ -94,7 +94,7 @@ export const Sports = () => {
             <Tab.Panel>
               <ul key={idx}>
                 {posts?.leagues?.map((post) => (
-                  <li key={post.id} className="relative pb-2">
+                  <li key={post.id} className="relative ">
                     <MarketDataCard league={post} />
                   </li>
                 ))}
@@ -103,7 +103,7 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <Footer />
+  
     </div>
   );
 };

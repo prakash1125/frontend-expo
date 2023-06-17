@@ -1860,7 +1860,7 @@ export const LiveCasino = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <Footer />
+     
     </div>
   );
 };

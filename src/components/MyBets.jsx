@@ -16,7 +16,7 @@ const MyBets = ({ bets, eventId }) => {
       </div>
 
       {currentEventBets?.length !== 0 ? (
-        <div className="overflow-y-auto h-80 overflow-x-hidden   scrollbar-hide">
+        <div className="overflow-y-auto h-80 overflow-x-hidden w-[295px]  scrollbar-hide">
           <table className="overflow-scroll border-collapse w-full  text-center">
             <thead>
             <tr>

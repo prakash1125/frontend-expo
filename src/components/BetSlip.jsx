@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 import { betOnBack, betOnLay } from "../utils/helper";
+import { BiCheck } from "react-icons/bi";
+
 
 const BetSlip = ({
   closeBetslip,
@@ -128,50 +130,50 @@ const BetSlip = ({
                 <span>100</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(1000)}
               >
                 <span>1,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(2000)}
               >
                 <span>2,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(5000)}
               >
                 <span>5,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(10000)}
               >
                 <span>10,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(20000)}
               >
                 <span>20,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(50000)}
               >
                 <span>50,000</span>
               </span>
               <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium  mt-2"
+                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
                 onClick={() => handleSpanClick(100000)}
               >
                 <span>100,000</span>
               </span>
               <span
                 onClick={() => clearBetSlip()}
-                className="bg-[#DADADA] text-[#1c1c1c] rounded-md cursor-pointer px-4 py-1 text-center font-medium mt-2"
+                className="bg-[#DADADA] text-[#1c1c1c] rounded-md mt-2 cursor-pointer px-4 py-1 text-center font-medium"
               >
                 Clear
               </span>
@@ -189,7 +191,9 @@ const BetSlip = ({
                 onClick={() => handlePlaceBet()}
                 className="bg-[#169C59] font-medium rounded-md px-5 py-1 text-center"
               >
-                <span>Place Bet</span>
+                <span className="flex items-center gap-1">
+                  <span className="h-3  items-center"><BiCheck/></span> 
+                  Place Bet</span>
               </button>
             </div>
           </div>
