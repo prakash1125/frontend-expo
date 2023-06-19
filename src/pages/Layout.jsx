@@ -10,18 +10,10 @@ import Footer from "../components/Footer";
 
 
 export const Layout = () => {
-
-  
-
-
-
   const [toggle, setToggle] = useState(true);
   const [isAboveXl, setisAbovexl] = useState(false);
+
   useEffect(() => {
-
-
-
-
     const handleResize = () => {
       if (window.innerWidth <= 768) {
         // Show on mobile and tablet screens (max-width: 768px)
@@ -35,14 +27,20 @@ export const Layout = () => {
         setisAbovexl(false);
       }
     };
+
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  return (
 
+  const handleClick = () => {
+    console.log("jhhhhhhhhh");
+    // Perform desired actions or logic
+  };
+
+  return (
     <div className="bg-skin-main  h-[100vh] overflow-y-hidden ">
       <div className={` mx-auto w-full `}>
         {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl} />}
@@ -62,11 +60,10 @@ export const Layout = () => {
       <div className="container mx-auto px-6 md:hidden ">
         <MobileNavbar />
       </div>
-
-      <Footer />
+      <Footer onClick={handleClick} />
     </div>
-
   );
+
 };
 
 

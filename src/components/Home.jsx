@@ -187,7 +187,6 @@ export const Home = () => {
         {/* {isDropdownOpen && <MarketDataCard />} */}
       </div>
 
-
       <div>
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">

@@ -1,18 +1,56 @@
 import React from "react";
+import { useState, useEffect } from 'react';
 
-const Footer = () => {
+const Footer = ({ onClick }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {                                                                         // Show or hide the button based on scroll position
+    const handleScroll = () => {
+      console.log("window.scrollY", window.scrollY)
+      if (window.scrollY > 100) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {                                                                          // Clean up the event listener on component unmount                                                          
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const handleButtonClick = () => {
+    console.log("ttttttte")
+    onClick(); // Invoke the function received from props
+  };
+
+  const scrollToTop = () => {                                                               // Scroll to the top of the page                                  
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <>
       <div className="footer justify-center text-skin-secondary pt-16 pb-28">
-        <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead ">
+        <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead">
           <div className="Scroll-top_icon">
-            <a href="/" className="scrollToTop">
-              <span>Back to Top</span>
+            <a href="/" className="backToTopBtn">
+              {/* {isVisible && (
+                <span className="backToTopBtn" onClick={scrollToTop}>
+                  Back to Top
+                </span>
+              )} */}
+              <span className="backToTopBtn" onClick={handleButtonClick}>
+                Back to Top
+              </span>
             </a>
           </div>
         </div>
-        <div className="flex justify-between flex-wrap footer-menu gap-8 p-2 ">
-          <div className="footer-column mt-4 flex-grow ">
+        <div className="flex justify-between flex-wrap footer-menu gap-8 p-2">
+          <div className="footer-column mt-4 flex-grow">
             <div className="font-semibold text-lg footer-title mb-4">Info</div>
             <ul className="footer-menu-list">
               <li className="py-3 text-sm">
@@ -21,7 +59,8 @@ const Footer = () => {
                 </a>
               </li>
               <li className="py-3 text-sm">
-                <a href="/terms-and-conditions">Terms and Conditions</a>
+                <a href="/terms-and-conditions">Terms and
+                  Conditions</a>
               </li>
               <li className="py-3 text-sm">
                 <a href="/responsible-gambling">Gambling can be addictive</a>
@@ -87,6 +126,7 @@ const Footer = () => {
             src="https://sportsexch.com/images/bg/betfair.png"
             className="bg-skin-imgbg mb-3 betfair"
           />
+
         </div>
       </div>
     </>
@@ -94,3 +134,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
