@@ -297,7 +297,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                       </div>
                     )}
                   </div>
-                  <div className="flex justify-end gap-1 w-[55%] rounded-md">
+                  <div className="flex justify-end gap-1 w-[80%] rounded-md">
                     {currentMarket?.ex?.availableToBack
                       ?.slice()
                       ?.reverse()
@@ -315,7 +315,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md min-w-[70px] ${
+                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[70px] ${
                               index === 2
                                 ? "text-skin-blue "
                                 : "text-white hidden md:block  "
@@ -347,7 +347,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md min-w-[70px] ${
+                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[70px] ${
                               index === 0
                                 ? "text-skin-pink "
                                 : "text-white hidden md:block  "

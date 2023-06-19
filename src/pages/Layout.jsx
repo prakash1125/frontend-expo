@@ -7,6 +7,8 @@ import { Sports } from "../components/Sports";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import { Chatbot } from "../components/Chatbot";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Layout = () => {
   const [toggle, setToggle] = useState(true);
@@ -31,8 +33,21 @@ export const Layout = () => {
     };
   }, []);
   return (
-    
-    <div className="bg-skin-main  h-[100vh] overflow-y-hidden ">
+
+    <div className="bg-skin-main h-[100vh] overflow-y-hidden ">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      
       <Chatbot />
       <div className={` mx-auto w-full `}>
         {
@@ -43,7 +58,7 @@ export const Layout = () => {
           />
         }
       </div>
-      <div className={` drop-shadow-md  mx-auto  max-w-[1440px] `}>
+      <div className={` drop-shadow-sm  mx-auto  max-w-[1440px] `}>
         <div className="">
           <div className="flex ">
             {toggle ? (
@@ -60,6 +75,8 @@ export const Layout = () => {
       </div>
 
       <Footer />
+     
     </div>
+
   );
 };

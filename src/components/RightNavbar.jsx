@@ -49,7 +49,7 @@ export const RightNavbar = () => {
 
   return (
     <div className="overflow-y-auto px-2 pr-0 h-[95vh] justify-start flex scrollbar-hide overflow-x-hidden">
-      <ul className="">
+      <ul className="mr-2">
         {/* {!isIndianPremierLeague && (
         <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
           <div className="p-1 flex justify-center">

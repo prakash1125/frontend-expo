@@ -21,14 +21,14 @@ export const SideNavbar = () => {
 
   return (
     <>
-      <div className="w-full px-3 pl-2 pt-2 z-40">
+      <div className="w-full px-2 pl-2 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
           <button className="flex justify-start text-skin-primary  bg-skin-nav p-3 rounded-md w-full text-xs font-semibold relative">
             SPORTS
           </button>
         </div>
       </div>
-      <ul className="w-full px-4 pl-3">
+      <ul className="w-full px-3 pl-3">
         {data?.map((item, index) => (
           <li
             key={index}

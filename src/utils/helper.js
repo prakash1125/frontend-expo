@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 export const url = process.env.REACT_APP_API_ENDPOINT || "";
 
 //GET LOCAL STORAGE ITEM
@@ -174,4 +175,34 @@ const findMinFromArrayOfObjects = (array) => {
   return maxObject;
 };
 
+
+// For calling the toastify alert
+export const notifySuccess = (message) =>{
+  return toast.success(message, {
+  className: "custom-toast",
+  position: "top-center",
+  autoClose: 700,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+})};
+
+export const notifyWarning = (message) =>{
+  return toast.warn(message, {
+  className: "custom-toast",
+  position: "top-center",
+  autoClose: 700,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+})};
+
 export { findMaxFromArrayOfObjects, findMinFromArrayOfObjects }; // because this function used in this same file also
+
+

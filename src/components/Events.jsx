@@ -40,14 +40,14 @@ const Events = ({ league }) => {
                   </div>
                   <div className="text-[12px] font-bold pr-4 text-skin-primary">
                     <div>
-                      <div className="text-skin-secondary w-[75px]">
+                      <div className="text-skin-secondary ">
                         {DateTime.fromISO(event?.eventDate).toFormat("dd MMM HH:mm")}
                       </div>
                       <div className="flex justify-end mt-1 ">
-                        <div className=" mx-2 ml-4 px-2 w-full h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark">
+                        <div className="  mx-2 ml-4 px-2  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
                           F4
                         </div>
-                        <div className=" w-full  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark">
+                        <div className="   px-1 h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
                           B
                         </div>
                       </div>

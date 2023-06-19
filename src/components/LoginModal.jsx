@@ -4,6 +4,8 @@ import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions";
+import { toast } from "react-toastify";
+import { notify, notifySuccess, notifyWarning } from "../utils/helper";
 
 export const LoginModal = ({ closeModal, onLogin }) => {
   const dispatch = useDispatch();
@@ -17,6 +19,17 @@ export const LoginModal = ({ closeModal, onLogin }) => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
+  // const notify = () => toast.success('Logged In', {
+  //   className: "custom-toast",
+  //   position: "top-center",
+  //   autoClose: 700,
+  //   hideProgressBar: true,
+  //   closeOnClick: false,
+  //   pauseOnHover: false,
+  //   draggable: true,
+  //   progress: undefined,
+  //   theme: "dark",
+  // });
 
   const handleSubmit = () => {
     const inputValues = {
@@ -32,6 +45,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
             closeModal();
             localStorage?.setItem("token", data?.meta?.token);
             onLogin(true);
+            notifySuccess("Logged In");
           }
         },
       })

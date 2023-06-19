@@ -19,6 +19,7 @@ const MarketData = ({ league }) => {
   return (
     <>
     {league?.events?.length !== 0 && (
+      
       <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -34,6 +35,7 @@ const MarketData = ({ league }) => {
             {league?.events?.length}
             {isDropdownOpen ? (
               <IoIosArrowUp className="ml-2 text-lg  m-auto" />
+              
             ) : (
               <IoIosArrowDown className="ml-2 text-lg   m-auto" />
             )}
@@ -103,7 +105,7 @@ const MarketData = ({ league }) => {
                     </div>
                   </div>
 
-                  <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 xl:w-[45%] flex ">
+                  <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 mr-4 xl:w-[45%] flex ">
                     {(() => {
                       // Code logic inside the IIFE
                       if (matchOdds) {

@@ -91,9 +91,12 @@ export const Home = () => {
     (sport) => sport.sportName === "Cricket"
   );
 
+
+
   // ============================================================================================
 
   return (
+
     <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
@@ -122,18 +125,18 @@ export const Home = () => {
                 <div
                   className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
                 >
-                  
-                    <a href="#" className="relative block">
-                      <img
-                        alt="profil"
-                        src={element.icon}
-                        className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
-                      />
-                    </a>
-                    <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
-                  </div>
-                  
-                
+
+                  <a href="#" className="relative block">
+                    <img
+                      alt="profil"
+                      src={element.icon}
+                      className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
+                    />
+                  </a>
+                  <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
+                </div>
+
+
               </Link>
             </SwiperSlide>
           ))}

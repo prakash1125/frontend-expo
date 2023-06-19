@@ -5,7 +5,7 @@ import { betOnBack } from "../utils/helper";
 const MyBets = ({ bets, eventId }) => {
   const currentEventBets = bets?.filter((obj) => obj.eventId === eventId);
   return (
-    <div className={` mx-auto bg-skin-nav rounded-sm mt-2 mb-2`}>
+    <div className={` mx-auto bg-skin-nav rounded-md mt-2 mb-2`}>
       <div className="p-1 flex  justify-center">
         <button className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold">
           <span>My Bets </span>

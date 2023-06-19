@@ -115,7 +115,7 @@ const BetSlip = ({
               handleChange={handleChange}
             />
             <Input
-              placeholder="stake"
+              placeholder="Stake"
               value={Math.abs(stake)}
               handleIncrement={increment}
               handleDecrement={decrement}

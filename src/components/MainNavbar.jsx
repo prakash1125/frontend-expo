@@ -21,6 +21,7 @@ import {
   globalSportData,
 } from "../redux/actions";
 import { socket } from "../context/SocketContext";
+import { notify, notifySuccess } from "../utils/helper";
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -188,14 +189,17 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     }
   }, []);
 
+  
+
   const handleLogout = () => {
     // Update the loggedIn state to false
     setLoggedIn(false);
+    notifySuccess("Logged Out")
 
     // Remove the login status from localStorage
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
-    // dispatch(logOut());
+    dispatch(logOut());
     // Log the logout message
   };
 
