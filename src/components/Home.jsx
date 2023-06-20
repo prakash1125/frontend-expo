@@ -10,7 +10,6 @@ import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import MarketDataCard from "./MarketDataCard";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -30,8 +29,34 @@ export const Home = () => {
     arrows: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3.1,
-    slidesToScroll: 1,
+    slidesToShow: 3.5,
+    slidesToScroll: 1,                                                                                                   
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3.5,
+          slidesToScroll: 3.5,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 2.5,
+          initialSlide: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1.5,
+          slidesToScroll: 1.5
+        }
+      }
+    ]
   };
 
   const images = [
@@ -61,18 +86,8 @@ export const Home = () => {
     },
     {
       icon: "https://sportsexch.com/images/icons/live.png",
-<<<<<<< HEAD
-      name: "Sports",
-      route: "/in-play"
-    },
-    {
-      icon: "https://sportsexch.com/images/icons/trophy.png",
-      name: "Sports",
-      route: "/indian-premier-league"
-=======
       name: "In-Play",
       route: "/in-play"
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
     },
     // {
     //   icon: "https://sportsexch.com/images/icons/trophy.png",
@@ -81,29 +96,17 @@ export const Home = () => {
     // },
     {
       icon: "https://sportsexch.com/images/icons/indian-casino.png",
-<<<<<<< HEAD
-      name: "Sports",
-=======
       name: "Indian Casino",
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
       route: "/indian-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/live-casino.png",
-<<<<<<< HEAD
-      name: "Sports",
-=======
       name: "Live Casino",
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
       route: "/live-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/trophy.png",
-<<<<<<< HEAD
-      name: "Sports",
-=======
       name: "Slots",
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
       route: "/slots"
     },
   ];
@@ -116,15 +119,8 @@ export const Home = () => {
     (sport) => sport.sportName === "Cricket"
   );
 
-<<<<<<< HEAD
-  console.log(
-    cricketData,
-    "cricketData"
-  );
-=======
 
 
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
   // ============================================================================================
 
   return (
@@ -150,28 +146,34 @@ export const Home = () => {
           freeMode={true}
           draggable={true}
           className="flex gap-1 rounded-xl bg-skin-main overflow-x"
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            400:{
+              slidesPerView:2,
+            },
+            639: {
+              slidesPerView: 3,
+            },
+            865:{
+              slidesPerView:4
+            },
+            1000:{
+              slidesPerView:5
+            },
+            1500:{
+              slidesPerView:6
+            },
+            1700:{
+              slidesPerView:7
+            }
+          }}
         >
           {sportsButtons.map((element, index) => (
             <SwiperSlide key={index}>
               <Link to={element.route}>
                 <div
-<<<<<<< HEAD
-                  className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
-                >
-                  <div className="">
-
-                    <a href="#" className="relative block">
-                      <img
-                        alt="profil"
-                        src={element.icon}
-                        className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
-                      />
-                    </a>
-
-                  </div>
-                  <p className="text-center">{element.name}</p>
-                </div>
-=======
                   className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
                 >
 
@@ -186,7 +188,6 @@ export const Home = () => {
                 </div>
 
 
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
               </Link>
             </SwiperSlide>
           ))}
@@ -203,7 +204,7 @@ export const Home = () => {
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
             ) : (
-              <IoIosArrowDown className="ml-2 text-lg  m-auto" />
+              <IoIosArrowDown className="ml-2 text-lg  m-auto"/>
             )}
           </p>
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
@@ -227,17 +228,17 @@ export const Home = () => {
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
             Indian Casino
           </p>
-          <button onClick={() => navigate("/indian-casino")} className=" text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2 rounded-md font-semibold">
+          <button onClick={() => navigate("/indian-casino")} className="text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2 rounded-md font-semibold">
             All Indian Casino
           </button>
         </div>
         <Slider {...settings2}>
           {images2.map((img, index) => (
-            <div key={index} className=" scroll-x pb-6">
+            <div key={index} className=" scroll-x  pb-6">
               <div className="px-1">
                 <img
                   src={img}
-                  className=" object-cover rounded-md "
+                  className="object-cover rounded-md"
                   alt={`Slide ${index + 1}`}
                 />
               </div>

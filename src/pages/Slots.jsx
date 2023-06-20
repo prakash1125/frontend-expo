@@ -13,18 +13,9 @@ export const SlotsPage = () => {
   };
 
   return (
-<<<<<<< HEAD
     <div className="w-full md:p-1 overflow-y-scroll scrollbar-hide h-[91vh]" ref={scrollableRef} >
 <Slots scrollToTop={scrollToTop}/>
     </div>
     
-=======
-    <>
-      <div className="w-full   md:p-1 overflow-y-scroll scrollbar-hide h-[91vh]  ">
-        <Slots />
-        <Footer />
-      </div>
-    </>
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
   );
 };

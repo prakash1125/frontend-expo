@@ -34,6 +34,7 @@ export const Layout = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+  
 return(
     <div className="bg-skin-main h-[100vh] overflow-y-hidden ">
       <ToastContainer

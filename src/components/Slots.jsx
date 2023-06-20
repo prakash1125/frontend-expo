@@ -390,14 +390,9 @@ export const Slots = ({scrollToTop}) => {
             ))}
           </Tab.Panels>
         </div>
-      </Tab.Group>
-<<<<<<< HEAD
-
-                
+      </Tab.Group>     
 
       <Footer scrollToTop={scrollToTop}/>
-=======
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
     </div>
   );
 };

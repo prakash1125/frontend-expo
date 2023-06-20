@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { AiOutlineClose } from "react-icons/ai";
+import { IoSunnySharp } from "react-icons/io5";
+import { IoMoonOutline } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
@@ -189,7 +191,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     }
   }, []);
 
-  
+
 
   const handleLogout = () => {
     // Update the loggedIn state to false
@@ -262,7 +264,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
 
                 {/* THEME TOGGLE */}
-                <button
+                {/* <button
                   onClick={handleThemeClick}
                   type="button"
                   className="  font-semibold  text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
@@ -274,12 +276,20 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     ></img>
                   ) : (
                     <img
-                      className=" hover:brightness-95 w-5  sm:w-6 lg:w-7"
+                      className="hover:brightness-95 w-5  sm:w-6 lg:w-7"
                       src={lamp}
                     ></img>
                   )}
-                </button>
+                </button>*/}
 
+                <label class="relative mt-4 inline-flex items-center mb-3 cursor-pointer">
+                  <input type="checkbox" value="" class="sr-only peer"/>
+                  <IoMoonOutline className= "fas fa-moon text-white-500 absolute top-1/2 right-4 transform -translate-y-1/2 -translate-x-1/2 "/>
+                    <div onClick={handleThemeClick} class="p-2 py-3 w-11 h-6 bg-gray-200 peer-focus:outline-none pt-3 rounded-full  dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-black after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-transparent-600">
+                    <IoSunnySharp className= "fas fa-sun text-black-500 absolute top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 "/>
+                    
+                    </div>
+                  </label>
 
                 {/* AFTER LOGIN */}
                 {loggedIn && (

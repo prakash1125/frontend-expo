@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState, useRef } from "react";
-=======
 import React, { useState } from "react";
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
 import { Tab } from "@headlessui/react";
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
@@ -108,11 +104,7 @@ export const Sports = ({ scrollToTop }) => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-<<<<<<< HEAD
-      <Footer scrollToTop={scrollToTop}/>
-=======
   
->>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
     </div>
   );
 };
