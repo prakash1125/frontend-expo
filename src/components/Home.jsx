@@ -8,10 +8,9 @@ import "swiper/swiper-bundle.min.css";
 import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
-import { useEffect } from "react";
 import MarketDataCard from "./MarketDataCard";
-import { socket } from "../context/SocketContext";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -62,6 +61,7 @@ export const Home = () => {
     },
     {
       icon: "https://sportsexch.com/images/icons/live.png",
+<<<<<<< HEAD
       name: "Sports",
       route: "/in-play"
     },
@@ -69,20 +69,41 @@ export const Home = () => {
       icon: "https://sportsexch.com/images/icons/trophy.png",
       name: "Sports",
       route: "/indian-premier-league"
+=======
+      name: "In-Play",
+      route: "/in-play"
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
     },
+    // {
+    //   icon: "https://sportsexch.com/images/icons/trophy.png",
+    //   name: "Sports",
+    //   route: "/indian-premier-league"
+    // },
     {
       icon: "https://sportsexch.com/images/icons/indian-casino.png",
+<<<<<<< HEAD
       name: "Sports",
+=======
+      name: "Indian Casino",
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
       route: "/indian-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/live-casino.png",
+<<<<<<< HEAD
       name: "Sports",
+=======
+      name: "Live Casino",
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
       route: "/live-casino"
     },
     {
       icon: "https://sportsexch.com/images/icons/trophy.png",
+<<<<<<< HEAD
       name: "Sports",
+=======
+      name: "Slots",
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
       route: "/slots"
     },
   ];
@@ -90,30 +111,24 @@ export const Home = () => {
   // ==================================CALLING THE API DATA======================================
 
   let globalStateData = useSelector((state) => state?.GlobalSportData);
-  let sportsArray = globalStateData?.globalSportData;
 
   const cricketData = globalStateData?.globalSportData?.filter(
     (sport) => sport.sportName === "Cricket"
   );
 
+<<<<<<< HEAD
   console.log(
     cricketData,
     "cricketData"
   );
+=======
+
+
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
   // ============================================================================================
 
-  useEffect(() => {
-    socket.on("connect", () => {
-      console.log("Connected to server");
-    });
-
-    return () => {
-      socket.off("connect");
-      socket.off("message");
-    };
-  }, []);
-
   return (
+
     <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
@@ -130,7 +145,7 @@ export const Home = () => {
       </div>
       <div className="flex overflow-x-auto w-full scroll-x">
         <Swiper
-          slidesPerView={5.2}
+          slidesPerView={4.2}
           spaceBetween={6}
           freeMode={true}
           draggable={true}
@@ -140,6 +155,7 @@ export const Home = () => {
             <SwiperSlide key={index}>
               <Link to={element.route}>
                 <div
+<<<<<<< HEAD
                   className={`cursor-pointer px-10 w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
                 >
                   <div className="">
@@ -155,6 +171,22 @@ export const Home = () => {
                   </div>
                   <p className="text-center">{element.name}</p>
                 </div>
+=======
+                  className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
+                >
+
+                  <a href="#" className="relative block">
+                    <img
+                      alt="profil"
+                      src={element.icon}
+                      className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
+                    />
+                  </a>
+                  <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
+                </div>
+
+
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
               </Link>
             </SwiperSlide>
           ))}
@@ -175,12 +207,15 @@ export const Home = () => {
             )}
           </p>
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
-            1 Event
+            {cricketData !== undefined && cricketData.length !== 0
+              ? `${cricketData[0]?.leagues?.length} Events`
+              : "Events"}
           </p>
         </div>
         {cricketData?.map((i) =>
           i?.leagues?.map(
-            (j) => isDropdownOpen && <MarketDataCard league={j} />
+            (j, idx) =>
+              isDropdownOpen && <MarketDataCard league={j} key={idx} />
           )
         )}
 
@@ -199,7 +234,7 @@ export const Home = () => {
         <Slider {...settings2}>
           {images2.map((img, index) => (
             <div key={index} className=" scroll-x pb-6">
-              <div key={index} className="px-1">
+              <div className="px-1">
                 <img
                   src={img}
                   className=" object-cover rounded-md "

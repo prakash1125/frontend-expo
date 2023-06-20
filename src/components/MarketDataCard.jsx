@@ -1,208 +1,217 @@
 import React from "react";
 import { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { RiArrowUpSLine } from "react-icons/ri";
+import { IoIosArrowUp } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 
 const MarketData = ({ league }) => {
-  // const marketCodes = league?.events?.flatMap((event) =>
-  //   event.markets.map(({ marketCode }) => marketCode)
-  // );
   // ==================================CALLING THE API DATA======================================
 
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
-  console.log(globalMarketOddsData, "----globalMarketOddsData----");
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
 
   return (
-    <div class="rounded-md  w-full bg-skin-nav drop-shadow-md">
+    <>
+    {league?.events?.length !== 0 && (
+      
+      <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
       <div
         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        class="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
+        className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "
       >
-        <div class="flex items-center ">
-          <div class="flex items-center text-sm text-skin-secondary  font-medium ">
+        <div className="flex items-center ">
+          <div className="flex items-center text-sm text-skin-secondary  font-medium ">
             {league?.leagueName}
           </div>
         </div>
-        <div class="flex items-center space-x-8 px-1">
-          <div class="flex text-sm font-bold text-skin-primary">
-            2
+        <div className="flex items-center space-x-8 px-1">
+          <div className="flex text-sm font-bold text-skin-primary">
+            {league?.events?.length}
             {isDropdownOpen ? (
-              <RiArrowUpSLine className="ml-2 text-xl m-auto" />
+              <IoIosArrowUp className="ml-2 text-lg  m-auto" />
+              
             ) : (
-              <IoIosArrowDown className="ml-2 text-lg  m-auto" />
+              <IoIosArrowDown className="ml-2 text-lg   m-auto" />
             )}
           </div>
         </div>
       </div>
       {isDropdownOpen && (
         <>
-          {league?.events?.map((event, index) => (
-            <Link
-              to="/cricket-league"
-              state={{
-                leagueName: league?.leagueName,
-                eventName: event?.name,
-                eventDate: event?.eventDate,
-                marketArray: event?.markets
-              }}
-            >
-              <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
-                <div class="  flex items-center flex-1  cursor-pointer select-none">
-                  <div class="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
-                    <a href="#" class="rounded-full relative block">
-                      <img
-                        alt="profil"
-                        src="https://sportsexch.com/images/icons/cricket.png"
-                        class="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg  p-1.5"
-                      />
-                    </a>
-                  </div>
-                  <div class="flex pl-3 justify-between w-full">
-                    <div>
-                      <div class=" font-medium  text-skin-primary  text-sm">
-                        {event?.name?.includes("@")
-                          ? event?.name?.split(" @ ")[0]?.trim()
-                          : event?.name?.split(" v ")[0]?.trim()}
-                      </div>
-                      <div class=" font-medium  text-skin-primary  text-sm">
-                        {event?.name?.includes("@")
-                          ? event?.name?.split(" @ ")[1]?.trim()
-                          : event?.name?.split(" v ")[1]?.trim()}
-                      </div>
+          {league?.events?.map((event, index) => {
+            var exist;
+            const matchOdds = event?.markets?.find(
+              (obj) => obj.slugName === "match-odds"
+            );
+            return (
+              <Link
+                key={index}
+                to="/cricket-league"
+                state={{
+                  leagueName: league?.leagueName,
+                  eventName: event?.name,
+                  eventId: event?._id,
+                  eventDate: event?.eventDate,
+                  marketArray: event?.markets,
+                }}
+              >
+                <div className="md:flex lg:block xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
+                  <div className="flex items-center flex-1  cursor-pointer select-none">
+                    <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
+                      <a href="#js" className="rounded-full relative block">
+                        <img
+                          alt="profil"
+                          src="https://sportsexch.com/images/icons/cricket.png"
+                          className="mx-auto object-contain rounded-full h-8 w-8 bg-skin-imgbg  p-1.5"
+                        />
+                      </a>
                     </div>
-                    <div class="text-[12px] font-bold pr-4 text-skin-primary ">
+                    <div className="flex pl-3 justify-between w-full">
                       <div>
-                        <div className="text-skin-secondary ">
-                          {DateTime.fromISO(event?.eventDate).toFormat(
-                            "dd MMM HH:mm"
-                          )}
+                        <div className=" font-medium  text-skin-primary  text-sm">
+                          {event?.name?.includes("@")
+                            ? event?.name?.split(" @ ")[0]?.trim()
+                            : event?.name?.split(" v ")[0]?.trim()}
                         </div>
-                        <div className="flex justify-end mt-1 ">
-                          <div className=" mx-2 ml-4 px-2  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
-                            F 4
+                        <div className=" font-medium  text-skin-primary  text-sm">
+                          {event?.name?.includes("@")
+                            ? event?.name?.split(" @ ")[1]?.trim()
+                            : event?.name?.split(" v ")[1]?.trim()}
+                        </div>
+                      </div>
+                      <div className="text-[12px] font-bold pr-4 text-skin-primary ">
+                        <div>
+                          <div className="text-skin-secondary ">
+                            {DateTime.fromISO(event?.eventDate).toFormat(
+                              "dd MMM HH:mm"
+                            )}
                           </div>
-                          <div className="  px-1 h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
-                            B
+                          <div className="flex justify-end mt-1 ">
+                            <div className=" mx-2 ml-4 px-2  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
+                              F 4
+                            </div>
+                            <div className="  px-1 h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
+                              B
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div>
-                  {event?.markets?.map((item, index) => {
-                    var exist;
-                    if (item?.slugName === "match-odds") {
-                      exist = globalMarketOddsData?.find((obj) =>
-                        Object.keys(obj)?.includes(item?.marketCode)
-                      );
-                    }
-                    if (
-                      exist &&
-                      Object.keys(Object.values(exist)[0]).length !== 0
-                    ) {
-                      console.log(
-                        Object.keys(Object.values(exist)[0]).length,
-                        "iiovalalala"
-                      );
-                      return (
-                        <>
-                          <div className="inline-block ">
-                            <div className="flex  drop-shadow-sm rounded-sm ">
-                              <div
-                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
-                              >
-                                <span className="m-auto brightness-125">
-                                  {
-                                    Object.values(exist)[0]?.runners[0]?.ex
-                                      ?.availableToBack[0]?.price
-                                  }
-                                </span>
-                              </div>
-                              <div
-                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
-                              >
-                                <span className="m-auto brightness-125">
-                                  {
-                                    Object.values(exist)[0]?.runners[0]?.ex
-                                      ?.availableToLay[0]?.price
-                                  }
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                          {/* middle runner */}
-                          <div className="inline-block ">
-                            <div className="flex drop-shadow-sm rounded-sm ">
-                              <div
-                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
-                              >
-                                <span className="m-auto brightness-125">
-                                  {Object.values(exist)[0]?.runners[2]?.ex
+                  <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 mr-4 xl:w-[45%] flex ">
+                    {(() => {
+                      // Code logic inside the IIFE
+                      if (matchOdds) {
+                        exist = globalMarketOddsData?.find((obj) =>
+                          Object.keys(obj)?.includes(matchOdds?.marketCode)
+                        );
+                      } else {
+                        exist = globalMarketOddsData?.find((obj) =>
+                          Object.keys(obj)?.includes(
+                            event?.markets[0]?.marketCode
+                          )
+                        );
+                      }
+                    })()}
+                    {exist &&
+                    Object.keys(Object.values(exist)[0]).length !== 0 ? (
+                      <>
+                        <div className="inline-block flex-1  ">
+                          <div className="flex drop-shadow-sm rounded-sm ">
+                            <div
+                              className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                            >
+                              <span className="m-auto brightness-125">
+                                {
+                                  Object.values(exist)[0]?.runners[0]?.ex
                                     ?.availableToBack[0]?.price
-                                    ? Object.values(exist)[0]?.runners[2]?.ex
-                                        ?.availableToBack[0]?.price
-                                    : "-"}
-                                </span>
-                              </div>
-                              <div
-                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
-                              >
-                                <span className="m-auto brightness-125">
-                                  {Object.values(exist)[0]?.runners[2]?.ex
+                                }
+                              </span>
+                            </div>
+                            <div
+                              className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                            >
+                              <span className="m-auto brightness-125">
+                                {
+                                  Object.values(exist)[0]?.runners[0]?.ex
                                     ?.availableToLay[0]?.price
-                                    ? Object.values(exist)[0]?.runners[2]?.ex
-                                        ?.availableToLay[0]?.price
-                                    : "-"}
-                                </span>
-                              </div>
+                                }
+                              </span>
                             </div>
                           </div>
-                          {/* Last Runner  */}
-                          <div className="inline-block ">
-                            <div className="flex drop-shadow-sm rounded-sm ">
-                              <div
-                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
-                              >
-                                <span className="m-auto brightness-125 ">
-                                  {
-                                    Object.values(exist)[0]?.runners[1]?.ex
+                        </div>
+                        {/* middle runner */}
+                        <div className="inline-block flex-1  ">
+                          <div className="flex drop-shadow-sm rounded-sm ">
+                            <div
+                              className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                            >
+                              <span className="m-auto brightness-125">
+                                {Object.values(exist)[0]?.runners[2]?.ex
+                                  ?.availableToBack[0]?.price
+                                  ? Object.values(exist)[0]?.runners[2]?.ex
                                       ?.availableToBack[0]?.price
-                                  }
-                                </span>
-                              </div>
-                              <div
-                                className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
-                              >
-                                <span className="m-auto brightness-125 ">
-                                  {
-                                    Object.values(exist)[0]?.runners[1]?.ex
+                                  : "-"}
+                              </span>
+                            </div>
+                            <div
+                              className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                            >
+                              <span className="m-auto brightness-125">
+                                {Object.values(exist)[0]?.runners[2]?.ex
+                                  ?.availableToLay[0]?.price
+                                  ? Object.values(exist)[0]?.runners[2]?.ex
                                       ?.availableToLay[0]?.price
-                                  }
-                                </span>
-                              </div>
+                                  : "-"}
+                              </span>
                             </div>
                           </div>
-                        </>
-                      );
-                    }
-                  })}
+                        </div>
+                        {/* Last Runner  */}
+                        <div className="inline-block flex-1  ">
+                          <div className="flex drop-shadow-sm rounded-sm ">
+                            <div
+                              className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                            >
+                              <span className="m-auto brightness-125 ">
+                                {
+                                  Object.values(exist)[0]?.runners[1]?.ex
+                                    ?.availableToBack[0]?.price
+                                }
+                              </span>
+                            </div>
+                            <div
+                              className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                            >
+                              <span className="m-auto brightness-125 ">
+                                {
+                                  Object.values(exist)[0]?.runners[1]?.ex
+                                    ?.availableToLay[0]?.price
+                                }
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      ""
+                    )}
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            );
+          })}
         </>
       )}
-    </div>
+    </div>)}
+    </>
   );
 };
 

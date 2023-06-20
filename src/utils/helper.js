@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 export const url = process.env.REACT_APP_API_ENDPOINT || "";
 
 //GET LOCAL STORAGE ITEM
@@ -20,7 +21,6 @@ export const getDefaultState = (keyName) => {
     try {
       const value = JSON.parse(storedValue);
 
-      console.log("Parsed value:", value);
       return value;
     } catch (error) {
       console.error("Error parsing localStorage value:", error);
@@ -105,4 +105,104 @@ WarningToast.propTypes = {
   msg: PropTypes.string,
 };
 
-// Formatting URL for BreadCrumb
+//To Find odds for the runner in Market From the API data emit by Socket
+
+export const findRunnerOdds = (odds, runnerCode) => {
+  const currentodd = Object.values(odds)[0]?.runners.find((odd) => {
+    const data = parseFloat(odd?.selectionId) === parseFloat(runnerCode);
+    return data;
+  });
+  return currentodd;
+};
+
+// Calculate for Bet on Back
+
+export const betOnBack = {
+  profit: (odds, stake) => {
+    console.log(odds, stake);
+    return Math.round(parseFloat(odds - 1).toFixed(2) * stake);
+  },
+  lose: (stake) => {
+    return -1 * stake;
+  },
+};
+
+// Calculate for Bet on Lay
+export const betOnLay = {
+  lose: (odds, stake) => {
+    return -1 * Math.round(parseFloat(odds - 1).toFixed(2) * stake);
+  },
+  profit: (stake) => {
+    return stake;
+  },
+};
+
+// Bets Validations for odds
+export const checkOdds = (odd, type, oddsObj) => {
+  // oddsObj contains lay, and back arrays
+  if (type === "back") {
+    const limit = findMaxFromArrayOfObjects(oddsObj?.availableToBack);
+    console.log(limit?.price);
+    console.log(odd);
+    if (odd > limit?.price) {
+      return false;
+    } else {
+      return true;
+    }
+  } else {
+    const limit = findMinFromArrayOfObjects(oddsObj?.availableToLay);
+    if (odd < limit?.price) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+};
+
+//Find the greatest value from array of objects
+const findMaxFromArrayOfObjects = (array) => {
+  let maxObject = array.reduce(function (previous, current) {
+    return previous.price > current.price ? previous : current;
+  });
+  return maxObject;
+};
+
+//Find the Minimum value from array of objects
+const findMinFromArrayOfObjects = (array) => {
+  let maxObject = array.reduce(function (previous, current) {
+    return previous.price < current.price ? previous : current;
+  });
+  return maxObject;
+};
+
+
+// For calling the toastify alert
+export const notifySuccess = (message) =>{
+  return toast.success(message, {
+  className: "custom-toast",
+  position: "top-center",
+  autoClose: 700,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+})};
+
+export const notifyWarning = (message) =>{
+  return toast.warn(message, {
+  className: "custom-toast",
+  position: "top-center",
+  autoClose: 700,
+  hideProgressBar: true,
+  closeOnClick: false,
+  pauseOnHover: false,
+  draggable: true,
+  progress: undefined,
+  theme: "dark",
+})};
+
+export { findMaxFromArrayOfObjects, findMinFromArrayOfObjects }; // because this function used in this same file also
+
+

@@ -6,8 +6,9 @@ import { SideNavbar } from "../components/SideNavbar";
 import { Sports } from "../components/Sports";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
-
-
+import { Chatbot } from "../components/Chatbot";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const Layout = () => {
   const [toggle, setToggle] = useState(true);
@@ -15,12 +16,11 @@ export const Layout = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth < 1024) {
         // Show on mobile and tablet screens (max-width: 768px)
         setToggle(false);
         setisAbovexl(false);
       } else if (window.innerWidth >= 1400) {
-        console.log(window.innerWidth);
         setisAbovexl(true); // Show on screens between 768px and 1400px
       } else {
         setToggle(true);
@@ -34,18 +34,32 @@ export const Layout = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-
-  const handleClick = () => {
-    console.log("jhhhhhhhhh");
-    // Perform desired actions or logic
-  };
-
-  return (
-    <div className="bg-skin-main  h-[100vh] overflow-y-hidden ">
+return(
+    <div className="bg-skin-main h-[100vh] overflow-y-hidden ">
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="dark"
+      />
+      
+      <Chatbot />
       <div className={` mx-auto w-full `}>
-        {<MainNavbar setToggle={setToggle} toggle={toggle} screen={isAboveXl} />}
+        {
+          <MainNavbar
+            setToggle={setToggle}
+            toggle={toggle}
+            screen={isAboveXl}
+          />
+        }
       </div>
-      <div className={`container drop-shadow-md  mx-auto md:max-w-full md:mx-0  ${isAboveXl ? 'px-64' : ''}`}>
+      <div className={` drop-shadow-sm  mx-auto  max-w-[1440px] `}>
         <div className="">
           <div className="flex ">
             {toggle ? (
@@ -57,17 +71,12 @@ export const Layout = () => {
           </div>
         </div>
       </div>
-      <div className="container mx-auto px-6 md:hidden ">
-
-
-        <MobileNavbar/>
+      <div className=" mx-auto px-6 lg:hidden ">
+        <MobileNavbar />
       </div>
-      <Footer onClick={handleClick}/>
+
+      <Footer />
+     
     </div>
   );
 };
-
-
-
-
-

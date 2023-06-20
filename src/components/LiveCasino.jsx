@@ -19,12 +19,12 @@ export const LiveCasino = () => {
     "https://sportsexch.com/images/live-casino/poster/poster03.png",
     "https://sportsexch.com/images/live-casino/poster/poster04.png",
     "https://sportsexch.com/images/live-casino/poster/poster01.png",
-    "https://sportsexch.com/images/live-casino/poster/poster02.png"
+    "https://sportsexch.com/images/live-casino/poster/poster02.png",
   ];
   let [categories] = useState({
     All: [
       {
-        icon:"https://sportsexch.com/images/icons/top_indian_games.png",
+        icon: "https://sportsexch.com/images/icons/top_indian_games.png",
         id: 1,
         title: "TeenPatti",
         img: "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
@@ -268,7 +268,6 @@ export const LiveCasino = () => {
         title: "Lobby",
         img: "https://luckmedia.link/aes_lobby/thumb.jpg",
       },
-
     ],
     CrashGames: [
       {
@@ -875,7 +874,7 @@ export const LiveCasino = () => {
         img: "https://luckmedia.link/evo_salon_priv_blackjack_a/thumb.jpg",
       },
       {
-        id:34,
+        id: 34,
         title: "Salon Privé Blackjack B",
         img: "https://luckmedia.link/evo_salon_priv_blackjack_b/thumb.jpg",
       },
@@ -954,8 +953,6 @@ export const LiveCasino = () => {
         title: "Blackjack Salon Privé",
         img: "https://luckmedia.link/ezg_blackjack_salon_priv/thumb.jpg",
       },
-    
-
     ],
     LiveDealer: [
       {
@@ -1353,7 +1350,7 @@ export const LiveCasino = () => {
         img: "https://luckmedia.link/roy_muflis_teen_patti/thumb.jpg",
       },
       {
-        id:34,
+        id: 34,
         title: "Casino Hold'em 1",
         img: "https://luckmedia.link/ezg_casino_holdem_1/thumb.jpg",
       },
@@ -1535,7 +1532,7 @@ export const LiveCasino = () => {
         img: "https://luckmedia.link/evo_double_ball_roulette/thumb.jpg",
       },
       {
-        id:34,
+        id: 34,
         title: "Speed Auto Roulette",
         img: "https://luckmedia.link/evo_speed_auto_roulette/thumb.jpg",
       },
@@ -1659,7 +1656,6 @@ export const LiveCasino = () => {
         title: "PowerUp Roulette",
         img: "https://luckmedia.link/ppl_powerup_roulette/thumb.jpg",
       },
-
     ],
     LiveSickBo: [
       {
@@ -1812,23 +1808,26 @@ export const LiveCasino = () => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-md overflow-x-scroll scroll-x  ">
+        <Tab.List className="flex gap-2  rounded-md overflow-x-scroll scroll-x  ">
           {Object.keys(categories).map((category) => (
-            
             <Tab
               key={category}
               className={({ selected }) =>
                 classNames(
-                  " rounded-md    px-4 py-1.5 text-xs font-medium  ",
+                  " rounded-md px-4 py-1.5 text-xs font-medium  ",
                   "  ",
                   selected
-                    ? "bg-skin-imgbg "
+                    ? "bg-skin-imgbg  "
                     : "text-skin-secondary bg-skin-cardhead hover:bg-skin-cardhead hover:text-skin-white"
                 )
               }
             >
-              <img className="object-cover w-4 h-4 m-auto " src="https://sportsexch.com/images/icons/top_indian_games.png" alt=""/>
-              
+              <img
+                className="object-cover w-4 h-4 m-auto "
+                src="https://sportsexch.com/images/icons/top_indian_games.png"
+                alt=""
+              />
+
               {category}
             </Tab>
           ))}
@@ -1843,16 +1842,16 @@ export const LiveCasino = () => {
                 //     "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2"
               )}
             >
-              <div class="-m-1 flex flex-wrap md:-m-2">
-                {posts.map((post) => (
-                  <div class="flex  w-1/4 flex-wrap">
-                    <div class="w-full p-3 md:p-6 text-skin-white text-sm font-bold flex flex-col items-center">
+              <div className="-m-1 flex flex-wrap md:-m-2">
+                {posts.map((post, index) => (
+                  <div className="flex  w-1/4 flex-wrap" key={index}>
+                    <div className="w-full p-3 md:p-6 text-skin-white text-sm font-bold flex flex-col items-center">
                       <img
                         alt="gallery"
-                        class="block h-full w-full rounded-lg object-cover object-center"
+                        className="block h-full w-full rounded-lg object-cover object-center"
                         src={post.img}
                       />
-                      {post.title}  
+                      {post.title}
                     </div>
                   </div>
                 ))}
@@ -1861,7 +1860,7 @@ export const LiveCasino = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-    <Footer/>
+     
     </div>
   );
 };

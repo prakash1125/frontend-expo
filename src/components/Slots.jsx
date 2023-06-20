@@ -324,8 +324,8 @@ export const Slots = ({scrollToTop}) => {
         ))}
       </Slider>
       <Tab.Group>
-        <Tab.List className="flex gap-2 rounded-xl bg-blue-900/20 p-1 scroll-x">
-          {Object.keys(categories).map((category, index) => (
+        <Tab.List className="flex gap-2 rounded-xl  p-1 scroll-x">
+          {Object.keys(categories).map((category) => (
             <Tab
               key={category}
               className={({ selected }) =>
@@ -356,11 +356,11 @@ export const Slots = ({scrollToTop}) => {
                 {posts.map((post, index) => {
                   return (
                     <>
-                      <div className="slots-tab flex items-center justify-between mt-2 mb-0.5 text-[#fff]">
+                      <div className="slots-tab flex items-center justify-between mt-2 mb-0.5 text-[#fff]" key={index}>
                         <div className="slots-title text-xl text-left font-medium mb-0.5">
                           {post.title}
                         </div>
-                        <div className="slots-gamePlace text-sm bg-[#22262a] cursor-pointer hover:bg-[#4c555e] px-5 py-3 rounded-md w-28">
+                        <div className="slots-gamePlace text-sm bg-[#22262a] cursor-pointer hover:bg-[#4c555e] px-5 py-3 my-2 rounded-md w-28">
                           <a className=" " href="#">
                             {truncate(post.gamePlace, 10)}
                           </a>
@@ -371,10 +371,15 @@ export const Slots = ({scrollToTop}) => {
                         {post.imageSet.map((image, index) => (
                           <div className="flex flex-col " key={index}>
                             <div className="casino-image mx-2">
-                              <img className="rounded" src={image.img} alt={`Slide ${index + 1}`} />
-                              
+                              <img
+                                className="rounded"
+                                src={image.img}
+                                alt={`Slide ${index + 1}`}
+                              />
                             </div>
-                            <div className="casino-name text-[#fff] text-center">{image.name}</div>
+                            <div className="casino-name text-[#fff] text-center">
+                              {image.name}
+                            </div>
                           </div>
                         ))}
                       </Slider>
@@ -386,10 +391,13 @@ export const Slots = ({scrollToTop}) => {
           </Tab.Panels>
         </div>
       </Tab.Group>
+<<<<<<< HEAD
 
                 
 
       <Footer scrollToTop={scrollToTop}/>
+=======
+>>>>>>> cf3a5b3ced196397c236e7f53c6f51b7d9ff9eec
     </div>
   );
 };

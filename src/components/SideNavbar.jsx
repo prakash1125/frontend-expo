@@ -1,100 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { IoIosArrowDown } from "react-icons/io";
-import { RiArrowUpSLine } from "react-icons/ri";
-import { useDispatch, useSelector } from "react-redux";
+import { IoIosArrowUp } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  getSport,
-  getAllSportData,
-  globalSportData,
-  globalMaketOdds,
-} from "../redux/actions";
-import { socket } from "../context/SocketContext";
 
 export const SideNavbar = () => {
-  // ==================================CALLING THE API DATA======================================
 
-  const dispatch = useDispatch();
-
-  const [data, setdata] = useState([]);
-  const [allMarkets, setAllMarkets] = useState([]);
-
-  // console.log("globalStateData", globalStateData);
-  // console.log("getSportData", getSportData);
-  useEffect(() => {
-    setdata([]);
-    dispatch(
-      getSport({
-        callback: (data) => {
-          let datas = {};
-          // console.log(data, "qwedfghjnm");
-          const allSportData = [];
-          data?.map((data) => {
-            const id = data?._id;
-            dispatch(
-              getAllSportData({
-                id,
-                callback: (res) => {
-                  // console.log(res, "all ressssss");
-                  const sport = {
-                    sportName: data?.name,
-                    sportSlugName: data?.slugName,
-                    sportsCode: data?.sportsCode,
-                    sportId: data?._id,
-                  };
-                  if (res.length !== 0) {
-                    const leagues = res?.map((item) => {
-                      const leagues = {
-                        leagueId: item?._id,
-                        leagueCode: item?.leagueCode,
-                        leagueName: item?.name,
-                        events: item?.events,
-                      };
-                      item?.events?.map((data) => {
-                        data.markets.map((market) => {
-                          const obj = {};
-
-                          obj[market?.marketCode] = {};
-                          if (!allMarkets.includes(market?.marketCode)) {
-                            setAllMarkets((markets) => [...markets, obj]);
-                          }
-                          return null;
-                        });
-                        return null;
-                      });
-                      return leagues;
-                    });
-                    datas = {
-                      ...sport,
-                    };
-                    sport.leagues = leagues;
-                    setdata((prevState) => [...prevState, sport]);
-
-                    return sport;
-                  } else {
-                    setdata((prevState) => [...prevState, sport]);
-                  }
-                },
-              })
-            );
-          });
-          // console.log("datas", datas);
-        },
-      })
-    );
-  }, []);
-
-  useEffect(() => {
-    dispatch(globalSportData({ data: data }));
-  }, [data, dispatch]);
-
-  useEffect(() => {
-    // console.log(allMarkets, "alalalalalalaalalalalaayayyayaya");
-    dispatch(globalMaketOdds({ data: allMarkets }));
-  }, [allMarkets, dispatch]);
-  // ===============================================================================================
-
-  // console.log("data", data);
+  let data = useSelector((state) => state.GlobalSportData?.globalSportData);
 
   const [activeIndex, setActiveIndex] = useState(null);
   const [dropdownIndex, setdropdownIndex] = useState(null);
@@ -107,50 +19,26 @@ export const SideNavbar = () => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
-  useEffect(() => {
-    allMarkets.forEach((market, index) => {
-      const key = Object?.keys(market)[0];
-      socket.on(key, (data) => {
-        console.log("1111111111111111111111111111111", data);
-        console.log(index, "updated index");
-        setAllMarkets((prevDataArray) => {
-          const updatedArray = prevDataArray?.map((val) =>
-            Object.keys(val)[0] === key ? { [key]: data } : val
-          );
-          return updatedArray;
-        });
-      });
-    });
-    // return () => {
-    //   allMarkets.forEach((channel) => {
-    //     socket.off(Object?.keys(channel)[0]);
-    //   });
-    //   // socket.disconnect();
-    // };
-  }, [allMarkets]);
-
   return (
     <>
-      <div className="w-full px-4 pt-2 z-40">
+      <div className="w-full px-2 pl-2 pt-2 z-40">
         <div className="flex flex-col justify-start mb-2">
-          <button className="flex justify-start text-skin-primary  bg-skin-cardhead p-3 rounded-md w-full text-xs font-semibold relative">
+          <button className="flex justify-start text-skin-primary  bg-skin-nav p-3 rounded-md w-full text-xs font-semibold relative">
             SPORTS
           </button>
         </div>
       </div>
-      <ul className="w-full px-4">
+      <ul className="w-full px-3 pl-3">
         {data?.map((item, index) => (
           <li
             key={index}
-            className={`cursor-pointer flex flex-col justify-between  mb-2 py-3   w-full  hover:bg-skin-cardhead hover:duration-200 rounded-md ${
-              activeIndex === index ? "bg-skin-cardhead" : ""
-            }`}
+            className={`cursor-pointer flex flex-col justify-between transition  hover:scale-x-105  mb-2 py-3   w-full   hover:bg-skin-nav  hover:duration-75  rounded-md ${activeIndex === index ? "bg-skin-nav scale-x-105" : ""}`}
           >
             <div
               onClick={() => toggleAccordion(index)}
               className="flex  justify-between items-center px-2"
             >
-              <div className="flex items-center gap-3 ">
+              <div className="flex items-center gap-3">
                 <img
                   src={require(`../assets/images/sidemenu/${item?.sportSlugName}.png`)}
                   alt=""
@@ -162,14 +50,14 @@ export const SideNavbar = () => {
               </div>
               {item?.sportName ? (
                 <div className="flex items-center gap-3">
-                  <span className="flex justify-center bg-skin-imgbg rounded-sm w-5 h-4 rounded-xs font-semibold text-xs">
-                    {item?.sportName?.length}{" "}
+                  <span className={`flex ${(item?.leagues?.length ===0) && 'hidden'} justify-center bg-skin-imgbg rounded-sm w-6 h-4 rounded-xs font-semibold text-xs`}>
+                    {item?.leagues ? item?.leagues?.length : 0}
                   </span>
-                  <h5 className="flex justify-center text-skin-secondary  cursor-pointer">
+                  <h5 className=" text-sm justify-center text-skin-secondary  cursor-pointer">
                     {activeIndex === index ? (
-                      <RiArrowUpSLine className="font-semibold" />
+                      <IoIosArrowUp />
                     ) : (
-                      <IoIosArrowDown className="font-semibold" />
+                      <IoIosArrowDown />
                     )}
                   </h5>
                 </div>
@@ -179,8 +67,9 @@ export const SideNavbar = () => {
               <div className="flex flex-col items-start  pt-2 m-1">
                 {item?.leagues?.map((league, index) => (
                   <div
+                    key={index}
                     onClick={() => toggleDropdown(index)}
-                    className="justify-between pl-3 pr-4 rounded-md py-3 hover:bg-skin-hovercolorsecondary flex w-full"
+                    className={`justify-between pl-3 pr-[15px] ${dropdownIndex === index ? "bg-skin-cardhead" : ""} rounded-md py-3 hover:duration-200 hover:bg-skin-cardhead flex w-full`}
                   >
                     <div>
                       <div className="text-skin-secondary block text-[12px] font-semibold">
@@ -191,15 +80,18 @@ export const SideNavbar = () => {
                         <div className="flex flex-col items-start  pt-2 ">
                           {league?.events.map((event, index) => (
                             <Link
+                              key={index}
                               to="/cricket-league"
                               state={{
                                 leagueName: league?.leagueName,
+                                eventId: event?._id,
                                 eventName: event?.name,
                                 eventDate: event?.eventDate,
+                                marketArray: event?.markets,
                               }}
                             >
-                              <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:bg-skin-cardhead flex w-full">
-                                <div className="text-skin-secondary block text-xs w-full font-semibold">
+                              <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:duration-200 hover:bg-skin-hovercolorsecondary flex w-full">
+                                <div className="text-skin-primary block text-xs w-full font-semibold">
                                   {event?.name}
                                 </div>
                               </div>
@@ -208,7 +100,13 @@ export const SideNavbar = () => {
                         </div>
                       )}
                     </div>
-                    <IoIosArrowDown className="font-semibold text-white text-sm" />
+                    <h5 className="w-1 text-sm text-skin-secondary  cursor-pointer">
+                      {dropdownIndex === index ? (
+                        <IoIosArrowUp className="" />
+                      ) : (
+                        <IoIosArrowDown className="" />
+                      )}
+                    </h5>
                   </div>
                 ))}
               </div>
