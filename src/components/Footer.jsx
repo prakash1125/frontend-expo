@@ -1,52 +1,47 @@
 import React from "react";
 import { useState, useEffect } from 'react';
 
-const Footer = ({ onClick }) => {
-  const [isVisible, setIsVisible] = useState(false);
+// const Footer = ({ onClick }) => {
+//   const [isVisible, setIsVisible] = useState(false);
 
-  useEffect(() => {                                                                         // Show or hide the button based on scroll position
-    const handleScroll = () => {
-      console.log("window.scrollY", window.scrollY)
-      if (window.scrollY > 100) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
+//   useEffect(() => {                                                                         // Show or hide the button based on scroll position
+//     const handleScroll = () => {
+//       console.log("window.scrollY", window.scrollY)
+//       if (window.scrollY > 100) {
+//         setIsVisible(true);
+//       } else {
+//         setIsVisible(false);
+//       }
+//     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => {                                                                          // Clean up the event listener on component unmount                                                          
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+//     window.addEventListener('scroll', handleScroll);
+//     return () => {                                                                          // Clean up the event listener on component unmount                                                          
+//       window.removeEventListener('scroll', handleScroll);
+//     };
+//   }, []);
 
-  const handleButtonClick = () => {
-    console.log("ttttttte")
-    onClick(); // Invoke the function received from props
-  };
+//   const handleButtonClick = () => {
+//     console.log("ttttttte")
+//     onClick(); // Invoke the function received from props
+//   };
 
-  const scrollToTop = () => {                                                               // Scroll to the top of the page                                  
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
-
+  const Footer = ({ scrollToTop }) => {   
+    
   return (
     <>
       <div className="footer justify-center text-skin-secondary pt-16 pb-28">
         <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead">
           <div className="Scroll-top_icon">
-            <a href="/" className="backToTopBtn">
+      
               {/* {isVisible && (
                 <span className="backToTopBtn" onClick={scrollToTop}>
                   Back to Top
                 </span>
               )} */}
-              <span className="backToTopBtn" onClick={handleButtonClick}>
+              <button className= "scrollToTopButton" onClick={scrollToTop}>
                 Back to Top
-              </span>
-            </a>
+              </button>
+           
           </div>
         </div>
         <div className="flex justify-between flex-wrap footer-menu gap-8 p-2">
@@ -106,7 +101,7 @@ const Footer = ({ onClick }) => {
 
 
         <div className="border w-72 m-auto rounded-xl helpline-numbers text-center p-1 flex flex-col">
-          <div className="helpline-heading font-semibold ">
+          <div className="helpline-heading font-semibold">
             <h5>Helpline Number</h5>
           </div>
           <a
@@ -134,5 +129,7 @@ const Footer = ({ onClick }) => {
 };
 
 export default Footer;
+
+
 
 

@@ -58,12 +58,13 @@ export const Layout = () => {
         </div>
       </div>
       <div className="container mx-auto px-6 md:hidden ">
-        <MobileNavbar />
+
+
+        <MobileNavbar/>
       </div>
-      <Footer onClick={handleClick} />
+      <Footer onClick={handleClick}/>
     </div>
   );
-
 };
 
 

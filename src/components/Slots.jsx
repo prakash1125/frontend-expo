@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export const Slots = () => {
+export const Slots = ({scrollToTop}) => {
   const settings = {
     // dots: true,
     infinite: true,
@@ -389,7 +389,7 @@ export const Slots = () => {
 
                 
 
-      <Footer />
+      <Footer scrollToTop={scrollToTop}/>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Tab } from "@headlessui/react";
 import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
-export const Sports = () => {
+export const Sports = ({ scrollToTop }) => {
+
   // ==================================CALLING THE API DATA======================================
 
   let globalStateData = useSelector((state) => state.GlobalSportData);
@@ -73,7 +74,7 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-      <Footer />
+      <Footer scrollToTop={scrollToTop}/>
     </div>
   );
 };
