@@ -15,6 +15,8 @@ module.exports = {
       colors: {
         current: "var(--text-color)",
         mainbg: "var(--main-background)",
+        sidenavhover:"var( --side-navbar-hover)",
+        sidenavhoversecondary:"var(--side-navbar-hover-secondary)"
       },
 
       textColor: {
