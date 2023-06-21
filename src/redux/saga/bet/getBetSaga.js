@@ -6,6 +6,7 @@ import API from "../../../utils/api";
 function* getBetRequest(action) {
   try {
     const { data } = yield API.get("api/v1/bet-sport"); // Add the URL from Backend
+    console.log(data, "dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
     if (data.meta.code === 200) {
       yield put(getBetSuccess(data?.data));
       yield call(action.payload.callback, data.data);

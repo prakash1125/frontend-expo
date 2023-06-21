@@ -15,6 +15,7 @@ import { logOut } from "../redux/actions/auth/logoutAction";
 import {
   getAllSportData,
   getSport,
+  getUserData,
   globalMaketOdds,
   globalSportData,
 } from "../redux/actions";
@@ -183,6 +184,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     const storedLoggedIn = localStorage.getItem("token");
     if (storedLoggedIn) {
       setLoggedIn(true);
+      dispatch(getUserData());
     }
   }, []);
 

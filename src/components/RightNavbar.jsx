@@ -14,15 +14,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { getBet } from "../redux/actions";
 import { IoMdDesktop } from "react-icons/io";
 
-
 export const RightNavbar = () => {
-
   let globalStateData = useSelector((state) => state?.GlobalSportData);
   const cricketData = globalStateData?.globalSportData;
 
   const dispatch = useDispatch();
   const location = useLocation();
   const myBets = useSelector((state) => state?.GetBet?.allBets);
+  
   const Login = useSelector((state) => state?.Login?.login);
   const newBet = useSelector((state) => state?.PlaceBet);
   const settings = {
@@ -43,6 +42,7 @@ export const RightNavbar = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
+      console.log("apiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
       dispatch(getBet());
     }
   }, [dispatch, Login, newBet]);
@@ -80,7 +80,9 @@ export const RightNavbar = () => {
                 onClick={handleLiveTVClick}
                 className="flex justify-center items-center text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold"
               >
-                <span className="flex items-center gap-2"><IoMdDesktop /> Live TV</span>
+                <span className="flex items-center gap-2">
+                  <IoMdDesktop /> Live TV
+                </span>
               </button>
             </div>
 
@@ -128,9 +130,9 @@ export const RightNavbar = () => {
             </button>
           </div>
           {cricketData?.map((element) =>
-            element?.leagues?.map(
-              (j) => <Events league={j} />
-            )
+            element?.leagues?.map((j) => (
+              <Events league={j} sport={element?.sportSlugName} />
+            ))
           )}
         </div>
       </ul>

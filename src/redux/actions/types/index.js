@@ -39,7 +39,12 @@ export const PLACE_BET = "PLACE_BET";
 export const PLACE_BET_SUCCESS = "PLACE_BET_SUCCESS";
 export const PLACE_BET_FAILURE = "PLACE_BET_FAILURE";
 
-// =====================GET BET (ADD)===========================
+// =====================GET USERDATA (GET)===========================
+export const GET_USERDATA = "GET_USERDATA";
+export const GET_USERDATA_SUCCESS = "GET_USERDATA_SUCCESS";
+export const GET_USERDATA_FAILURE = "GET_USERDATA_FAILURE";
+
+// =====================GET  BET(GET)===========================
 export const GET_BET = "GET_BET";
 export const GET_BET_SUCCESS = "GET_BET_SUCCESS";
 export const GET_BET_FAILURE = "GET_BET_FAILURE";

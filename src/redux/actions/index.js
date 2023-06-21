@@ -7,3 +7,4 @@ export * from "./globalData/marketOddsAction";
 export * from "./runnerData/getRunnerDataAction";
 export * from "./bet/placeBetAction";
 export * from "./bet/getBetAction";
+export * from "./userData/getUserDataAction";
