@@ -59,11 +59,6 @@ const BetSlip = ({
         manageStakeData(Math.abs(stake) - 1);
       }
     } else {
-      // setSlipPrice((prevValue) => {
-      //   const decrementedValue = prevValue !== null ? prevValue - 0.01 : 0;
-      //   const roundedValue = Number(decrementedValue.toFixed(2)); // because of JS floating point precise issue
-      //   return roundedValue;
-      // });
       setSlipData((prev) => ({
         ...prev,
         price:
@@ -92,7 +87,11 @@ const BetSlip = ({
       manageStakeData(newValue);
     } else {
       const newValue = e.target.value;
-      setSlipPrice(newValue !== "" ? newValue : null);
+      setSlipData((prev) => ({
+        ...prev,
+        price: newValue,
+      }));
+      manageOddsData(newValue); // because state update wont effect suddenly
     }
   };
 

@@ -8,8 +8,6 @@ import { getRunnerData } from "../redux/actions/runnerData/getRunnerDataAction";
 import { Footer } from "flowbite-react";
 import { IoMdTrendingUp } from "react-icons/io";
 
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
@@ -147,11 +145,12 @@ export const CricketLeague = () => {
     setExpandedTables(defaultIndices);
   }, [categories]);
 
-  useEffect(() => {
-    setEventMarkets([]);
-  }, [location?.state?.eventId]);
+  // useEffect(() => {
+  //   setEventMarkets([]);
+  // }, [location?.state?.eventId]);
 
   useEffect(() => {
+    setEventMarkets([]);
     location?.state?.marketArray?.map((market) => {
       return dispatch(
         getRunnerData({
@@ -194,12 +193,16 @@ export const CricketLeague = () => {
           <div className="p-1 flex justify-center">
             <button
               onClick={handleLiveTVClick}
-              className={`flex justify-center items-center gap-2 text-skin-white text-sm ${isLive ? "bg-skin-hovercolorsecondary" : "bg-skin-nav"}  p-2.5 rounded-md w-full font-bold`}
+              className={`flex justify-center items-center gap-2 text-skin-white text-sm ${
+                isLive ? "bg-skin-hovercolorsecondary" : "bg-skin-nav"
+              }  p-2.5 rounded-md w-full font-bold`}
             >
-              <span className="flex items-center gap-2 text-md"><IoMdTrendingUp  /> Live Score</span>
+              <span className="flex items-center gap-2 text-md">
+                <IoMdTrendingUp /> Live Score
+              </span>
             </button>
           </div>
-          
+
           {isLive && (
             <div className="live-matches px-3 py-2 transition-transform duration-2000">
               <div className="bg-[#000] text-center h-64 w-full rounded ">
