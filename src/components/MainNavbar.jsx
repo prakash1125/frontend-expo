@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
-import { BiMenuAltLeft } from "react-icons/bi";
-import { AiOutlineClose } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { IoIosStats } from "react-icons/io";
@@ -12,7 +10,7 @@ import { ChangePassword } from "./ChangePassword";
 import { ThemeContext } from "../context/ThemeContext";
 import lamp from "../assets/images/lamp.png";
 import lampDark from "../assets/images/lampdark.png";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOut } from "../redux/actions/auth/logoutAction";
 import {
   getAllSportData,
@@ -182,7 +180,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   useEffect(() => {
     // Check if the login status is stored in localStorage
     const storedLoggedIn = localStorage.getItem("token");
-
     if (storedLoggedIn) {
       setLoggedIn(true);
     }
@@ -212,7 +209,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 className="relative flex items-center justify-between
              sm:gap-3 gap-1"
               >
-
                 {/* Mobile Navbar Toggle Button */}
                 {/* <div
                   className={`text-skin-white  ${
@@ -222,7 +218,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 >
                   {toggle ? <AiOutlineClose /> : <BiMenuAltLeft />}
                 </div> */}
-
 
                 <div className="flex flex-1 items-center justify-start sm:items-stretch sm:justify-start">
                   <div className="flex items-center ">
@@ -244,7 +239,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           to={item.href}
                           className={classNames(
                             item.href == currentRoute &&
-                            "bg-skin-cardhead text-skin-white ",
+                              "bg-skin-cardhead text-skin-white ",
                             "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -255,7 +250,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     </div>
                   </div>
                 </div>
-
 
                 {/* THEME TOGGLE */}
                 <button
@@ -276,7 +270,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   )}
                 </button>
 
-
                 {/* AFTER LOGIN */}
                 {loggedIn && (
                   <div className="flex gap-1.5 py-2 lg:p-0  items-center relative">
@@ -286,8 +279,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           key={index}
                           to={element.href}
                           type="button"
-                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
-                            }`}
+                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${
+                            element.name === "D" ? "1f4d34" : "bg-sky-900"
+                          }`}
                         >
                           {element.name}
                         </Link>
@@ -361,8 +355,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                               element.list === "Logout"
                                 ? handleLogout
                                 : element?.modal
-                                  ? () => handleModal(element?.list)
-                                  : undefined
+                                ? () => handleModal(element?.list)
+                                : undefined
                             }
                             to={element.href}
                             className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"
@@ -394,7 +388,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   >
                     LOG IN
                   </button>
-
                 )}
 
                 {/* <button

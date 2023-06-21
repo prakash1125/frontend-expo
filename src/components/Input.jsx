@@ -18,7 +18,7 @@ const Input = ({
         type="text"
         className="text-center w-full bg-[#22262A] font-semibold text-md md:text-base flex items-center text-skin-white outline-none"
         name="custom-input-number"
-        value={value !== null ? value : ""}
+        value={value !== null && value !== 0 ? value : ""}
         placeholder={placeholder}
         onChange={(e) => handleChange(e, placeholder)}
         inputMode="numeric"
