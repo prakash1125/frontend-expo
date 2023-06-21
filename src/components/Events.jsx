@@ -38,9 +38,9 @@ const Events = ({ league }) => {
                         : event?.name?.split(" v ")[1]?.trim()}
                     </div>
                   </div>
-                  <div className="text-[12px] font-bold pr-4 text-skin-primary">
+                  <div className="text-[12px] font-bold pr-4  text-skin-primary">
                     <div>
-                      <div className="text-skin-secondary ">
+                      <div className="text-skin-secondary text-right">
                         {DateTime.fromISO(event?.eventDate).toFormat("dd MMM HH:mm")}
                       </div>
                       <div className="flex justify-end mt-1 ">

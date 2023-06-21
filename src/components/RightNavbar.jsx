@@ -48,7 +48,7 @@ export const RightNavbar = () => {
   }, [dispatch, Login, newBet]);
 
   return (
-    <div className="overflow-y-auto px-2 pr-0 h-[95vh] justify-start flex scrollbar-hide overflow-x-hidden">
+    <div className="overflow-y-auto px-2 pr-0 h-[94vh] justify-start flex scrollbar-hide overflow-x-hidden">
       <ul className="mr-2">
         {/* {!isIndianPremierLeague && (
         <div className=" mx-auto bg-skin-nav  rounded-md mt-2">
