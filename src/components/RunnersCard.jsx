@@ -147,6 +147,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
           </div>
         </div>
         <div className="flex items-center space-x-8 px-1">
+          {/* <span className="bg-red-400 rounded">
+            <p>Hello</p>
+          </span> */}
           <div className="flex text-sm font-bold text-skin-primary">
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
@@ -185,7 +188,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                                       : "text-red-400"
                                   }`}
                                 >
-                                  {Math.abs(data?.pl)}
+                                  {data?.pl === 0 && stakeAmount
+                                    ? 0
+                                    : data?.pl !== 0 && Math.abs(data?.pl)}
                                 </span>
 
                                 <span

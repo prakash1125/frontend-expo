@@ -9,6 +9,7 @@ import GobalMarketOdds from "./globalData/marketOddsReducer";
 import GetRunnerData from "./runnerData/getRunnerDataReducer";
 import PlaceBet from "./bet/placeBetReducer";
 import GetBet from "./bet/getBetReducer";
+import GetUserData from "./userData/getUserData";
 
 /* ---------------------------- //example// ---------------------------- */
 // import exampleReducer from "./path"
@@ -23,6 +24,7 @@ const appReducer = combineReducers({
   GetRunnerData,
   PlaceBet,
   GetBet,
+  GetUserData,
 });
 const reducers = (state, action) => {
   return appReducer(state, action);

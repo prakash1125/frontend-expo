@@ -36,7 +36,6 @@ export const Sports = () => {
     xl: 10, // Show 4 slides on extra-large screens
   };
 
-
   return (
     <div className="w-full sm:px-0 mb-16 ">
       <Tab.Group>
@@ -60,17 +59,18 @@ export const Sports = () => {
         >
           <Tab.List className="flex  ">
             {sportsArray?.map((category, index) => (
-              <SwiperSlide>
+              <SwiperSlide key={index}>
                 <Tab
                   key={category.sportSlugName}
                   onClick={() => setCategoryId(index)}
                   className={({ selected }) =>
                     classNames(
                       ` h-[52px] justify-center text-center rounded-md text-xs w-full  font-semibold 
-                  ${selected
-                        ? "bg-skin-imgbg  font-semibold duration-200  "
-                        : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-200"
-                      }
+                  ${
+                    selected
+                      ? "bg-skin-imgbg  font-semibold duration-200  "
+                      : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-200"
+                  }
                 `
                     )
                   }
@@ -78,8 +78,9 @@ export const Sports = () => {
                   <img
                     alt="profil"
                     src={require(`../assets/images/sidemenu/${category.sportSlugName}.png`)}
-                    className={`mx-auto ${categoryId !== index && "invert"
-                      } object-cover  w-5 sidebar `}
+                    className={`mx-auto ${
+                      categoryId !== index && "invert"
+                    } object-cover  w-5 sidebar `}
                   ></img>
                   <div className=" inline-block overflow-x-hidden w-16  text-[11px] whitespace-nowrap ">
                     {category?.sportName}
@@ -103,7 +104,6 @@ export const Sports = () => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-  
     </div>
   );
 };

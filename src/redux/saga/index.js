@@ -10,6 +10,7 @@ import GlobalMarketOdds from "./globalData/marketOddsSaga";
 import GetRunnerData from "./runnerData/getRunnerDataSaga";
 import PlaceBet from "./bet/placeBetSaga";
 import GetBet from "./bet/getBetSaga";
+import GetUserData from "./userData/getUserDataSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     GetRunnerData(),
     PlaceBet(),
     GetBet(),
+    GetUserData(),
   ]);
 }

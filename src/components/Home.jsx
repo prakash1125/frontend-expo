@@ -54,12 +54,12 @@ export const Home = () => {
     {
       icon: "https://sportsexch.com/images/icons/sports.png",
       name: "Sports",
-      route: "/all-sports"
+      route: "/all-sports",
     },
     {
       icon: "https://sportsexch.com/images/icons/live.png",
       name: "In-Play",
-      route: "/in-play"
+      route: "/in-play",
     },
     // {
     //   icon: "https://sportsexch.com/images/icons/trophy.png",
@@ -69,17 +69,17 @@ export const Home = () => {
     {
       icon: "https://sportsexch.com/images/icons/indian-casino.png",
       name: "Indian Casino",
-      route: "/indian-casino"
+      route: "/indian-casino",
     },
     {
       icon: "https://sportsexch.com/images/icons/live-casino.png",
       name: "Live Casino",
-      route: "/live-casino"
+      route: "/live-casino",
     },
     {
       icon: "https://sportsexch.com/images/icons/trophy.png",
       name: "Slots",
-      route: "/slots"
+      route: "/slots",
     },
   ];
 
@@ -122,18 +122,17 @@ export const Home = () => {
                 <div
                   className={`cursor-pointer  w-full rounded-md py-2 p-2 text-xs font-medium leading-5 ring-opacity-60 ring-offset-2 text-skin-white bg-skin-nav hover:bg-skin-hovercolor hover:text-skin-white`}
                 >
-                  
-                    <a href="#" className="relative block">
-                      <img
-                        alt="profil"
-                        src={element.icon}
-                        className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
-                      />
-                    </a>
-                    <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
-                  </div>
-                  
-                
+                  <a href="#js" className="relative block">
+                    <img
+                      alt="profil"
+                      src={element.icon}
+                      className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
+                    />
+                  </a>
+                  <p className="text-center whitespace-nowrap overflow-hidden">
+                    {element.name}
+                  </p>
+                </div>
               </Link>
             </SwiperSlide>
           ))}
