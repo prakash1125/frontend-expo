@@ -4,6 +4,7 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  SuccessToast,
   betOnBack,
   betOnLay,
   checkOdds,
@@ -100,33 +101,32 @@ const RunnersCard = ({ market, odds, eventId }) => {
   //To place the Bet
   const handlePlaceBet = () => {
     if (localStorage?.getItem("token")) {
-      const betdOdds = findRunnerOdds(odds, slipData?.selectionId);
-      const status = checkOdds(slipData?.price, slipData?.type, betdOdds?.ex);
-      alert(status);
-      if (status) {
-        const data = {
-          eventId: eventId,
-          stake: Math.abs(stake),
-          selectionType: slipData?.type,
-          odds: slipData?.price,
-          marketId: slipData?.marketId,
-          selection: slipData?.selectionName,
-          marketType: slipData?.marketType,
-          marketCode: slipData?.marketCode,
-          selectionId: slipData?.selectionId,
-        };
-        dispatch(
-          placeBet({
-            data,
-            callback: (data) => {
-              if (data?.meta?.code === 200) handleBetSlipClose();
-            },
-          })
-        );
-        alert("bet done");
-      } else {
-        alert("Odds Changed");
-      }
+      // const betdOdds = findRunnerOdds(odds, slipData?.selectionId);
+      // const status = checkOdds(slipData?.price, slipData?.type, betdOdds?.ex);
+      // if (status) {
+      const data = {
+        eventId: eventId,
+        stake: Math.abs(stake),
+        selectionType: slipData?.type,
+        odds: slipData?.price,
+        marketId: slipData?.marketId,
+        selection: slipData?.selectionName,
+        marketType: slipData?.marketType,
+        marketCode: slipData?.marketCode,
+        selectionId: slipData?.selectionId,
+      };
+      dispatch(
+        placeBet({
+          data,
+          callback: (data) => {
+            console.log(data, "place bet data");
+            if (data?.meta?.code === 200) handleBetSlipClose();
+          },
+        })
+      );
+      // } else {
+      //   alert("Odds Changed");
+      // }
     } else {
       alert("Please Login to Bet");
     }

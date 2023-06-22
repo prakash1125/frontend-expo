@@ -2,10 +2,8 @@ import { RightNavbar } from "../components/RightNavbar";
 import { Home } from "../components/Home";
 import { Chatbot } from "../components/Chatbot";
 import Footer from "../components/Footer";
-import useScrollPosition from "../hooks/scrollPosition";
 
 export const HomePage = () => {
-  const position = useScrollPosition();
   const scrollToTop = () => {
     console.log(window.scrollY, "called scroll");
     window.scrollTo({
@@ -19,7 +17,7 @@ export const HomePage = () => {
         <Home />
         <Footer scrollToTop={scrollToTop} />
       </div>
-      <div className=" hidden lg:flex lg:flex-col lg:basis-2/6 ">
+      <div className="hidden lg:flex lg:flex-col lg:basis-2/6">
         {/* <div className="px-2 z-0 hidden md:block w-1/4  "> */}
         <RightNavbar />
         {/* </div> */}

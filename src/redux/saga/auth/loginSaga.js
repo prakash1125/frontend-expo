@@ -9,13 +9,17 @@ function* loginRequest(action) {
       "/api/v1/login",
       action?.payload?.inputValues
     );
+    console.log(data, "ooooo11");
     if (data.meta.code === 200) {
       yield put(loginSuccess(data));
       yield call(action.payload.callback, data);
     } else if (data.meta.code !== 200) {
       yield put(loginFailure());
+      yield call(action.payload.errorCallback, data);
     }
   } catch (error) {
+    console.log(error, "eerr");
+    yield call(action.payload.errorCallback, error?.response?.data);
     yield put(loginFailure());
   }
 }

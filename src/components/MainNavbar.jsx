@@ -42,6 +42,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const dispatch = useDispatch();
   const currentRoute = location.pathname;
   const userData = useSelector((state) => state?.GetUserData?.userData);
+  console.log(userData, "userData");
   const { theme, setTheme } = useContext(ThemeContext);
   const walletBalance = [
     { name: "Balance", amount: "5,564.20" },
@@ -261,11 +262,13 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     <img
                       className="hover:brightness-90 w-5  sm:w-6 lg:w-7"
                       src={lampDark}
+                      alt="lampDark"
                     ></img>
                   ) : (
                     <img
                       className=" hover:brightness-95 w-5  sm:w-6 lg:w-7"
                       src={lamp}
+                      alt="lampLight"
                     ></img>
                   )}
                 </button>
