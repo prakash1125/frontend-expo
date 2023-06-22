@@ -1,14 +1,17 @@
 import React from "react";
 
-const Footer = () => {
+const Footer = ({ scrollToTop }) => {
   return (
     <>
       <div className="footer justify-center text-skin-secondary pt-16 pb-28">
-        <div className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead ">
-          <div className="Scroll-top_icon">
-            <a href="/" className="scrollToTop">
+        <div
+          className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead "
+          onClick={scrollToTop}
+        >
+          <div className="Scroll-top_icon cursor-pointer">
+            <span className="scrollToTop">
               <span>Back to Top</span>
-            </a>
+            </span>
           </div>
         </div>
         <div className="flex justify-between flex-wrap footer-menu gap-8 p-2 ">

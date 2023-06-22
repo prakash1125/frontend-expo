@@ -1,3 +1,4 @@
+import { DateTime } from "luxon";
 import PropTypes from "prop-types";
 export const url = process.env.REACT_APP_API_ENDPOINT || "";
 
@@ -118,7 +119,6 @@ export const findRunnerOdds = (odds, runnerCode) => {
 
 export const betOnBack = {
   profit: (odds, stake) => {
-    console.log(odds, stake);
     return Math.round(parseFloat(odds - 1).toFixed(2) * stake);
   },
   lose: (stake) => {
@@ -154,6 +154,29 @@ export const checkOdds = (odd, type, oddsObj) => {
       return false;
     } else {
       return true;
+    }
+  }
+};
+
+//Date format to show
+
+export const formatDate = (date) => {
+  const eventDate = date;
+
+  if (eventDate) {
+    const currentDate = new Date();
+    const parsedEventDate = DateTime.fromISO(eventDate);
+
+    if (
+      parsedEventDate.toFormat("yyyy-MM-dd") ===
+      currentDate.toISOString().split("T")[0]
+    ) {
+      return "Today " + parsedEventDate.toFormat("HH:mm");
+    } else if (parsedEventDate > currentDate) {
+      return "Tommorow " + parsedEventDate.toFormat("HH:mm");
+    } else {
+      const formattedDate = parsedEventDate.toFormat("dd MMM HH:mm");
+      return formattedDate;
     }
   }
 };

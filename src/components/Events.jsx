@@ -1,13 +1,14 @@
-import { DateTime } from "luxon";
 import React from "react";
+import { formatDate } from "../utils/helper";
 
 const Events = ({ league, sport }) => {
   return (
     <>
       {league?.events?.map((event, i) => {
         if (i === 0) {
+          const date = formatDate(event?.eventDate);
           return (
-            <div className=" py-[10px] mb-[2px] border-b border-mainbg">
+            <div className=" py-[10px] mb-[2px] border-b border-mainbg" key={i}>
               <div className=" flex items-center   cursor-pointer select-none">
                 <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
                   <a href="#js" className="rounded-full relative block">
@@ -41,11 +42,7 @@ const Events = ({ league, sport }) => {
                   </div>
                   <div className="text-[12px] font-bold pr-4 text-skin-primary">
                     <div>
-                      <div className="text-skin-secondary w-[75px]">
-                        {DateTime.fromISO(event?.eventDate).toFormat(
-                          "dd MMM HH:mm"
-                        )}
-                      </div>
+                      <div className="text-skin-secondary w-[75px]">{date}</div>
                       <div className="flex justify-end mt-1 ">
                         <div className=" mx-2 ml-4 px-2 w-full h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark">
                           F4

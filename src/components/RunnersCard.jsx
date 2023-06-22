@@ -41,7 +41,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
             if (bet?.selectionType === "back") {
               runner.pl += betOnBack.profit(bet?.odds, bet?.stake);
             } else {
-              runner.pl -= bet.p_l;
+              runner.pl -= Math.abs(betOnLay.lose(bet?.odds, bet?.stake));
             }
           } else {
             if (bet?.selectionType === "back") {
@@ -134,10 +134,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
 
   return (
     <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
-      <div
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer"
-      >
+      <div className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer">
         <div className="flex items-center">
           <div className="flex items-center text-sm text-skin-secondary font-medium">
             {eventMarket?.marketName}{" "}
@@ -147,10 +144,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
           </div>
         </div>
         <div className="flex items-center space-x-8 px-1">
-          {/* <span className="bg-red-400 rounded">
-            <p>Hello</p>
-          </span> */}
-          <div className="flex text-sm font-bold text-skin-primary">
+          <div
+            className="flex text-sm font-bold text-skin-primary"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
             ) : (

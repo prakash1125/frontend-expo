@@ -41,9 +41,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const currentRoute = location.pathname;
-
+  const userData = useSelector((state) => state?.GetUserData?.userData);
   const { theme, setTheme } = useContext(ThemeContext);
-
   const walletBalance = [
     { name: "Balance", amount: "5,564.20" },
     { name: "Bonus", amount: "0.20" },
@@ -185,12 +184,11 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
       setLoggedIn(true);
       dispatch(getUserData());
     }
-  }, []);
+  }, [dispatch]);
 
   const handleLogout = () => {
     // Update the loggedIn state to false
     setLoggedIn(false);
-
     // Remove the login status from localStorage
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
@@ -295,7 +293,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
                     >
                       <span className="text-skin-white  text-xs font-semibold mx-2.5">
-                        &#x20B9;5,564.20
+                        &#x20B9;{userData?.data?.balance}
                       </span>
                       <button
                         type="button"
@@ -333,7 +331,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                                   {element.name}
                                 </span>
                                 <span className="py-2 text-sm text-skin-white ">
-                                  {element.amount}
+                                  {userData?.data?.balance}
                                 </span>
                               </div>
                             );
