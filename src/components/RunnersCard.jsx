@@ -4,12 +4,15 @@ import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  SuccessToast,
   betOnBack,
   betOnLay,
   checkOdds,
   findRunnerOdds,
+  notifyWarning,
 } from "../utils/helper";
 import { placeBet } from "../redux/actions";
+import { toast } from "react-toastify";
 
 const RunnersCard = ({ market, odds, eventId }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
@@ -41,7 +44,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
             if (bet?.selectionType === "back") {
               runner.pl += betOnBack.profit(bet?.odds, bet?.stake);
             } else {
-              runner.pl -= bet.p_l;
+              runner.pl -= Math.abs(betOnLay.lose(bet?.odds, bet?.stake));
             }
           } else {
             if (bet?.selectionType === "back") {
@@ -100,44 +103,40 @@ const RunnersCard = ({ market, odds, eventId }) => {
   //To place the Bet
   const handlePlaceBet = () => {
     if (localStorage?.getItem("token")) {
-      const betdOdds = findRunnerOdds(odds, slipData?.selectionId);
-      const status = checkOdds(slipData?.price, slipData?.type, betdOdds?.ex);
-      alert(status);
-      if (status) {
-        const data = {
-          eventId: eventId,
-          stake: Math.abs(stake),
-          selectionType: slipData?.type,
-          odds: slipData?.price,
-          marketId: slipData?.marketId,
-          selection: slipData?.selectionName,
-          marketType: slipData?.marketType,
-          marketCode: slipData?.marketCode,
-          selectionId: slipData?.selectionId,
-        };
-        dispatch(
-          placeBet({
-            data,
-            callback: (data) => {
-              if (data?.meta?.code === 200) handleBetSlipClose();
-            },
-          })
-        );
-        alert("bet done");
-      } else {
-        alert("Odds Changed");
-      }
+      // const betdOdds = findRunnerOdds(odds, slipData?.selectionId);
+      // const status = checkOdds(slipData?.price, slipData?.type, betdOdds?.ex);
+      // if (status) {
+      const data = {
+        eventId: eventId,
+        stake: Math.abs(stake),
+        selectionType: slipData?.type,
+        odds: slipData?.price,
+        marketId: slipData?.marketId,
+        selection: slipData?.selectionName,
+        marketType: slipData?.marketType,
+        marketCode: slipData?.marketCode,
+        selectionId: slipData?.selectionId,
+      };
+      dispatch(
+        placeBet({
+          data,
+          callback: (data) => {
+            console.log(data, "place bet data");
+            if (data?.meta?.code === 200) handleBetSlipClose();
+          },
+        })
+      );
+      // } else {
+      //   alert("Odds Changed");
+      // }
     } else {
-      alert("Please Login to Bet");
+      notifyWarning("Please Login to Bet")
     }
   };
 
   return (
     <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
-      <div
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer"
-      >
+      <div className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer">
         <div className="flex items-center">
           <div className="flex items-center text-sm text-skin-secondary font-medium">
             {eventMarket?.marketName}{" "}
@@ -147,10 +146,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
           </div>
         </div>
         <div className="flex items-center space-x-8 px-1">
-          {/* <span className="bg-red-400 rounded">
-            <p>Hello</p>
-          </span> */}
-          <div className="flex text-sm font-bold text-skin-primary">
+          <div
+            className="flex text-sm font-bold text-skin-primary"
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+          >
             {isDropdownOpen ? (
               <RiArrowUpSLine className="ml-2 text-xl m-auto" />
             ) : (

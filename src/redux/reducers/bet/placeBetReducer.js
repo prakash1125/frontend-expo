@@ -7,14 +7,16 @@ import {
 
 const INIT_STATE = {
   loading: false,
+  exposure: 0
 };
 
 const placeBetReducer = (state = INIT_STATE, action) => {
+  console.log("action....",action)
   switch (action.type) {
     case PLACE_BET:
       return { ...state, loading: true };
     case PLACE_BET_SUCCESS:
-      return { ...state, loading: false };
+      return { ...state, exposure: action.payload.data, loading: false };
     case PLACE_BET_FAILURE:
       return { ...state, loading: false };
     case LOGOUT:

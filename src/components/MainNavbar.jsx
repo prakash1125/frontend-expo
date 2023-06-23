@@ -38,17 +38,19 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+
 export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const currentRoute = location.pathname;
-
+  const userData = useSelector((state) => state?.GetUserData?.userData);
+  const exposure = useSelector((state) => state?.PlaceBet);
+  console.log(exposure, "exposure");
   const { theme, setTheme } = useContext(ThemeContext);
-
   const walletBalance = [
-    { name: "Balance", amount: "5,564.20" },
-    { name: "Bonus", amount: "0.20" },
-    { name: "Exposure", amount: "1500.00" },
+    { name: "Balance", amount: Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)},
+    { name: "Credit Reference", amount: userData?.data?.creditReference ? userData?.data?.creditReference : 0 },
+    { name: "Exposure", amount: userData?.data?.exposure ? userData?.data?.exposure : 0},
   ];
   const profileMenu = [
     { icon: FaUser, list: "My Market", href: "/my-market", current: false },
@@ -67,6 +69,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+  // const [exposureVal, setExposureVal] = useState('');
   const handleMenuClick = () => {
     setIsProfileOpen(!isProfileOpen);
     setIsDropdownOpen(isDropdownOpen);
@@ -158,6 +161,10 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     });
   }, [allMarkets]);
 
+  useEffect(()=>{
+    dispatch(getUserData())
+  },[exposure])
+
   const closeModal = () => {
     setIsLoginOpen(false);
     setIsSignupOpen(false);
@@ -186,7 +193,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
       setLoggedIn(true);
       dispatch(getUserData());
     }
-  }, []);
+  }, [dispatch]);
 
   
 
@@ -267,11 +274,13 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     <img
                       className="hover:brightness-90 w-5  sm:w-6 lg:w-7"
                       src={lampDark}
+                      alt="lampDark"
                     ></img>
                   ) : (
                     <img
                       className=" hover:brightness-95 w-5  sm:w-6 lg:w-7"
                       src={lamp}
+                      alt="lampLight"
                     ></img>
                   )}
                 </button>
@@ -299,7 +308,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
                     >
                       <span className="text-skin-white  text-xs font-semibold mx-2.5">
-                        &#x20B9;5,564.20
+                        &#x20B9;{Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)}
                       </span>
                       <button
                         type="button"
@@ -337,7 +346,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                                   {element.name}
                                 </span>
                                 <span className="py-2 text-sm text-skin-white ">
-                                  {element.amount}
+                                  {element?.amount}
                                 </span>
                               </div>
                             );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
@@ -11,6 +11,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
   const dispatch = useDispatch();
   const [phoneNumberValue, setPhoneNumber] = useState("");
   const [passwordValue, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -36,17 +37,21 @@ export const LoginModal = ({ closeModal, onLogin }) => {
       username: phoneNumberValue,
       password: passwordValue,
     };
-
+    setError("");
     dispatch(
       login({
         inputValues,
         callback: (data) => {
+          console.log(data, "login error data");
           if (data) {
             closeModal();
             localStorage?.setItem("token", data?.meta?.token);
             onLogin(true);
             notifySuccess("Logged In");
           }
+        },
+        errorCallback: (error) => {
+          setError(error?.meta?.message);
         },
       })
     );
@@ -72,23 +77,29 @@ export const LoginModal = ({ closeModal, onLogin }) => {
             </h1>
 
             <div className="flex flex-col">
-              <div className="phone-number mb-5">
+              <div className={`phone-number ${!error?.username && "mb-5"}`}>
                 <label
                   className="text-[#CCD1D5] text-xs font-semibold mb-2"
                   htmlFor="phoneNumberInput"
                 >
-                  Phone Number
+                  Username
                 </label>
                 <input
                   type="tel"
                   id="phoneNumberInput"
                   className="bg-[#22262a] w-full p-2 rounded focus:outline-none text-[#CCD1D5]"
-                  placeholder="+91XXXXXX"
+                  placeholder="john123"
                   value={phoneNumberValue}
                   onChange={handlePhoneNumberChange}
+                  required
                 />
               </div>
-              <div className="password">
+              {error?.username && (
+                <p className="text-red-400 p-0 m-0 ml-2">
+                  Username is required!
+                </p>
+              )}
+              <div className={`password ${!error?.password && "mb-5"}`}>
                 <label
                   className="text-[#CCD1D5] text-xs font-semibold mb-2"
                   htmlFor="passwordInput"
@@ -102,13 +113,20 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                   placeholder="Password"
                   value={passwordValue}
                   onChange={handlePasswordChange}
+                  required
                 />
               </div>
+              {error?.password && (
+                <p className="text-red-400 p-0 m-0 ml-2">
+                  password is required!
+                </p>
+              )}
               <div className="text-sm text-right mt-1">
                 <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">
                   Forget Password?
                 </span>
               </div>
+              <p className="text-red-400 p-0 m-0 ml-2">{error}</p>
               <div className="flex items-center mb-2 mt-4">
                 <input
                   className="mr-1 w-4 h-4"
@@ -149,7 +167,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
 
             <div className="text-sm text-center my-1">
               <p className="text-[#CCD1D5]">
-                Don't have an account?{" "}
+                Don't have an account?
                 <span className="text-[#01932d] cursor-pointer">Join now</span>
               </p>
             </div>

@@ -7,7 +7,7 @@ function* placeBetRequest(action) {
   try {
     const { data } = yield API.post("api/v1/bet-sport", action?.payload?.data); // change with backend URL
     if (data?.meta?.code === 200) {
-      yield put(placeBetSuccess());
+      yield put(placeBetSuccess(data));
       yield call(action?.payload?.callback, data);
       alert(data?.meta?.message);
     } else if (data?.meta?.code !== 200) {

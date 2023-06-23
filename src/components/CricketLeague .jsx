@@ -226,7 +226,6 @@ export const CricketLeague = () => {
             </div>
           )}
         </div>
-
         <Tab.Group>
           <Tab.List className="flex gap-2 rounded-sm my-2 scroll-x h-11">
             {Object.keys(categories).map((category) => (

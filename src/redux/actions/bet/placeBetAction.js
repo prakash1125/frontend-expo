@@ -5,8 +5,9 @@ export const placeBet = (payload) => ({
   payload,
 });
 
-export const placeBetSuccess = () => ({
+export const placeBetSuccess = (payload) => ({
   type: PLACE_BET_SUCCESS,
+  payload,
 });
 
 export const placeBetFailure = () => ({

@@ -32,6 +32,15 @@ export const Layout = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const scrollToTop = () => {
+    console.log("called scroll");
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   return (
 
     <div className="bg-skin-main h-[100vh] overflow-y-hidden ">
