@@ -101,7 +101,7 @@ const MarketData = ({ league }) => {
                         </div>
                       </div>
 
-                      <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 xl:w-[45%] flex ">
+                      <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 xl:w-[45%] flex mr-3">
                         {(() => {
                           // Code logic inside the IIFE
                           if (matchOdds) {

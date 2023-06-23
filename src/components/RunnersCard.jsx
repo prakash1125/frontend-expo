@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 import { RiArrowUpSLine } from "react-icons/ri";
 import BetSlip from "./BetSlip";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,19 +10,23 @@ import {
   betOnLay,
   checkOdds,
   findRunnerOdds,
+  notifySuccess,
   notifyWarning,
 } from "../utils/helper";
 import { placeBet } from "../redux/actions";
 import { toast } from "react-toastify";
+import { BsFillInfoCircleFill } from "react-icons/bs";
 
 const RunnersCard = ({ market, odds, eventId }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
   const [isBetSlipOpen, setIsBetSlipOpen] = useState(false);
+  const [betLoader, setBetLoader] = useState(false);
   const [slipData, setSlipData] = useState({ price: 0, type: "" });
   const [stakeAmount, setStakeAmount] = useState(null);
   const [stake, setStake] = useState(null);
   const [eventMarket, setEventMarket] = useState(market);
   const [bookData, setBookData] = useState([]);
+  const [showStake, setShowStake] = useState(false);
   const myBets = useSelector((state) => state?.GetBet?.allBets);
   const dispatch = useDispatch();
 
@@ -103,6 +108,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
   //To place the Bet
   const handlePlaceBet = () => {
     if (localStorage?.getItem("token")) {
+      // console.log("ppppppppppppppppppp")
+      // alert("hhhhhhhhhh")
+      // setBetLoader(true);
       // const betdOdds = findRunnerOdds(odds, slipData?.selectionId);
       // const status = checkOdds(slipData?.price, slipData?.type, betdOdds?.ex);
       // if (status) {
@@ -122,7 +130,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
           data,
           callback: (data) => {
             console.log(data, "place bet data");
-            if (data?.meta?.code === 200) handleBetSlipClose();
+            if (data?.meta?.code === 200) {
+              handleBetSlipClose();
+              // setBetLoader(false);
+            }
           },
         })
       );
@@ -145,15 +156,25 @@ const RunnersCard = ({ market, odds, eventId }) => {
             </span>
           </div>
         </div>
-        <div className="flex items-center space-x-8 px-1">
+        <div className="flex items-center px-1">
+
+          <div className="flex items-center">
+            {showStake && <span className="bg-[#4c555e] rounded p-1.5">
+              {/* <p className="text-white text-xs"> Stake Limit: 100-100K</p> */}
+              <div className="flex text-white text-xs m-1.5 font-semibold"> Stake Limit: <span >100-
+              </span> <span> 100K</span></div>
+            </span>}
+            <BsFillInfoCircleFill className=" text-skin-primary hover:brightness-50" onClick={() => setShowStake(!showStake)} />
+          </div>
+
           <div
             className="flex text-sm font-bold text-skin-primary"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           >
             {isDropdownOpen ? (
-              <RiArrowUpSLine className="ml-2 text-xl m-auto" />
+              <IoIosArrowUp className="ml-2 text-lg m-auto hover:brightness-50" />
             ) : (
-              <IoIosArrowDown className="ml-2 text-lg m-auto" />
+              <IoIosArrowDown className="ml-2 text-lg m-auto hover:brightness-50" />
             )}
           </div>
         </div>
@@ -167,7 +188,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
               <React.Fragment key={index}>
                 <hr className="border-t border-gray-200/10 w-full" />
                 <div className="flex w-full justify-between gap-3 pl-4 pr-1">
-                  <div className="flex flex-col text-skin-white text-sm font-semibold justify-start items-start">
+                  <div className="flex flex-col w-full text-skin-white text-sm font-semibold justify-start items-start">
                     <p>{runner?.name}</p>
                     {bookData ? (
                       <>
@@ -179,13 +200,12 @@ const RunnersCard = ({ market, odds, eventId }) => {
                                 key={index}
                               >
                                 <span
-                                  className={`flex text-xs ${
-                                    data?.pl === 0
-                                      ? "text-white"
-                                      : data?.pl > 0
+                                  className={`flex text-xs ${data?.pl === 0
+                                    ? "text-white"
+                                    : data?.pl > 0
                                       ? "text-green-400"
                                       : "text-red-400"
-                                  }`}
+                                    }`}
                                 >
                                   {data?.pl === 0 && stakeAmount
                                     ? 0
@@ -193,34 +213,30 @@ const RunnersCard = ({ market, odds, eventId }) => {
                                 </span>
 
                                 <span
-                                  className={`flex text-xs ${
-                                    !stakeAmount ? "invisible" : ""
-                                  } ${
-                                    slipData?.type === "back"
+                                  className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                                    } ${slipData?.type === "back"
                                       ? "text-green-400"
                                       : "text-red-400"
-                                  }`}
+                                    }`}
                                 >
                                   {`>`}
                                 </span>
                                 {currentMarket?.selectionId ===
-                                slipData?.selectionId ? (
+                                  slipData?.selectionId ? (
                                   <span
-                                    className={`flex text-xs ${
-                                      !stakeAmount ? "invisible" : ""
-                                    } ${
-                                      data?.name === runner?.name //if this runner already have a placed bet
+                                    className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                                      } ${data?.name === runner?.name //if this runner already have a placed bet
                                         ? data?.pl + stakeAmount === 0
                                           ? "text-white"
                                           : data?.pl + stakeAmount > 0
-                                          ? "text-green-400"
-                                          : "text-red-400"
+                                            ? "text-green-400"
+                                            : "text-red-400"
                                         : data?.pl + stakeAmount === 0
-                                        ? "text-white"
-                                        : data?.pl + stakeAmount > 0
-                                        ? "text-green-400"
-                                        : "text-red-400"
-                                    }`}
+                                          ? "text-white"
+                                          : data?.pl + stakeAmount > 0
+                                            ? "text-green-400"
+                                            : "text-red-400"
+                                      }`}
                                   >
                                     {data?.name === runner?.name
                                       ? Math.abs(data?.pl + stakeAmount)
@@ -228,21 +244,19 @@ const RunnersCard = ({ market, odds, eventId }) => {
                                   </span>
                                 ) : (
                                   <span
-                                    className={`flex text-xs ${
-                                      !stakeAmount ? "invisible" : ""
-                                    } ${
-                                      data?.name === runner?.name //if this runner already have a placed bet
+                                    className={`flex text-xs ${!stakeAmount ? "invisible" : ""
+                                      } ${data?.name === runner?.name //if this runner already have a placed bet
                                         ? data?.pl + stake === 0
                                           ? "text-white"
                                           : data?.pl + stake > 0
-                                          ? "text-green-400"
-                                          : "text-red-400"
+                                            ? "text-green-400"
+                                            : "text-red-400"
                                         : data?.pl + stake === 0
-                                        ? "text-white"
-                                        : data?.pl + stake > 0
-                                        ? "text-green-400"
-                                        : "text-red-400"
-                                    }
+                                          ? "text-white"
+                                          : data?.pl + stake > 0
+                                            ? "text-green-400"
+                                            : "text-red-400"
+                                      }
                                 `}
                                   >
                                     {data?.name
@@ -278,11 +292,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[70px] ${
-                              index === 2
-                                ? "text-skin-blue "
-                                : "text-white hidden md:block  "
-                            } font-bold bg-skin-cardhead rounded-b-md`}
+                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[70px] ${index === 2
+                              ? "text-skin-blue "
+                              : "text-white hidden md:block  "
+                              } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
                               {back?.price ? back?.price : "-"}
@@ -311,11 +324,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
                               )
                             }
                             key={index}
-                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[70px] ${
-                              index === 0
-                                ? "text-skin-pink "
-                                : "text-white hidden md:block  "
-                            } font-bold bg-skin-cardhead rounded-b-md`}
+                            className={`flex cursor-pointer flex-col items-center py-1 rounded-md w-[70px] ${index === 0
+                              ? "text-skin-pink "
+                              : "text-white hidden md:block  "
+                              } font-bold bg-skin-cardhead rounded-b-md`}
                           >
                             <p className={`text-center text-[14.5px]`}>
                               {lay?.price ? lay?.price : "-"}
@@ -329,8 +341,9 @@ const RunnersCard = ({ market, odds, eventId }) => {
                   </div>
                 </div>
                 {currentMarket?.selectionId === slipData?.selectionId &&
-                isBetSlipOpen ? (
+                  isBetSlipOpen ? (
                   <BetSlip
+                    // betLoader={betLoader}
                     closeBetslip={handleBetSlipClose}
                     slipData={slipData}
                     setSlipData={setSlipData}

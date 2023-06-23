@@ -214,7 +214,7 @@ export const notifySuccess = (message) =>{
 })};
 
 export const notifyWarning = (message) =>{
-  return toast.warn(message, {
+  return toast.error(message, {
   className: "custom-toast",
   position: "top-center",
   autoClose: 700,

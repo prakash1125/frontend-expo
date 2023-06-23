@@ -8,6 +8,8 @@ import { LoginModal } from "./LoginModal";
 import { ChipSetting } from "./ChipSetting";
 import { ChangePassword } from "./ChangePassword";
 import { ThemeContext } from "../context/ThemeContext";
+import { IoSunnySharp } from "react-icons/io5";
+import { IoMoonOutline } from "react-icons/io5";
 import lamp from "../assets/images/lamp.png";
 import lampDark from "../assets/images/lampdark.png";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,9 +50,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   console.log(exposure, "exposure");
   const { theme, setTheme } = useContext(ThemeContext);
   const walletBalance = [
-    { name: "Balance", amount: Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)},
+    { name: "Balance", amount: Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure) },
     { name: "Credit Reference", amount: userData?.data?.creditReference ? userData?.data?.creditReference : 0 },
-    { name: "Exposure", amount: userData?.data?.exposure ? userData?.data?.exposure : 0},
+    { name: "Exposure", amount: Math.abs(userData?.data?.exposure) ? Math.abs(userData?.data?.exposure) : 0 },
   ];
   const profileMenu = [
     { icon: FaUser, list: "My Market", href: "/my-market", current: false },
@@ -161,9 +163,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     });
   }, [allMarkets]);
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getUserData())
-  },[exposure])
+  }, [exposure])
 
   const closeModal = () => {
     setIsLoginOpen(false);
@@ -195,7 +197,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     }
   }, [dispatch]);
 
-  
+
 
   const handleLogout = () => {
     // Update the loggedIn state to false
@@ -252,7 +254,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           to={item.href}
                           className={classNames(
                             item.href == currentRoute &&
-                              "bg-skin-cardhead text-skin-white ",
+                            "bg-skin-cardhead text-skin-white ",
                             "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -265,7 +267,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div>
 
                 {/* THEME TOGGLE */}
-                <button
+                {/* <button
                   onClick={handleThemeClick}
                   type="button"
                   className="  font-semibold  text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
@@ -283,7 +285,16 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       alt="lampLight"
                     ></img>
                   )}
-                </button>
+                </button> */}
+
+                {/* <label class="relative mt-4 inline-flex items-center mb-3 cursor-pointer">
+                  <input type="checkbox" value="" class="sr-only peer" />
+                  <IoMoonOutline className="fas fa-moon text-white-500 absolute top-1/2 right-4 transform -translate-y-1/2 -translate-x-1/2 " />
+                  <div onClick={handleThemeClick} class="p-2 py-3 w-11 h-6 bg-skin-cardhead peer-focus:outline-none pt-3 rounded-full  dark:bg-gray-700 peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-transparent-600">
+                    <IoSunnySharp className="fas fa-sun text-black-500 absolute top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 " />
+
+                  </div>
+                </label> */}
 
                 {/* AFTER LOGIN */}
                 {loggedIn && (
@@ -294,9 +305,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           key={index}
                           to={element.href}
                           type="button"
-                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-skin-white  hover:text-skin-white  focus:outline-none  ${
-                            element.name === "D" ? "1f4d34" : "bg-sky-900"
-                          }`}
+                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white  hover:text-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
+                            }`}
                         >
                           {element.name}
                         </Link>
@@ -305,14 +315,14 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
                     <div
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
+                      className="  wallet bg-skin-cardhead hover:bg-skin-hovercolorsecondary p-0.5 rounded-md flex items-center cursor-pointer"
                     >
-                      <span className="text-skin-white  text-xs font-semibold mx-2.5">
-                        &#x20B9;{Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)}
+                      <span className="text-skin-balance text-xs font-semibold mx-2.5">
+                        &#x20B9; {Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)}
                       </span>
                       <button
                         type="button"
-                        className="bg-green-600 rounded-md px-2.5 font-semibold p-0.5  text-xl text-skin-white  hover:text-skin-white  focus:outline-none "
+                        className="bg-green-600 rounded-md px-2.5 font-semibold p-0.5  text-xl text-white  hover:text-white  focus:outline-none "
                       >
                         +
                       </button>
@@ -323,16 +333,16 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           Wallet Active
                           <div className="tabs flex mx-2.5 my-1.5">
                             <button
-                              onClick={() => alert("Wallet changed")}
+                              onClick={() => notifySuccess("Wallet Changed")}
                               type="button"
-                              className="bg-skin-cardhead active:bg-[#169c59]  hover:bg-[#169c59] rounded-r-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                              className="bg-[#169c59]  hover:bg-[#169c59] hover:brightness-90 rounded-r-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                             >
                               Balance
                             </button>
                             <button
-                              onClick={() => alert("Wallet changed")}
+                              onClick={() => notifySuccess("Wallet Changed")}
                               type="button"
-                              className="bg-skin-cardhead active:bg-[#169c59] hover:bg-[#169c59] rounded-l-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                              className="bg-skin-cardhead active:bg-[#169c59] hover:brightness-90 rounded-l-none rounded-md px-3 py-1 grow font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                             >
                               Bonus
                             </button>
@@ -358,7 +368,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     <button
                       onClick={() => setIsProfileOpen(!isProfileOpen)}
                       type="button"
-                      className="bg-zinc-600 hover:bg-zinc-500 rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                      className="bg-skin-cardhead hover:bg-skin-hovercolorsecondary rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                     >
                       <FaUser />
                     </button>
@@ -370,8 +380,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                               element.list === "Logout"
                                 ? handleLogout
                                 : element?.modal
-                                ? () => handleModal(element?.list)
-                                : undefined
+                                  ? () => handleModal(element?.list)
+                                  : undefined
                             }
                             to={element.href}
                             className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"

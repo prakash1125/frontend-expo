@@ -9,17 +9,20 @@ const Countdown = ({ targetDateTime }) => {
       const now = moment();
       const target = moment(targetDateTime);
       const duration = moment.duration(target.diff(now));
-      const countdown = `${duration.days()} :  ${duration.hours()}  :  ${duration.minutes()}  :  ${duration.seconds()} `;
 
-      // setCountdown(countdown);
       if (duration.asMilliseconds() <= 0) {
         clearInterval(interval);
-        setCountdown(` 0 : 0 : 0 : 0 `);
+        setCountdown("00 : 00 : 00 : 00");
       } else {
-        const countdown = `${duration.days()} : ${duration.hours()} : ${duration.minutes()} : ${duration.seconds()}`;
+        const days = duration.days().toString().padStart(2, "0");
+        const hours = duration.hours().toString().padStart(2, "0");
+        const minutes = duration.minutes().toString().padStart(2, "0");
+        const seconds = duration.seconds().toString().padStart(2, "0");
+        const countdown = `${days} : ${hours} : ${minutes} : ${seconds}`;
         setCountdown(countdown);
       }
     }, 1000);
+
     return () => clearInterval(interval);
   }, [targetDateTime]);
 

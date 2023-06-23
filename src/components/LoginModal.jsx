@@ -47,7 +47,6 @@ export const LoginModal = ({ closeModal, onLogin }) => {
             closeModal();
             localStorage?.setItem("token", data?.meta?.token);
             onLogin(true);
-            notifySuccess("Logged In");
           }
         },
         errorCallback: (error) => {

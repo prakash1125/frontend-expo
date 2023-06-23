@@ -27,7 +27,8 @@ module.exports = {
           white: "var(--text-white)",
           blue: "var(--text-blue)",
           pink: "var(--text-pink)",
-          dark: "var( --text-dark)"
+          dark: "var( --text-dark)",
+          balance:"var(--text-balance)"
         },
       },
 
@@ -43,7 +44,6 @@ module.exports = {
           hovercolor: "var(--hover-color)",
           hovercolorsecondary: "var(--hover-color-secondary)",
           marketcard:"var(--market-runner-card)",
-          
         }
       },
 

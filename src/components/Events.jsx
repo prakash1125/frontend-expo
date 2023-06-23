@@ -29,7 +29,7 @@ const Events = ({ league, sport }) => {
                   }}
                 >
                   <div>
-                    <div className=" font-medium  text-skin-primary text-sm">
+                    <div className=" font-medium whitespace-nowrap overflow-hidden w-[100px] text-skin-primary text-sm">
                       {event?.name?.includes("@")
                         ? event?.name?.split(" @ ")[0]?.trim()
                         : event?.name?.split(" v ")[0]?.trim()}
@@ -42,7 +42,7 @@ const Events = ({ league, sport }) => {
                   </div>
                   <div className="text-[12px] font-bold pr-4  text-skin-primary">
                     <div>
-                      <div className="text-skin-secondary w-[75px]">{date}</div>
+                      <div className="text-skin-secondary text-right">{date}</div>
                       <div className="flex justify-end mt-1 ">
                         <div className="  mx-2 ml-4 px-2  h-[14px] text-center rounded-sm text-[10px]  bg-skin-cardsmall text-skin-dark ">
                           F4

@@ -24,6 +24,7 @@
         --text-blue: #008EFB;
         --text-pink: #EF5480;
         --text-dark: #32383e;
+        --text-balance: white;
 
         --scrollbar-color: #4c555e;
     }
@@ -48,6 +49,7 @@
         --text-blue: #464747;
         --text-pink: #464747;
         --text-dark: rgb(53, 53, 53);
+        --text-balance: black;
 
         --scrollbar-color: rgb(228, 224, 224);
 
@@ -161,13 +163,13 @@
 }
 
 .custom-toast {
-    width: 175px; 
-    background-color: #000000c3 !important;
+    min-width: 200px;
+    background-color: #000000e3 !important;
     margin: auto;
     position: relative;
     margin-top: 15%;
 }
 
-.custom-toast button{
+.custom-toast button {
     display: none;
 }

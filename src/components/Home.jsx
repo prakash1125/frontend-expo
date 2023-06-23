@@ -32,6 +32,7 @@ export const Home = () => {
   };
 
   const images = [
+    "https://sportsexch.com/images/home-slider/168743209878806.png",
     "https://sportsexch.com/images/banner/slider06.png",
     "https://sportsexch.com/images/banner/slider05.png",
     "https://sportsexch.com/images/banner/slider04.png",

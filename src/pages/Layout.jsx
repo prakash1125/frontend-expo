@@ -15,7 +15,10 @@ export const Layout = () => {
   const [isAboveXl, setisAbovexl] = useState(false);
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 1024) {
+      if (window.innerWidth > 1024) {
+        setToggle(true);
+      }      
+      else if (window.innerWidth < 1024) {
         // Show on mobile and tablet screens (max-width: 768px)
         setToggle(false);
         setisAbovexl(false);
@@ -75,6 +78,7 @@ export const Layout = () => {
                 <SideNavbar />
               </div>
             ) : null}
+            {console.log(toggle, "Toggleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")}
             <Outlet />
           </div>
         </div>

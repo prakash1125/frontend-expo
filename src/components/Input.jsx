@@ -10,9 +10,9 @@ const Input = ({
       <button
         onClick={() => handleDecrement(placeholder)}
         data-action="decrement"
-        className="bg-[#22262A] text-skin-white h-full w-20 rounded-l cursor-pointer outline-none"
+        className="bg-[#22262A] text-skin-white  h-full px-2 rounded-l cursor-pointer outline-none"
       >
-        <span className="m-auto text-2xl font-thin">−</span>
+        <span className="text-2xl font-thin">−</span>
       </button>
       <input
         type="text"
@@ -27,9 +27,9 @@ const Input = ({
       <button
         onClick={() => handleIncrement(placeholder)}
         data-action="increment"
-        className="bg-[#22262A] text-skin-white h-full w-20 rounded-r cursor-pointer"
+        className="bg-[#22262A] text-skin-white  h-full px-2 rounded-r cursor-pointer"
       >
-        <span className="m-auto text-2xl font-thin">+</span>
+        <span className="text-2xl font-thin">+</span>
       </button>
     </div>
   );
