@@ -3,7 +3,6 @@ import Input from "./Input";
 import { betOnBack, betOnLay } from "../utils/helper";
 import { BiCheck } from "react-icons/bi";
 
-
 const BetSlip = ({
   closeBetslip,
   slipData,
@@ -25,9 +24,12 @@ const BetSlip = ({
     if (slipData?.type === "back") {
       let profit = betOnBack.profit(slipData?.price, val);
       let lose = betOnBack.lose(val);
+      console.log(profit);
+      console.log(lose);
       setStake(lose);
       setStakeAmount(profit);
     } else {
+      console.log("in else");
       let lose = betOnLay.lose(slipData?.price, val);
       let profit = betOnLay.profit(val);
       setStakeAmount(lose);
@@ -59,6 +61,7 @@ const BetSlip = ({
         manageStakeData(Math.abs(stake) - 1);
       }
     } else {
+      console.log("else");
       setSlipData((prev) => ({
         ...prev,
         price:
@@ -114,7 +117,7 @@ const BetSlip = ({
               handleChange={handleChange}
             />
             <Input
-              placeholder="Stake"
+              placeholder="stake"
               value={Math.abs(stake)}
               handleIncrement={increment}
               handleDecrement={decrement}
@@ -192,8 +195,11 @@ const BetSlip = ({
                 className="bg-[#169C59] font-medium rounded-md px-5 py-1 text-center"
               >
                 <span className="flex items-center gap-1">
-                  <span className="h-3  items-center"><BiCheck/></span> 
-                  Place Bet</span>
+                  <span className="h-3  items-center">
+                    <BiCheck />
+                  </span>
+                  Place Bet
+                </span>
               </button>
             </div>
           </div>

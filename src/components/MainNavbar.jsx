@@ -38,19 +38,29 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
 export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const currentRoute = location.pathname;
   const userData = useSelector((state) => state?.GetUserData?.userData);
   const exposure = useSelector((state) => state?.PlaceBet);
-  console.log(exposure, "exposure");
   const { theme, setTheme } = useContext(ThemeContext);
   const walletBalance = [
-    { name: "Balance", amount: Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)},
-    { name: "Credit Reference", amount: userData?.data?.creditReference ? userData?.data?.creditReference : 0 },
-    { name: "Exposure", amount: userData?.data?.exposure ? userData?.data?.exposure : 0},
+    {
+      name: "Balance",
+      amount:
+        Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure),
+    },
+    {
+      name: "Credit Reference",
+      amount: userData?.data?.creditReference
+        ? userData?.data?.creditReference
+        : 0,
+    },
+    {
+      name: "Exposure",
+      amount: userData?.data?.exposure ? userData?.data?.exposure : 0,
+    },
   ];
   const profileMenu = [
     { icon: FaUser, list: "My Market", href: "/my-market", current: false },
@@ -161,9 +171,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     });
   }, [allMarkets]);
 
-  useEffect(()=>{
-    dispatch(getUserData())
-  },[exposure])
+  useEffect(() => {
+    dispatch(getUserData());
+  }, [exposure]);
 
   const closeModal = () => {
     setIsLoginOpen(false);
@@ -172,6 +182,19 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
   const handleThemeClick = () => {
     setTheme(!theme);
+  };
+
+  const handleWalletClick = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+    if (isProfileOpen) {
+      setIsProfileOpen(false);
+    }
+  };
+  const handleProfileClick = () => {
+    setIsProfileOpen(!isProfileOpen);
+    if (isDropdownOpen) {
+      setIsDropdownOpen(false);
+    }
   };
 
   const handleModal = (id) => {
@@ -195,12 +218,10 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     }
   }, [dispatch]);
 
-  
-
   const handleLogout = () => {
     // Update the loggedIn state to false
     setLoggedIn(false);
-    notifySuccess("Logged Out")
+    notifySuccess("Logged Out");
 
     // Remove the login status from localStorage
     localStorage.removeItem("loggedIn");
@@ -304,11 +325,14 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     })}
 
                     <div
-                      onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      // onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                      onClick={handleWalletClick}
                       className="  wallet bg-zinc-600 hover:bg-zinc-500 p-0.5 rounded-md flex items-center cursor-pointer"
                     >
                       <span className="text-skin-white  text-xs font-semibold mx-2.5">
-                        &#x20B9;{Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)}
+                        &#x20B9;
+                        {Math.abs(userData?.data?.balance) -
+                          Math.abs(userData?.data?.exposure)}
                       </span>
                       <button
                         type="button"
@@ -356,7 +380,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     )}
 
                     <button
-                      onClick={() => setIsProfileOpen(!isProfileOpen)}
+                      onClick={handleProfileClick}
                       type="button"
                       className="bg-zinc-600 hover:bg-zinc-500 rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                     >

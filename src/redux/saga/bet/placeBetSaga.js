@@ -12,10 +12,9 @@ function* placeBetRequest(action) {
       alert(data?.meta?.message);
     } else if (data?.meta?.code !== 200) {
       yield put(placeBetFailure());
-      alert("failed");
+      alert(data?.meta?.message);
     }
   } catch (error) {
-    console.log(error);
     yield put(placeBetFailure());
   }
 }

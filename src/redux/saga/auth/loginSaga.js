@@ -9,7 +9,6 @@ function* loginRequest(action) {
       "/api/v1/login",
       action?.payload?.inputValues
     );
-    console.log(data, "ooooo11");
     if (data.meta.code === 200) {
       yield put(loginSuccess(data));
       yield call(action.payload.callback, data);
