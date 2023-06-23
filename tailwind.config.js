@@ -11,7 +11,6 @@ module.exports = {
     },
 
     extend: {
-
       colors: {
         current: "var(--text-color)",
         mainbg: "var(--main-background)",
@@ -40,8 +39,7 @@ module.exports = {
           imgbg: "var( --img-bg-color)",
           hovercolor: "var(--hover-color)",
           hovercolorsecondary: "var(--hover-color-secondary)",
-          marketcard:"var(--market-runner-card)",
-          
+          marketcard: "var(--market-runner-card)",
         }
       },
 

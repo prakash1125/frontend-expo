@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { useDispatch } from "react-redux";

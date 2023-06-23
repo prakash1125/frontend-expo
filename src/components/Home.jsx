@@ -120,7 +120,6 @@ export const Home = () => {
   );
 
 
-
   // ============================================================================================
 
   return (
@@ -146,29 +145,29 @@ export const Home = () => {
           freeMode={true}
           draggable={true}
           className="flex gap-1 rounded-xl bg-skin-main overflow-x"
-          breakpoints={{
-            0: {
-              slidesPerView: 1,
-            },
-            400:{
-              slidesPerView:2,
-            },
-            639: {
-              slidesPerView: 3,
-            },
-            865:{
-              slidesPerView:4
-            },
-            1000:{
-              slidesPerView:5
-            },
-            1500:{
-              slidesPerView:6
-            },
-            1700:{
-              slidesPerView:7
-            }
-          }}
+          // breakpoints={{
+          //   // 0: {
+          //   //   slidesPerView: 1,
+          //   // },
+          //   // 400:{
+          //   //   slidesPerView:2,
+          //   // },
+          //   // 639: {
+          //   //   slidesPerView: 3,
+          //   // },
+          //   // 865:{
+          //   //   slidesPerView:4
+          //   // },
+          //   // 1000:{
+          //   //   slidesPerView:5
+          //   // },
+          //   // 1500:{
+          //   //   slidesPerView:6
+          //   // },
+          //   // 1700:{
+          //   //   slidesPerView:7
+          //   // }
+          // }}
         >
           {sportsButtons.map((element, index) => (
             <SwiperSlide key={index}>
@@ -216,17 +215,19 @@ export const Home = () => {
         {cricketData?.map((i) =>
           i?.leagues?.map(
             (j, idx) =>
-              isDropdownOpen && <MarketDataCard league={j} key={idx} />
+              isDropdownOpen && <MarketDataCard league={j}  key={idx}/>
           )
         )}
+        
 
         {/* {isDropdownOpen && <MarketDataCard />} */}
       </div>
-
+      
       <div>
+        
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
-            Indian Casino
+           0
           </p>
           <button onClick={() => navigate("/indian-casino")} className="text-skin-primary hover:bg-skin-hovercolor text-sm bg-skin-nav px-2 p-2 mb-2 rounded-md font-semibold">
             All Indian Casino
@@ -235,6 +236,7 @@ export const Home = () => {
         <Slider {...settings2}>
           {images2.map((img, index) => (
             <div key={index} className=" scroll-x  pb-6">
+        
               <div className="px-1">
                 <img
                   src={img}

@@ -1,10 +1,57 @@
 import React from "react";
 import Footer from "./Footer";
+import Slider from "react-slick";
+
+const newSlider = {
+  // dots: true,
+  autoplay: true,
+  arrows: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 2
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+}
+
+const newSliderImages = [
+  "https://d2.fawk.app/assets/images/LeftSiteMenu/games/87564.jpg",
+  "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg",
+  "https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg",
+  "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98789.jpg",
+  "https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg",
+  "https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
+];
+
 
 export const IndianCasino = () => {
   return (
     <>
-      <div className="flex overflow-x-scroll w-full scroll-x gap-x-36 ">
+      {/* <div className="flex overflow-x-scroll w-full scroll-x gap-x-36 ">
         <div className="w-[165px] flex flex-col ">
           <img
             src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
@@ -54,7 +101,21 @@ export const IndianCasino = () => {
             alt="adfsasdf"
           />
         </div>
-      </div>
+      </div> */}
+
+        <div>
+      <Slider {...newSlider}>
+        {newSliderImages.map((img, index) => (
+          <div key={index} className="">
+            <img
+              src={img}
+              className="w-full p-2 h-60 rounded-2xl"
+              alt={`Slide ${index + 1}`}
+            />
+          </div>
+        ))}
+      </Slider>
+
       <div className="container mx-auto py-2">
         <p className="text-lg font-semibold text-white px-2 py-4">
           Indian Casino
@@ -370,10 +431,10 @@ export const IndianCasino = () => {
               super over
             </div>
           </div>*/}
+
         </div>
       </div>
-
-    
+      </div>
     </>
   );
 };

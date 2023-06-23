@@ -1,12 +1,27 @@
 import { DateTime } from "luxon";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Events = ({ league }) => {
+ 
   return (
     <>
       {
-        league?.events?.map((event) => {
+        league?.events?.map((event, index) => {
+          console.log("event", event);
           return (
+            <Link
+            key={index}
+            to="/cricket-league"
+            state={{
+              leagueName: league?.leagueName,
+              eventName: event?.name,
+              eventId: event?._id,
+              eventDate: event?.eventDate,
+              marketArray: event?.markets,
+            }}
+          >
+            
             <div className=" py-[10px] mb-[2px] border-b border-mainbg">
               <div className=" flex items-center   cursor-pointer select-none">
                 <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
@@ -57,7 +72,7 @@ const Events = ({ league }) => {
                 </div>
 
               </div>
-            </div>
+            </div></Link>
           )
         })
       }
