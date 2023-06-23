@@ -1,10 +1,10 @@
 import React from "react";
 import { useTranslation } from 'react-i18next';
 
-const { i18n, t } = useTranslation();
 
 
 export const Deposit = () => {
+    const { i18n, t } = useTranslation();
   return (
     <div className="deposit wrapper px-6 pb-9 bg-[#22262a] rounded">
       <div className="text-center text-white font-bold py-3 divide-y">

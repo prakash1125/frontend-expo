@@ -2,337 +2,337 @@ import React from "react";
 import Footer from "./Footer";
 import { useTranslation } from 'react-i18next';
 
-const { i18n, t } = useTranslation();
 export const IndianCasino = () => {
-  return (
-    <>
-      <div className="flex overflow-x-scroll w-full scroll-x gap-x-36 ">
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
-            className="h-44 min-w-[300px] rounded-md "
-            alt="adfsasdf"
-          />
-        </div>
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg"
-            className="h-44 min-w-[300px] rounded-md"
-            alt="adfsasdf"
-          />
-        </div>
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
-            className="h-44 min-w-[300px] rounded-md"
-            alt="adfsasdf"
-          />
-        </div>
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg"
-            className="h-44 min-w-[300px] rounded-md"
-            alt="adfsasdf"
-          />
-        </div>
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/87564.jpg"
-            className="h-44 min-w-[300px] rounded-md"
-            alt="adfsasdf"
-          />
-        </div>
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
-            className="h-44 min-w-[300px] rounded-md"
-            alt="adfsasdf"
-          />
-        </div>
-        <div className="w-[165px] flex flex-col ">
-          <img
-            src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
-            className="h-44 min-w-[300px] rounded-md"
-            alt="adfsasdf"
-          />
-        </div>
-      </div>
-      <div className="container mx-auto py-2">
-        <p className="text-lg font-semibold text-white px-2 py-4">
-           {t("INDIAN_CASINO")}
-        </p>
-        <div className="-m-1 flex flex-wrap md:-m-2">
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg"
-              />
-              {t("TEENPATTI_ONE_DAY")}
+    const { i18n, t } = useTranslation();
+    return (
+        <>
+            <div className="flex overflow-x-scroll w-full scroll-x gap-x-36 ">
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
+                        className="h-44 min-w-[300px] rounded-md "
+                        alt="adfsasdf"
+                    />
+                </div>
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg"
+                        className="h-44 min-w-[300px] rounded-md"
+                        alt="adfsasdf"
+                    />
+                </div>
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
+                        className="h-44 min-w-[300px] rounded-md"
+                        alt="adfsasdf"
+                    />
+                </div>
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg"
+                        className="h-44 min-w-[300px] rounded-md"
+                        alt="adfsasdf"
+                    />
+                </div>
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/87564.jpg"
+                        className="h-44 min-w-[300px] rounded-md"
+                        alt="adfsasdf"
+                    />
+                </div>
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
+                        className="h-44 min-w-[300px] rounded-md"
+                        alt="adfsasdf"
+                    />
+                </div>
+                <div className="w-[165px] flex flex-col ">
+                    <img
+                        src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
+                        className="h-44 min-w-[300px] rounded-md"
+                        alt="adfsasdf"
+                    />
+                </div>
             </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56768.jpg"
-              />
-            {t("TEENPATTI_T20")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56967.jpg"
-              />
-             {t("32_CARD_CASINO")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-fullrounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56968.jpg"
-              />
-               {t("HIGH_LOW")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
-              />
-              {t("POKER")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67565.jpg"
-              />
-               {t("SIX_PLAYER_POKER")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/87564.jpg"
-              />
-               {t("ANDAR_BAHAR")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/92037.jpg"
-              />
-              {t("MATKA")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98789.jpg"
-              />
-               {t("7_UP_&_DOWN")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg"
-              />
-             {t("DRAGON_TIGER")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98791.jpg"
-              />
-          {t("AMAR_AKBAR_ANTHONY")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/90100.jpg"
-              />
-              {t("RACE_20-20")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67570.jpg"
-              />
-            {t("BOLLYWOOD_CASINO")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98788.jpg"
-              />
-               {t("ROULETTE")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98566.jpg"
-              />
-               {t("SICKBO")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67600.jpg"
-              />
-              {t("MUFLIS_TEENPATTI")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67610.jpg"
-              /> 
-             {t("TRIO")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/92038.jpg"
-              />
-               {t("BACCARAT")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67575.jpg"
-              />
-              {t("CASINO_METER")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67567.jpg"
-              />
-               {t("POKER_20-20")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67660.jpg"
-              />
-             {t("2_CARD_TEENPATTI")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67620.jpg"
-              />
-               {t("QUEEN_RACE")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67630.jpg"
-              />
-             {t("TEENPATTI_TEST")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67680.jpg"
-              />
-               {t("TRAP")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67640.jpg"
-              />
-               {t("TEENPATTI_OPEN")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67580.jpg"
-              />
-               {t("CASINO_WAR")}
-            </div>
-          </div>
-          <div className="flex w-1/4 flex-wrap">
-            <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
-              <img
-                alt="gallery"
-                className="block h-full w-full rounded-lg object-cover object-center"
-                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
-              />
-               {t("29-CARD_BACCARAT")}
-            </div>
-          </div>
-          {/* <div className="flex w-1/4 flex-wrap">
+            <div className="container mx-auto py-2">
+                <p className="text-lg font-semibold text-white px-2 py-4">
+                    {t("INDIAN_CASINO")}
+                </p>
+                <div className="-m-1 flex flex-wrap md:-m-2">
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56767.jpg"
+                            />
+                            {t("TEENPATTI_ONE_DAY")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56768.jpg"
+                            />
+                            {t("TEENPATTI_T20")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56967.jpg"
+                            />
+                            {t("32_CARD_CASINO")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-fullrounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/56968.jpg"
+                            />
+                            {t("HIGH_LOW")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67564.jpg"
+                            />
+                            {t("POKER")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67565.jpg"
+                            />
+                            {t("SIX_PLAYER_POKER")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/87564.jpg"
+                            />
+                            {t("ANDAR_BAHAR")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/92037.jpg"
+                            />
+                            {t("MATKA")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98789.jpg"
+                            />
+                            {t("7_UP_&_DOWN")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98790.jpg"
+                            />
+                            {t("DRAGON_TIGER")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98791.jpg"
+                            />
+                            {t("AMAR_AKBAR_ANTHONY")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/90100.jpg"
+                            />
+                            {t("RACE_20-20")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67570.jpg"
+                            />
+                            {t("BOLLYWOOD_CASINO")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98788.jpg"
+                            />
+                            {t("ROULETTE")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/98566.jpg"
+                            />
+                            {t("SICKBO")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67600.jpg"
+                            />
+                            {t("MUFLIS_TEENPATTI")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67610.jpg"
+                            />
+                            {t("TRIO")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/92038.jpg"
+                            />
+                            {t("BACCARAT")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67575.jpg"
+                            />
+                            {t("CASINO_METER")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67567.jpg"
+                            />
+                            {t("POKER_20-20")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67660.jpg"
+                            />
+                            {t("2_CARD_TEENPATTI")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67620.jpg"
+                            />
+                            {t("QUEEN_RACE")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67630.jpg"
+                            />
+                            {t("TEENPATTI_TEST")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67680.jpg"
+                            />
+                            {t("TRAP")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67640.jpg"
+                            />
+                            {t("TEENPATTI_OPEN")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67580.jpg"
+                            />
+                            {t("CASINO_WAR")}
+                        </div>
+                    </div>
+                    <div className="flex w-1/4 flex-wrap">
+                        <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
+                            <img
+                                alt="gallery"
+                                className="block h-full w-full rounded-lg object-cover object-center"
+                                src="https://d2.fawk.app/assets/images/LeftSiteMenu/games/67690.jpg"
+                            />
+                            {t("29-CARD_BACCARAT")}
+                        </div>
+                    </div>
+                    {/* <div className="flex w-1/4 flex-wrap">
             <div className="w-full p-2 md:p-4 text-white text-sm font-bold flex flex-col items-center">
               <img
                 alt="gallery"
@@ -372,11 +372,11 @@ export const IndianCasino = () => {
               super over
             </div>
           </div>*/}
-        </div> 
-      </div>
+                </div>
+            </div>
 
-      {/* footer */}
-     <Footer/>
-    </>
-  );
+            {/* footer */}
+            <Footer />
+        </>
+    );
 };

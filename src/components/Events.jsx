@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const { i18n, t } = useTranslation();
 const Events = () => {
+    const { i18n, t } = useTranslation();
   return (
     <div className="xl:flex lg:flex py-[10px] mb-[2px] border-b border-mainbg">
 

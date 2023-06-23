@@ -2,8 +2,8 @@ import React from "react";
 import { MdOutlineClose } from "react-icons/md";
 import { useTranslation } from 'react-i18next';
 
-const { i18n, t } = useTranslation();
 export const ChangePassword = ({ closeModal }) => {
+    const { i18n, t } = useTranslation();
   return (
     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
     <div className="z-50">
