@@ -41,8 +41,8 @@ export const LanguageBtn = () => {
                     leaveTo="transform opacity-0 scale-95"
                 >
 
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-xl bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                        <div className="py-1 rounded-md  bg-[#0b0d0e] ">
+                    <Menu.Items className="absolute right-0 w-44 z-10 mt-2 origin-top-right rounded-xl bg-transparent shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <div className="py-2 rounded-md  right-20 bg-[#0b0d0e] ">
                             {
                                 languages.map(({ code, name, country_code }) => {
                                     return (
