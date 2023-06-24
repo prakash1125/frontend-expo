@@ -61,9 +61,9 @@ const MarketData = ({ league }) => {
                       marketArray: event?.markets,
                     }}
                   >
-                    <div className="md:flex lg:block xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
+                    <div className="md:flex lg:block xl:flex px-2 py-[8px] mb-[2px] border-b-2 border-mainbg">
                       <div className="flex items-center flex-1  cursor-pointer select-none">
-                        <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
+                        <div className="flex flex-col ml-1 items-center justify-center w-10 h-10 ">
                           <a href="#js" className="rounded-full relative block">
                             <img
                               alt="profil"
@@ -85,7 +85,7 @@ const MarketData = ({ league }) => {
                                 : event?.name?.split(" v ")[1]?.trim()}
                             </div>
                           </div>
-                          <div className="text-[12px] font-bold pr-4 text-skin-primary ">
+                          <div className="text-[12px] font-bold mr-2  md:mr-4 lg:mr-2 xl:mr-4 text-skin-primary ">
                             <div>
                               <div className="text-skin-secondary ">{date}</div>
                               <div className="flex justify-end mt-1 ">
@@ -101,7 +101,7 @@ const MarketData = ({ league }) => {
                         </div>
                       </div>
 
-                      <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 xl:w-[45%] flex mr-3">
+                      <div className="md:w-[40%]  lg:w-[100%] xl:w-[45%] flex ">
                         {(() => {
                           // Code logic inside the IIFE
                           if (matchOdds) {

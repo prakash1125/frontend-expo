@@ -353,7 +353,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                             return (
                               <div className="flex justify-between" key={index}>
                                 <span className="py-2 text-sm text-skin-white ">
-                                  {element.name}
+                                  {element?.name}
                                 </span>
                                 <span className="py-2 text-sm text-skin-white ">
                                   {element?.amount}
@@ -375,7 +375,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     {isProfileOpen && (
                       <div className="w-64 absolute top-12 right-1 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm rounded ">
                         {profileMenu.map((element, index) => (
-                          <Link
+                          <div
                             onClick={
                               element.list === "Logout"
                                 ? handleLogout
@@ -383,7 +383,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                                   ? () => handleModal(element?.list)
                                   : undefined
                             }
-                            to={element.href}
                             className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"
                             key={index}
                           >
@@ -393,7 +392,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                             <div className="text-skin-white group menu-list cursor-pointer">
                               {element.list}
                             </div>
-                          </Link>
+                          </div>
                         ))}
                       </div>
                     )}
