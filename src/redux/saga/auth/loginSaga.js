@@ -6,7 +6,7 @@ import API from "../../../utils/api"
 
 function* loginRequest(action) {
     try {
-        const { data } = yield API.get("admin/login");
+        const { data } = yield API.post("/api/v1/login",action?.payload?.inputValues);
         if (data.meta.code === 200) {
             yield put(loginSuccess(data));
             yield call(action.payload.callback, data.data);

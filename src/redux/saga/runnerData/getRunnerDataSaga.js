@@ -4,12 +4,12 @@ import { getRunnerDataSuccess, getRunnerDataFailure } from "../../actions";
 import API from "../../../utils/api";
 
 function* getRunnerDataRequest(action) {
-  console.log("action get all", action);
+  console.log("action runner get all", action);
   try {
     const { data } = yield API.get(
       `admin/get-runners-data?marketId=${action?.payload?.id}`
     );
-    console.log(data, "get All Sport Data");
+    console.log(data, "get All runner Data");
     if (data.meta.code === 200) {
       yield put(getRunnerDataSuccess(data));
       yield call(action.payload.callback, data.data);

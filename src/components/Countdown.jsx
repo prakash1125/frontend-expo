@@ -12,14 +12,16 @@ const Countdown = ({ targetDateTime }) => {
             const now = moment();
             const target = moment(targetDateTime);
             const duration = moment.duration(target.diff(now));
-            const countdown = `${duration.days()} :  ${duration.hours()}  :  ${duration.minutes()}  :  ${duration.seconds()} `;
 
-            // setCountdown(countdown);
             if (duration.asMilliseconds() <= 0) {
                 clearInterval(interval);
-                setCountdown(` 0 : 0 : 0 : 0 `);
+                setCountdown("00 : 00 : 00 : 00");
             } else {
-                const countdown = `${duration.days()} : ${duration.hours()} : ${duration.minutes()} : ${duration.seconds()}`;
+                const days = String(duration.days()).padStart(2, "0");
+                const hours = String(duration.hours()).padStart(2, "0");
+                const minutes = String(duration.minutes()).padStart(2, "0");
+                const seconds = String(duration.seconds()).padStart(2, "0");
+                const countdown = `${days} : ${hours} : ${minutes} : ${seconds}`;
                 setCountdown(countdown);
             }
         }, 1000);

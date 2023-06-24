@@ -1,24 +1,31 @@
-import React 
+import React
 
 
 
-from 'react';
+    from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import {App} from './App';
+import { App } from './App';
 import { BrowserRouter } from 'react-router-dom';
 import Theme from "./context/ThemeContext";
 
 
+import i18n from "./i18n";
+
+
+
+
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  
+
     // <React.StrictMode>
     <BrowserRouter>
-    <Theme>
-      <App />
-    </Theme>
+        <Theme>
+            <App />
+        </Theme>
     </BrowserRouter>
-  // </React.StrictMode>
-  
+    // </React.StrictMode>
+
 );

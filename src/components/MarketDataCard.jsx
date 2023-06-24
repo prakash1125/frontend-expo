@@ -101,7 +101,7 @@ const MarketData = ({ league }) => {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="flex">
                     {(() => {
                  
                       if (matchOdds) {
@@ -119,10 +119,10 @@ const MarketData = ({ league }) => {
                     {exist &&
                     Object.keys(Object.values(exist)[0]).length !== 0 ? (
                       <>
-                        <div className="inline-block ">
-                          <div className="flex drop-shadow-sm rounded-sm ">
+                        <div className="inline-block flex flex-grow">
+                          <div className="flex drop-shadow-sm rounded-sm flex-grow">
                             <div
-                              className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                              className={`w-[50px] flex-grow h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
                             >
                               <span className="m-auto brightness-125">
                                 {
@@ -132,7 +132,7 @@ const MarketData = ({ league }) => {
                               </span>
                             </div>
                             <div
-                              className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                              className={`w-[50px] h-9 flex-grow rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
                             >
                               <span className="m-auto brightness-125">
                                 {
@@ -144,10 +144,10 @@ const MarketData = ({ league }) => {
                           </div>
                         </div>
                         {/* middle runner */}
-                        <div className="inline-block ">
-                          <div className="flex drop-shadow-sm rounded-sm ">
+                        <div className="inline-block  flex-grow">
+                          <div className="flex drop-shadow-sm rounded-sm  flex-grow">
                             <div
-                              className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                              className={`w-[50px] h-9 flex-grow rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
                             >
                               <span className="m-auto brightness-125">
                                 {Object.values(exist)[0]?.runners[2]?.ex
@@ -158,7 +158,7 @@ const MarketData = ({ league }) => {
                               </span>
                             </div>
                             <div
-                              className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                              className={`w-[50px] h-9 flex-grow rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
                             >
                               <span className="m-auto brightness-125">
                                 {Object.values(exist)[0]?.runners[2]?.ex
@@ -171,10 +171,10 @@ const MarketData = ({ league }) => {
                           </div>
                         </div>
                         {/* Last Runner  */}
-                        <div className="inline-block ">
-                          <div className="flex drop-shadow-sm rounded-sm ">
+                        <div className="inline-block  flex-grow">
+                          <div className="flex drop-shadow-sm rounded-sm  flex-grow">
                             <div
-                              className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
+                              className={`w-[50px] h-9 flex-grow rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
                             >
                               <span className="m-auto brightness-125 ">
                                 {
@@ -184,7 +184,7 @@ const MarketData = ({ league }) => {
                               </span>
                             </div>
                             <div
-                              className={`w-[50px] h-9 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
+                              className={`w-[50px] h-9 flex-grow rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
                             >
                               <span className="m-auto brightness-125 ">
                                 {

@@ -7,7 +7,7 @@ export const HomePage = () => {
   return (
     <>
       <Chatbot />
-      <div className="w-full md:w-3/4 md:p-2 overflow-y-scroll scrollbar-hide h-[91vh] ">
+      <div className="w-full lg:w-3/4 md:p-2 overflow-y-scroll scrollbar-hide h-[91vh] ">
         <Home />
         <Footer />
       </div>

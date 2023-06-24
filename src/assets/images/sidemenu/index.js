@@ -1,4 +1,4 @@
-import football_american from "./football_american.png"
+import football_american from "./american-football.png"
 import baseball from "./baseball.png"
 import basketball from "./basketball.png"
 import boxing from "./boxing.png"

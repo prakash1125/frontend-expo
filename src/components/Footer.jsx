@@ -86,7 +86,7 @@ const Footer = () => {
                                         className="bg-skin-imgbg mb-3 betfair"
                                     />
                                 </div>
-                                </li>
+                            </li>
                         </ul>
                     </div>
                 </div>

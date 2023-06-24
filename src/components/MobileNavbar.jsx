@@ -7,22 +7,22 @@ import {MdOutlineScoreboard,MdAccessTimeFilled} from 'react-icons/md'
 import { useTranslation } from 'react-i18next';
 
 export const MobileNavbar = () => {
-    const Menus=[
+    const Menus = [
         // {name:'Settings',link:'#',icon:HiOutlineCog,dis:"translate-x-64"},
-        {name:'Home',link:'/',icon:AiFillHome,dis:"translate-x-82"},
-        {name:'Sports',link:'/all-sports',icon:MdOutlineScoreboard,dis:"translate-x-32"},
-        {name:'In-play',link:'/in-play',icon:MdAccessTimeFilled,dis:"translate-x-0"},
-        {name:'Indian Casino',link:'/indian-casino',icon:GiCardAceClubs,dis:"translate-x-48"},
-        {name:'Live Casino',link:'/live-casino',icon:BsFillDice5Fill,dis:"translate-x-16"},
+        { name: 'Home', link: '/', icon: AiFillHome, dis: "translate-x-82" },
+        { name: 'Sports', link: '/all-sports', icon: MdOutlineScoreboard, dis: "translate-x-32" },
+        { name: 'In-play', link: '/in-play', icon: MdAccessTimeFilled, dis: "translate-x-0" },
+        { name: 'Indian Casino', link: '/indian-casino', icon: GiCardAceClubs, dis: "translate-x-48" },
+        { name: 'Live Casino', link: '/live-casino', icon: BsFillDice5Fill, dis: "translate-x-16" },
         // {name:'Slots',link:'/slots',icon:BsFillDice5Fill,dis:"translate-x-16"},
     ]
 
     const [active,setActive]=useState();
 
-  return (
-    <div className='bg-skin-navtop max-h-[3.5rem] px-2 pb-5 fixed inset-x-0 bottom-0 rounded-t-md '>
-        {/* text-skin-white  */}
-        <ul className='flex relative justify-between'>
+    return (
+        <div className='bg-skin-navtop max-h-[3.5rem] px-2 pb-5 fixed inset-x-0 bottom-0 rounded-t-md '>
+            {/* text-skin-white  */}
+            <ul className='flex relative justify-between'>
                 {/* <span className={`bg-rose-600 duration-500 ${Menus[active].dis} border-4 border-white h-16 w-16  -top-5 rounded-full`}></span> */}
 
             {Menus.map((menu,i)=>(

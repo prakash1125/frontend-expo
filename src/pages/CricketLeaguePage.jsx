@@ -7,7 +7,7 @@ const CricketLeaguePage = () => {
     return (
         <>
         <div className="w-full overflow-y-scroll scrollbar-hide h-[91vh]  "><CricketLeague /></div>
-        <div className="px-2 hidden md:block w-1/4" >
+        <div className="px-2 hidden lg:block w-1/4" >
         <RightNavbar />
       </div>
         </>
