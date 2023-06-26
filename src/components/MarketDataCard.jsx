@@ -9,7 +9,7 @@ import { DateTime } from "luxon";
 import { handleTooltipToggle } from "react";
 import { showTooltip } from "react";
 
-const MarketData = ({ league }) => {
+const MarketData = ({ league, sport})  => {
   // ==================================CALLING THE API DATA======================================
 
   let globalMarketOddsData = useSelector(
@@ -44,7 +44,8 @@ const MarketData = ({ league }) => {
             </div>
             <div className="flex items-center space-x-8 px-1">
               <div className="flex text-sm font-bold text-skin-primary">
-              <BsFillInfoCircleFill className="text-gray-500 m-1 mt-1 "/>  
+
+              
 
                 {league?.events?.length}
                 {isDropdownOpen ? (
@@ -72,6 +73,7 @@ const MarketData = ({ league }) => {
                       eventId: event?._id,
                       eventDate: event?.eventDate,
                       marketArray: event?.markets,
+                      sportName: sport
                     }}
                   >
                     <div className="md:flex lg:block xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">

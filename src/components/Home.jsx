@@ -120,6 +120,7 @@ export const Home = () => {
   );
 
 
+
   // ============================================================================================
 
   return (
@@ -186,7 +187,6 @@ export const Home = () => {
                   <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
                 </div>
 
-
               </Link>
             </SwiperSlide>
           ))}
@@ -215,16 +215,15 @@ export const Home = () => {
         {cricketData?.map((i) =>
           i?.leagues?.map(
             (j, idx) =>
-              isDropdownOpen && <MarketDataCard league={j}  key={idx}/>
+              isDropdownOpen && <MarketDataCard league={j}  key={idx} sport={i.sportSlugName}/>
           )
         )}
-        
 
-        {/* {isDropdownOpen && <MarketDataCard />} */}
+
+        {/* {isDropdownOpen && <MarketDataCard/>}*/}
       </div>
       
       <div>
-        
         <div className="flex justify-between mt-16">
           <p className="text-skin-white pb-2 px-2 text-lg font-semibold">
            0

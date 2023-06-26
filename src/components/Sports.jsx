@@ -96,7 +96,7 @@ export const Sports = ({ scrollToTop }) => {
               <ul key={idx}>
                 {posts?.leagues?.map((post) => (
                   <li key={post.id} className="relative ">
-                    <MarketDataCard league={post} />
+                    <MarketDataCard league={post} sport={posts?.sportSlugName}/>
                   </li>
                 ))}
               </ul>
@@ -104,7 +104,6 @@ export const Sports = ({ scrollToTop }) => {
           ))}
         </Tab.Panels>
       </Tab.Group>
-  
     </div>
   );
 };

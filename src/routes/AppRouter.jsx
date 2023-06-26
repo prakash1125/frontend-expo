@@ -13,7 +13,7 @@ import CricketLeaguePage from "../pages/CricketLeaguePage";
 export const AppRouter = () => {
   return (
     <Routes>
-      <Route element={<Layout /> } >
+      <Route element={<Layout/>}>
       
         <Route path={Paths.home} element={<HomePage />} />
         <Route path={Paths.sports} element={<SportsPage />} />

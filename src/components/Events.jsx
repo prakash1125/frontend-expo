@@ -18,13 +18,13 @@ const Events = ({ league }) => {
               eventName: event?.name,
               eventId: event?._id,
               eventDate: event?.eventDate,
-              marketArray: event?.markets,
+              marketArray: event?.markets
             }}
           >
             
             <div className=" py-[10px] mb-[2px] border-b border-mainbg">
               <div className=" flex items-center   cursor-pointer select-none">
-                <div className="flex flex-col items-center justify-center w-10 h-10 ml-4 ">
+                <div className="flex flex-col items-center justify-center w-10 h-10 ml-4">
                   <a href="#" className="rounded-full relative block">
                     <img
                       alt="profil"
@@ -33,8 +33,6 @@ const Events = ({ league }) => {
                     />
                   </a>
                 </div>
-
-
 
                 <div className="flex pl-3 justify-between w-full" state={{
                   leagueName: league?.leagueName,
@@ -72,7 +70,8 @@ const Events = ({ league }) => {
                 </div>
 
               </div>
-            </div></Link>
+            </div>
+          </Link>
           )
         })
       }

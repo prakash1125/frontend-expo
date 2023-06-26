@@ -16,7 +16,6 @@
         --hover-color-secondary: #4C555E;
         --market-runner-card: #32383e;
 
-
         --text-primary: #cfd4d8;
         --text-nav: #cfd4d8;
         --text-secondary: #f9fafa;
@@ -40,7 +39,6 @@
         --hover-color: rgb(214, 211, 211);
         --hover-color-secondary: rgb(184, 181, 181);
         --market-runner-card: #e5f2ff;
-
         --text-primary: #696b6d;
         --text-nav: #ffffff;
         --text-secondary: rgb(54, 54, 54);
@@ -48,14 +46,18 @@
         --text-blue: #464747;
         --text-pink: #464747;
         --text-dark: rgb(53, 53, 53);
-
         --scrollbar-color: rgb(228, 224, 224);
+    
+
+        --main-background: #ECEAEA;
 
     }
 
     .light-theme .sidebar {
         filter: invert(0);
     }
+
+    .light-theme .rightnavbar
 
     .colorful-theme .sidebar {
         filter: invert(0);
@@ -161,13 +163,13 @@
 }
 
 .custom-toast {
-    width: 175px; 
+    width: 175px;
     background-color: #000000c3 !important;
     margin: auto;
     position: relative;
     margin-top: 15%;
 }
 
-.custom-toast button{
+.custom-toast button {
     display: none;
 }

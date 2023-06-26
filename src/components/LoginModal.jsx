@@ -6,10 +6,13 @@ import { login } from "../redux/actions";
 import { toast } from "react-toastify";
 import { notify, notifySuccess, notifyWarning } from "../utils/helper";
 
+
 export const LoginModal = ({ closeModal, onLogin }) => {
   const dispatch = useDispatch();
   const [phoneNumberValue, setPhoneNumber] = useState("");
   const [passwordValue, setPassword] = useState("");
+
+  const [error, setError] = useState("");
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -47,6 +50,9 @@ export const LoginModal = ({ closeModal, onLogin }) => {
             notifySuccess("Logged In");
           }
         },
+        errorCallback: (error) => {
+          setError(error?.meta?.message);
+        }
       })
     );
 
@@ -57,7 +63,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
   return (
     <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
       <div className="z-50 ">
-        <div className="fixed  inset-0 bg-gray-100 bg-opacity-25 backdrop-blur-sm flex items-center justify-center ">
+        <div className="fixed  inset-0 bg-gray-100 bg-opacity-25 backdrop-blur-sm flex items-center justify-center">
           <div className=" relative bg-[black] p-5 rounded-xl w-96">
             <button
               className="absolute top-4 right-3"
@@ -95,7 +101,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                   Password
                 </label>
                 <input
-                  type="password"
+                  type="password "
                   id="passwordInput"
                   className="bg-[#22262a] w-full p-2 rounded focus:outline-none text-[#CCD1D5]"
                   placeholder="Password"
@@ -108,6 +114,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                   Forget Password?
                 </span>
               </div>
+              <p className="text-red-400 p-0 m-0 ml-2">{error}</p>
               <div className="flex items-center mb-2 mt-4">
                 <input
                   className="mr-1 w-4 h-4"
