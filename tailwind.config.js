@@ -12,6 +12,10 @@ module.exports = {
 
     extend: {
 
+      animation: {
+        pulse: 'pulse 1.8s ease-in-out infinite', // Customize the animation properties
+      },
+
       colors: {
         current: "var(--text-color)",
         mainbg: "var(--main-background)",

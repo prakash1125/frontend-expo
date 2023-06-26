@@ -78,7 +78,6 @@ export const Layout = () => {
                 <SideNavbar />
               </div>
             ) : null}
-            {console.log(toggle, "Toggleeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee")}
             <Outlet />
           </div>
         </div>

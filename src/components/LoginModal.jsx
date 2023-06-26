@@ -4,7 +4,6 @@ import { AiFillAndroid } from "react-icons/ai";
 import { MdOutlineClose } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions";
-import { toast } from "react-toastify";
 import { notify, notifySuccess, notifyWarning } from "../utils/helper";
 
 export const LoginModal = ({ closeModal, onLogin }) => {
@@ -20,17 +19,6 @@ export const LoginModal = ({ closeModal, onLogin }) => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
   };
-  // const notify = () => toast.success('Logged In', {
-  //   className: "custom-toast",
-  //   position: "top-center",
-  //   autoClose: 700,
-  //   hideProgressBar: true,
-  //   closeOnClick: false,
-  //   pauseOnHover: false,
-  //   draggable: true,
-  //   progress: undefined,
-  //   theme: "dark",
-  // });
 
   const handleSubmit = () => {
     const inputValues = {
@@ -42,7 +30,6 @@ export const LoginModal = ({ closeModal, onLogin }) => {
       login({
         inputValues,
         callback: (data) => {
-          console.log(data, "login error data");
           if (data) {
             closeModal();
             localStorage?.setItem("token", data?.meta?.token);
@@ -93,11 +80,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                   required
                 />
               </div>
-              {error?.username && (
-                <p className="text-red-400 p-0 m-0 ml-2">
-                  Username is required!
-                </p>
-              )}
+
               <div className={`password ${!error?.password && "mb-5"}`}>
                 <label
                   className="text-[#CCD1D5] text-xs font-semibold mb-2"
@@ -115,11 +98,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                   required
                 />
               </div>
-              {error?.password && (
-                <p className="text-red-400 p-0 m-0 ml-2">
-                  password is required!
-                </p>
-              )}
+
               <div className="text-sm text-right mt-1">
                 <span className="cursor-pointer text-[#CCD1D5] hover:text-[#5c6060]">
                   Forget Password?
@@ -153,12 +132,11 @@ export const LoginModal = ({ closeModal, onLogin }) => {
               </p>
             </div>
 
-            <div className="download-btn ">
+            <div className="download-btn">
               <button
                 type="button"
                 className="flex items-center justify-center gap-2 text-center p-1.5 px-4 w-full uppercase font-semibold rounded-md bg-[#32383e] text-lg text-white focus:outline-none "
               >
-                {" "}
                 download apk
                 <AiFillAndroid className="text-2xl" />
               </button>

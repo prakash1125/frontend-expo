@@ -12,7 +12,7 @@ const Countdown = ({ targetDateTime }) => {
 
       if (duration.asMilliseconds() <= 0) {
         clearInterval(interval);
-        setCountdown("00 : 00 : 00 : 00");
+        setCountdown("IN-PLAY"); // Update the countdown value to "LIVE"
       } else {
         const days = duration.days().toString().padStart(2, "0");
         const hours = duration.hours().toString().padStart(2, "0");
@@ -26,7 +26,7 @@ const Countdown = ({ targetDateTime }) => {
     return () => clearInterval(interval);
   }, [targetDateTime]);
 
-  return <div className="font-semibold">{countdown}</div>;
+  return <div className={`font-semibold mx-auto ${countdown === "IN-PLAY" && 'animate-pulse text-[16px] font-bold' }`}>{countdown}</div>;
 };
 
 export default Countdown;

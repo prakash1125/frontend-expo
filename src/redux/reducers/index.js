@@ -10,6 +10,8 @@ import GetRunnerData from "./runnerData/getRunnerDataReducer";
 import PlaceBet from "./bet/placeBetReducer";
 import GetBet from "./bet/getBetReducer";
 import GetUserData from "./userData/getUserData";
+import ChipSetting from "./settings/chipSettingReducer";
+import GetChipSetting from "./settings/getChipSettingReducer";
 
 /* ---------------------------- //example// ---------------------------- */
 // import exampleReducer from "./path"
@@ -25,6 +27,8 @@ const appReducer = combineReducers({
   PlaceBet,
   GetBet,
   GetUserData,
+  ChipSetting,
+  GetChipSetting,
 });
 const reducers = (state, action) => {
   return appReducer(state, action);

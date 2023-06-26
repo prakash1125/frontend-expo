@@ -17,7 +17,6 @@ function* placeBetRequest(action) {
 
       notifyWarning(data.meta.message);    }
   } catch (error) {
-    console.log(error);
     yield put(placeBetFailure());
   }
 }

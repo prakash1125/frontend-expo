@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 import { formatDate } from "../utils/helper";
 
-const MarketData = ({ league }) => {
+const MarketData = ({ league, sport }) => {
   // ==================================CALLING THE API DATA======================================
 
   let globalMarketOddsData = useSelector(
@@ -16,7 +16,7 @@ const MarketData = ({ league }) => {
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-
+  console.log(sport, "____________________SPORT");
   return (
     <>
       {league?.events?.length !== 0 && (
@@ -59,11 +59,12 @@ const MarketData = ({ league }) => {
                       eventId: event?._id,
                       eventDate: event?.eventDate,
                       marketArray: event?.markets,
+                      sportName: sport
                     }}
                   >
-                    <div className="md:flex lg:block xl:flex px-2 py-[8px] mb-[2px] border-b-2 border-mainbg">
+                    <div className="md:flex lg:block gap-3 px-1 md:px-2 lg:px-1 xl:px-2 xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
                       <div className="flex items-center flex-1  cursor-pointer select-none">
-                        <div className="flex flex-col ml-1 items-center justify-center w-10 h-10 ">
+                        <div className="flex ml-1 flex-col items-center justify-center w-10 h-10 ">
                           <a href="#js" className="rounded-full relative block">
                             <img
                               alt="profil"
@@ -85,7 +86,7 @@ const MarketData = ({ league }) => {
                                 : event?.name?.split(" v ")[1]?.trim()}
                             </div>
                           </div>
-                          <div className="text-[12px] font-bold mr-2  md:mr-4 lg:mr-2 xl:mr-4 text-skin-primary ">
+                          <div className="text-[12px] mr-2 font-bold  text-skin-primary ">
                             <div>
                               <div className="text-skin-secondary ">{date}</div>
                               <div className="flex justify-end mt-1 ">
@@ -101,7 +102,7 @@ const MarketData = ({ league }) => {
                         </div>
                       </div>
 
-                      <div className="md:w-[40%]  lg:w-[100%] xl:w-[45%] flex ">
+                      <div className="md:w-[40%] lg:w-[100%] mt-2 md:mt-0 xl:w-[45%] flex ">
                         {(() => {
                           // Code logic inside the IIFE
                           if (matchOdds) {
@@ -117,7 +118,7 @@ const MarketData = ({ league }) => {
                           }
                         })()}
                         {exist &&
-                        Object.keys(Object.values(exist)[0]).length !== 0 ? (
+                          Object.keys(Object.values(exist)[0]).length !== 0 ? (
                           <>
                             <div className="inline-block flex-1  ">
                               <div className="flex drop-shadow-sm rounded-sm ">
@@ -128,6 +129,9 @@ const MarketData = ({ league }) => {
                                     {
                                       Object.values(exist)[0]?.runners[0]?.ex
                                         ?.availableToBack[0]?.price
+                                        ? Object.values(exist)[0]?.runners[0]?.ex
+                                          ?.availableToBack[0]?.price
+                                        : "-"
                                     }
                                   </span>
                                 </div>
@@ -138,6 +142,9 @@ const MarketData = ({ league }) => {
                                     {
                                       Object.values(exist)[0]?.runners[0]?.ex
                                         ?.availableToLay[0]?.price
+                                        ? Object.values(exist)[0]?.runners[0]?.ex
+                                          ?.availableToLay[0]?.price
+                                        : "-"
                                     }
                                   </span>
                                 </div>
@@ -153,7 +160,7 @@ const MarketData = ({ league }) => {
                                     {Object.values(exist)[0]?.runners[2]?.ex
                                       ?.availableToBack[0]?.price
                                       ? Object.values(exist)[0]?.runners[2]?.ex
-                                          ?.availableToBack[0]?.price
+                                        ?.availableToBack[0]?.price
                                       : "-"}
                                   </span>
                                 </div>
@@ -164,7 +171,7 @@ const MarketData = ({ league }) => {
                                     {Object.values(exist)[0]?.runners[2]?.ex
                                       ?.availableToLay[0]?.price
                                       ? Object.values(exist)[0]?.runners[2]?.ex
-                                          ?.availableToLay[0]?.price
+                                        ?.availableToLay[0]?.price
                                       : "-"}
                                   </span>
                                 </div>
@@ -180,6 +187,9 @@ const MarketData = ({ league }) => {
                                     {
                                       Object.values(exist)[0]?.runners[1]?.ex
                                         ?.availableToBack[0]?.price
+                                        ? Object.values(exist)[0]?.runners[1]?.ex
+                                          ?.availableToBack[0]?.price
+                                        : "-"
                                     }
                                   </span>
                                 </div>
@@ -190,6 +200,9 @@ const MarketData = ({ league }) => {
                                     {
                                       Object.values(exist)[0]?.runners[1]?.ex
                                         ?.availableToLay[0]?.price
+                                        ? Object.values(exist)[0]?.runners[1]?.ex
+                                        ?.availableToLay[0]?.price
+                                      : "-"
                                     }
                                   </span>
                                 </div>

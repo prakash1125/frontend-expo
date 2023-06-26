@@ -11,6 +11,8 @@ import GetRunnerData from "./runnerData/getRunnerDataSaga";
 import PlaceBet from "./bet/placeBetSaga";
 import GetBet from "./bet/getBetSaga";
 import GetUserData from "./userData/getUserDataSaga";
+import ChipSetting from "./settings/chipSettingSaga";
+import GetChipSetting from "./settings/getChipSettingSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -23,5 +25,7 @@ export default function* rootSaga() {
     PlaceBet(),
     GetBet(),
     GetUserData(),
+    ChipSetting(),
+    GetChipSetting(),
   ]);
 }

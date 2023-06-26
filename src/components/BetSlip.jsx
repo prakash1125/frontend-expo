@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import Input from "./Input";
 import { betOnBack, betOnLay } from "../utils/helper";
 import { BiCheck } from "react-icons/bi";
-
+import Chip from "./Chip";
+import DefaultChip from "./DefaultChip";
 
 const BetSlip = ({
   betLoader,
@@ -17,20 +18,39 @@ const BetSlip = ({
   setSlipData,
 }) => {
   const [slipPrice, setSlipPrice] = useState(0);
+  const [chipData, setChipData] = useState(false)
   const loading = useSelector((state) => state?.PlaceBet?.loading);
+  const chipDatas = useSelector((state) => state?.GetChipSetting?.chipData?.data)
+  const updatedChipData = useSelector((state) => state?.ChipSetting?.newChip)
+  console.log(chipData, "___________CHIPDATA");
+
 
   useEffect(() => {
     setSlipPrice(slipData?.price);
   }, [slipData]);
+
+  // To Update ChipData when there is realTime Update
+  useEffect(() => {
+    setChipData(updatedChipData)
+  }, [updatedChipData])
+
+
+  // To Update ChipData with initial render
+  useEffect(() => {
+    setChipData(chipDatas)
+  }, [chipDatas])
 
   //Mange BookData with Stake data Calculations
   const manageStakeData = (val) => {
     if (slipData?.type === "back") {
       let profit = betOnBack.profit(slipData?.price, val);
       let lose = betOnBack.lose(val);
+      console.log(profit);
+      console.log(lose);
       setStake(lose);
       setStakeAmount(profit);
     } else {
+      console.log("in else");
       let lose = betOnLay.lose(slipData?.price, val);
       let profit = betOnLay.profit(val);
       setStakeAmount(lose);
@@ -62,6 +82,7 @@ const BetSlip = ({
         manageStakeData(Math.abs(stake) - 1);
       }
     } else {
+      console.log("else");
       setSlipData((prev) => ({
         ...prev,
         price:
@@ -142,57 +163,14 @@ const BetSlip = ({
           </div>
           <div className="default-stake mt-1 w-full">
             <div className="stake grid grid-cols-3 gap-1 pl-2 w-full md:flex md:flex-wrap md:justify-end">
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer px-4 py-1 text-center font-medium mt-2"
-                onClick={() => handleSpanClick(100)}
-              >
-                <span>100</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(1000)}
-              >
-                <span>1,000</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(2000)}
-              >
-                <span>2,000</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(5000)}
-              >
-                <span>5,000</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(10000)}
-              >
-                <span>10,000</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(20000)}
-              >
-                <span>20,000</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(50000)}
-              >
-                <span>50,000</span>
-              </span>
-              <span
-                className="bg-[#4C555E] rounded-md cursor-pointer mt-2 px-4 py-1 text-center font-medium "
-                onClick={() => handleSpanClick(100000)}
-              >
-                <span>100,000</span>
-              </span>
+                {chipData ? (
+                  <Chip handleClick={handleSpanClick} chipData={chipData?.chip} />
+                ) : (
+                  <DefaultChip handleClick={handleSpanClick} />
+                )}
               <span
                 onClick={() => clearBetSlip()}
-                className="bg-[#DADADA] text-[#1c1c1c] rounded-md mt-2 cursor-pointer px-4 py-1 text-center font-medium"
+                className="bg-[#DADADA] text-[#1c1c1c]  rounded-md mt-2 cursor-pointer px-4 py-1 text-center font-medium"
               >
                 Clear
               </span>

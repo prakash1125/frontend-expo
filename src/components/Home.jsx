@@ -164,7 +164,7 @@ export const Home = () => {
         {cricketData?.map((i) =>
           i?.leagues?.map(
             (j, idx) =>
-              isDropdownOpen && <MarketDataCard league={j} key={idx} />
+              isDropdownOpen && <MarketDataCard league={j} key={idx}  sport={i?.sportSlugName} />
           )
         )}
 

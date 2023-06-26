@@ -1,35 +1,37 @@
 import { all, call, put, takeEvery } from "redux-saga/effects";
-import { LOGIN } from "../../actions/types";
-import { loginSuccess, loginFailure } from "../../actions";
+import { CHIP_SETTING } from "../../actions/types";
+import { chipSettingSuccess, chipSettingFailure } from "../../actions";
 import API from "../../../utils/api";
 import { notifySuccess, notifyWarning, notifyError } from "../../../utils/helper";
 
-function* loginRequest(action) {
+function* chipSettingRequest(action) {
   try {
+    console.log(action.payload,"payload");
     const { data } = yield API.post(
-      "/api/v1/login",
-      action?.payload?.inputValues
+      "/api/v1/chip-Setting",
+      action?.payload?.chip
     );
+    console.log(data, "-----------------------------data----------------------------------");
     if (data.meta.code === 200) {
-      yield put(loginSuccess(data));
+      yield put(chipSettingSuccess(data?.data));
       yield call(action.payload.callback, data);
       notifySuccess(data.meta.message);
     } else if (data.meta.code !== 200) {
-      yield put(loginFailure());
+      yield put(chipSettingFailure());
       yield call(action.payload.errorCallback, data);
       notifyWarning(data.meta.message);
     }
   } catch (error) {
     console.log(error, "eerr");
     yield call(action.payload.errorCallback, error?.response?.data);
-    yield put(loginFailure());
+    yield put(chipSettingFailure());
   }
 }
 
-export function* watchloginAPI() {
-  yield takeEvery(LOGIN, loginRequest);
+export function* watchchipSettingAPI() {
+  yield takeEvery(CHIP_SETTING, chipSettingRequest);
 }
 
 export default function* rootSaga() {
-  yield all([watchloginAPI()]);
+  yield all([watchchipSettingAPI()]);
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
@@ -20,6 +20,7 @@ import {
   getUserData,
   globalMaketOdds,
   globalSportData,
+  getChipSetting,
 } from "../redux/actions";
 import { socket } from "../context/SocketContext";
 import { notify, notifySuccess } from "../utils/helper";
@@ -47,7 +48,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const currentRoute = location.pathname;
   const userData = useSelector((state) => state?.GetUserData?.userData);
   const exposure = useSelector((state) => state?.PlaceBet);
-  console.log(exposure, "exposure");
+  
   const { theme, setTheme } = useContext(ThemeContext);
   const walletBalance = [
     { name: "Balance", amount: Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure) },
@@ -76,6 +77,10 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     setIsProfileOpen(!isProfileOpen);
     setIsDropdownOpen(isDropdownOpen);
   };
+  const navigate = useNavigate()
+  const handleNavigate =(href)=>{
+    navigate(href)
+  }
 
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
@@ -194,8 +199,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     if (storedLoggedIn) {
       setLoggedIn(true);
       dispatch(getUserData());
+      dispatch(getChipSetting());
     }
-  }, [dispatch]);
+  }, [dispatch, loggedIn]);
 
 
 
@@ -287,14 +293,14 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                   )}
                 </button> */}
 
-                {/* <label class="relative mt-4 inline-flex items-center mb-3 cursor-pointer">
+                <label class="relative mt-4 inline-flex items-center mb-3 cursor-pointer">
                   <input type="checkbox" value="" class="sr-only peer" />
                   <IoMoonOutline className="fas fa-moon text-white-500 absolute top-1/2 right-4 transform -translate-y-1/2 -translate-x-1/2 " />
                   <div onClick={handleThemeClick} class="p-2 py-3 w-11 h-6 bg-skin-cardhead peer-focus:outline-none pt-3 rounded-full  dark:bg-gray-700 peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-transparent-600">
                     <IoSunnySharp className="fas fa-sun text-black-500 absolute top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 " />
 
                   </div>
-                </label> */}
+                </label>
 
                 {/* AFTER LOGIN */}
                 {loggedIn && (
@@ -353,7 +359,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                             return (
                               <div className="flex justify-between" key={index}>
                                 <span className="py-2 text-sm text-skin-white ">
-                                  {element?.name}
+                                  {element.name}
                                 </span>
                                 <span className="py-2 text-sm text-skin-white ">
                                   {element?.amount}
@@ -375,14 +381,16 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     {isProfileOpen && (
                       <div className="w-64 absolute top-12 right-1 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm rounded ">
                         {profileMenu.map((element, index) => (
+                          
                           <div
                             onClick={
                               element.list === "Logout"
                                 ? handleLogout
                                 : element?.modal
                                   ? () => handleModal(element?.list)
-                                  : undefined
+                                  : () => handleNavigate(element.href)
                             }
+                           
                             className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"
                             key={index}
                           >
@@ -391,7 +399,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                             </div>
                             <div className="text-skin-white group menu-list cursor-pointer">
                               {element.list}
-                            </div>
+                            </div>``
                           </div>
                         ))}
                       </div>

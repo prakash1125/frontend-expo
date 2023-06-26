@@ -45,7 +45,7 @@ export const RightNavbar = () => {
       console.log("apiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
       dispatch(getBet());
     }
-  }, [dispatch, Login, newBet]);
+  }, [dispatch, Login]);
 
   return (
     <div className="overflow-y-auto px-2 pr-0 h-[94vh] justify-start flex scrollbar-hide overflow-x-hidden">
@@ -100,7 +100,7 @@ export const RightNavbar = () => {
           {location?.state?.hasOwnProperty("eventId") && myBets ? (
             <MyBets bets={myBets} eventId={location?.state?.eventId} />
           ) : (
-            <div className="w-[295px]  bg-skin-nav  rounded-md mt-2">
+            <div className="w-[320px]  bg-skin-nav  rounded-md mt-2">
               <div className="p-1 flex justify-center">
                 <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
                   Live Casino Games

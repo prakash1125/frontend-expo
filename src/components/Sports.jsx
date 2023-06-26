@@ -70,8 +70,7 @@ export const Sports = () => {
                     selected
                       ? "bg-skin-imgbg  font-semibold duration-200  "
                       : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-200"
-                  }
-                `
+                  }`
                     )
                   }
                 >
@@ -91,14 +90,22 @@ export const Sports = () => {
           </Tab.List>
         </Swiper>
         <Tab.Panels className="mt-2">
-          {sportsArray?.map((posts, idx) => (
+          {sportsArray?.map((sport, idx) => (
             <Tab.Panel>
               <ul key={idx}>
-                {posts?.leagues?.map((post) => (
-                  <li key={post.id} className="relative ">
-                    <MarketDataCard league={post} />
-                  </li>
-                ))}
+                {sport?.leagues.length !== 0 ? (
+                  sport?.leagues?.map((post) => (
+                    <li key={post.id} className="relative">
+                      <MarketDataCard league={post} sport={sport?.sportSlugName} />
+                    </li>
+                  ))
+                ) : (
+                  <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md py-2 px-1">
+                    <p className="text-white ml-3 font-semibold">
+                      There is no match available at this time.
+                    </p>
+                  </div>
+                )}
               </ul>
             </Tab.Panel>
           ))}

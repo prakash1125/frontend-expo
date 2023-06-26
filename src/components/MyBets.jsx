@@ -5,7 +5,7 @@ import { betOnBack } from "../utils/helper";
 const MyBets = ({ bets, eventId }) => {
   const currentEventBets = bets?.filter((obj) => obj.eventId === eventId);
   return (
-    <div className={` mx-auto bg-skin-nav rounded-md mt-2 mb-2`}>
+    <div className={` mx-auto w-[320px] bg-skin-nav rounded-md mt-2 mb-2`}>
       <div className="p-1 flex  justify-center">
         <button className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-2.5 rounded-md w-full font-semibold">
           <span>My Bets </span>
@@ -16,23 +16,23 @@ const MyBets = ({ bets, eventId }) => {
       </div>
 
       {currentEventBets?.length !== 0 ? (
-        <div className="overflow-y-auto h-80 overflow-x-hidden w-[295px]  scrollbar-hide">
+        <div className="overflow-y-auto h-80 overflow-x-hidden   scrollbar-hide">
           <table className="overflow-scroll border-collapse w-full  text-center">
             <thead>
             <tr>
-              <th className=" text-[12px] font-bold text-left uppercase  pl-1 pr-2 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-left uppercase pl-2 pr-6 py-[2px] text-skin-white ">
                 SELECTION
               </th>
-              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-[2px] text-skin-white ">
                 ODDS
               </th>
-              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-[2px] text-skin-white ">
                 STAKE
               </th>
-              <th className=" text-[12px] font-bold text-right uppercase  py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-right uppercase  py-[2px] text-skin-white ">
                 P/L
               </th>
-              <th className=" text-[12px] font-bold text-right    pr-1 py-2 text-skin-white ">
+              <th className=" text-[12px] font-bold text-right    pr-2 py-[2px] text-skin-white ">
                 Time
               </th>
             </tr>
@@ -48,7 +48,7 @@ const MyBets = ({ bets, eventId }) => {
                           bet?.selectionType === "back"
                             ? "bg-[#008EFB]"
                             : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold text-left py-1 pl-1 border-y-[1px]  text-white`}
+                        } text-[11.5px]  font-bold text-left py-[2px] pl-2 border-y-[1px]  text-white`}
                       >
                         {bet?.selection}
                       </td>
@@ -57,7 +57,7 @@ const MyBets = ({ bets, eventId }) => {
                           bet?.selectionType === "back"
                             ? "bg-[#008EFB]"
                             : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
+                        } text-[11.5px]  font-bold  text-left py-[2px]   border-y-[1px]  text-white `}
                       >
                         {bet?.odds}
                       </td>
@@ -66,7 +66,7 @@ const MyBets = ({ bets, eventId }) => {
                           bet?.selectionType === "back"
                             ? "bg-[#008EFB]"
                             : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-left py-1   border-y-[1px]  text-white `}
+                        } text-[11.5px]  font-bold  text-left py-[2px]   border-y-[1px]  text-white `}
                       >
                         {bet?.stake}
                       </td>
@@ -75,7 +75,7 @@ const MyBets = ({ bets, eventId }) => {
                           bet?.selectionType === "back"
                             ? "bg-[#008EFB]"
                             : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-right py-1   border-y-[1px] text-white `}
+                        } text-[11.5px]  font-bold  text-right py-[2px]   border-y-[1px] text-white `}
                       >
             
                         {Math.round(betOnBack.profit(bet?.odds, bet?.stake))}
@@ -85,7 +85,7 @@ const MyBets = ({ bets, eventId }) => {
                           bet?.selectionType === "back"
                             ? "bg-[#008EFB]"
                             : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-right py-1 pr-1 border-y-[1px] text-white `}
+                        } text-[11.5px]  font-bold  text-right py-[2px] pr-2 border-y-[1px] text-white `}
                       >
                          {DateTime.fromISO(bet?.createdAt).toFormat(
                                   "yyyy-MM-dd HH:mm:ss"

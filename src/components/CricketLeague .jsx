@@ -175,7 +175,7 @@ export const CricketLeague = () => {
   return (
     <>
       <ul className="w-full px-2 pt-2">
-        <div className="bg-[#169C59] rounded-md min-w-full flex flex-col justify-center items-center px-4 py-2 ">
+        <div className="bg-[#169C59]  rounded-md min-w-full flex flex-col justify-center items-center px-4 py-2 relative overflow-hidden">
           <h1 className="text-white text-xl">{location?.state?.leagueName}</h1>
           <div className="team-match text-[#fff] text-xl mb-2">
             {firstRunner}
@@ -187,6 +187,9 @@ export const CricketLeague = () => {
           <div className="flex items-center font-bold text-[#eee] mb-2 border bg-[#2EA66A] border-[#eeeeee8c] h-8 p-2 px-5 rounded-md text-xl">
             <Countdown targetDateTime={location?.state?.eventDate} />
           </div>
+          <img width={100} height={70} className="absolute left-12 top-14 opacity-20 " src={require(`../assets/images/sidemenu/${location?.state?.sportName}.png`)} alt="" />
+          
+          <img width={100} height={70} className="absolute transform rotate-180  right-12 bottom-14 opacity-20 " src={require(`../assets/images/sidemenu/${location?.state?.sportName}.png`)} alt="" />
         </div>
 
         <div className="w-full  mx-auto bg-skin-nav rounded-md mt-2 mb-2">
