@@ -96,7 +96,10 @@ export const Sports = () => {
                 {sport?.leagues.length !== 0 ? (
                   sport?.leagues?.map((post) => (
                     <li key={post.id} className="relative">
-                      <MarketDataCard league={post} />
+                      <MarketDataCard
+                        league={post}
+                        sport={sport?.sportSlugName}
+                      />
                     </li>
                   ))
                 ) : (

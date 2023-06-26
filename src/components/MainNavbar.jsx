@@ -43,13 +43,38 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const dispatch = useDispatch();
   const currentRoute = location.pathname;
   const userData = useSelector((state) => state?.GetUserData?.userData);
-  const exposure = useSelector((state) => state?.PlaceBet);
+  const newBet = useSelector((state) => state?.PlaceBet);
   const { theme, setTheme } = useContext(ThemeContext);
+
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [exposureVal, setExposureVal] = useState("");
+  const [balance, setBalance] = useState("");
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const [isSignupOpen, setIsSignupOpen] = useState(false);
+  const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
+  const [isChangePasswordOpen, setisChangePasswordOpen] = useState(false);
+
+  const [data, setdata] = useState([]);
+  const [allMarkets, setAllMarkets] = useState([]);
+  console.log(newBet, "newBett");
+  useEffect(() => {
+    setExposureVal(newBet?.exposure);
+  }, [newBet]);
+
+  useEffect(() => {
+    setExposureVal(userData?.data?.exposure);
+    setBalance(userData?.data?.balance);
+  }, [userData]);
+
+  useEffect(() => {
+    setBalance(userData?.data?.balance - Math.abs(exposureVal));
+  }, [exposureVal, userData?.data?.balance]);
+
   const walletBalance = [
     {
       name: "Balance",
-      amount:
-        Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure),
+      amount: balance,
     },
     {
       name: "Credit Reference",
@@ -59,7 +84,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     },
     {
       name: "Exposure",
-      amount: userData?.data?.exposure ? userData?.data?.exposure : 0,
+      amount: exposureVal ? exposureVal : 0,
     },
   ];
   const profileMenu = [
@@ -77,21 +102,10 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     { icon: IoIosStats, list: "Logout" },
   ];
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  // const [exposureVal, setExposureVal] = useState('');
   const handleMenuClick = () => {
     setIsProfileOpen(!isProfileOpen);
     setIsDropdownOpen(isDropdownOpen);
   };
-
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
-  const [isSignupOpen, setIsSignupOpen] = useState(false);
-  const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
-  const [isChangePasswordOpen, setisChangePasswordOpen] = useState(false);
-
-  const [data, setdata] = useState([]);
-  const [allMarkets, setAllMarkets] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -171,9 +185,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     });
   }, [allMarkets]);
 
-  useEffect(() => {
-    dispatch(getUserData());
-  }, [exposure]);
+  // useEffect(() => {
+  //   dispatch(getUserData());
+  // }, [exposure]);
 
   const closeModal = () => {
     setIsLoginOpen(false);
@@ -203,7 +217,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     } else if (id === "Chips Setting") {
       setisChipSettingOpen(true);
     }
-
     handleMenuClick();
   };
 
@@ -331,8 +344,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     >
                       <span className="text-skin-white  text-xs font-semibold mx-2.5">
                         &#x20B9;
-                        {Math.abs(userData?.data?.balance) -
-                          Math.abs(userData?.data?.exposure)}
+                        {balance ? balance : 0}
                       </span>
                       <button
                         type="button"

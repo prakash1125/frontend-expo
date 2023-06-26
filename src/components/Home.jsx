@@ -61,11 +61,6 @@ export const Home = () => {
       name: "In-Play",
       route: "/in-play",
     },
-    // {
-    //   icon: "https://sportsexch.com/images/icons/trophy.png",
-    //   name: "Sports",
-    //   route: "/indian-premier-league"
-    // },
     {
       icon: "https://sportsexch.com/images/icons/indian-casino.png",
       name: "Indian Casino",
@@ -90,13 +85,9 @@ export const Home = () => {
   const cricketData = globalStateData?.globalSportData?.filter(
     (sport) => sport.sportName === "Cricket"
   );
-
-
-
   // ============================================================================================
 
   return (
-
     <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
@@ -132,10 +123,10 @@ export const Home = () => {
                       className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
                     />
                   </a>
-                  <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
+                  <p className="text-center whitespace-nowrap overflow-hidden">
+                    {element.name}
+                  </p>
                 </div>
-
-
               </Link>
             </SwiperSlide>
           ))}
@@ -186,7 +177,7 @@ export const Home = () => {
               <div className="px-1">
                 <img
                   src={img}
-                  className="  object-cover rounded-md "
+                  className="  object-cover rounded-md"
                   alt={`Slide ${index + 1}`}
                 />
               </div>

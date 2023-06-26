@@ -130,7 +130,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       //   alert("Odds Changed");
       // }
     } else {
-      notifyWarning("Please Login to Bet")
+      notifyWarning("Please Login to Bet");
     }
   };
 

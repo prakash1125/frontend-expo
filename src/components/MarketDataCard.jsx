@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 import { formatDate } from "../utils/helper";
 
-const MarketData = ({ league }) => {
+const MarketData = ({ league, sport }) => {
   // ==================================CALLING THE API DATA======================================
-
+  console.log(sport, "sport");
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );

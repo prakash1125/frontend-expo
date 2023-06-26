@@ -21,9 +21,10 @@ export const RightNavbar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const myBets = useSelector((state) => state?.GetBet?.allBets);
-  
+
   const Login = useSelector((state) => state?.Login?.login);
-  const newBet = useSelector((state) => state?.PlaceBet);
+  const newBet = useSelector((state) => state?.PlaceBet?.bets);
+
   const settings = {
     // dots: true,
     infinite: true,
@@ -34,6 +35,7 @@ export const RightNavbar = () => {
   const images = [img1, img2, img3, img4, img5];
 
   const [isLive, setIsLive] = useState(false);
+  const [bets, setBets] = useState([]);
 
   const handleLiveTVClick = () => {
     setIsLive(!isLive);
@@ -42,10 +44,16 @@ export const RightNavbar = () => {
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      console.log("apiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii");
       dispatch(getBet());
     }
-  }, [dispatch, Login, newBet]);
+  }, [dispatch, Login]);
+
+  useEffect(() => {
+    setBets(myBets);
+  }, [myBets]);
+  useEffect(() => {
+    setBets(newBet?.allBets);
+  }, [newBet]);
 
   return (
     <div className="overflow-y-auto px-2 pr-0 h-[94vh] justify-start flex scrollbar-hide overflow-x-hidden">
@@ -97,8 +105,8 @@ export const RightNavbar = () => {
             )}
           </div>
 
-          {location?.state?.hasOwnProperty("eventId") && myBets ? (
-            <MyBets bets={myBets} eventId={location?.state?.eventId} />
+          {location?.state?.hasOwnProperty("eventId") && bets ? (
+            <MyBets bets={bets} eventId={location?.state?.eventId} />
           ) : (
             <div className="w-[295px]  bg-skin-nav  rounded-md mt-2">
               <div className="p-1 flex justify-center">
