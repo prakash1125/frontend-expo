@@ -98,6 +98,7 @@ export const SideNavbar = () => {
                                   eventName: event?.name,
                                   eventDate: event?.eventDate,
                                   marketArray: event?.markets,
+                                  sportName: item?.sportSlugName,
                                 }}
                               >
                                 <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:duration-200 hover:bg-skin-hovercolorsecondary flex w-full">

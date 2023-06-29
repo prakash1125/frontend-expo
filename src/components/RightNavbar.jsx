@@ -38,13 +38,13 @@ export const RightNavbar = () => {
   const handleLiveTVClick = () => {
     setIsLive(!isLive);
   };
-  //Fetching my Bets
+  // //Fetching my Bets
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      dispatch(getBet());
-    }
-  }, [dispatch, Login]);
+  // useEffect(() => {
+  //   if (localStorage.getItem("token")) {
+  //     dispatch(getBet());
+  //   }
+  // }, [dispatch, Login]);
 
   useEffect(() => {
     setBets(myBets);

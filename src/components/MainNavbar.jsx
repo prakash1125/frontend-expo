@@ -222,7 +222,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const walletBalance = [
     {
       name: "Balance",
-      amount: balance ? balance : 0,
+      amount: balance ? balance.toFixed(2) : 0,
     },
     {
       name: "Credit Reference",
@@ -230,7 +230,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     },
     {
       name: "Exposure",
-      amount: exposure ? exposure : 0,
+      amount: exposure ? Math.abs(exposure).toFixed(2) : 0,
     },
   ];
 
