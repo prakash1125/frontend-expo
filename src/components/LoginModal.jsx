@@ -10,7 +10,6 @@ export const LoginModal = ({ closeModal, onLogin }) => {
   const dispatch = useDispatch();
   const [phoneNumberValue, setPhoneNumber] = useState("");
   const [passwordValue, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const handlePhoneNumberChange = (event) => {
     setPhoneNumber(event.target.value);
@@ -21,29 +20,27 @@ export const LoginModal = ({ closeModal, onLogin }) => {
   };
 
   const handleSubmit = () => {
-    const inputValues = {
-      username: phoneNumberValue,
-      password: passwordValue,
-    };
-    setError("");
-    dispatch(
-      login({
-        inputValues,
-        callback: (data) => {
-          if (data) {
-            closeModal();
-            localStorage?.setItem("token", data?.meta?.token);
-            onLogin(true);
-          }
-        },
-        errorCallback: (error) => {
-          setError(error?.meta?.message);
-        },
-      })
-    );
+    if (phoneNumberValue.trim() !== "" && passwordValue.trim() !== "") {
+      const inputValues = {
+        username: phoneNumberValue,
+        password: passwordValue,
+      };
 
-    // Dispatch your login action with the input values here
-    // For example: dispatch(loginAction(inputValues));
+      dispatch(
+        login({
+          inputValues,
+          callback: (data) => {
+            if (data) {
+              closeModal();
+              localStorage?.setItem("token", data?.meta?.token);
+              onLogin(true);
+            }
+          },
+        })
+      );
+    } else {
+      notifyWarning("please fill all Fields");
+    }
   };
 
   return (
@@ -63,7 +60,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
             </h1>
 
             <div className="flex flex-col">
-              <div className={`phone-number ${!error?.username && "mb-5"}`}>
+              <div className={`phone-number `}>
                 <label
                   className="text-[#CCD1D5] text-xs font-semibold mb-2"
                   htmlFor="phoneNumberInput"
@@ -81,7 +78,7 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                 />
               </div>
 
-              <div className={`password ${!error?.password && "mb-5"}`}>
+              <div className={`password `}>
                 <label
                   className="text-[#CCD1D5] text-xs font-semibold mb-2"
                   htmlFor="passwordInput"
@@ -104,7 +101,6 @@ export const LoginModal = ({ closeModal, onLogin }) => {
                   Forget Password?
                 </span>
               </div>
-              <p className="text-red-400 p-0 m-0 ml-2">{error}</p>
               <div className="flex items-center mb-2 mt-4">
                 <input
                   className="mr-1 w-4 h-4"

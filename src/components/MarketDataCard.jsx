@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { DateTime } from "luxon";
 import { formatDate } from "../utils/helper";
+import EmptyRunners from "./EmptyRunners";
 
 const MarketData = ({ league, sport }) => {
   // ==================================CALLING THE API DATA======================================
@@ -16,7 +17,6 @@ const MarketData = ({ league, sport }) => {
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
-  console.log(sport, "____________________SPORT");
   return (
     <>
       {league?.events?.length !== 0 && (
@@ -59,7 +59,7 @@ const MarketData = ({ league, sport }) => {
                       eventId: event?._id,
                       eventDate: event?.eventDate,
                       marketArray: event?.markets,
-                      sportName: sport
+                      sportName: sport,
                     }}
                   >
                     <div className="md:flex lg:block gap-3 px-1 md:px-2 lg:px-1 xl:px-2 xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">
@@ -118,7 +118,7 @@ const MarketData = ({ league, sport }) => {
                           }
                         })()}
                         {exist &&
-                          Object.keys(Object.values(exist)[0]).length !== 0 ? (
+                        Object.keys(Object.values(exist)[0]).length !== 0 ? (
                           <>
                             <div className="inline-block flex-1  ">
                               <div className="flex drop-shadow-sm rounded-sm ">
@@ -126,26 +126,22 @@ const MarketData = ({ league, sport }) => {
                                   className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
                                 >
                                   <span className="m-auto brightness-125">
-                                    {
-                                      Object.values(exist)[0]?.runners[0]?.ex
-                                        ?.availableToBack[0]?.price
-                                        ? Object.values(exist)[0]?.runners[0]?.ex
+                                    {Object.values(exist)[0]?.runners[0]?.ex
+                                      ?.availableToBack[0]?.price
+                                      ? Object.values(exist)[0]?.runners[0]?.ex
                                           ?.availableToBack[0]?.price
-                                        : "-"
-                                    }
+                                      : "-"}
                                   </span>
                                 </div>
                                 <div
                                   className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
                                 >
                                   <span className="m-auto brightness-125">
-                                    {
-                                      Object.values(exist)[0]?.runners[0]?.ex
-                                        ?.availableToLay[0]?.price
-                                        ? Object.values(exist)[0]?.runners[0]?.ex
+                                    {Object.values(exist)[0]?.runners[0]?.ex
+                                      ?.availableToLay[0]?.price
+                                      ? Object.values(exist)[0]?.runners[0]?.ex
                                           ?.availableToLay[0]?.price
-                                        : "-"
-                                    }
+                                      : "-"}
                                   </span>
                                 </div>
                               </div>
@@ -160,7 +156,7 @@ const MarketData = ({ league, sport }) => {
                                     {Object.values(exist)[0]?.runners[2]?.ex
                                       ?.availableToBack[0]?.price
                                       ? Object.values(exist)[0]?.runners[2]?.ex
-                                        ?.availableToBack[0]?.price
+                                          ?.availableToBack[0]?.price
                                       : "-"}
                                   </span>
                                 </div>
@@ -171,7 +167,7 @@ const MarketData = ({ league, sport }) => {
                                     {Object.values(exist)[0]?.runners[2]?.ex
                                       ?.availableToLay[0]?.price
                                       ? Object.values(exist)[0]?.runners[2]?.ex
-                                        ?.availableToLay[0]?.price
+                                          ?.availableToLay[0]?.price
                                       : "-"}
                                   </span>
                                 </div>
@@ -184,33 +180,29 @@ const MarketData = ({ league, sport }) => {
                                   className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-blue  bg-skin-marketcard   cursor-pointer`}
                                 >
                                   <span className="m-auto brightness-125 ">
-                                    {
-                                      Object.values(exist)[0]?.runners[1]?.ex
-                                        ?.availableToBack[0]?.price
-                                        ? Object.values(exist)[0]?.runners[1]?.ex
+                                    {Object.values(exist)[0]?.runners[1]?.ex
+                                      ?.availableToBack[0]?.price
+                                      ? Object.values(exist)[0]?.runners[1]?.ex
                                           ?.availableToBack[0]?.price
-                                        : "-"
-                                    }
+                                      : "-"}
                                   </span>
                                 </div>
                                 <div
                                   className={`w-[100%] py-1.5 rounded-md m-1 flex justify-center text-md font-bold text-skin-pink  bg-skin-marketcard   cursor-pointer`}
                                 >
                                   <span className="m-auto brightness-125 ">
-                                    {
-                                      Object.values(exist)[0]?.runners[1]?.ex
-                                        ?.availableToLay[0]?.price
-                                        ? Object.values(exist)[0]?.runners[1]?.ex
-                                        ?.availableToLay[0]?.price
-                                      : "-"
-                                    }
+                                    {Object.values(exist)[0]?.runners[1]?.ex
+                                      ?.availableToLay[0]?.price
+                                      ? Object.values(exist)[0]?.runners[1]?.ex
+                                          ?.availableToLay[0]?.price
+                                      : "-"}
                                   </span>
                                 </div>
                               </div>
                             </div>
                           </>
                         ) : (
-                          ""
+                          <EmptyRunners />
                         )}
                       </div>
                     </div>
