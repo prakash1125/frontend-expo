@@ -69,7 +69,7 @@ export const SideNavbar = () => {
                   <div
                     key={index}
                     onClick={() => toggleDropdown(index)}
-                    className={`justify-between pl-3 pr-[15px] ${dropdownIndex === index ? "bg-skin-cardhead" : ""} rounded-md py-3 hover:duration-200 hover:bg-skin-cardhead flex w-full`}
+                    className={`justify-between pl-3 pr-[15px] ${dropdownIndex === index ? "bg-skin-sidenavhover" : ""} rounded-md py-3 hover:duration-200 hover:bg-skin-sidenavhover flex w-full`}
                   >
                     <div>
                       <div className="text-skin-secondary block text-[12px] font-semibold">
@@ -88,9 +88,10 @@ export const SideNavbar = () => {
                                 eventName: event?.name,
                                 eventDate: event?.eventDate,
                                 marketArray: event?.markets,
+                                sportName: item?.sportSlugName
                               }}
                             >
-                              <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:duration-200 hover:bg-skin-hovercolorsecondary flex w-full">
+                              <div className="justify-between pl-2 pr-4 rounded-md py-3 hover:duration-200 hover:bg-skin-sidenavhoversecondary flex w-full">
                                 <div className="text-skin-primary block text-xs w-full font-semibold">
                                   {event?.name}
                                 </div>

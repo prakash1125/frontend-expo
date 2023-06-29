@@ -74,7 +74,7 @@ export const Layout = () => {
         <div className="">
           <div className="flex ">
             {toggle ? (
-              <div className="h-[94vh]  overflow-y-scroll scrollbar-hide bg-skin-sidebarbg absolute md:relative z-40 w-2/4 max-w-[252px]">
+              <div className="h-[94vh]  overflow-y-scroll scrollbar-hide absolute md:relative z-40 w-2/4 max-w-[252px]">
                 <SideNavbar />
               </div>
             ) : null}

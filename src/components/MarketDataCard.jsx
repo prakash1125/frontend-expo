@@ -20,7 +20,7 @@ const MarketData = ({ league, sport }) => {
   return (
     <>
       {league?.events?.length !== 0 && (
-        <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md">
+        <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-sm">
           <div
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="flex w-full items-center bg-skin-cardhead rounded-t-md justify-between h-[40px] px-4 cursor-pointer "

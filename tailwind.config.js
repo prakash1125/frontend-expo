@@ -17,10 +17,9 @@ module.exports = {
       },
 
       colors: {
-        current: "var(--text-color)",
+        borderColor: "var(--border)",
         mainbg: "var(--main-background)",
-        sidenavhover:"var( --side-navbar-hover)",
-        sidenavhoversecondary:"var(--side-navbar-hover-secondary)"
+
       },
 
       textColor: {
@@ -32,22 +31,25 @@ module.exports = {
           blue: "var(--text-blue)",
           pink: "var(--text-pink)",
           dark: "var( --text-dark)",
-          balance:"var(--text-balance)"
+          balance: "var(--text-balance)"
         },
       },
 
       backgroundColor: {
         skin: {
           main: "var(--main-background)",
-          navtop:"var(--nav-colortop)",
-          sidebarbg:"var(--sidebar-color)",
+          navtop: "var(--nav-colortop)",
+          sidebarbg: "var(--sidebar-color)",
           nav: "var( --nav-color)",
           cardhead: "var(--card-heading-bg-color)",
           cardsmall: "var( --card-small-card)",
           imgbg: "var( --img-bg-color)",
           hovercolor: "var(--hover-color)",
           hovercolorsecondary: "var(--hover-color-secondary)",
-          marketcard:"var(--market-runner-card)",
+          marketcard: "var(--market-runner-card)",
+          sidenavhover: "var( --side-navbar-hover)",
+          sidenavhoversecondary: "var(--side-navbar-hover-secondary)",
+          mainNavbarHoverColor:"var(--main-navbar-hover)",
         }
       },
 

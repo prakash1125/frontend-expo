@@ -17,7 +17,8 @@ const Events = ({ league, sport }) => {
               eventName: event?.name,
               eventId: event?._id,
               eventDate: event?.eventDate,
-              marketArray: event?.markets
+              marketArray: event?.markets,
+              sportName: sport
             }}
           >
             <div className=" py-[10px] mb-[2px] border-b border-mainbg" key={index}>

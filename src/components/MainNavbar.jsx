@@ -261,7 +261,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           className={classNames(
                             item.href == currentRoute &&
                             "bg-skin-cardhead text-skin-white ",
-                            "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-cardhead hover:text-skin-white "
+                            "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-mainNavbarHoverColor hover:text-white "
                           )}
                           aria-current={item.current ? "page" : undefined}
                         >
@@ -321,7 +321,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
                     <div
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                      className="  wallet bg-skin-cardhead hover:bg-skin-hovercolorsecondary p-0.5 rounded-md flex items-center cursor-pointer"
+                      className="  wallet bg-skin-cardhead hover:bg-skin-sidenavhover p-0.5 rounded-md flex items-center cursor-pointer"
                     >
                       <span className="text-skin-balance text-xs font-semibold mx-2.5">
                         &#x20B9; {Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)}

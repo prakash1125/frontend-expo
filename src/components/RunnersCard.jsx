@@ -186,7 +186,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
             const currentMarket = findRunnerOdds(odds, runner?.runnerCode);
             return (
               <React.Fragment key={index}>
-                <hr className="border-t border-gray-200/10 w-full" />
+                <hr className="border-t border-borderColor w-full" />
                 <div className="flex w-full justify-between gap-3 pl-4 pr-1">
                   <div className="flex flex-col w-full text-skin-white text-sm font-semibold justify-start items-start">
                     <p>{runner?.name}</p>

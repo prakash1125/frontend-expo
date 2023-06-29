@@ -15,6 +15,9 @@
         --hover-color: #393C40;
         --hover-color-secondary: #4C555E;
         --market-runner-card: #32383e;
+        --side-navbar-hover: #32383e;
+        --side-navbar-hover-secondary:#4C555E;
+        --main-navbar-hover:#32383e;
 
 
         --text-primary: #cfd4d8;
@@ -27,29 +30,35 @@
         --text-balance: white;
 
         --scrollbar-color: #4c555e;
+        --border:#32383e;
     }
 
     /* #f8f9fa; */
     .light-theme {
-        --main-background: #ECEAEA;
+        --main-background: #F1F2F4;
         --nav-colortop: #1E8067;
         --sidebar-color: #fdfffc;
-        --nav-color: #fdfffc;
-        --card-heading-bg-color: #ddddddbd;
+        --nav-color: #fff;
+        --card-heading-bg-color: #D5D9DD;
         --card-small-card: #f1eeee;
-        --img-bg-color: rgb(228, 227, 227);
-        --hover-color: rgb(214, 211, 211);
-        --hover-color-secondary: rgb(184, 181, 181);
+        --img-bg-color: #D5D9DD;
+        --hover-color: #D5D9DD;
+        --hover-color-secondary: #D5D9DD;
         --market-runner-card: #e5f2ff;
+        --side-navbar-hover: #EEF0F1;
+        --side-navbar-hover-secondary:#D5D9DD;
+        --main-navbar-hover:#32383e;
 
-        --text-primary: #696b6d;
+
+        --text-primary: #2E3338;
         --text-nav: #ffffff;
-        --text-secondary: rgb(54, 54, 54);
-        --text-white: rgb(56, 56, 56);
+        --text-secondary: #2E3338;
+        --text-white: #2E3338;
         --text-blue: #464747;
         --text-pink: #464747;
-        --text-dark: rgb(53, 53, 53);
+        --text-dark: #2E3338;
         --text-balance: black;
+        --border:#d5d9dd;
 
         --scrollbar-color: rgb(228, 224, 224);
 
