@@ -198,34 +198,52 @@ const findMinFromArrayOfObjects = (array) => {
   return maxObject;
 };
 
-
 // For calling the toastify alert
-export const notifySuccess = (message) =>{
+export const notifySuccess = (message) => {
   return toast.success(message, {
-  className: "custom-toast",
-  position: "top-center",
-  autoClose: 700,
-  hideProgressBar: true,
-  closeOnClick: false,
-  pauseOnHover: false,
-  draggable: true,
-  progress: undefined,
-  theme: "dark",
-})};
+    className: "custom-toast",
+    position: "top-center",
+    autoClose: 700,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+};
 
-export const notifyWarning = (message) =>{
+export const notifyWarning = (message) => {
   return toast.error(message, {
-  className: "custom-toast",
-  position: "top-center",
-  autoClose: 700,
-  hideProgressBar: true,
-  closeOnClick: false,
-  pauseOnHover: false,
-  draggable: true,
-  progress: undefined,
-  theme: "dark",
-})};
+    className: "custom-toast",
+    position: "top-center",
+    autoClose: 700,
+    hideProgressBar: true,
+    closeOnClick: false,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  });
+};
+
+//Find length of all Array inside another Arrays
+
+export const findEventsLength = (array) => {
+  const totalLength = array?.reduce(
+    (acc, league) => acc + league.events.length,
+    0
+  );
+  return totalLength;
+};
+
+//Format numbers, to short the length
+
+export const formatNumber = (num) => {
+  if (num >= 1000) {
+    return (num / 1000).toFixed(1) + "k";
+  }
+  return num;
+};
 
 export { findMaxFromArrayOfObjects, findMinFromArrayOfObjects }; // because this function used in this same file also
-
-

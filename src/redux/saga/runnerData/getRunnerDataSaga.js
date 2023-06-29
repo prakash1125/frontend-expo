@@ -12,7 +12,6 @@ function* getRunnerDataRequest(action) {
       yield put(getRunnerDataSuccess(data));
       yield call(action.payload.callback, data.data);
     } else if (data.meta.code !== 200) {
-      console.log("not-200");
       yield put(getRunnerDataFailure());
     }
   } catch (error) {

@@ -15,6 +15,10 @@
         --hover-color: #393C40;
         --hover-color-secondary: #4C555E;
         --market-runner-card: #32383e;
+        --market-runner-card-pink: #32383e;
+        --market-runner-card-blue: #32383e;
+        --market-runner-card-secondary-blue: #32383e;
+        --market-runner-card-secondary-pink: #32383e;
         --side-navbar-hover: #32383e;
         --side-navbar-hover-secondary:#4C555E;
         --main-navbar-hover:#32383e;
@@ -44,13 +48,17 @@
         --img-bg-color: #D5D9DD;
         --hover-color: #D5D9DD;
         --hover-color-secondary: #D5D9DD;
-        --market-runner-card: #e5f2ff;
+        --market-runner-card: #E3F3FE;
+        --market-runner-card-pink: #F9C9D4;
+        --market-runner-card-blue: #A7D8FD;
+        --market-runner-card-secondary-blue: #E3F3FE;
+        --market-runner-card-secondary-pink: #FDEEF2;
         --side-navbar-hover: #EEF0F1;
         --side-navbar-hover-secondary:#D5D9DD;
-        --main-navbar-hover:#32383e;
+        --main-navbar-hover:#258d73;
 
-
-        --text-primary: #2E3338;
+        
+        --text-primary: #000000;
         --text-nav: #ffffff;
         --text-secondary: #2E3338;
         --text-white: #2E3338;
@@ -60,7 +68,7 @@
         --text-balance: black;
         --border:#d5d9dd;
 
-        --scrollbar-color: rgb(228, 224, 224);
+        --scrollbar-color: #D5D9DD;
 
     }
 

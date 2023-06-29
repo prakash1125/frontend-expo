@@ -4,6 +4,7 @@ import MarketDataCard from "./MarketDataCard";
 import Footer from "./Footer";
 import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { findEventsLength } from "../utils/helper";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -58,50 +59,77 @@ export const Sports = () => {
           }}
         >
           <Tab.List className="flex  ">
-            {sportsArray?.map((category, index) => (
-              <SwiperSlide key={index}>
-                <Tab
-                  key={category.sportSlugName}
-                  onClick={() => setCategoryId(index)}
-                  className={({ selected }) =>
-                    classNames(
-                      ` h-[52px] justify-center text-center rounded-md text-xs w-full  font-semibold 
+            {sportsArray?.map((category, index) => {
+              const totalLength = findEventsLength(category?.leagues);
+              return (
+                <SwiperSlide key={index}>
+                  <Tab
+                    key={category.sportSlugName}
+                    onClick={() => setCategoryId(index)}
+                    className={({ selected }) =>
+                      classNames(
+                        ` h-[52px] justify-center text-center rounded-md text-xs w-full  font-semibold 
                   ${
                     selected
                       ? "bg-skin-imgbg  font-semibold duration-200  "
                       : "text-skin-white bg-skin-nav  hover:bg-skin-hovercolor hover:text-skin-white hover:duration-200"
                   }`
-                    )
-                  }
-                >
-                  <img
-                    alt="profil"
-                    src={require(`../assets/images/sidemenu/${category.sportSlugName}.png`)}
-                    className={`mx-auto ${
-                      categoryId !== index && "invert"
-                    } object-cover  w-5 sidebar `}
-                  ></img>
-                  <div className=" inline-block overflow-x-hidden w-16  text-[11px] whitespace-nowrap ">
-                    {category?.sportName}
-                  </div>
-                </Tab>
-              </SwiperSlide>
-            ))}
+                      )
+                    }
+                  >
+                    {/* {totalLength !== 0 && (
+                      <div className="p-1 bg-black w-4 h-5 rounded">
+                        <p className="font-semibold text-white">
+                          {totalLength}
+                        </p>
+                      </div>
+                    )} */}
+                    <img
+                      alt="profil"
+                      src={require(`../assets/images/sidemenu/${category.sportSlugName}.png`)}
+                      className={`mx-auto ${
+                        categoryId !== index && "invert"
+                      } object-cover  w-5 sidebar `}
+                    ></img>
+                    <div className=" inline-block overflow-x-hidden w-16  text-[11px] whitespace-nowrap ">
+                      {category?.sportName}
+                    </div>
+                  </Tab>
+                </SwiperSlide>
+              );
+            })}
           </Tab.List>
         </Swiper>
         <Tab.Panels className="mt-2">
           {sportsArray?.map((sport, idx) => (
-            <Tab.Panel>
+            <Tab.Panel key={idx}>
               <ul key={idx}>
                 {sport?.leagues.length !== 0 ? (
-                  sport?.leagues?.map((post) => (
-                    <li key={post.id} className="relative">
-                      <MarketDataCard league={post} sport={sport?.sportSlugName} />
-                    </li>
-                  ))
+                  sport?.leagues?.map((post) => {
+                    const totalLength = findEventsLength(sport?.leagues);
+
+                    return (
+                      <>
+                        {totalLength === 0 ? (
+                          <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md py-2 px-1">
+                            <p className="text-skin-white ml-3 font-semibold">
+                              There is no match available at this time.
+                            </p>
+                          </div>
+                        ) : (
+                          <li key={post.id} className="relative">
+                            <MarketDataCard
+                              league={post}
+                              sport={sport?.sportSlugName}
+                            />
+                          </li>
+                        )}
+                      </>
+                    );
+                  })
                 ) : (
                   <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md py-2 px-1">
-                    <p className="text-white ml-3 font-semibold">
+                    <p className="text-skin-white ml-3 font-semibold">
                       There is no match available at this time.
                     </p>
                   </div>

@@ -50,6 +50,10 @@ module.exports = {
           sidenavhover: "var( --side-navbar-hover)",
           sidenavhoversecondary: "var(--side-navbar-hover-secondary)",
           mainNavbarHoverColor:"var(--main-navbar-hover)",
+          oddsCardPink:"var(--market-runner-card-pink)",
+          oddsCardBlue:"var(--market-runner-card-blue)",
+          oddsSecondaryPink:"var(--market-runner-card-secondary-pink)",
+          oddsSecondaryBlue:"var(--market-runner-card-secondary-blue)",
         }
       },
 

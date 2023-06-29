@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Disclosure } from "@headlessui/react";
 import { useLocation } from "react-router-dom";
@@ -41,20 +41,15 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-
 export const MainNavbar = ({ setToggle, toggle, screen }) => {
   const location = useLocation();
   const dispatch = useDispatch();
   const currentRoute = location.pathname;
-  const userData = useSelector((state) => state?.GetUserData?.userData);
-  const exposure = useSelector((state) => state?.PlaceBet);
-  
+  const userData = useSelector((state) => state?.GetUserData?.userData?.data);
+  const newBet = useSelector((state) => state?.PlaceBet?.bets);
+
   const { theme, setTheme } = useContext(ThemeContext);
-  const walletBalance = [
-    { name: "Balance", amount: Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure) },
-    { name: "Credit Reference", amount: userData?.data?.creditReference ? userData?.data?.creditReference : 0 },
-    { name: "Exposure", amount: Math.abs(userData?.data?.exposure) ? Math.abs(userData?.data?.exposure) : 0 },
-  ];
+
   const profileMenu = [
     { icon: FaUser, list: "My Market", href: "/my-market", current: false },
     { icon: IoIosStats, list: "Profit-loss", href: "/reports", current: false },
@@ -69,26 +64,30 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     { icon: IoIosStats, list: "Change Password", modal: true },
     { icon: IoIosStats, list: "Logout" },
   ];
-
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isProfileOpen, setIsProfileOpen] = useState(false);
-  // const [exposureVal, setExposureVal] = useState('');
-  const handleMenuClick = () => {
-    setIsProfileOpen(!isProfileOpen);
-    setIsDropdownOpen(isDropdownOpen);
-  };
-  const navigate = useNavigate()
-  const handleNavigate =(href)=>{
-    navigate(href)
-  }
-
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
   const [isChangePasswordOpen, setisChangePasswordOpen] = useState(false);
-
   const [data, setdata] = useState([]);
   const [allMarkets, setAllMarkets] = useState([]);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [balance, setBalance] = useState(0);
+  const [exposure, setExposure] = useState(0);
+
+  const handleMenuClick = () => {
+    setIsProfileOpen(!isProfileOpen);
+    setIsDropdownOpen(isDropdownOpen);
+  };
+
+  const navigate = useNavigate();
+  const handleNavigate = useCallback(
+    (href) => {
+      navigate(href);
+    },
+    [navigate]
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -169,31 +168,6 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
   }, [allMarkets]);
 
   useEffect(() => {
-    dispatch(getUserData())
-  }, [exposure])
-
-  const closeModal = () => {
-    setIsLoginOpen(false);
-    setIsSignupOpen(false);
-  };
-
-  const handleThemeClick = () => {
-    setTheme(!theme);
-  };
-
-  const handleModal = (id) => {
-    if (id === "Change Password") {
-      setisChangePasswordOpen(true);
-    } else if (id === "Chips Setting") {
-      setisChipSettingOpen(true);
-    }
-
-    handleMenuClick();
-  };
-
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
     // Check if the login status is stored in localStorage
     const storedLoggedIn = localStorage.getItem("token");
     if (storedLoggedIn) {
@@ -203,19 +177,62 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     }
   }, [dispatch, loggedIn]);
 
+  useEffect(() => {
+    setExposure(userData?.exposure);
+  }, [userData]);
 
+  useEffect(() => {
+    setExposure(newBet?.exposure);
+  }, [newBet]);
+
+  useEffect(() => {
+    setBalance(Math.abs(userData?.balance) - Math.abs(exposure));
+  }, [exposure, userData?.balance]);
+
+  const closeModal = () => {
+    setIsLoginOpen(false);
+    setIsSignupOpen(false);
+  };
+
+  //Theme toggle function
+  const handleThemeClick = (e) => {
+    setTheme(!theme);
+  };
+
+  const handleModal = (id) => {
+    if (id === "Change Password") {
+      setisChangePasswordOpen(true);
+    } else if (id === "Chips Setting") {
+      setisChipSettingOpen(true);
+    }
+    handleMenuClick();
+  };
 
   const handleLogout = () => {
     // Update the loggedIn state to false
     setLoggedIn(false);
-    notifySuccess("Logged Out")
-
+    notifySuccess("Logged Out");
     // Remove the login status from localStorage
     localStorage.removeItem("loggedIn");
     localStorage.removeItem("token");
     dispatch(logOut());
     // Log the logout message
   };
+
+  const walletBalance = [
+    {
+      name: "Balance",
+      amount: balance ? balance : 0,
+    },
+    {
+      name: "Credit Reference",
+      amount: userData?.creditReference ? userData?.creditReference : 0,
+    },
+    {
+      name: "Exposure",
+      amount: exposure ? Math.abs(exposure).toFixed(2) : 0,
+    },
+  ];
 
   return (
     <>
@@ -260,7 +277,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           to={item.href}
                           className={classNames(
                             item.href == currentRoute &&
-                            "bg-skin-cardhead text-skin-white ",
+                            "bg-skin-mainNavbarHoverColor text-white ",
                             "px-3 py-5 text-xs font-font-family font-bold text-skin-navtext hover:bg-skin-mainNavbarHoverColor hover:text-white "
                           )}
                           aria-current={item.current ? "page" : undefined}
@@ -273,32 +290,20 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 </div>
 
                 {/* THEME TOGGLE */}
-                {/* <button
-                  onClick={handleThemeClick}
-                  type="button"
-                  className="  font-semibold  text-lg text-skin-navtext hover:text-skin-white  focus:outline-none  "
-                >
-                  {theme ? (
-                    <img
-                      className="hover:brightness-90 w-5  sm:w-6 lg:w-7"
-                      src={lampDark}
-                      alt="lampDark"
-                    ></img>
-                  ) : (
-                    <img
-                      className=" hover:brightness-95 w-5  sm:w-6 lg:w-7"
-                      src={lamp}
-                      alt="lampLight"
-                    ></img>
-                  )}
-                </button> */}
 
                 <label class="relative mt-4 inline-flex items-center mb-3 cursor-pointer">
-                  <input type="checkbox" value="" class="sr-only peer" />
+                  <input
+                    type="checkbox"
+                    value=""
+                    class="sr-only peer"
+                    onChange={handleThemeClick}
+                  />
                   <IoMoonOutline className="fas fa-moon text-white-500 absolute top-1/2 right-4 transform -translate-y-1/2 -translate-x-1/2 " />
-                  <div onClick={handleThemeClick} class="p-2 py-3 w-11 h-6 bg-skin-cardhead peer-focus:outline-none pt-3 rounded-full  dark:bg-gray-700 peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-transparent-600">
+                  <div
+                    // onClick={handleThemeClick}
+                    class="p-2 py-3 w-11 h-6 bg-skin-cardhead peer-focus:outline-none pt-3 rounded-full  dark:bg-gray-700 peer-checked:after:translate-x-full  after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-white-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-transparent-600"
+                  >
                     <IoSunnySharp className="fas fa-sun text-black-500 absolute top-1/2 left-8 transform -translate-x-1/2 -translate-y-1/2 " />
-
                   </div>
                 </label>
 
@@ -311,8 +316,9 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           key={index}
                           to={element.href}
                           type="button"
-                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white  hover:text-white  focus:outline-none  ${element.name === "D" ? "1f4d34" : "bg-sky-900"
-                            }`}
+                          className={`bg-green-900 rounded-md px-3 font-semibold py-2.5 p-2 text-xs text-white  hover:text-white  focus:outline-none  ${
+                            element.name === "D" ? "1f4d34" : "bg-sky-900"
+                          }`}
                         >
                           {element.name}
                         </Link>
@@ -324,7 +330,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       className="  wallet bg-skin-cardhead hover:bg-skin-sidenavhover p-0.5 rounded-md flex items-center cursor-pointer"
                     >
                       <span className="text-skin-balance text-xs font-semibold mx-2.5">
-                        &#x20B9; {Math.abs(userData?.data?.balance) - Math.abs(userData?.data?.exposure)}
+                        &#x20B9; {balance ? balance : "getting balance.."}
                       </span>
                       <button
                         type="button"
@@ -334,8 +340,8 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                       </button>
                     </div>
                     {isDropdownOpen && (
-                      <div className="w-64 absolute rounded-md top-12 right-1 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm divide-y">
-                        <div className="text-center text-skin-white  font-bold py-3 divide-y">
+                      <div className="w-64 absolute rounded-md top-12 -mt-[1px] right-1 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm divide-y">
+                        <div className="text-center text-white  font-bold py-3 divide-y">
                           Wallet Active
                           <div className="tabs flex mx-2.5 my-1.5">
                             <button
@@ -358,10 +364,10 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           {walletBalance.map((element, index) => {
                             return (
                               <div className="flex justify-between" key={index}>
-                                <span className="py-2 text-sm text-skin-white ">
+                                <span className="py-2 text-sm text-white ">
                                   {element.name}
                                 </span>
-                                <span className="py-2 text-sm text-skin-white ">
+                                <span className="py-2 text-sm text-white ">
                                   {element?.amount}
                                 </span>
                               </div>
@@ -374,32 +380,30 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                     <button
                       onClick={() => setIsProfileOpen(!isProfileOpen)}
                       type="button"
-                      className="bg-skin-cardhead hover:bg-skin-hovercolorsecondary rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
+                      className="bg-skin-cardhead hover:bg-skin-sidenavhoversecondary rounded-md px-3 py-2.5 font-semibold p-2 text-md text-skin-white  hover:text-skin-white  focus:outline-none "
                     >
                       <FaUser />
                     </button>
                     {isProfileOpen && (
-                      <div className="w-64 absolute top-12 right-1 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm rounded ">
+                      <div className="w-64 absolute top-12 -mt-[1px] right-1 flex flex-col px-1.5 py-2 bg-[rgba(0,0,0,0.8)] z-50 backdrop-blur-sm rounded ">
                         {profileMenu.map((element, index) => (
-                          
                           <div
                             onClick={
                               element.list === "Logout"
                                 ? handleLogout
                                 : element?.modal
-                                  ? () => handleModal(element?.list)
-                                  : () => handleNavigate(element.href)
+                                ? () => handleModal(element?.list)
+                                : () => handleNavigate(element.href)
                             }
-                           
-                            className="flex items-center gap-2.5 py-2 px-3 rounded cursor-pointer active:bg-skin-nav hover:bg-skin-nav"
+                            className="flex items-center gap-2.5 py-2 px-3 rounded text-white hover:duration-200 hover:text-skin-white cursor-pointer active:bg-skin-nav hover:bg-skin-hovercolor"
                             key={index}
                           >
-                            <div className="text-skin-white icon group">
+                            <div className=" icon group">
                               {React.createElement(element.icon)}
                             </div>
-                            <div className="text-skin-white group menu-list cursor-pointer">
+                            <div className=" group menu-list cursor-pointer">
                               {element.list}
-                            </div>``
+                            </div>
                           </div>
                         ))}
                       </div>

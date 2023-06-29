@@ -3,6 +3,7 @@ import React from "react";
 import { betOnBack } from "../utils/helper";
 
 const MyBets = ({ bets, eventId }) => {
+  console.log(bets, "bets");
   const currentEventBets = bets?.filter((obj) => obj.eventId === eventId);
   return (
     <div className={` mx-auto w-[320px] bg-skin-nav rounded-md mt-2 mb-2`}>
@@ -19,80 +20,79 @@ const MyBets = ({ bets, eventId }) => {
         <div className="overflow-y-auto h-80 overflow-x-hidden   scrollbar-hide">
           <table className="overflow-scroll border-collapse w-full  text-center">
             <thead>
-            <tr>
-              <th className=" text-[12px] font-bold text-left uppercase pl-2 pr-6 py-[2px] text-skin-white ">
-                SELECTION
-              </th>
-              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-[2px] text-skin-white ">
-                ODDS
-              </th>
-              <th className=" text-[12px] font-bold text-left uppercase pr-2 py-[2px] text-skin-white ">
-                STAKE
-              </th>
-              <th className=" text-[12px] font-bold text-right uppercase  py-[2px] text-skin-white ">
-                P/L
-              </th>
-              <th className=" text-[12px] font-bold text-right    pr-2 py-[2px] text-skin-white ">
-                Time
-              </th>
-            </tr>
+              <tr>
+                <th className=" text-[12px] font-bold text-left uppercase pl-2 pr-6 py-[2px] text-skin-white ">
+                  SELECTION
+                </th>
+                <th className=" text-[12px] font-bold text-left uppercase pr-2 py-[2px] text-skin-white ">
+                  ODDS
+                </th>
+                <th className=" text-[12px] font-bold text-left uppercase pr-2 py-[2px] text-skin-white ">
+                  STAKE
+                </th>
+                <th className=" text-[12px] font-bold text-right uppercase  py-[2px] text-skin-white ">
+                  P/L
+                </th>
+                <th className=" text-[12px] font-bold text-right    pr-2 py-[2px] text-skin-white ">
+                  Time
+                </th>
+              </tr>
             </thead>
             <tbody>
               {currentEventBets?.lengh !== 0 &&
                 currentEventBets?.map((bet, index) => {
                   if (bet?.eventId === eventId) {
                     return (
-                      <tr key={index} >
-                      <td
-                        className={`${
-                          bet?.selectionType === "back"
-                            ? "bg-[#008EFB]"
-                            : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold text-left py-[2px] pl-2 border-y-[1px]  text-white`}
-                      >
-                        {bet?.selection}
-                      </td>
-                      <td
-                        className={`${
-                          bet?.selectionType === "back"
-                            ? "bg-[#008EFB]"
-                            : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-left py-[2px]   border-y-[1px]  text-white `}
-                      >
-                        {bet?.odds}
-                      </td>
-                      <td
-                        className={`${
-                          bet?.selectionType === "back"
-                            ? "bg-[#008EFB]"
-                            : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-left py-[2px]   border-y-[1px]  text-white `}
-                      >
-                        {bet?.stake}
-                      </td>
-                      <td
-                        className={`${
-                          bet?.selectionType === "back"
-                            ? "bg-[#008EFB]"
-                            : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-right py-[2px]   border-y-[1px] text-white `}
-                      >
-            
-                        {Math.round(betOnBack.profit(bet?.odds, bet?.stake))}
-                      </td>
-                      <td
-                        className={`${
-                          bet?.selectionType === "back"
-                            ? "bg-[#008EFB]"
-                            : "bg-[#E9564D]"
-                        } text-[11.5px]  font-bold  text-right py-[2px] pr-2 border-y-[1px] text-white `}
-                      >
-                         {DateTime.fromISO(bet?.createdAt).toFormat(
-                                  "yyyy-MM-dd HH:mm:ss"
-                                )}
-                        {/* {new Date(bet?.createdAt).toLocaleString()} */}
-                      </td>
-                    </tr>
+                      <tr key={index}>
+                        <td
+                          className={`${
+                            bet?.selectionType === "back"
+                              ? "bg-[#008EFB]"
+                              : "bg-[#E9564D]"
+                          } text-[11.5px]  font-bold text-left py-[2px] pl-2 border-y-[1px]  text-white`}
+                        >
+                          {bet?.selection}
+                        </td>
+                        <td
+                          className={`${
+                            bet?.selectionType === "back"
+                              ? "bg-[#008EFB]"
+                              : "bg-[#E9564D]"
+                          } text-[11.5px]  font-bold  text-left py-[2px]   border-y-[1px]  text-white `}
+                        >
+                          {bet?.odds}
+                        </td>
+                        <td
+                          className={`${
+                            bet?.selectionType === "back"
+                              ? "bg-[#008EFB]"
+                              : "bg-[#E9564D]"
+                          } text-[11.5px]  font-bold  text-left py-[2px]   border-y-[1px]  text-white `}
+                        >
+                          {bet?.stake}
+                        </td>
+                        <td
+                          className={`${
+                            bet?.selectionType === "back"
+                              ? "bg-[#008EFB]"
+                              : "bg-[#E9564D]"
+                          } text-[11.5px]  font-bold  text-right py-[2px]   border-y-[1px] text-white `}
+                        >
+                          {Math.round(betOnBack.profit(bet?.odds, bet?.stake))}
+                        </td>
+                        <td
+                          className={`${
+                            bet?.selectionType === "back"
+                              ? "bg-[#008EFB]"
+                              : "bg-[#E9564D]"
+                          } text-[11.5px]  font-bold  text-right py-[2px] pr-2 border-y-[1px] text-white `}
+                        >
+                          {DateTime.fromISO(bet?.createdAt).toFormat(
+                            "yyyy-MM-dd HH:mm:ss"
+                          )}
+                          {/* {new Date(bet?.createdAt).toLocaleString()} */}
+                        </td>
+                      </tr>
                     );
                   } else {
                     return null;
@@ -103,8 +103,8 @@ const MyBets = ({ bets, eventId }) => {
         </div>
       ) : (
         <div className="flex justify-center items-center">
-          <p className="p-4 m-0 text-white font-semibold text-center">
-            There is no Bets for this event to display
+          <p className="p-4 m-0 text-skin-white font-semibold text-center">
+            There are no bets for this event to display.
           </p>
         </div>
       )}

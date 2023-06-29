@@ -2,7 +2,7 @@ import { all, call, put, takeEvery } from "redux-saga/effects";
 import { LOGIN } from "../../actions/types";
 import { loginSuccess, loginFailure } from "../../actions";
 import API from "../../../utils/api";
-import { notifySuccess, notifyWarning, notifyError } from "../../../utils/helper";
+import { notifySuccess, notifyWarning } from "../../../utils/helper";
 
 function* loginRequest(action) {
   try {
@@ -16,13 +16,12 @@ function* loginRequest(action) {
       notifySuccess(data.meta.message);
     } else if (data.meta.code !== 200) {
       yield put(loginFailure());
-      yield call(action.payload.errorCallback, data);
       notifyWarning(data.meta.message);
     }
   } catch (error) {
     console.log(error, "eerr");
-    yield call(action.payload.errorCallback, error?.response?.data);
     yield put(loginFailure());
+    notifyWarning(error?.response?.data?.message);
   }
 }
 
