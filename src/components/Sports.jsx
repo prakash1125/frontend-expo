@@ -107,7 +107,6 @@ export const Sports = () => {
                 {sport?.leagues.length !== 0 ? (
                   sport?.leagues?.map((post) => {
                     const totalLength = findEventsLength(sport?.leagues);
-
                     return (
                       <>
                         {totalLength === 0 ? (
@@ -121,6 +120,7 @@ export const Sports = () => {
                             <MarketDataCard
                               league={post}
                               sport={sport?.sportSlugName}
+                              sportId={sport?.sportId}
                             />
                           </li>
                         )}

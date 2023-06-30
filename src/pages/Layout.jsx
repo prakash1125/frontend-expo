@@ -8,7 +8,7 @@ import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 import { Chatbot } from "../components/Chatbot";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export const Layout = () => {
   const [toggle, setToggle] = useState(true);
@@ -17,8 +17,7 @@ export const Layout = () => {
     const handleResize = () => {
       if (window.innerWidth > 1024) {
         setToggle(true);
-      }      
-      else if (window.innerWidth < 1024) {
+      } else if (window.innerWidth < 1024) {
         // Show on mobile and tablet screens (max-width: 768px)
         setToggle(false);
         setisAbovexl(false);
@@ -37,7 +36,6 @@ export const Layout = () => {
   }, []);
 
   const scrollToTop = () => {
-    console.log("called scroll");
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -45,7 +43,6 @@ export const Layout = () => {
   };
 
   return (
-
     <div className="bg-skin-main h-[100vh] overflow-y-hidden ">
       <ToastContainer
         position="top-center"
@@ -59,7 +56,7 @@ export const Layout = () => {
         pauseOnHover
         theme="dark"
       />
-      
+
       <Chatbot />
       <div className={` mx-auto w-full `}>
         {
@@ -87,8 +84,6 @@ export const Layout = () => {
       </div>
 
       <Footer />
-     
     </div>
-
   );
 };

@@ -10,4 +10,4 @@ export * from "./bet/getBetAction";
 export * from "./userData/getUserDataAction";
 export * from "./settings/chipSettingAction";
 export * from "./settings/getChipSettingAction";
-
+export * from "./settings/getSportSettingAction";

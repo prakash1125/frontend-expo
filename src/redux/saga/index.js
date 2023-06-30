@@ -13,6 +13,7 @@ import GetBet from "./bet/getBetSaga";
 import GetUserData from "./userData/getUserDataSaga";
 import ChipSetting from "./settings/chipSettingSaga";
 import GetChipSetting from "./settings/getChipSettingSaga";
+import GetSportSetting from "./settings/getSportSettingSaga";
 
 export default function* rootSaga() {
   yield all([
@@ -27,5 +28,6 @@ export default function* rootSaga() {
     GetUserData(),
     ChipSetting(),
     GetChipSetting(),
+    GetSportSetting(),
   ]);
 }

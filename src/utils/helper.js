@@ -142,8 +142,6 @@ export const checkOdds = (odd, type, oddsObj) => {
   // oddsObj contains lay, and back arrays
   if (type === "back") {
     const limit = findMaxFromArrayOfObjects(oddsObj?.availableToBack);
-    console.log(limit?.price);
-    console.log(odd);
     if (odd > limit?.price) {
       return false;
     } else {
@@ -241,7 +239,7 @@ export const findEventsLength = (array) => {
 
 export const formatNumber = (num) => {
   if (num >= 1000) {
-    return (num / 1000).toFixed(1) + "k";
+    return num / 1000 + "k";
   }
   return num;
 };

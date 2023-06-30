@@ -7,7 +7,7 @@ import RunnersCard from "./RunnersCard";
 import { getRunnerData } from "../redux/actions/runnerData/getRunnerDataAction";
 import { Footer } from "flowbite-react";
 import { IoMdTrendingUp } from "react-icons/io";
-import { getBet } from "../redux/actions";
+import { getBet, getSportSetting } from "../redux/actions";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -31,9 +31,7 @@ export const CricketLeague = () => {
       setExpandedTables([...expandedTables, index]);
     }
   };
-
   const location = useLocation();
-
   let [categories] = useState({
     All: [
       {
@@ -182,6 +180,9 @@ export const CricketLeague = () => {
     }
   }, [dispatch, Login]);
 
+  useEffect(() => {
+    dispatch(getSportSetting({ id: location?.state?.sportId })); // add sport id
+  }, [dispatch, location?.state?.sportId]);
   return (
     <>
       <ul className="w-full px-2 pt-2">
