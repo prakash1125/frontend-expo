@@ -8,12 +8,12 @@ import { DateTime } from "luxon";
 import { formatDate } from "../utils/helper";
 import EmptyRunners from "./EmptyRunners";
 
-const MarketData = ({ league, sport }) => {
+const MarketData = ({ league, sport, sportId }) => {
   // ==================================CALLING THE API DATA======================================
-
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
+
   // ===============================================================================================
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(true);
@@ -60,6 +60,7 @@ const MarketData = ({ league, sport }) => {
                       eventDate: event?.eventDate,
                       marketArray: event?.markets,
                       sportName: sport,
+                      sportId: sportId,
                     }}
                   >
                     <div className="md:flex lg:block gap-3 px-1 md:px-2 lg:px-1 xl:px-2 xl:flex py-[10px] mb-[2px] border-b-2 border-mainbg">

@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 
 export const HomePage = () => {
   const scrollToTop = () => {
-    console.log(window.scrollY, "called scroll");
     window.scrollTo({
       top: 0,
       behavior: "smooth",

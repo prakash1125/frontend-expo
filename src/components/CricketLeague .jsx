@@ -7,6 +7,7 @@ import RunnersCard from "./RunnersCard";
 import { getRunnerData } from "../redux/actions/runnerData/getRunnerDataAction";
 import { Footer } from "flowbite-react";
 import { IoMdTrendingUp } from "react-icons/io";
+import { getBet, getSportSetting } from "../redux/actions";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -21,6 +22,7 @@ export const CricketLeague = () => {
   let globalMarketOddsData = useSelector(
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
+  const Login = useSelector((state) => state?.Login?.login);
 
   const handleClick = (index) => {
     if (expandedTables.includes(index)) {
@@ -29,9 +31,7 @@ export const CricketLeague = () => {
       setExpandedTables([...expandedTables, index]);
     }
   };
-
   const location = useLocation();
-
   let [categories] = useState({
     All: [
       {
@@ -172,6 +172,17 @@ export const CricketLeague = () => {
     });
   }, [dispatch, location?.state?.marketArray]);
 
+  //Fetching my Bets
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch(getBet());
+    }
+  }, [dispatch, Login]);
+
+  useEffect(() => {
+    dispatch(getSportSetting({ id: location?.state?.sportId })); // add sport id
+  }, [dispatch, location?.state?.sportId]);
   return (
     <>
       <ul className="w-full px-2 pt-2">
@@ -188,9 +199,21 @@ export const CricketLeague = () => {
           <div className="flex items-center font-bold text-[#eee] mb-2 border bg-[#2EA66A] border-[#eeeeee8c] h-8 p-2 px-5 rounded-md text-xl">
             <Countdown targetDateTime={location?.state?.eventDate} />
           </div>
-          <img width={100} height={70} className="absolute left-12 top-14 opacity-20 " src={require(`../assets/images/sidemenu/${location?.state?.sportName}.png`)} alt="" />
+          <img
+            width={100}
+            height={70}
+            className="absolute left-12 top-14 opacity-20 "
+            src={require(`../assets/images/sidemenu/${location?.state?.sportName}.png`)}
+            alt=""
+          />
 
-          <img width={100} height={70} className="absolute transform rotate-180  right-12 bottom-14 opacity-20 " src={require(`../assets/images/sidemenu/${location?.state?.sportName}.png`)} alt="" />
+          <img
+            width={100}
+            height={70}
+            className="absolute transform rotate-180  right-12 bottom-14 opacity-20 "
+            src={require(`../assets/images/sidemenu/${location?.state?.sportName}.png`)}
+            alt=""
+          />
         </div>
 
         <div className="w-full  mx-auto bg-skin-nav rounded-md mt-2 mb-2">

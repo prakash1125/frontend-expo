@@ -6,19 +6,16 @@ import API from "../../../utils/api";
 function* getChipSettingRequest(action) {
   try {
     const { data } = yield API.get(
-    //   `admin/get-runners-data?marketId=${action?.payload?.id}`
-    `/api/v1/chip-Setting`
+      //   `admin/get-runners-data?marketId=${action?.payload?.id}`
+      `/api/v1/chip-Setting`
     );
-    console.log(data, "_________________DATA");
     if (data.meta.code === 200) {
       yield put(getChipSettingSuccess(data));
       yield call(action.payload.callback, data.data);
     } else if (data.meta.code !== 200) {
-      console.log("not-200");
       yield put(getChipSettingFailure());
     }
   } catch (error) {
-    console.log(error, "runner-error");
     yield put(getChipSettingFailure());
   }
 }

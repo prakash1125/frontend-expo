@@ -6,16 +6,14 @@ import API from "../../../utils/api";
 function* getUserDataRequest(action) {
   try {
     const { data } = yield API.get(`api/v1/getUserData`);
-    console.log(data, "all-Data");
     if (data.meta.code === 200) {
       yield put(getUserDataSuccess(data));
-      yield call(action.payload.callback, data.data);
+      // yield call(action.payload.callback, data.data);
     } else if (data.meta.code !== 200) {
       yield put(getUserDataFailure());
       // yield call(action?.payload?.errorCallback);
     }
   } catch (error) {
-    console.log(error);
     yield put(getUserDataFailure());
     // yield call(action?.payload?.errorCallback);
   }

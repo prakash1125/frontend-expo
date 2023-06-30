@@ -15,7 +15,6 @@ function* getRunnerDataRequest(action) {
       yield put(getRunnerDataFailure());
     }
   } catch (error) {
-    console.log(error, "runner-error");
     yield put(getRunnerDataFailure());
   }
 }

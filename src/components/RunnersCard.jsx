@@ -7,6 +7,7 @@ import {
   betOnBack,
   betOnLay,
   findRunnerOdds,
+  formatNumber,
   notifyWarning,
 } from "../utils/helper";
 import { placeBet } from "../redux/actions";
@@ -28,6 +29,10 @@ const RunnersCard = ({ market, odds, eventId }) => {
 
   const dispatch = useDispatch();
 
+  const sportSetting = useSelector(
+    (state) => state?.GetSportSettingReducer?.sportSettingData
+  );
+  console.log(sportSetting, "sportSetting");
   useEffect(() => {
     setMyBets(newBet?.allBets);
   }, [newBet]);
@@ -154,10 +159,15 @@ const RunnersCard = ({ market, odds, eventId }) => {
         <div className="flex items-center px-1">
           <div className="flex items-center">
             {showStake && (
-              <span className="bg-skin-sidenavhover rounded p-1.5">
-                <div className="flex text-skin-white text-xs m-1.5 font-semibold">
-                  {" "}
-                  Stake Limit: <span>100-</span> <span> 100K</span>
+              <span className="bg-[#4c555e] rounded p-1.5">
+                <div className="flex text-white text-xs m-1.5 font-semibold">
+                  Stake Limit:
+                  <span>
+                    {formatNumber(sportSetting?.stakeSize[0]?.minExch)}-
+                  </span>
+                  <span>
+                    {formatNumber(sportSetting?.stakeSize[0]?.maxExch)}
+                  </span>
                 </div>
               </span>
             )}

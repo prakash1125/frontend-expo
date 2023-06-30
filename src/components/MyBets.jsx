@@ -3,7 +3,6 @@ import React from "react";
 import { betOnBack } from "../utils/helper";
 
 const MyBets = ({ bets, eventId }) => {
-  console.log(bets, "bets");
   const currentEventBets = bets?.filter((obj) => obj.eventId === eventId);
   return (
     <div className={` mx-auto w-[320px] bg-skin-nav rounded-md mt-2 mb-2`}>

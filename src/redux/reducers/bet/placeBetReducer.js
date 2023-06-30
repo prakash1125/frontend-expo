@@ -11,7 +11,6 @@ const INIT_STATE = {
 };
 
 const placeBetReducer = (state = INIT_STATE, action) => {
-  console.log("action....", action);
   switch (action.type) {
     case PLACE_BET:
       return { ...state, loading: true };

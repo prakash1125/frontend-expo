@@ -59,8 +59,14 @@ export const CHIP_SETTING = "CHIP_SETTING";
 export const CHIP_SETTING_SUCCESS = "CHIP_SETTING_SUCCESS";
 export const CHIP_SETTING_FAILURE = "CHIP_SETTING_FAILURE";
 
-// =====================CHIP SETTINGS(POST)===========================
+// =====================CHIP SETTINGS(GET)===========================
 
 export const GET_CHIP_SETTING = "GET_CHIP_SETTING";
 export const GET_CHIP_SETTING_SUCCESS = "GET_CHIP_SETTING_SUCCESS";
 export const GET_CHIP_SETTING_FAILURE = "GET_CHIP_SETTING_FAILURE";
+
+// =====================SPORT SETTINGS(GET)===========================
+
+export const GET_SPORT_SETTING = "GET_SPORT_SETTING";
+export const GET_SPORT_SETTING_SUCCESS = "GET_SPORT_SETTING_SUCCESS";
+export const GET_SPORT_SETTING_FAILURE = "GET_SPORT_SETTING_FAILURE";

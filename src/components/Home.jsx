@@ -90,13 +90,9 @@ export const Home = () => {
   const cricketData = globalStateData?.globalSportData?.filter(
     (sport) => sport.sportName === "Cricket"
   );
-
-
-
   // ============================================================================================
 
   return (
-
     <div className="w-full sm:px-0 mb-4">
       <div>
         <Slider {...settings}>
@@ -132,10 +128,10 @@ export const Home = () => {
                       className="mx-auto object-cover rounded-full h-5 w-5 bg-skin-nav"
                     />
                   </a>
-                  <p className="text-center whitespace-nowrap overflow-hidden ">{element.name}</p>
+                  <p className="text-center whitespace-nowrap overflow-hidden ">
+                    {element.name}
+                  </p>
                 </div>
-
-
               </Link>
             </SwiperSlide>
           ))}
@@ -164,7 +160,14 @@ export const Home = () => {
         {cricketData?.map((i) =>
           i?.leagues?.map(
             (j, idx) =>
-              isDropdownOpen && <MarketDataCard league={j} key={idx}  sport={i?.sportSlugName} />
+              isDropdownOpen && (
+                <MarketDataCard
+                  league={j}
+                  key={idx}
+                  sport={i?.sportSlugName}
+                  sportId={i?.sportId}
+                />
+              )
           )
         )}
 
