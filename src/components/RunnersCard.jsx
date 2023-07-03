@@ -176,7 +176,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
               onClick={() => setShowStake(!showStake)}
             />
           </div>
-
           <div
             className="flex text-sm font-bold text-skin-primary"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}

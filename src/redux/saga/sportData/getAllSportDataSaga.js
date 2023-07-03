@@ -5,13 +5,22 @@ import API from "../../../utils/api";
 
 function* getAllSportDataRequest(action) {
   try {
-    const { data } = yield API.get(
-      `api/v1/exchange-book?sportId=${action?.payload?.id}`
-    );
-    if (data.meta.code === 200) {
-      yield put(getAllSportDataSuccess(data));
-      yield call(action.payload.callback, data.data);
-    } else if (data.meta.code !== 200) {
+    let response;
+    if (action?.payload?.auth) {
+      const { data } = yield API.get(
+        `api/v1/exchange-book-auth?sportId=${action?.payload?.id}`
+      );
+      response = data;
+    } else {
+      const { data } = yield API.get(
+        `api/v1/exchange-book?sportId=${action?.payload?.id}`
+      );
+      response = data;
+    }
+    if (response.meta.code === 200) {
+      yield put(getAllSportDataSuccess(response));
+      yield call(action.payload.callback, response.data);
+    } else if (response.meta.code !== 200) {
       yield put(getAllSportDataFailure());
       yield call(action?.payload?.errorCallback);
     }

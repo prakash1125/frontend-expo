@@ -5,11 +5,19 @@ import API from "../../../utils/api";
 
 function* getSportRequest(action) {
   try {
-    const { data } = yield API.get("api/v1/get-sports-data");
-    if (data.meta.code === 200) {
-      yield put(getSportSuccess(data));
-      yield call(action.payload.callback, data.data);
-    } else if (data.meta.code !== 200) {
+    let response;
+    if (action?.payload?.auth) {
+      const { data } = yield API.get("api/v1/get-sports-data-authenticate");
+      response = data;
+    } else {
+      const { data } = yield API.get("api/v1/get-sports-data");
+      response = data;
+    }
+    console.log(response, "response - data");
+    if (response.meta.code === 200) {
+      yield put(getSportSuccess(response));
+      yield call(action.payload.callback, response.data);
+    } else if (response.meta.code !== 200) {
       yield put(getSportFailure());
       yield call(action?.payload?.errorCallback);
     }

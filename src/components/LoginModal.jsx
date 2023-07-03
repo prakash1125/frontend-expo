@@ -32,7 +32,9 @@ export const LoginModal = ({ closeModal, onLogin }) => {
           callback: (data) => {
             if (data) {
               closeModal();
-              localStorage?.setItem("token", data?.meta?.token);
+              console.log(data?.data, "login data");
+              localStorage?.setItem("token", data?.meta?.token); // add userdata also to localstorage
+              localStorage?.setItem("userData ", data?.data);
               onLogin(true);
             }
           },
