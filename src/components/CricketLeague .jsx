@@ -183,6 +183,7 @@ export const CricketLeague = () => {
   useEffect(() => {
     dispatch(getSportSetting({ id: location?.state?.sportId })); // add sport id
   }, [dispatch, location?.state?.sportId]);
+
   return (
     <>
       <ul className="w-full px-2 pt-2">

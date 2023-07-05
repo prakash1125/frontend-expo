@@ -64,6 +64,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     { icon: IoIosStats, list: "Change Password", modal: true },
     { icon: IoIosStats, list: "Logout" },
   ];
+
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isChipSettingOpen, setisChipSettingOpen] = useState(false);

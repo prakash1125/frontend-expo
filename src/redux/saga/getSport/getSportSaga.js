@@ -13,7 +13,6 @@ function* getSportRequest(action) {
       const { data } = yield API.get("api/v1/get-sports-data");
       response = data;
     }
-    console.log(response, "response - data");
     if (response.meta.code === 200) {
       yield put(getSportSuccess(response));
       yield call(action.payload.callback, response.data);
