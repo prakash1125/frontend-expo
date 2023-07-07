@@ -1,6 +1,7 @@
 {
     "HOME": "घर",
     "LIVE_CASINO_GAMES": "लाइव कैसीनो गेम्स",
+    "LIVE_CASINO": "लाइव कैसीनो",
     "LIVE_TV":"लाइव टीवी",
     "MATCH_NOT_LIVE": "मैच लाइव नहीं",
     "MY_BETS": "मेरी शर्त",
@@ -54,7 +55,7 @@
     "IN_PLAY": "खेल में",
     "STAKE_AMOUNT": "हिस्सेदारी राशि",
     "NO_MATCH": "में इस समय कोई मैच उपलब्ध नहीं है",
-    "INDIAN_CASINO": " भारतीय कैसीनो",
+    "INDIAN_CASINO": " इंडियन कैसीनो",
     "TEENPATTI_ONE_DAY": "टीनपट्टी एक दिन",
     "TEENPATTI_T20": "तीनपत्ती टी20",
     "32_CARD_CASINO": "32 कार्ड कैसीनो",
@@ -109,6 +110,8 @@
     "CURRENT_PASSWORD": "Current Password",
     "NEW_PASSWORD": "नया पासवर्ड",
     "CONFIRM_NEW_PASSWORD": "नए पासवर्ड की पुष्टि करें",
-    "ACCOUNT_STATEMENT": "खाता विवरण"
+    "ACCOUNT_STATEMENT": "खाता विवरण",
+    "IPL_CLUB": "आईपीएल क्लब",
+    "SLOTS": "स्लॉट्स"
 }
 

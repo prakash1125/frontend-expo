@@ -55,6 +55,7 @@
     "STAKE_AMOUNT": "Stake Amount",
     "NO_MATCH": "There is a no match available at this time in",
     "INDIAN_CASINO": " Indian Casino",
+    "LIVE_CASINO": "Live Casino",
     "TEENPATTI_ONE_DAY": "Teenpatti one day",
     "TEENPATTI_T20": "Teenpatti T20",
     "32_CARD_CASINO": "32 card casino",
@@ -109,5 +110,7 @@
     "CURRENT_PASSWORD": "Current Password",
     "NEW_PASSWORD": "New Password",
     "CONFIRM_NEW_PASSWORD": "Confirm New Password",
-    "ACCOUNT_STATEMENT": "Account Statement"
+    "ACCOUNT_STATEMENT": "Account Statement",
+    "IPL_CLUB": "IPL Club",
+    "SLOTS": "Slots"
 } 

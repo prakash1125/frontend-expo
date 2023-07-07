@@ -55,6 +55,7 @@
     "STAKE_AMOUNT": "مبلغ الرهان",
     "NO_MATCH": "لا يوجد تطابق متوفر في هذا الوقت في",
     "INDIAN_CASINO": " كازينو هندي",
+    "LIVE_CASINO": "كازينو مباشر",
     "TEENPATTI_ONE_DAY": "تينباتي ذات يوم",
     "TEENPATTI_T20": "تينباتي T20",
     "32_CARD_CASINO": "كازينو 32 بطاقة",
@@ -109,5 +110,7 @@
     "CURRENT_PASSWORD": "كلمة السر الحالية",
     "NEW_PASSWORD": "كلمة المرور الجديدة",
     "CONFIRM_NEW_PASSWORD": "تأكيد كلمة المرور الجديدة",
-    "ACCOUNT_STATEMENT": "كشف حساب"
+    "ACCOUNT_STATEMENT": "كشف حساب",
+    "IPL_CLUB":"نادي IPL",
+    "SLOTS":"فتحات"
 } 

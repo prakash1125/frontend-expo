@@ -25,9 +25,9 @@ export const LanguageBtn = () => {
         <>
             <Menu as="div" className="relative inline-block text-left">
                 <div>
-                    <Menu.Button className="inline-flex items-center w-full justify-center gap-x-1.5 rounded-md bg-transparent  px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-0 ring-inset ring-gray-300 md:rounded-full hover:rounded-full hover:bg-[#4c555e] transition duration-150 ease-in ">
-                        <span className='text-md text-[#cfd4d8]'>LNG</span >
-                        <VscTriangleDown className="-mr-1 h-3 w-3 text-[#cfd4d8]" aria-hidden="true" />
+                    <Menu.Button className="inline-flex items-center w-full justify-center gap-1.5 rounded-md bg-transparent  px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-0 ring-inset ring-gray-300 md:rounded-full hover:rounded-full hover:bg-[#4c555e] transition duration-150 ease-in ">
+                        <span className={`flag-icon flag-icon-${currentLang.country_code} text-[16px] mx-1`}></span>
+                        <VscTriangleDown className="-mr-1 h-4 w-4 text-[#cfd4d8]" aria-hidden="true" />
                     </Menu.Button>
                 </div>
 

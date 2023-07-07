@@ -54,7 +54,8 @@
     "IN_PLAY": "En juego",
     "STAKE_AMOUNT": "Monto de la apuesta",
     "NO_MATCH": "No hay ningún partido disponible en este momento en",
-    "INDIAN_CASINO": " Casino india",
+    "INDIAN_CASINO": " Casino India",
+    "LIVE_CASINO": "Casino en vivo",
     "TEENPATTI_ONE_DAY": "Teenpatti un día",
     "TEENPATTI_T20": "Teenpatti T20",
     "32_CARD_CASINO": "Casino de 32 cartas",
@@ -109,5 +110,7 @@
     "CURRENT_PASSWORD": "Contraseña actual",
     "NEW_PASSWORD": "Nueva contraseña",
     "CONFIRM_NEW_PASSWORD": "Confirmar nueva contraseña",
-    "ACCOUNT_STATEMENT": "Estado de cuenta"
+    "ACCOUNT_STATEMENT": "Estado de cuenta",
+    "IPL_CLUB": "Club de IPL",
+    "SLOTS": "Tragamonedas"
 }

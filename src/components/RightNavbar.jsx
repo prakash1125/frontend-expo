@@ -55,7 +55,7 @@ export const RightNavbar = () => {
                 <div className="max-w-xs mx-auto bg-skin-nav  rounded-md mt-2">
                     <div className="p-1 flex justify-center">
                         <button className=" text-skin-white  bg-skin-cardhead  p-3 text-sm rounded-md w-full font-semibold">
-                            Live Casino Games
+                           
                             {t("LIVE_CASINO_GAMES")}
                         </button>
                     </div>
@@ -67,7 +67,7 @@ export const RightNavbar = () => {
                                 onClick={handleLiveTVClick}
                                 className="flex justify-center items-center gap-2 text-skin-white  text-sm bg-skin-cardhead  p-3 rounded-md w-full font-semibold"
                             >
-                                <span>Live TV {t("LIVE_TV")} </span>
+                                <span>{t("LIVE_TV")} </span>
                             </button>
                         </div>
 
