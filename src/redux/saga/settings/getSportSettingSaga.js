@@ -5,9 +5,10 @@ import API from "../../../utils/api";
 
 function* getSportSettingRequest(action) {
   console.log(action, "get-sport-saga -sett");
+  console.log(action?.payload?.sportsId, "get-action?.payload?.sportsId-saga -sett");
   try {
     const { data } = yield API.get(
-      `/admin/setting?sportsId=${action?.payload?.id}`
+      `/admin/setting?sportsId=${action?.payload?.sportsId}`
     );
     if (data.meta.code === 200) {
       yield put(getSportSettingSuccess(data?.data));

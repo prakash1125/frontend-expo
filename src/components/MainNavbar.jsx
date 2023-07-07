@@ -23,7 +23,7 @@ import {
   getChipSetting,
 } from "../redux/actions";
 import { socket } from "../context/SocketContext";
-import { notify, notifySuccess } from "../utils/helper";
+import { getLocalStorageItem, notify, notifySuccess } from "../utils/helper";
 
 const navigation = [
   { name: "SPORTS", href: "/all-sports", current: true },
@@ -64,6 +64,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     { icon: IoIosStats, list: "Change Password", modal: true },
     { icon: IoIosStats, list: "Logout" },
   ];
+
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isSignupOpen, setIsSignupOpen] = useState(false);
   const [isChipSettingOpen, setisChipSettingOpen] = useState(false);
@@ -91,16 +92,24 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      const token = getLocalStorageItem("token");
       try {
         const sportData = await new Promise((resolve, reject) => {
-          dispatch(getSport({ callback: resolve, errorCallback: reject }));
+          dispatch(
+            getSport({ auth: token, callback: resolve, errorCallback: reject })
+          );
         });
 
         const allDataPromises = sportData.map(async (data) => {
           const id = data._id;
           const res = await new Promise((resolve, reject) => {
             dispatch(
-              getAllSportData({ id, callback: resolve, errorCallback: reject })
+              getAllSportData({
+                id,
+                auth: token,
+                callback: resolve,
+                errorCallback: reject,
+              })
             );
           });
           const sport = {
@@ -142,7 +151,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
     setdata([]);
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dispatch]);
+  }, [dispatch, loggedIn]);
 
   useEffect(() => {
     dispatch(globalSportData({ data: data }));

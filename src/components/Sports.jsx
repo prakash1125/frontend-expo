@@ -101,21 +101,15 @@ export const Sports = () => {
           </Tab.List>
         </Swiper>
         <Tab.Panels className="mt-2">
-          {sportsArray?.map((sport, idx) => (
-            <Tab.Panel key={idx}>
-              <ul key={idx}>
-                {sport?.leagues.length !== 0 ? (
-                  sport?.leagues?.map((post) => {
-                    const totalLength = findEventsLength(sport?.leagues);
-                    return (
-                      <>
-                        {totalLength === 0 ? (
-                          <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md py-2 px-1">
-                            <p className="text-skin-white ml-3 font-semibold">
-                              There is no match available at this time.
-                            </p>
-                          </div>
-                        ) : (
+          {sportsArray?.map((sport, idx) => {
+            const totalLength = findEventsLength(sport?.leagues);
+            return (
+              <Tab.Panel key={idx}>
+                <ul key={idx}>
+                  {totalLength !== 0 ? (
+                    sport?.leagues?.map((post) => {
+                      return (
+                        <>
                           <li key={post.id} className="relative">
                             <MarketDataCard
                               league={post}
@@ -123,20 +117,20 @@ export const Sports = () => {
                               sportId={sport?.sportId}
                             />
                           </li>
-                        )}
-                      </>
-                    );
-                  })
-                ) : (
-                  <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md py-2 px-1">
-                    <p className="text-skin-white ml-3 font-semibold">
-                      There is no match available at this time.
-                    </p>
-                  </div>
-                )}
-              </ul>
-            </Tab.Panel>
-          ))}
+                        </>
+                      );
+                    })
+                  ) : (
+                    <div className="rounded-md mt-2 w-full bg-skin-nav drop-shadow-md py-2 px-1">
+                      <p className="text-white ml-3 font-semibold">
+                        There is no match available at this time.
+                      </p>
+                    </div>
+                  )}
+                </ul>
+              </Tab.Panel>
+            );
+          })}
         </Tab.Panels>
       </Tab.Group>
     </div>

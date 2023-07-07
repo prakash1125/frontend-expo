@@ -102,7 +102,7 @@ const RunnersCard = ({ market, odds, eventId }) => {
       marketCode: marketCode,
     });
   };
-
+console.log(sportSetting,"sportSetting");
   // To Clear BetSlip
   const handleClearClick = () => {
     setStake(0);
@@ -176,7 +176,6 @@ const RunnersCard = ({ market, odds, eventId }) => {
               onClick={() => setShowStake(!showStake)}
             />
           </div>
-
           <div
             className="flex text-sm font-bold text-skin-primary"
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}

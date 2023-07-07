@@ -4,7 +4,7 @@ const Footer = ({ scrollToTop }) => {
   return (
     <>
       <div className="footer justify-center text-skin-secondary pt-16 pb-28">
-        <div
+        {/* <div
           className="flex justify-center w-60 mb-4 font-semibold rounded-full py-2 mx-auto bg-skin-cardhead "
           onClick={scrollToTop}
         >
@@ -13,7 +13,7 @@ const Footer = ({ scrollToTop }) => {
               <span>Back to Top</span>
             </span>
           </div>
-        </div>
+        </div> */}
         <div className="flex justify-between flex-wrap footer-menu gap-8 p-2 ">
           <div className="footer-column mt-4 flex-grow ">
             <div className="font-semibold text-lg footer-title mb-4">Info</div>

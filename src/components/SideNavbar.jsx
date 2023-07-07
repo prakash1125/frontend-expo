@@ -3,6 +3,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { findEventsLength } from "../utils/helper";
 
 export const SideNavbar = () => {
 
@@ -29,7 +30,9 @@ export const SideNavbar = () => {
         </div>
       </div>
       <ul className="w-full px-3 pl-3">
-        {data?.map((item, index) => (
+        {data?.map((item, index) => {
+           const eventsCount = findEventsLength(item?.leagues);
+           return (
           <li
             key={index}
             className={`cursor-pointer flex flex-col justify-between transition  hover:scale-x-105  mb-2 py-3   w-full   hover:bg-skin-nav  hover:duration-75  rounded-md ${activeIndex === index ? "bg-skin-nav scale-x-105" : ""}`}
@@ -51,7 +54,7 @@ export const SideNavbar = () => {
               {item?.sportName ? (
                 <div className="flex items-center gap-3">
                   <span className={`flex ${(item?.leagues?.length ===0) && 'hidden'} justify-center bg-skin-imgbg rounded-sm w-6 h-4 rounded-xs font-semibold text-xs`}>
-                    {item?.leagues ? item?.leagues?.length : 0}
+                    {eventsCount}
                   </span>
                   <h5 className=" text-sm justify-center text-skin-secondary  cursor-pointer">
                     {activeIndex === index ? (
@@ -113,7 +116,7 @@ export const SideNavbar = () => {
               </div>
             )}
           </li>
-        ))}
+        )})}
       </ul>
     </>
   );
