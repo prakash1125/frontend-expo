@@ -10,15 +10,15 @@ const MyContext = React.createContext();
 
 export const App = () => {
 
-  const { theme } = useContext(ThemeContext)
+    const { theme } = useContext(ThemeContext)
 
-  return (
-    <Provider store={store}>
-    <div className={theme ? '' : `light-theme`}>
-      < AppRouter />
-    </div>
-    </Provider>
-  
-  )
+    return (
+        <Provider store={store}>
+            <div className={theme ? '' : `light-theme`}>
+                < AppRouter />
+            </div>
+        </Provider>
+
+    )
 }
 

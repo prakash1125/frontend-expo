@@ -10,7 +10,7 @@ i18n
     .init({
         lng: ['en', 'hi', 'es', 'ar', 'ur'],
         backend: {
-            loadPath: TRANSLATION_FILE_PATH
+            loadPath: TRANSLATION_FILE_PATH 
         },
         fallbackLng: 'en',
         detection: {
