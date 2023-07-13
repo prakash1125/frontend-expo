@@ -319,7 +319,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                 {/* AFTER LOGIN */}
                 {loggedIn && (
                   <div className="flex gap-1.5 py-2 lg:p-0  items-center relative">
-                    {loginRightMenu.map((element, index) => {
+                    {/* {loginRightMenu.map((element, index) => {
                       return (
                         <Link
                           key={index}
@@ -332,7 +332,7 @@ export const MainNavbar = ({ setToggle, toggle, screen }) => {
                           {element.name}
                         </Link>
                       );
-                    })}
+                    })} */}
 
                     <div
                       onClick={() => setIsDropdownOpen(!isDropdownOpen)}

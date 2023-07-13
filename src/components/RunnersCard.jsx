@@ -160,13 +160,13 @@ console.log(sportSetting,"sportSetting");
           <div className="flex items-center">
             {showStake && (
               <span className="bg-[#4c555e] rounded p-1.5">
-                <div className="flex text-white text-xs m-1.5 font-semibold">
-                  Stake Limit:
+                <div className="flex text-white gap-1 text-xs m-1.5 font-semibold">
+                  Stake Limit :
                   <span>
-                    {formatNumber(sportSetting?.stakeSize[0]?.minExch)}-
+                  {parseInt(sportSetting?.stakeSize[0]?.minExch)} -
                   </span>
                   <span>
-                    {formatNumber(sportSetting?.stakeSize[0]?.maxExch)}
+                    {parseInt(sportSetting?.stakeSize[0]?.maxExch)}
                   </span>
                 </div>
               </span>

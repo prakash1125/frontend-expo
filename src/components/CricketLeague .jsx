@@ -23,7 +23,7 @@ export const CricketLeague = () => {
     (state) => state?.GobalMarketOdds?.globalMarketOdds
   );
   const Login = useSelector((state) => state?.Login?.login);
-
+  console.log(Login , "____________LOGIN");
   const handleClick = (index) => {
     if (expandedTables.includes(index)) {
       setExpandedTables(expandedTables.filter((item) => item !== index));
@@ -182,8 +182,7 @@ export const CricketLeague = () => {
 
   useEffect(() => {
     dispatch(getSportSetting({ sportsId: location?.state?.sportId })); // add sport id
-  }, [dispatch, location?.state?.sportId]);
-
+  }, [dispatch, location?.state?.sportId, Login]);
   return (
     <>
       <ul className="w-full px-2 pt-2">
@@ -191,10 +190,9 @@ export const CricketLeague = () => {
           <h1 className="text-white  text-xl">{location?.state?.leagueName}</h1>
           <div className="team-match text-[#fff] text-xl mb-2">
             {firstRunner}
-            {secondRunner &&
-              <span className="text-lg  font-bold mx-2">
-                 vs 
-              </span>}
+            {secondRunner && (
+              <span className="text-lg  font-bold mx-2">vs</span>
+            )}
             {secondRunner}
           </div>
           <div className="flex items-center font-bold text-[#eee] mb-2 border bg-[#2EA66A] border-[#eeeeee8c] h-8 p-2 px-5 rounded-md text-xl">
@@ -221,8 +219,9 @@ export const CricketLeague = () => {
           <div className="p-1 flex justify-center">
             <button
               onClick={handleLiveTVClick}
-              className={`flex justify-center items-center gap-2 text-skin-white text-sm ${isLive ? "bg-skin-hovercolorsecondary" : "bg-skin-nav"
-                }  p-2.5 rounded-md w-full font-bold`}
+              className={`flex justify-center items-center gap-2 text-skin-white text-sm ${
+                isLive ? "bg-skin-hovercolorsecondary" : "bg-skin-nav"
+              }  p-2.5 rounded-md w-full font-bold`}
             >
               <span className="flex items-center gap-2 text-md">
                 <IoMdTrendingUp /> Live Score

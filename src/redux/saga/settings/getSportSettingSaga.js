@@ -8,7 +8,7 @@ function* getSportSettingRequest(action) {
   console.log(action?.payload?.sportsId, "get-action?.payload?.sportsId-saga -sett");
   try {
     const { data } = yield API.get(
-      `/admin/setting?sportsId=${action?.payload?.sportsId}`
+      `/api/v1/setting?sportsId=${action?.payload?.sportsId}`,
     );
     if (data.meta.code === 200) {
       yield put(getSportSettingSuccess(data?.data));
